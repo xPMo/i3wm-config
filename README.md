@@ -9,3 +9,6 @@ workspace control on the secondary monitor. $monitor is the primary
 monitor and $monitor2 is the secondary monitor. In the future, I hope to
 write a script that generates this file and allows the user to easily
 set right/left orientation for the monitors.
+
+Bindings for:
+* [playerctl](https://github.com/acrisci/playerctl)
