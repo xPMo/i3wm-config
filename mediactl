@@ -1,0 +1,51 @@
+
+# =======================================================
+# Media controls (volume, play/pause, change track, etc.)
+# =======================================================
+
+# Player control
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+bindsym $mod+Prior exec --no-startup-id playerctl previous
+bindsym $mod+Next exec --no-startup-id playerctl next
+bindsym $mod+End exec --no-startup-id playerctl play-pause
+
+bindsym $mod+KP_Prior exec --no-startup-id playerctl previous
+bindsym $mod+KP_Next exec --no-startup-id playerctl next
+bindsym $mod+KP_End exec --no-startup-id playerctl play-pause
+
+bindsym $mod+button8 exec --no-startup-id playerctl previous
+bindsym $mod+button9 exec --no-startup-id playerctl next
+bindsym $mod+button2 exec --no-startup-id playerctl play-pause
+bindsym $mod2+button8 exec --no-startup-id playerctl play-pause
+
+# Small volume changes
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2%- unmute
+bindsym $mod+KP_Subtract exec --no-startup-id amixer set Master 2%- unmute
+bindsym $mod+minus exec --no-startup-id amixer set Master 2%- unmute
+bindsym $mod+button5 --whole-window exec --no-startup-id amixer set Master 1%- unmute
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+ unmute
+bindsym $mod+KP_Add exec --no-startup-id amixer set Master 2%+ unmute
+bindsym $mod+plus exec --no-startup-id amixer set Master 2%+ unmute
+bindsym $mod+button4 --whole-window exec --no-startup-id amixer set Master 1%+ unmute
+
+bindsym $mod+XF86AudioLowerVolume exec playerctl volume -0.02
+bindsym $mod+XF86AudioRaiseVolume exec playerctl volume +0.02
+
+# Large volume chages
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id amixer set Master 20%- unmute
+bindsym $mod+Shift+KP_Subtract exec --no-startup-id amixer set Master 20%- unmute
+bindsym $mod+Shift+minus exec --no-startup-id amixer set Master 20%- unmute
+
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id amixer set Master 20%+ unmute
+bindsym $mod+Shift+KP_Add exec --no-startup-id amixer set Master 20%+ unmute
+bindsym $mod+Shift+plus exec --no-startup-id amixer set Master 20%+ unmute
+
+# Mute toggle
+bindsym $mod+KP_Decimal exec --no-startup-id amixer -q set Master toggle
+bindsym $mod+KP_Delete exec --no-startup-id amixer -q set Master toggle
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+

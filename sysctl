@@ -1,0 +1,40 @@
+
+# ==========================================================
+# Various system control settings
+# ==========================================================
+
+# Toggle trackpad
+bindsym $mod+Shift+Menu exec --no-startup-id sh ~/.i3/scripts/toggleTrackpad.sh
+
+# Toggle i3bar
+bindsym $mod+Menu bar mode toggle bar1
+bindsym $mod2+Menu bar mode toggle bar2
+
+# [fn] keys
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 4
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 8
+bindsym Shift+XF86MonBrightnessDown exec --no-startup-id xbacklight -set 0
+bindsym Shift+XF86MonBrightnessUp exec --no-startup-id xbacklight -set 100
+bindsym XF86Sleep exec --no-startup-id sh -c ~/.i3/scripts/scrotlock.sh && systemctl suspend
+bindsym XF86Display exec --no-startup-id sh ~/.i3/scripts/screencheck.sh $monitor $monitor2
+bindsym $mod+Print exec --no-startup-id sh ~/.i3/scripts/screencheck.sh $monitor $monitor2
+
+# reload the configuration file
+bindsym $mod+Shift+c exec --no-startup-id cat ~/.i3/config.d/* > ~/.i3/config; reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+F4 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+F4 exec "i3-nagbar -t warning -m 'You pressed the poweroff shortcut. Do you really want to power down the computer?' -b 'Yes, shut down' 'systemctl poweroff'"
+
+# lock session
+bindsym $mod+F3 exec --no-startup-id dm-tool lock
+bindsym $mod2+F3 exec --no-startup-id sh -c ~/.i3/scripts/scrotlock.sh
+
+# hibernate session
+bindsym $mod+F8 exec --no-startup-id sh -c ~/.i3/scripts/scrotlock.sh && systemctl hibernate
+
+# xkill
+bindsym --release $mod+Shift+Escape exec xkill
