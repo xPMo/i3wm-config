@@ -13,7 +13,7 @@
 # ================================================================
 # These config has bindings or settings for programs from
 # the following packages:
-# 	feh playerctl xfce4-goodies xfce4-launcer blueman uzbl firefox
+# 	feh playerctl xfce4-goodies xfce4-appfinder blueman uzbl firefox
 #	xbacklight eclipse xflux
 #
 # These configs rely on i3-wm version 4.11 (2015-09-30, branch "4.11")
