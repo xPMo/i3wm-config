@@ -1,0 +1,42 @@
+
+# ===================================================
+# Start i3bar to display a workspace bar and i3status
+# ===================================================
+
+bar {
+	id bar1
+	tray_output $monitor2
+	tray_output $monitor
+	output $monitor
+	strip_workspace_numbers yes
+	status_command i3status
+	colors {
+		statusline #FFFFFF
+		background #000000
+		separator #444444
+		focused_workspace $back1 $back1 $text1
+		active_workspace $back2 $back0 $text1
+		inactive_workspace $back0 $back0 $text0
+		urgent_workspace #FF2200 $back0 $text1
+	}
+}
+
+# i3bar for $monitor2
+bar {
+	id bar2
+	tray_output $monitor2
+	tray_output $monitor
+	output $monitor2
+	status_command i3status
+        strip_workspace_numbers yes
+	status_command i3status -c ~/.config/i3status/config2
+	colors {
+		statusline #FFFFFF
+		background #000000
+		separator #444444
+		focused_workspace $back1 $back1 $text1
+		active_workspace $back2 $back0 $text1
+	inactive_workspace $back0 $back0 $text0
+	urgent_workspace #FF2200 $back0 $text1
+	}
+}

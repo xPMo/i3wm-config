@@ -1,0 +1,24 @@
+
+# ================================================
+# Appearance of windows
+# ================================================
+
+# Colors Defs
+set $text1 #ffffff
+set $text0 #dddddd
+set $border1 #ee4028
+set $border0 #000000
+set $back1 #cc3322
+set $back2 #661100
+set $back3 #992211
+set $back0 #222222
+# Indicator color doesn't matter with this setup in borderless
+set $ind #ff0000
+
+# Colors
+client.focused $border1 $back1 $text1 $ind
+client.focused_inactive $border1 $back2 $text1 $ind 
+client.unfocused $border0 $back0 $text0 $ind
+
+# Chrome modifications
+for_window [class="."] border pixel 1
