@@ -4,7 +4,7 @@
 # ==========================================================
 
 # Toggle trackpad
-bindsym $mod+Shift+Menu exec --no-startup-id sh ~/.i3/scripts/toggleTrackpad.sh
+bindsym $mod+Shift+Menu exec --no-startup-id sh $installDir/scripts/toggleTrackpad.sh
 
 # Toggle i3bar
 bindsym $mod+Menu bar mode toggle bar1
@@ -17,14 +17,14 @@ bindsym Shift+XF86MonBrightnessDown exec --no-startup-id xbacklight -set 0
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id xbacklight -set 100
 
 # Suspend
-bindsym XF86Sleep exec --no-startup-id sh -c ~/.i3/scripts/scrotlock.sh && systemctl suspend
+bindsym XF86Sleep exec --no-startup-id sh -c $installDir/scripts/scrotlock.sh && systemctl suspend
 
 # Check for second monitor
-bindsym XF86Display exec --no-startup-id sh ~/.i3/scripts/screencheck.sh $monitor $monitor2
-bindsym $mod+Print exec --no-startup-id sh ~/.i3/scripts/screencheck.sh $monitor $monitor2
+bindsym XF86Display exec --no-startup-id sh $installDir/scripts/screencheck.sh $monitor $monitor2
+bindsym $mod+Print exec --no-startup-id sh $installDir/scripts/screencheck.sh $monitor $monitor2
 
 # reload the configuration file
-bindsym $mod+Shift+c exec --no-startup-id cat ~/.i3/config.d/* > ~/.i3/config; reload
+bindsym $mod+Shift+c exec --no-startup-id cat $installDir/config.d/* > $installDir/config; reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -36,10 +36,10 @@ bindsym $mod+Shift+F4 exec "i3-nagbar -t warning -m 'You pressed the poweroff sh
 
 # lock session
 bindsym $mod+F3 exec --no-startup-id dm-tool lock
-bindsym $mod2+F3 exec --no-startup-id sh -c ~/.i3/scripts/scrotlock.sh
+bindsym $mod2+F3 exec --no-startup-id sh -c $installDir/scripts/scrotlock.sh
 
 # hibernate session
-bindsym $mod+F8 exec --no-startup-id sh -c ~/.i3/scripts/scrotlock.sh && systemctl hibernate
+bindsym $mod+F8 exec --no-startup-id sh -c $installDir/scripts/scrotlock.sh && systemctl hibernate
 
 # xkill
 bindsym --release $mod+Shift+Escape exec xkill

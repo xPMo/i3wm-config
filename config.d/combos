@@ -3,10 +3,10 @@
 # Bindings to scripts which do multiple functions
 # ====================================================
 
-bindsym XF86HomePage exec --no-startup-id sh ~/.i3/scripts/browserSwitch.sh
-bindsym $mod+F5 exec --no-startup-id sh ~/.i3/scripts/browserSwitch.sh
+bindsym XF86HomePage exec --no-startup-id sh $installDir/scripts/browserSwitch.sh
+bindsym $mod+F5 exec --no-startup-id sh $installDir/scripts/browserSwitch.sh
 
 bindsym $mod2+XF86HomePage [class="irefox"] move window to workspace 33:WW2; workspace 33:WW2
 bindsym $mod2+F5 [class="irefox"] move window to workspace 33:WW2; workspace 33:WW2 
-bindsym $mod+Return exec ~/.i3/scripts/termSwitch.sh
-bindsym $mod2+Return exec ~/.i3/scripts/termSwitch2.sh
+bindsym $mod+Return exec $installDir/scripts/termSwitch.sh
+bindsym $mod2+Return exec $installDir/scripts/termSwitch2.sh
