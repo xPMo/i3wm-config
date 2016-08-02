@@ -10,17 +10,22 @@ bindsym $mod+Shift+Menu exec --no-startup-id sh ~/.i3/scripts/toggleTrackpad.sh
 bindsym $mod+Menu bar mode toggle bar1
 bindsym $mod2+Menu bar mode toggle bar2
 
-# [fn] keys
+# Backlights
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 4
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 8
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id xbacklight -set 0
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id xbacklight -set 100
+
+# Suspend
 bindsym XF86Sleep exec --no-startup-id sh -c ~/.i3/scripts/scrotlock.sh && systemctl suspend
+
+# Check for second monitor
 bindsym XF86Display exec --no-startup-id sh ~/.i3/scripts/screencheck.sh $monitor $monitor2
 bindsym $mod+Print exec --no-startup-id sh ~/.i3/scripts/screencheck.sh $monitor $monitor2
 
 # reload the configuration file
 bindsym $mod+Shift+c exec --no-startup-id cat ~/.i3/config.d/* > ~/.i3/config; reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 

@@ -36,7 +36,7 @@ bar {
 		separator #444444
 		focused_workspace $back1 $back1 $text1
 		active_workspace $back2 $back0 $text1
-	inactive_workspace $back0 $back0 $text0
-	urgent_workspace #FF2200 $back0 $text1
+                inactive_workspace $back0 $back0 $text0
+                urgent_workspace #FF2200 $back0 $text1
 	}
 }
