@@ -13,7 +13,7 @@ for file in $(find "$dirDest" -type f)
 do
    sed -i "s@\$installDir@$(echo $installDir | sed 's@\.@\\.@g')@g" $file
 done
-if [ ! -f $dirDest/config ]
+if [ ! -f $dirDest/config ]; then
    touch $dirDest/config
 fi
 cat $dirDest/config.d/* > $dirDest/config
