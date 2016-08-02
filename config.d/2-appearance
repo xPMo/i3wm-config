@@ -22,3 +22,4 @@ client.unfocused $border0 $back0 $text0 $ind
 
 # Chrome modifications
 for_window [class="."] border pixel 1
+hide_edge_borders vertical
