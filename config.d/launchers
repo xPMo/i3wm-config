@@ -10,7 +10,7 @@ bindsym $mod+F1 exec thunar
 bindsym $mod+Shift+XF86Mail exec eclipse
 bindsym Shift+XF86HomePage exec firefox -P -no-remote hidden
 
-bindsym $mod+$mod2+Return exec i3-sensible-terminal
+bindsym $mod+$mod2+Return exec $term
 
 # Use XFCE's appfinder as program launcher
 bindsym $mod+x exec xfce4-appfinder

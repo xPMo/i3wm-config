@@ -1,6 +1,12 @@
 #!/bin/bash
 escapedDest="~/\.i3"
 dirDest=~/.i3
+browser="firefox"
+terminal="xfce4-terminal"
+
+# Some subtring for WM_CLASS lookup
+browserClass="irefox"
+terminalClass="erm"
 
 dirSource=$PWD
 
@@ -20,6 +26,11 @@ done
 # Automatically set primary monitor and secondary monitor, if connected
 sed -i "s/\$MONITOR/$(xrandr | egrep .+primary | egrep -o "^(\w|-|_)+")/" $dirDest/config.d/2-binds
 sed -i "s/\$MONITOR/$(xrandr | grep \ connected\ [^p] | egrep -o "^(\w|-|_)+")/" $dirDest/config.d/2-binds
+sed -i "s/\$BROWSERCLASS/$browserClass/" $dirDest/config.d/2-binds
+sed -i "s/\$TERMCLASS/$termClass/" $dirDest/config.d/2-binds
+sed -i "s/\$BROWSER/$browser/" $dirDest/config.d/2-binds
+sed -i "s/\$TERM/$terminal/" $dirDest/config.d/2-binds
+
 if [ ! -f $dirDest/config ]; then
    touch $dirDest/config
 fi
