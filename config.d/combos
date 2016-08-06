@@ -3,10 +3,20 @@
 # Bindings to scripts which do multiple functions
 # ====================================================
 
-bindsym XF86HomePage exec --no-startup-id sh $installDir/scripts/browserSwitch.sh
-bindsym $mod+F5 exec --no-startup-id sh $installDir/scripts/browserSwitch.sh
+# Focuses Firefox window, else launches it in workspace WWW
+bindsym XF86HomePage exec --no-startup-id sh $installDir/scripts/browserSwitch.sh 12:WWW
 
-bindsym $mod2+XF86HomePage [class="irefox"] move window to workspace 33:WW2; workspace 33:WW2
+# Focuses Firefox window, else launches it in workspace WW2
+bindsym $mod2+XF86HomePage exec --no-startup-id sh $installDir/scripts/browserSwitch.sh 33:WW2
+
+# Moves all Firefox windows to workpace WWW
+bindsym $mod+F5 [class="irefox"] move window to workspace 12:WWw; workspace 12:WWw
+
+# Moves all Firefox windows to workspace WW2
 bindsym $mod2+F5 [class="irefox"] move window to workspace 33:WW2; workspace 33:WW2 
-bindsym $mod+Return exec $installDir/scripts/termSwitch.sh
-bindsym $mod2+Return exec $installDir/scripts/termSwitch2.sh
+
+# Moves to workspace ~$ Launches terminal if not open there or if was already on workspace ~$
+bindsym $mod+Return exec $installDir/scripts/termSwitch.sh 11:~$
+
+# Moves to workspace ~# Launches terminal if not open there or if was already on workspace ~#
+bindsym $mod2+Return exec $installDir/scripts/termSwitch.sh 31:~#
