@@ -95,5 +95,6 @@ assign [class="Pithos"] ♫
 assign [class="Pavucontrol"] ♫
 assign [class="usic"] ♫
 assign [class="Steam"] ♞
+assign [class="owerFall"] ♞
 
 # bindsym $mod+$mod2+grave workspace TEST
