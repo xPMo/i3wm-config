@@ -19,9 +19,9 @@ bindsym Shift+XF86MonBrightnessUp exec --no-startup-id xbacklight -set 100
 # Suspend
 bindsym XF86Sleep exec --no-startup-id sh -c $installDir/scripts/scrotlock.sh && systemctl suspend
 
-# Check for second monitor
-bindsym XF86Display exec --no-startup-id sh $installDir/scripts/screencheck.sh $monitor $monitor2
-bindsym $mod+Print exec --no-startup-id sh $installDir/scripts/screencheck.sh $monitor $monitor2
+# Manage Secondary Displays
+bindsym XF86Display arandr
+bindsym $mod+Print arandr
 
 # reload the configuration file
 bindsym $mod+Shift+c exec --no-startup-id cat $installDir/config.d/* > $installDir/config; reload
