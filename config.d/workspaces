@@ -7,6 +7,8 @@
 exec xset -r 23 # disable auto-repeat
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Tab --release workspace back_and_forth
+bindsym $mod+Control+left workspace prev
+bindsym $mod+Control+right workspace next
 
 # Numbered on main panel, lettered on secondary
 workspace 0:0 output $monitor
