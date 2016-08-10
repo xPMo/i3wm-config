@@ -92,10 +92,10 @@ mode "resize" {
 # Alternate resize
 # TODO
 
-bindsym $mod+Control+Up resize shrink height 10 px or 10 ppt
-bindsym $mod+Control+Down resize grow height 10 px or 10 ppt
-bindsym $mod+Control+Left resize grow width 10 px or 10 ppt
-bindsym $mod+Control+Right resize shrink width 10 px or 10 ppt
+bindsym $mod+Control+KP_Up resize shrink height 10 px or 10 ppt
+bindsym $mod+Control+KP_Down resize grow height 10 px or 10 ppt
+bindsym $mod+Control+KP_Right resize grow width 10 px or 10 ppt
+bindsym $mod+Control+KP_Left resize shrink width 10 px or 10 ppt
 
 bindsym $mod+r mode "resize"
 
