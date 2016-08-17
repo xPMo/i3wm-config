@@ -31,11 +31,11 @@ workspace "27:G" output $monitor2
 workspace "28:H" output $monitor2
 
 # Specialty workspaces
-workspace "12:WWW" output $monitor
-workspace "32:WW2" output $monitor2
+workspace "12:<small>WWW</small>" output $monitor
+workspace "32:<small>WW2</small>" output $monitor2
 workspace "11:~$" output $monitor
 workspace "31:~#" output $monitor2
-workspace "♫" output $monitor2
+workspace "<big>♫</big>" output $monitor2
 
 # switch to workspace
 bindsym $mod+grave workspace 0:0
@@ -57,8 +57,8 @@ bindsym $mod2+6 workspace "26:F"
 bindsym $mod2+7 workspace "27:G"
 bindsym $mod2+8 workspace "28:H"
 
-bindsym $mod2+m workspace "♫"
-bindsym $mod+comma workspace "♞"
+bindsym $mod2+m workspace "<big>♫</big>"
+bindsym $mod+comma workspace "<big>♞</big>"
 
 # move focused container to workspace
 bindsym $mod+Shift+grave move container to workspace 0:0
@@ -80,23 +80,23 @@ bindsym $mod2+Shift+6 move container to workspace "26:F"
 bindsym $mod2+Shift+7 move container to workspace "27:G"
 bindsym $mod2+Shift+8 move container to workspace "28:H"
 
-bindsym $mod+Shift+XF86HomePage move container to workspace 12:WWW
-bindsym $mod2+Shift+XF86HomePage move container to workspace 32:WW2
+bindsym $mod+Shift+XF86HomePage move container to workspace 12:<small>WWW</small>
+bindsym $mod2+Shift+XF86HomePage move container to workspace 32:<small>WW2</small>
 
 bindsym $mod+Shift+Return move container to workspace "11:~$"
 bindsym $mod2+Shift+Return move container to workspace "31:~#"
 
-bindsym $mod2+Shift+m move container to workspace ♫
-bindsym $mod+Shift+comma move container to workspace ♞
+bindsym $mod2+Shift+m move container to workspace <big>♫</big>
+bindsym $mod+Shift+comma move container to workspace <big>♞</big>
 
 # Force windows to workspaces
 # Spotify is delayed in setting WM_CLASS, so this doesn't work for it
 # assign [class="Spotify"] ♫
-assign [class="banshee"] ♫
-assign [class="Pithos"] ♫
-assign [class="Pavucontrol"] ♫
-assign [class="usic"] ♫
-assign [class="Steam"] ♞
-assign [class="owerFall"] ♞
+assign [class="banshee"] <big>♫</big>
+assign [class="Pithos"] <big>♫</big>
+assign [class="Pavucontrol"] <big>♫</big>
+assign [class="usic"] <big>♫</big>
+assign [class="Steam"] <big>♞</big>
+assign [class="owerFall"] <big>♞</big>
 
 # bindsym $mod+$mod2+grave workspace TEST

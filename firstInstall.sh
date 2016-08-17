@@ -6,7 +6,7 @@ terminal="xfce4-terminal"
 
 # Some subtring for WM_CLASS lookup
 browserClass="irefox"
-terminalClass="erm"
+termClass="erm"
 
 dirSource=$PWD
 
@@ -24,8 +24,9 @@ do
 done
 
 # Automatically set primary monitor and secondary monitor, if connected
-sed -i "s/\$MONITOR/$(xrandr | egrep .+primary | egrep -o "^(\w|-|_)+")/" $dirDest/config.d/2-binds
-sed -i "s/\$MONITOR/$(xrandr | grep \ connected\ [^p] | egrep -o "^(\w|-|_)+")/" $dirDest/config.d/2-binds
+sed -i 0,/\$MONITOR/{s/\$MONITOR/$(xrandr | egrep .+primary | egrep -o '^(\w|-|_)+')/} $dirDest/config.d/2-binds
+
+sed -i 0,/\$MONITOR/{s/\$MONITOR/$(xrandr | grep \ connected\ [^p] | egrep -o "^(\w|-|_)+")/} $dirDest/config.d/2-binds
 sed -i "s/\$BROWSERCLASS/$browserClass/" $dirDest/config.d/2-binds
 sed -i "s/\$TERMCLASS/$termClass/" $dirDest/config.d/2-binds
 sed -i "s/\$BROWSER/$browser/" $dirDest/config.d/2-binds
