@@ -4,10 +4,11 @@
 # ====================================================
 
 # Focuses Firefox window, else launches it in workspace WWW
-bindsym XF86HomePage exec --no-startup-id sh $installDir/scripts/focusSwitch.sh $browser $browserClass 12:WWW
+bindsym XF86HomePage exec --no-startup-id sh ~/.i3/scripts/focusSwitch.sh $browser $browserClass 12:WWW
+bindsym $mod+Control+F5 exec --no-startup-id sh ~/.i3/scripts/focusSwitch.sh $browser $browserClass 12:WWW
 
 # Focuses Firefox window, else launches it in workspace WW2
-bindsym $mod2+XF86HomePage exec --no-startup-id sh $installDir/scripts/focusSwitch.sh $browser $browserClass 33:WW2
+bindsym $mod2+XF86HomePage exec --no-startup-id sh ~/.i3/scripts/focusSwitch.sh $browser $browserClass 33:WW2
 
 # Moves all Firefox windows to workpace WWW
 bindsym $mod+F5 [class="$browserClass"] move window to workspace 12:WWw; workspace 12:WWw
@@ -16,7 +17,7 @@ bindsym $mod+F5 [class="$browserClass"] move window to workspace 12:WWw; workspa
 bindsym $mod2+F5 [class="$browserClass"] move window to workspace 33:WW2; workspace 33:WW2 
 
 # Moves to workspace ~$ Launches terminal if not open there or if was already on workspace ~$
-bindsym $mod+Return exec $installDir/scripts/switchLaunch.sh $term $termClass 11:~$
+bindsym $mod+Return exec ~/.i3/scripts/switchLaunch.sh $term $termClass '11:~$'
 
 # Moves to workspace ~# Launches terminal if not open there or if was already on workspace ~#
-bindsym $mod2+Return exec $installDir/scripts/switchLaunch.sh $term $termClass 31:~#
+bindsym $mod2+Return exec ~/.i3/scripts/switchLaunch.sh $term $termClass '31:~#'
