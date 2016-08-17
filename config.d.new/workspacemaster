@@ -1,0 +1,19 @@
+
+# =========================================================
+# Workspace settings
+# =========================================================
+
+# back-and-forth on $mod+Tab
+exec xset -r 23 # disable auto-repeat
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Tab --release workspace back_and_forth
+
+# Spotify is delayed in setting WM_CLASS, so this doesn't work for it
+assign [instance="Spotify"] ♫
+assign [class="banshee"] ♫
+assign [class="Pithos"] ♫
+assign [class="Pavucontrol"] ♫
+assign [class="usic"] ♫
+assign [class="Steam"] ♞
+assign [class="owerFall"] ♞
+assign [class="FTL"] ♞
