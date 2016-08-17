@@ -21,6 +21,10 @@ client.focused_inactive $border1 $back2 $text1 $ind
 client.unfocused $border0 $back0 $text0 $ind
 
 # Chrome modifications
-for_window [class="."] border pixel 1
+new_window pixel 1
 hide_edge_borders vertical
 for_window [title="^File Operation Progress$"] floating enable
+
+# Steam on-screen keyboard
+for_window [title="^Steam Keyboard"] floating enable; exec sleep 0.2 && i3-msg focus tiling
+no_focus [title="^Steam Keyboard"]

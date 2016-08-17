@@ -89,6 +89,14 @@ mode "resize" {
    bindsym Escape mode "default"
 }
 
+# Alternate resize
+# TODO
+
+bindsym $mod+Control+KP_Up resize shrink height 10 px or 10 ppt
+bindsym $mod+Control+KP_Down resize grow height 10 px or 10 ppt
+bindsym $mod+Control+KP_Right resize grow width 10 px or 10 ppt
+bindsym $mod+Control+KP_Left resize shrink width 10 px or 10 ppt
+
 bindsym $mod+r mode "resize"
 
 # Freeze mode: useful for when VNC'ing into another session and all
