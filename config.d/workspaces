@@ -58,7 +58,7 @@ bindsym $mod2+7 workspace "27:G"
 bindsym $mod2+8 workspace "28:H"
 
 bindsym $mod2+m workspace "<big>♫</big>"
-bindsym $mod+comma workspace "<big>♞</big>"
+bindsym $mod+comma workspace <big>♞</big>
 
 # move focused container to workspace
 bindsym $mod+Shift+grave move container to workspace 0:0
