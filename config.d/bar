@@ -28,7 +28,7 @@ bar {
 	tray_output $monitor
 	output $monitor2
         strip_workspace_numbers yes
-	status_command i3status -c ~/.config/i3status/config2
+	status_command i3status -c $statusDir/config2
 	colors {
 		statusline #FFFFFF
 		background #000000
