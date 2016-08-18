@@ -27,7 +27,6 @@ bar {
 	tray_output $monitor2
 	tray_output $monitor
 	output $monitor2
-	status_command i3status
         strip_workspace_numbers yes
 	status_command i3status -c ~/.config/i3status/config2
 	colors {
