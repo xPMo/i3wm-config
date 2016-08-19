@@ -28,5 +28,5 @@ hide_edge_borders vertical
 for_window [title="^File Operation Progress$"] floating enable 
 
 # Steam on-screen keyboard
-for_window [title="^Steam Keyboard"] floating enable; exec sleep 0.2 && i3-msg focus tiling
+for_window [title="^Steam Keyboard"] floating enable; exec sleep 0.1 && i3-msg focus tiling
 no_focus [title="^Steam Keyboard"]
