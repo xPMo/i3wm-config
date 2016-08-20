@@ -91,12 +91,13 @@ bindsym $mod+Shift+comma move container to workspace <big>♞</big>
 
 # Force windows to workspaces
 # Spotify is delayed in setting WM_CLASS, so this doesn't work for it
-# assign [class="Spotify"] ♫
+assign [title="Spotify"] ♫
 assign [class="banshee"] <big>♫</big>
 assign [class="Pithos"] <big>♫</big>
 assign [class="Pavucontrol"] <big>♫</big>
 assign [class="usic"] <big>♫</big>
 assign [class="Steam"] <big>♞</big>
+assign [title="Steam"] <big>♞</big>
 assign [class="owerFall"] <big>♞</big>
 
 # bindsym $mod+$mod2+grave workspace TEST
