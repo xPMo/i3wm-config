@@ -3,7 +3,6 @@
 # Program Launchers
 # ==============================================
 
-bindsym XF86Mail exec icedove
 bindsym $mod+XF86Mail exec gigolo
 bindsym Shift+XF86Mail exec thunar
 bindsym $mod+F1 exec thunar
