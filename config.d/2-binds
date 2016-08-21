@@ -11,6 +11,7 @@ set $browser $BROWSER
 set $browserClass $BROWSERCLASS
 set $term $TERM
 set $termClass $TERMCLASS
-
+set $mail $MAIL
+set $mailClass $MAILCLASS
 # Font for window titles, i3bar, etc.
 font pango:DejaVu Sans Mono 7.5

@@ -31,8 +31,6 @@ workspace "27:G" output $monitor2
 workspace "28:H" output $monitor2
 
 # Specialty workspaces
-workspace "12:<small>WWW</small>" output $monitor
-workspace "32:<small>WW2</small>" output $monitor2
 workspace "11:~$" output $monitor
 workspace "31:~#" output $monitor2
 workspace "<big>♫</big>" output $monitor2
