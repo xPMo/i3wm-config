@@ -4,8 +4,8 @@
 # ====================================================
 
 # Focuses $mail window, else launches it in workspace 📧
-bindsym XF86Mail exec --no-statup-id sh $installDir/scripts/focusSwitch.sh $mail $mailClass "13:📧"
-bindsym $mod+Control+F6 exec --no-statup-id sh $installDir/scripts/focusSwitch.sh $mail $mailClass "13:📧"
+bindsym XF86Mail exec --no-statup-id sh $installDir/scripts/focusSwitch.sh $mail $mailClass "13:<big>📧</big>"
+bindsym $mod+Control+F6 exec --no-statup-id sh $installDir/scripts/focusSwitch.sh $mail $mailClass "13:<big>📧</big>"
 
 # Focuses Firefox window, else launches it in workspace WWW
 bindsym XF86HomePage exec --no-startup-id sh $installDir/scripts/focusSwitch.sh $browser $browserClass "12:<small>WWW</small>"
