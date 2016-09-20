@@ -1,0 +1,52 @@
+
+# =======================================================
+# Media controls (volume, play/pause, change track, etc.)
+# =======================================================
+
+# Skip Forward/backwards
+bindsym XF86AudioPrev exec playerctl previous
+bindsym $mod+Prior exec --no-startup-id playerctl previous
+bindsym $mod+KP_Prior exec --no-startup-id playerctl previous
+bindsym $mod+button8 --whole-window exec --no-startup-id playerctl previous
+
+bindsym XF86AudioNext exec playerctl next
+bindsym $mod+Next exec --no-startup-id playerctl next
+bindsym $mod+KP_Next exec --no-startup-id playerctl next
+bindsym $mod+button9 --whole-window exec --no-startup-id playerctl next
+
+# Play/Pause
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym $mod+End exec --no-startup-id playerctl play-pause
+bindsym $mod+KP_End exec --no-startup-id playerctl play-pause
+bindsym $mod+button2 --whole-window exec --no-startup-id playerctl play-pause
+
+# Seek using $mod+Shift+mousewheel 2 seconds at a time
+bindsym $mod+Shift+button5 --whole-window exec --no-startup-id playerctl position 2-
+bindsym $mod+Shift+button4 --whole-window exec --no-startup-id playerctl position 2+
+
+# Volume changes also force an i3status refresh
+
+# Small volume changes
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2%- unmute && pkill -RTMIN+10 i3blocks
+bindsym $mod+KP_Subtract exec --no-startup-id amixer set Master 2%- unmute && pkill -RTMIN+10 i3blocks
+bindsym $mod+minus exec --no-startup-id amixer set Master 2%- unmute && pkill -RTMIN+10 i3blocks
+bindsym $mod+button5 --whole-window exec --no-startup-id amixer set Master 1%- unmute && pkill -RTMIN+10 i3blocks
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+ unmute && pkill -RTMIN+10 i3blocks
+bindsym $mod+KP_Add exec --no-startup-id amixer set Master 2%+ unmute && pkill -RTMIN+10 i3blocks
+bindsym $mod+plus exec --no-startup-id amixer set Master 2%+ unmute && pkill -RTMIN+10 i3blocks
+bindsym $mod+button4 --whole-window exec --no-startup-id amixer set Master 1%+ unmute && pkill -RTMIN+10 i3blocks
+
+# Large volume chages
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id amixer set Master 20%- unmute && pkill -RTMIN+10 i3blocks
+bindsym $mod+Shift+KP_Subtract exec --no-startup-id amixer set Master 20%- unmute && pkill -RTMIN+10 i3blocks
+bindsym $mod+Shift+minus exec --no-startup-id amixer set Master 20%- unmute && pkill -RTMIN+10 i3blocks
+
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id amixer set Master 20%+ unmute && pkill -RTMIN+10 i3blocks
+bindsym $mod+Shift+KP_Add exec --no-startup-id amixer set Master 20%+ unmute && pkill -RTMIN+10 i3blocks
+bindsym $mod+Shift+plus exec --no-startup-id amixer set Master 20%+ unmute && pkill -RTMIN+10 i3blocks
+
+# Mute toggle
+bindsym $mod+KP_Decimal exec --no-startup-id amixer -q set Master toggle && pkill -RTMIN+10 i3blocks
+bindsym $mod+KP_Delete exec --no-startup-id amixer -q set Master toggle && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
