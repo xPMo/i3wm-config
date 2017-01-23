@@ -27,26 +27,43 @@ bindsym $mod+Shift+button4 --whole-window exec --no-startup-id playerctl positio
 # Volume changes also force an i3status refresh
 
 # Small volume changes
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2%- unmute && pkill -RTMIN+10 i3blocks
-bindsym $mod+KP_Subtract exec --no-startup-id amixer set Master 2%- unmute && pkill -RTMIN+10 i3blocks
-bindsym $mod+minus exec --no-startup-id amixer set Master 2%- unmute && pkill -RTMIN+10 i3blocks
-bindsym $mod+button5 --whole-window exec --no-startup-id amixer set Master 1%- unmute && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "-2%"
+bindsym $mod+KP_Subtract exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "-2%"
+bindsym $mod+minus exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "-2%"
+bindsym $mod+button5 --whole-window exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "-1%"
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+ unmute && pkill -RTMIN+10 i3blocks
-bindsym $mod+KP_Add exec --no-startup-id amixer set Master 2%+ unmute && pkill -RTMIN+10 i3blocks
-bindsym $mod+plus exec --no-startup-id amixer set Master 2%+ unmute && pkill -RTMIN+10 i3blocks
-bindsym $mod+button4 --whole-window exec --no-startup-id amixer set Master 1%+ unmute && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "+2%"
+bindsym $mod+KP_Add exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "+2%"
+bindsym $mod+plus exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "+2%"
+bindsym $mod+button4 --whole-window exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "+1%"
 
 # Large volume chages
-bindsym Shift+XF86AudioLowerVolume exec --no-startup-id amixer set Master 20%- unmute && pkill -RTMIN+10 i3blocks
-bindsym $mod+Shift+KP_Subtract exec --no-startup-id amixer set Master 20%- unmute && pkill -RTMIN+10 i3blocks
-bindsym $mod+Shift+minus exec --no-startup-id amixer set Master 20%- unmute && pkill -RTMIN+10 i3blocks
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "-20%"
+bindsym $mod+Shift+KP_Subtract exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "-20%"
+bindsym $mod+Shift+minus exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "-20%"
 
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id amixer set Master 20%+ unmute && pkill -RTMIN+10 i3blocks
-bindsym $mod+Shift+KP_Add exec --no-startup-id amixer set Master 20%+ unmute && pkill -RTMIN+10 i3blocks
-bindsym $mod+Shift+plus exec --no-startup-id amixer set Master 20%+ unmute && pkill -RTMIN+10 i3blocks
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "+20%"
+bindsym $mod+Shift+KP_Add exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "+20%"
+bindsym $mod+Shift+plus exec --no-startup-id \
+$HOME/.local/bin/i3volumectl "+20%"
 
 # Mute toggle
-bindsym $mod+KP_Decimal exec --no-startup-id amixer -q set Master toggle && pkill -RTMIN+10 i3blocks
-bindsym $mod+KP_Delete exec --no-startup-id amixer -q set Master toggle && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
+bindsym $mod+KP_Decimal exec --no-startup-id \
+$HOME/.local/bin/i3volumectl
+bindsym $mod+KP_Delete exec --no-startup-id \
+$HOME/.local/bin/i3volumectl 
+bindsym XF86AudioMute exec --no-startup-id \
+$HOME/.local/bin/i3volumectl 
