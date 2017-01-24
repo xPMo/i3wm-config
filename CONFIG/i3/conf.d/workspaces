@@ -21,6 +21,8 @@ workspace 6:6 output $monitor
 workspace 7:7 output $monitor
 workspace 8:8 output $monitor
 
+workspace X output $monitor2
+
 # Specialty workspaces
 workspace "11:~$" output $monitor
 workspace "<big>♫</big>" output $monitor2
@@ -36,6 +38,8 @@ bindsym $mod+6 workspace 6:6
 bindsym $mod+7 workspace 7:7
 bindsym $mod+8 workspace 8:8
 
+bindsym $mod+0 workspace X
+
 bindsym $mod2+m workspace "<big>♫</big>"
 bindsym $mod+comma workspace <big>♞</big>
 
@@ -50,6 +54,8 @@ bindsym $mod+Shift+6 move container to workspace 6:6
 bindsym $mod+Shift+7 move container to workspace 7:7
 bindsym $mod+Shift+8 move container to workspace 8:8
 
+bindsym $mod+Shift+0 move container to workspace X
+
 bindsym $mod+Shift+XF86HomePage move container to workspace 13:<small>WWW</small>
 bindsym $mod2+Shift+XF86HomePage move container to workspace 33:<small>WW2</small>
 
@@ -59,16 +65,5 @@ bindsym $mod2+Shift+Return move container to workspace "12:~#"
 bindsym $mod2+Shift+m move container to workspace <big>♫</big>
 bindsym $mod+Shift+comma move container to workspace <big>♞</big>
 
-# Force windows to workspaces
-# Spotify is delayed in setting WM_CLASS, so this doesn't work for it
-for_window [class="Spotify"] move to workspace <big>♫</big>
-assign [class="banshee"] <big>♫</big>
-assign [class="ementine"] <big>♫</big>
-assign [class="Pithos"] <big>♫</big>
-assign [class="Pavucontrol"] <big>♫</big>
-assign [class="usic"] <big>♫</big>
-assign [class="Steam"] <big>♞</big>
-assign [title="Steam"] <big>♞</big>
-assign [class="owerFall"] <big>♞</big>
 
 # bindsym $mod+$mod2+grave workspace TEST

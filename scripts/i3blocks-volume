@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Rewritten for pulse-only with bluetooth switching
+# TODO: 
+# Switch to pacmd, pacmd dump can get the volume in hex without much hassle
+# to split the dump on newline:
+IFS=$'\n'
+
+sink_names=()
+sink_volumes=()
+sink_mutes=()
+
+for line in $(pacmd dump); do
+	# get first space-delimited word
+	case ${line%% *} in
+		set-default-sink)
+			# get sink name
+			default_sink=${line#* } ;;
+		set-sink-volume)
+			# get each sink's volume
+			# name is 2/3, volume is 3/3
+			sink_names+=($(echo -n $line | cut -d ' ' -f 2) )
+			# volume is in hex (0x10000 is 100%), I could convert it, but this looks cool
+			sink_volumes+=${line##* } ;;
+		set-sink-mute)
+			# mute is immediately after volume, so sink_names line up
+			# sink-mute is yes/no
+			sink_mutes+=(${line##* })
+			;;
+	esac
+done
+# The first parameter sets the step to change the volume by (and units to display)
+# This may be in in % or dB (eg. 5% or 3dB)
+STEP="0x1000"
+
+default_volume=''
+# Printing
+for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
+	[ $i -ne 0 ] && echo -n " "
+	# Ternary using short-cirtuitry
+	[ ${sink_names[$i]} = $default_sink ] && default_volume=${sink_volumes[$i]}
+	[ ${sink_mutes[$i]} = "yes" ] && echo -n 'MUTE' || echo -n "${sink_volumes[$i]%??}"
+done
+case $BLOCK_BUTTON in
+  3) pactl set-sink-mute $default_sink toggle ;;  # right click, mute/unmute
+  4) pacmd set-sink-volume $default_sink $( [ $(($default_volume)) -ge $((0x10000)) ] && echo -n "0x10000" || echo $(($default_volume + $STEP)) );; # scroll up, increase
+  5) pacmd set-sink-volume $default_sink $(($default_volume - $STEP));; # scroll up, increase
+esac

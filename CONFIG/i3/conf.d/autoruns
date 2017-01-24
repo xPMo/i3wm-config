@@ -5,8 +5,8 @@
 # exec --no-startup-id blueman-applet
 # exec --no-startup-id nm-applet
 exec_always --no-startup-id sh ~/.fehbg
-exec --no-startup-id xflux -z 64505 -k 3600
+exec redshift
 exec --no-startup-id unclutter -idle 5
 bindsym $mod+p exec --no-startup-id xmodmap ~/.config/Xmodmap && xset -r 23
-exec --no-startup-id synclient VertScrollDelta=-117 HorizScrollDelta=-117
+exec --no-startup-id synclient VertScrollDelta=-117 HorizScrollDelta=-117 HorizTwoFingerScroll=1 MinSpeed=1.25 MaxSpeed=2
 exec --no-startup-id xset -r 23

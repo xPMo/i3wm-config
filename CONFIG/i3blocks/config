@@ -1,0 +1,101 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+separator_block_width=10
+
+[cpu]
+label=CPU
+command=/usr/share/i3blocks/cpu_usage
+interval=5
+#min_width=CPU: 100.00%
+#separator=false
+
+[memory]
+label=MEM
+command=/usr/share/i3blocks/memory
+separator=false
+interval=15
+
+[swap]
+label=SWAP
+instance=swap
+command=/usr/share/i3blocks/memory
+interval=15
+
+# custom disk command to both free and total
+[free]
+instance=/
+command=$HOME/.local/bin/i3blocks-disk
+interval=30
+
+[temp]
+command=/usr/share/i3blocks/temperature --chip coretemp-isa-0000
+interval=10
+
+[wireless]
+label=W
+instance=wlan0
+#instance=wlp3s0
+command=/usr/share/i3blocks/iface
+color=#00FF00
+interval=20
+
+[ethernet]
+label=E
+instance=eth0
+#instance=enp0s25
+command=/usr/share/i3blocks/iface
+color=#00FF00
+interval=20
+
+#[load]
+#command=/usr/share/i3blocks/load_average
+#interval=10
+
+[brightness]
+label=☀
+command=printf "%.0f%%" $(xbacklight -get)
+interval=once
+signal=2
+
+[battery]
+#label=BAT
+label=⚡
+command=/usr/share/i3blocks/battery
+interval=30
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=5
+
+
+# custom volume command to switch to headphone volume
+[volume]
+#label=VOL
+label=♪
+instance=Master
+#instance=PCM
+command=$HOME/.local/bin/i3blocks-volume
+interval=once
+signal=10
+

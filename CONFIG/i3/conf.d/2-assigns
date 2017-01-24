@@ -1,0 +1,33 @@
+
+# =========================================================
+# 0binds: set things that need to be here at the beginining
+# =========================================================
+
+set $mod Mod4
+set $mod2 Mod1
+
+# Font for window titles, i3bar, etc.
+font pango:DejaVu Sans Mono 6.5
+
+# Force windows to workspaces
+# <big>♫</big>
+for_window [class="Spotify"] move to workspace <big>♫</big>
+assign [class="banshee"] <big>♫</big>
+assign [class="ementine"] <big>♫</big>
+assign [class="Pithos"] <big>♫</big>
+assign [class="Pavucontrol"] <big>♫</big>
+assign [class="usic"] <big>♫</big>
+
+# <big>♞</big>
+assign [class="Steam"] <big>♞</big>
+assign [title="Steam"] <big>♞</big>
+assign [class="discord"] <big>♞</big>
+assign [class="owerFall"] <big>♞</big>
+
+# 12:<big>📧</big>
+assign [class="cedove"] 12:<big>📧</big>
+assign [class="underbird"] 12:<big>📧</big>
+
+# 13:<small>WWW</small>
+assign [class="irefox"] 13:<small>WWW</small>
+
