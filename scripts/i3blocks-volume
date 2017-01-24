@@ -21,7 +21,7 @@ for line in $(pacmd dump); do
 			# name is 2/3, volume is 3/3
 			sink_names+=($(echo -n $line | cut -d ' ' -f 2) )
 			# volume is in hex (0x10000 is 100%), I could convert it, but this looks cool
-			sink_volumes+=(${line##* 0x}) ;;
+			sink_volumes+=(${line##* }) ;;
 		set-sink-mute)
 			# mute is immediately after volume, so sink_names line up
 			# sink-mute is yes/no
@@ -38,7 +38,7 @@ for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
 	[ $i -ne 0 ] && echo -n " "
 	# Ternary using short-cirtuitry
 	[ ${sink_names[$i]} = $default_sink ] && default_volume=${sink_volumes[$i]} && echo -n '✓'
-	[ ${sink_mutes[$i]} = "yes" ] && echo -n 'MUTE' || echo -n "0x${sink_volumes[$i]%??}"
+	[ ${sink_mutes[$i]} = "yes" ] && echo -n 'MUTE' || echo -n "${sink_volumes[$i]%??}"
 done
 case $BLOCK_BUTTON in
   3) pactl set-sink-mute $default_sink toggle ;;  # right click, mute/unmute
