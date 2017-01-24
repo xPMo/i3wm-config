@@ -1,15 +1,33 @@
 # i3wm-config
-My i3wm config files.  Make of it what you will. (Also, trying to learn
-more about Github workflow.)
+My i3, i3blocks, and accompanying config files.  Make of it what you will. (Also, trying to learn
+more about Github workflow.)  Run `sh init.sh` to add symlinks in `~/.config/` and `~/.local/bin/`.
+
+Features include:
+* true vim-style `hjkl` movement instead of the `jkl;` movement that is default
+* No titlebars unless floating
+* `$mod+x` for a focus/launch mode, using accompanying scripts
+* `scrotlock` script which pixelizes and 50% desaturates
+* `$mod+Return` focuses the terminal workspace and launches one if not already launched; if workspace was already focused, launches new terminal. `$mod+Shift+t` for new terminal anywhere
+* `$mod+Tab` backandforth, let go of `$mod` to stay on the other workspace, or let go of `Tab` to return
+* Certain programs will launch on certain workspaces
+* Volume displayed in hexadecimal because why not
+* Special bindings that I use with my Steam Controller
 
 **TODO:**
 * Give up and make do with what I have.
 
 By default, bindings for:
 * [playerctl](https://github.com/acrisci/playerctl)
-* pactl
-* amixer
+* pactl/pacmd
 * xfce4-launcher
 * Thunar
-* [xflux](https://justgetflux.com/linux.html)
+* Icedove
+* Libreoffice
+* Blueman
+* Clementine
+* Steam
+* Pavucontrol
+* Tor
+* File-roller
 * Firefox
+* dmenu
