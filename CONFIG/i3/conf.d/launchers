@@ -8,6 +8,11 @@ bindsym Print exec scrot 'scrot-%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/Screenshot
 # Printscreen (xfce4-*)
 bindsym Shift+Print exec xfce4-screenshooter
 
+# i3-input (for marking, etc)
+bindsym $mod+i exec --no-startup-id i3-input
+bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -l 1 -P 'Mark: '
+bindsym $mod+grave exec --no-startup-id i3-input -F '[con_mark=%s] focus' -l 1 -P 'Focus mark: ' 
+
 # Standalone launchers:
 bindsym Shift+XF86Mail exec thunar
 bindsym Shift+XF86HomePage exec firefox -P -no-remote hidden

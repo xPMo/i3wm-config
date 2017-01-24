@@ -135,6 +135,11 @@ bindsym Print exec scrot 'scrot-%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/Screenshot
 # Printscreen (xfce4-*)
 bindsym Shift+Print exec xfce4-screenshooter
 
+# i3-input (for marking, etc)
+bindsym $mod+i exec --no-startup-id i3-input
+bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -l 1 -P 'Mark: '
+bindsym $mod+grave exec --no-startup-id i3-input -F '[con_mark=%s] focus' -l 1 -P 'Focus mark: ' 
+
 # Standalone launchers:
 bindsym Shift+XF86Mail exec thunar
 bindsym Shift+XF86HomePage exec firefox -P -no-remote hidden
@@ -310,14 +315,14 @@ bindsym $mod+Shift+r restart
 # ----------------
 
 # F1: lock/leave session
-bindsym $mod+F1 exec --no-startup-id sh -c ~/.local/bin/scrotlock.sh
+bindsym $mod+F1 exec --no-startup-id sh -c ~/.local/bin/scrotlock
 bindsym $mod+Shift+F1 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # F2: suspend/hybrid-sleep
-bindsym $mod+F2 exec --no-startup-id sh -c ~/.local/bin/scrotlock.sh && systemctl suspend
-bindsym XF86Sleep exec --no-startup-id sh -c ~/.local/bin/scrotlock.sh && systemctl suspend
-bindsym $mod+Shift+F2 exec --no-startup-id sh -c ~/.local/bin/scrotlock.sh && systemctl hybrid-sleep
-bindsym Shift+XF86Sleep exec --no-startup-id sh -c ~/.local/bin/scrotlock.sh && systemctl hybrid-sleep
+bindsym $mod+F2 exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl suspend
+bindsym XF86Sleep exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl suspend
+bindsym $mod+Shift+F2 exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl hybrid-sleep
+bindsym Shift+XF86Sleep exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl hybrid-sleep
 
 # F3: Hibernate
 bindsym $mod+F3 exec "i3-nagbar -t warning -m 'You pressed the hibernate shortcut. Do you really want to hibernate the computer?' -b 'Yes, shut down' 'systemctl hibernate'"
@@ -457,15 +462,14 @@ workspace 5:5 output $monitor
 workspace 6:6 output $monitor
 workspace 7:7 output $monitor
 workspace 8:8 output $monitor
-
-workspace X output $monitor2
+workspace 9:9 output $monitor
+workspace 10:X output $monitor2
 
 # Specialty workspaces
 workspace "11:~$" output $monitor
 workspace "<big>♫</big>" output $monitor2
 
 # switch to workspace
-bindsym $mod+grave workspace 0:0
 bindsym $mod+1 workspace 1:1
 bindsym $mod+2 workspace 2:2
 bindsym $mod+3 workspace 3:3
@@ -474,14 +478,13 @@ bindsym $mod+5 workspace 5:5
 bindsym $mod+6 workspace 6:6
 bindsym $mod+7 workspace 7:7
 bindsym $mod+8 workspace 8:8
+bindsym $mod+9 workspace 9:9
+bindsym $mod+0 workspace 10:X
 
-bindsym $mod+0 workspace X
-
-bindsym $mod2+m workspace "<big>♫</big>"
+bindsym $mod+p workspace "<big>♫</big>"
 bindsym $mod+comma workspace <big>♞</big>
 
 # move focused container to workspace
-bindsym $mod+Shift+grave move container to workspace 0:0
 bindsym $mod+Shift+1 move container to workspace 1:1
 bindsym $mod+Shift+2 move container to workspace 2:2
 bindsym $mod+Shift+3 move container to workspace 3:3
@@ -490,8 +493,8 @@ bindsym $mod+Shift+5 move container to workspace 5:5
 bindsym $mod+Shift+6 move container to workspace 6:6
 bindsym $mod+Shift+7 move container to workspace 7:7
 bindsym $mod+Shift+8 move container to workspace 8:8
-
-bindsym $mod+Shift+0 move container to workspace X
+bindsym $mod+Shift+9 move container to workspace 9:9
+bindsym $mod+Shift+0 move container to workspace 10:X
 
 bindsym $mod+Shift+XF86HomePage move container to workspace 13:<small>WWW</small>
 bindsym $mod2+Shift+XF86HomePage move container to workspace 33:<small>WW2</small>
@@ -499,7 +502,7 @@ bindsym $mod2+Shift+XF86HomePage move container to workspace 33:<small>WW2</smal
 bindsym $mod+Shift+Return move container to workspace "11:~$"
 bindsym $mod2+Shift+Return move container to workspace "12:~#"
 
-bindsym $mod2+Shift+m move container to workspace <big>♫</big>
+bindsym $mod+Shift+p move container to workspace <big>♫</big>
 bindsym $mod+Shift+comma move container to workspace <big>♞</big>
 
 

@@ -4,5 +4,5 @@ if [ ! -f $img ]; then
 	touch $img
 fi
 scrot $img
-convert $img -blur 0x12 $img
+convert $img -scale 10x10% -tint 70 -colorize 20% -scale 1000x1000% $img
 i3lock -i $img -d -I 10
