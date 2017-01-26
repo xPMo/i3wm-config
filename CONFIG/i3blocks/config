@@ -62,6 +62,14 @@ interval=20
 
 [ethernet]
 label=E
+instance=enp3s0
+#instance=enp0s25
+command=/usr/share/i3blocks/iface
+color=#00FF00
+interval=20
+
+[ethernet]
+label=E
 instance=eth0
 #instance=enp0s25
 command=/usr/share/i3blocks/iface

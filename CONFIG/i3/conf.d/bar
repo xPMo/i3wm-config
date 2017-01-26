@@ -6,7 +6,6 @@
 bar {
 	id bar1
 	tray_padding 3
-	output eDP1
 	strip_workspace_numbers yes
 	status_command i3blocks
 	colors {
