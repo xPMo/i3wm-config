@@ -46,7 +46,7 @@ for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
 done
 
 # Short_text and color if mute
-[ $default_mute = "yes" ] && printf \\n%s\\n%s "MUTE" "#0088FF" || printf \\n%s "${default_volume%??}" && [ $default_suspended = "yes" ] ||  printf \\n%s\\n "#FFFF00" 
+[ $default_mute = "yes" ] && printf \\n%s\\n%s "MUTE" "#0088FF" || printf \\n%s "${default_volume%??}" && [ $default_suspended = "yes" ] &&  printf \\n%s\\n "#FFFF00" 
 
 case $BLOCK_BUTTON in
   3) pactl set-sink-mute $default_sink toggle ;;  # right click, mute/unmute
