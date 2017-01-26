@@ -2,20 +2,14 @@
 
 # Rewritten for pulse-only with bluetooth switching
 # TODO: 
-# Rewrite for one sink, that way mute can color consistently
-# -> Then, use seperate blocks.
-# Problems: Sink labeling is inconsistent:
-# - Speakers on laptop are sink 0
-# - BT headset is sink 5
-# - Desktop: 
 # $default_sink will be a flag set if the instance is default
-# exit 33 if sink is suspended
 # to split the dump on newline:
 IFS=$'\n'
 
 sink_names=()
 sink_volumes=()
 sink_mutes=()
+sink_suspends=()
 
 for line in $(pacmd dump); do
 	# get first space-delimited word
@@ -34,6 +28,10 @@ for line in $(pacmd dump); do
 			# sink-mute is yes/no
 			sink_mutes+=(${line##* })
 			;;
+		suspend-sink)
+			# get whether sink is muted
+			# sink-suspend is yes/no
+			sink_suspends+=(${line##* })
 	esac
 done
 # The first parameter sets the step to change the volume by (and units to display)
@@ -43,12 +41,12 @@ default_volume=''
 # Printing
 for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
 	[ $i -ne 0 ] && echo -n " "
-	[ ${sink_names[$i]} = $default_sink ] && default_volume=${sink_volumes[$i]} && default_mute=${sink_mutes[$i]} && echo -n '✓'
+	[ ${sink_names[$i]} = $default_sink ] && default_volume=${sink_volumes[$i]} && default_mute=${sink_mutes[$i]} && default_suspended=${sink_suspends[$i]} && echo -n '✓'
 	[ ${sink_mutes[$i]} = "yes" ] && printf %s 'MUTE' || echo -n "${sink_volumes[$i]%??}"
 done
 
 # Short_text and color if mute
-[ $default_mute = "yes" ] && printf \\n%s\\n%s "MUTE" "\#aaaaaa" || printf \\n%s "${default_volume%??}"
+[ $default_mute = "yes" ] && printf \\n%s\\n%s "MUTE" "#0088FF" || printf \\n%s "${default_volume%??}" && [ $default_suspended = "yes" ] ||  printf \\n%s\\n "#FFFF00" 
 
 case $BLOCK_BUTTON in
   3) pactl set-sink-mute $default_sink toggle ;;  # right click, mute/unmute
