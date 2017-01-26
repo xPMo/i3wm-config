@@ -4,6 +4,10 @@
 # TODO: 
 # Rewrite for one sink, that way mute can color consistently
 # -> Then, use seperate blocks.
+# Problems: Sink labeling is inconsistent:
+# - Speakers on laptop are sink 0
+# - BT headset is sink 5
+# - Desktop: 
 # $default_sink will be a flag set if the instance is default
 # exit 33 if sink is suspended
 # to split the dump on newline:
@@ -39,13 +43,12 @@ default_volume=''
 # Printing
 for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
 	[ $i -ne 0 ] && echo -n " "
-	# Ternary using short-cirtuitry
-	[ ${sink_names[$i]} = $default_sink ] && default_volume=${sink_volumes[$i]} && echo -n '✓'
-	[ ${sink_mutes[$i]} = "yes" ] && mute=true && printf %s 'MUTE' || echo -n "${sink_volumes[$i]%??}"
+	[ ${sink_names[$i]} = $default_sink ] && default_volume=${sink_volumes[$i]} && default_mute=${sink_mutes[$i]} && echo -n '✓'
+	[ ${sink_mutes[$i]} = "yes" ] && printf %s 'MUTE' || echo -n "${sink_volumes[$i]%??}"
 done
 
 # Short_text and color if mute
-[ $mute ] && printf \\n%s\\n%s "MUTE" "\#aaaaaa" || printf \\n%s "${default_volume%??}"
+[ $default_mute = "yes" ] && printf \\n%s\\n%s "MUTE" "\#aaaaaa" || printf \\n%s "${default_volume%??}"
 
 case $BLOCK_BUTTON in
   3) pactl set-sink-mute $default_sink toggle ;;  # right click, mute/unmute
