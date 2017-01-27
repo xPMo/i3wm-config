@@ -47,6 +47,8 @@ client.unfocused $border0 $back0 $text0 $ind
 # Chrome modifications
 new_window pixel 1
 hide_edge_borders vertical
+new_float pixel 1
+
 
 # Thunar Progress Bar
 for_window [title="^File Operation Progress$"] floating enable 
