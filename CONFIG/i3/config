@@ -64,6 +64,7 @@ set $mod2 Mod1
 
 # Font for window titles, i3bar, etc.
 font pango:DejaVu Sans Mono 6.5
+# font pango:Noto Sans 6.5
 
 # Force windows to workspaces
 # <big>♫</big>
