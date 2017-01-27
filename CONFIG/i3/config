@@ -80,6 +80,7 @@ assign [class="Steam"] <big>♞</big>
 assign [title="Steam"] <big>♞</big>
 assign [class="discord"] <big>♞</big>
 assign [class="owerFall"] <big>♞</big>
+assign [class="Owlboy"] <big>♞</big>
 
 # 12:<big>📧</big>
 assign [class="cedove"] 12:<big>📧</big>
@@ -142,6 +143,7 @@ bindsym $mod+grave exec --no-startup-id i3-input -F '[con_mark=%s] focus' -l 1 -
 # Standalone launchers:
 bindsym Shift+XF86Mail exec thunar
 bindsym Shift+XF86HomePage exec firefox -P -no-remote hidden
+bindsym $mod+$mod2+w exec firefox -P -no-remote hidden
 bindsym $mod+Shift+t exec urxvt
 
 # Standalone focuslaunchers:

@@ -92,11 +92,6 @@ label=⚡
 command=/usr/share/i3blocks/battery
 interval=30
 
-[time]
-command=date '+%Y-%m-%d %H:%M:%S'
-interval=5
-
-
 # custom volume command to switch to headphone volume
 [volume]
 #label=VOL
@@ -107,3 +102,7 @@ command=$HOME/.local/bin/i3blocks-volume
 interval=once
 signal=10
 
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=5
