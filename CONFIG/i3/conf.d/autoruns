@@ -9,3 +9,6 @@ exec redshift
 exec --no-startup-id unclutter -idle 5
 exec --no-startup-id synclient VertScrollDelta=-117 HorizScrollDelta=-117 HorizTwoFingerScroll=1 MinSpeed=1.25 MaxSpeed=2
 exec_always --no-startup-id xset -r 23
+
+# need so xfce4-appfinder gets themed:
+exec xfsettingsd

@@ -50,7 +50,13 @@ hide_edge_borders vertical
 new_float pixel 1
 
 
-# Thunar Progress Bar
+# force windows to float:
+
+# Xfce4 Appfinder:
+for_window [class="Xfce4-appfinder"] floating enable
+for_window [class="Xfce4-appfinder"] border none
+
+# Thunar file progress
 for_window [title="^File Operation Progress$"] floating enable 
 
 # Steam on-screen keyboard
@@ -65,8 +71,9 @@ set $mod Mod4
 set $mod2 Mod1
 
 # Font for window titles, i3bar, etc.
-font pango:DejaVu Sans Mono 6.5
+font pango:DejaVu Sans Mono 7.5
 # font pango:Noto Sans 6.5
+
 
 # Force windows to workspaces
 # <big>♫</big>
@@ -102,6 +109,9 @@ exec redshift
 exec --no-startup-id unclutter -idle 5
 exec --no-startup-id synclient VertScrollDelta=-117 HorizScrollDelta=-117 HorizTwoFingerScroll=1 MinSpeed=1.25 MaxSpeed=2
 exec_always --no-startup-id xset -r 23
+
+# need so xfce4-appfinder gets themed:
+exec xfsettingsd
 
 # ===================================================
 # Start i3bar to display a workspace bar and i3status
