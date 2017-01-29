@@ -27,6 +27,31 @@
 # Appearance of windows
 # ================================================
 
+# Color defs - solarized
+set $S_base03       #002b36
+set $S_base02       #073642
+set $S_base01       #586e75
+set $S_base00       #657b83
+set $S_base0        #839496
+set $S_base1        #93a1a1
+set $S_base2        #eee8d5
+set $S_base3        #fdf6e3
+set $S_yellow       #b58900
+set $S_orange       #cb4b16
+set $S_red          #dc322f
+set $S_magenta      #d33682
+set $S_violet       #6c71c4
+set $S_blue         #268bd2
+set $S_cyan         #2aa198
+set $S_green        #859900
+set $S_lyellow		#cccc00
+set $S_lblue		#2c98e4
+set $S_lcyan		#30b8b0
+set $S_lgreen		#85c000
+# extra: more contrast:
+set $S_base04		#001014
+
+
 # Colors Defs
 set $text1 #ffffff
 set $text0 #dddddd
@@ -36,13 +61,16 @@ set $back1 #cc3322
 set $back2 #661100
 set $back3 #992211
 set $back0 #222222
-# Indicator color doesn't matter with this setup in borderless
 set $ind #ff0000
 
-# Colors
-client.focused $border1 $back1 $text1 $ind
-client.focused_inactive $border1 $back2 $text1 $ind 
-client.unfocused $border0 $back0 $text0 $ind
+# Colors:				border		background	text	indicator	child border
+client.focused			$S_base2	$S_base2	$S_base03	$S_violet
+client.focused_inactive	$S_base1	$S_base1	$S_base03	$S_violet
+client.unfocused		$S_base02	$S_base03	$S_base3	$S_violet
+#client.urgent			$border0	$back0	$text0	$ind
+#client.placeholder		$border0	$back0	$text0	$ind
+#client.background		$border0	$back0	$text0	$ind
+
 
 # Chrome modifications
 new_window pixel 1
@@ -123,13 +151,15 @@ bar {
 	strip_workspace_numbers yes
 	status_command i3blocks
 	colors {
-		statusline #FFFFFF
-		background #000000
-		separator #444444
-		focused_workspace $back1 $back1 $text1
-		active_workspace $back2 $back0 $text1
-		inactive_workspace $back0 $back0 $text0
-		urgent_workspace #FF2200 $back0 $text1
+		statusline         $S_base3
+		background         $S_base04
+		separator          $S_base00
+		# mode             border    bground   text
+		focused_workspace  $S_base3  $S_base2  $S_base03
+		active_workspace   $S_base1  $S_base1  $S_base03
+		inactive_workspace $S_base02 $S_base03 $S_base3
+		urgent_workspace   $S_base2  $S_base1  $S_red
+		binding_mode       $S_base04 $S_base04 $S_red
 	}
 }
 
