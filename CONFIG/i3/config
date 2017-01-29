@@ -132,7 +132,7 @@ bar {
 		# Colors:          border   bground  text
 		focused_workspace  $orange3 $orange2 #ffffff
 		active_workspace   $orange1 $orange0 $grey1
-		inactive_workspace $grey-0  $grey00  $grey0
+		inactive_workspace $grey-0  $grey-0  $grey0
 		urgent_workspace   $rorange $grey-1  #ffffff
 
 		binding_mode #000000 #000000 $grey1
