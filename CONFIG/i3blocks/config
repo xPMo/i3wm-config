@@ -56,7 +56,7 @@ interval=10
 label=W
 instance=wlan0
 #instance=wlp3s0
-command=/usr/share/i3blocks/iface
+command=$HOME/.local/bin/i3blocks-network
 color=#00FF00
 interval=20
 
@@ -64,7 +64,7 @@ interval=20
 label=E
 instance=enp3s0
 #instance=enp0s25
-command=/usr/share/i3blocks/iface
+command=$HOME/.local/bin/i3blocks-network
 color=#00FF00
 interval=20
 
@@ -72,7 +72,7 @@ interval=20
 label=E
 instance=eth0
 #instance=enp0s25
-command=/usr/share/i3blocks/iface
+command=$HOME/.local/bin/i3blocks-network
 color=#00FF00
 interval=20
 
