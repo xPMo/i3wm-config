@@ -8,8 +8,8 @@ set $orange0 #661100
 set $orange1 #bb3020
 set $orange2 #c43824
 set $orange3 #ee4028
-set $grey00  #2c2c2c
-set $grey01  #505050
+set $grey-0  #2c2c2c
+set $grey-1  #505050
 set $grey0   #dddddd
 set $grey1   #eeeeee
 set $yorange #ff6600
@@ -18,10 +18,10 @@ set $rorange #e04020
 # Colors                border   bground  text     indicator child
 client.focused          $orange3 $orange2 #ffffff  $yorange  
 client.focused_inactive $orange1 $orange0 $grey1   $yorange
-client.unfocused        $grey01  $grey00  $grey0   $yorange
-client.urgent           $rorange $grey01  #ffffff  $yorange
+client.unfocused        $grey-1  $grey-0  $grey0   $yorange
+client.urgent           $rorange $grey-1  #ffffff  $yorange
 
-client.background $grey01
+client.background $grey-1
 
 # Chrome modifications
 new_window pixel 1
