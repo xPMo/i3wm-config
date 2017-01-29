@@ -28,21 +28,24 @@
 # ================================================
 
 # Colors Defs
-set $text1 #ffffff
-set $text0 #dddddd
-set $border1 #ee4028
-set $border0 #000000
-set $back1 #cc3322
-set $back2 #661100
-set $back3 #992211
-set $back0 #222222
-# Indicator color doesn't matter with this setup in borderless
-set $ind #ff0000
+set $orange0 #661100
+set $orange1 #bb3020
+set $orange2 #c43824
+set $orange3 #ee4028
+set $grey00  #2c2c2c
+set $grey01  #505050
+set $grey0   #dddddd
+set $grey1   #eeeeee
+set $yorange #ff6600
+set $rorange #e04020
 
-# Colors
-client.focused $border1 $back1 $text1 $ind
-client.focused_inactive $border1 $back2 $text1 $ind 
-client.unfocused $border0 $back0 $text0 $ind
+# Colors                border   bground  text     indicator child
+client.focused          $orange3 $orange2 #ffffff  $yorange  
+client.focused_inactive $orange1 $orange0 $grey1   $yorange
+client.unfocused        $grey01  $grey00  $grey0   $yorange
+client.urgent           $rorange $grey01  #ffffff  $yorange
+
+client.background $grey01
 
 # Chrome modifications
 new_window pixel 1
@@ -126,10 +129,13 @@ bar {
 		statusline #FFFFFF
 		background #000000
 		separator #444444
-		focused_workspace $back1 $back1 $text1
-		active_workspace $back2 $back0 $text1
-		inactive_workspace $back0 $back0 $text0
-		urgent_workspace #FF2200 $back0 $text1
+		# Colors:          border   bground  text
+		focused_workspace  $orange3 $orange2 #ffffff
+		active_workspace   $orange1 $orange0 $grey1
+		inactive_workspace $grey01  $grey00  $grey0
+		urgent_workspace   $rorange $grey01  #ffffff
+
+		binding_mode #000000 #000000 $grey1
 	}
 }
 
