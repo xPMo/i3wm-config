@@ -33,7 +33,6 @@ new_float pixel 1
 
 # Xfce4 Appfinder:
 for_window [class="Xfce4-appfinder"] floating enable
-for_window [class="Xfce4-appfinder"] border none
 
 # Thunar file progress
 for_window [title="^File Operation Progress$"] floating enable 
