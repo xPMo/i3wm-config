@@ -92,11 +92,16 @@ label=⚡
 command=/usr/share/i3blocks/battery
 interval=30
 
+[playerctl]
+label=♪
+command=$HOME/.local/bin/i3blocks-playerctl
+interval=8
+signal=11
+
+
 # custom volume command to switch to headphone volume
 [volume]
 #label=VOL
-label=♪
-instance=Master
 #instance=PCM
 command=$HOME/.local/bin/i3blocks-volume
 interval=once

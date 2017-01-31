@@ -100,6 +100,8 @@ assign [class="underbird"] 12:<big>📧</big>
 # 13:<small>WWW</small>
 assign [class="irefox"] 13:<small>WWW</small>
 
+# no-focus notification
+no_focus [window_type="notification"]
 
 # ====================================================
 # Things to run on startup
@@ -189,7 +191,7 @@ mode "focus/launch" {
 	bindsym Shift+i exec --no-startup-id echo, mode "default"
 	bindsym Shift+j exec --no-startup-id echo, mode "default"
 	bindsym Shift+k exec --no-startup-id echo, mode "default"
-	bindsym Shift+l exec --no-startup-id echo, mode "default"
+	bindsym Shift+l exec --no-startup-id libreoffice, mode "default"
 	bindsym Shift+m exec --no-startup-id thunderbird, mode "default"
 	bindsym Shift+n exec --no-startup-id echo, mode "default"
 	bindsym Shift+o exec --no-startup-id libreoffice, mode "default"
@@ -218,7 +220,7 @@ mode "focus/launch" {
 	bindsym i exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
 	bindsym j exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
 	bindsym k exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
-	bindsym l exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
+	bindsym l exec --no-startup-id ~/.local/bin/i3focuslaunch libreoffice, mode "default"
 	bindsym m exec --no-startup-id ~/.local/bin/i3focuslaunch thunderbird, mode "default"
 	bindsym n exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
 	bindsym o exec --no-startup-id ~/.local/bin/i3focuslaunch libreoffice, mode "default"
@@ -241,21 +243,21 @@ mode "focus/launch" {
 # =======================================================
 
 # Skip Forward/backwards
-bindsym XF86AudioPrev exec playerctl previous
-bindsym $mod+Prior exec --no-startup-id playerctl previous
-bindsym $mod+KP_Prior exec --no-startup-id playerctl previous
-bindsym $mod+button8 --whole-window exec --no-startup-id playerctl previous
+bindsym XF86AudioPrev exec playerctl previous && pkill -RTMIN+11 i3blocks
+bindsym $mod+Prior exec --no-startup-id playerctl previous && pkill -RTMIN+11 i3blocks
+bindsym $mod+KP_Prior exec --no-startup-id playerctl previous && pkill -RTMIN+11 i3blocks
+bindsym $mod+button8 --whole-window exec --no-startup-id playerctl previous && pkill -RTMIN+11 i3blocks
 
-bindsym XF86AudioNext exec playerctl next
-bindsym $mod+Next exec --no-startup-id playerctl next
-bindsym $mod+KP_Next exec --no-startup-id playerctl next
-bindsym $mod+button9 --whole-window exec --no-startup-id playerctl next
+bindsym XF86AudioNext exec playerctl next && pkill -RTMIN+11 i3blocks
+bindsym $mod+Next exec --no-startup-id playerctl next && pkill -RTMIN+11 i3blocks
+bindsym $mod+KP_Next exec --no-startup-id playerctl next && pkill -RTMIN+11 i3blocks
+bindsym $mod+button9 --whole-window exec --no-startup-id playerctl next && pkill -RTMIN+11 i3blocks
 
 # Play/Pause
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym $mod+End exec --no-startup-id playerctl play-pause
-bindsym $mod+KP_End exec --no-startup-id playerctl play-pause
-bindsym $mod+button2 --whole-window exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPlay exec playerctl play-pause && pkill -RTMIN+11 i3blocks
+bindsym $mod+End exec --no-startup-id playerctl play-pause && pkill -RTMIN+11 i3blocks
+bindsym $mod+KP_End exec --no-startup-id playerctl play-pause && pkill -RTMIN+11 i3blocks
+bindsym $mod+button2 --whole-window exec --no-startup-id playerctl play-pause && pkill -RTMIN+11 i3blocks
 
 # Seek using $mod+Shift+mousewheel 2 seconds at a time
 bindsym $mod+Shift+button5 --whole-window exec --no-startup-id playerctl position 2-

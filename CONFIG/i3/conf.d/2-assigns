@@ -34,3 +34,5 @@ assign [class="underbird"] 12:<big>📧</big>
 # 13:<small>WWW</small>
 assign [class="irefox"] 13:<small>WWW</small>
 
+# no-focus notification
+no_focus [window_type="notification"]
