@@ -32,18 +32,19 @@ set $orange0 #661100
 set $orange1 #bb3020
 set $orange2 #c43824
 set $orange3 #ee4028
-set $grey-0  #2c2c2c
-set $grey-1  #505050
+set $grey-0  #181818
+set $grey-1  #2c2c2c
+set $grey-2  #505050
 set $grey0   #dddddd
 set $grey1   #eeeeee
 set $yorange #ff6600
 set $rorange #e04020
 
 # Colors                border   bground  text     indicator child
-client.focused          $orange3 $orange2 #ffffff  $yorange  
+client.focused          $orange1 $orange2 #ffffff  $yorange  
 client.focused_inactive $orange1 $orange0 $grey1   $yorange
-client.unfocused        $grey-1  $grey-0  $grey0   $yorange
-client.urgent           $rorange $grey-1  #ffffff  $yorange
+client.unfocused        $grey-0  $grey-1  $grey0   $yorange
+client.urgent           $rorange $grey-2  #ffffff  $yorange
 
 client.background $grey-1
 
@@ -131,10 +132,10 @@ bar {
 		background #000000
 		separator #444444
 		# Colors:          border   bground  text
-		focused_workspace  $orange3 $orange2 #ffffff
-		active_workspace   $orange1 $orange0 $grey1
-		inactive_workspace $grey-0  $grey-0  $grey0
-		urgent_workspace   $rorange $grey-1  #ffffff
+		focused_workspace  $orange2 $orange2 #ffffff
+		active_workspace   $orange0 $orange1 $grey1
+		inactive_workspace $grey-1  $grey-1  $grey0
+		urgent_workspace   $rorange $grey-2  #ffffff
 
 		binding_mode #000000 #000000 $grey1
 	}

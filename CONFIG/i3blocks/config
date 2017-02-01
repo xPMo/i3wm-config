@@ -86,20 +86,13 @@ command=printf "%.0f%%" $(xbacklight -get)
 interval=once
 signal=2
 
-[battery]
-#label=BAT
-label=⚡
-command=/usr/share/i3blocks/battery
-interval=30
-
 [playerctl]
 label=♪
 command=$HOME/.local/bin/i3blocks-playerctl
 interval=8
 signal=11
 
-
-# custom volume command to switch to headphone volume
+# custom volume command to include to headphone volume
 [volume]
 #label=VOL
 #instance=PCM
@@ -107,6 +100,11 @@ command=$HOME/.local/bin/i3blocks-volume
 interval=once
 signal=10
 
+[battery]
+#label=BAT
+label=⚡
+command=/usr/share/i3blocks/battery
+interval=30
 
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'
