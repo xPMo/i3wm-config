@@ -28,6 +28,7 @@
 # ================================================
 
 # Color defs - solarized
+set $black          #000000
 set $S_base03       #002b36
 set $S_base02       #073642
 set $S_base01       #586e75
@@ -48,6 +49,7 @@ set $S_lyellow		#cccc00
 set $S_lblue		#2c98e4
 set $S_lcyan		#30b8b0
 set $S_lgreen		#85c000
+set $S_dred         #9c2220
 # extra: more contrast:
 set $S_base04		#001014
 
@@ -64,9 +66,9 @@ set $back0 #222222
 set $ind #ff0000
 
 # Colors:				border		background	text	indicator	child border
-client.focused			$S_base2	$S_base2	$S_base03	$S_violet
-client.focused_inactive	$S_base1	$S_base1	$S_base03	$S_violet
-client.unfocused		$S_base02	$S_base03	$S_base3	$S_violet
+client.focused			$S_red      $S_red      $S_base3	$S_yellow
+client.focused_inactive	$S_red      $S_dred	$S_base3	$S_yellow
+client.unfocused		$S_base02	$S_base03	$S_base3	$S_yellow
 #client.urgent			$border0	$back0	$text0	$ind
 #client.placeholder		$border0	$back0	$text0	$ind
 #client.background		$border0	$back0	$text0	$ind
@@ -152,14 +154,14 @@ bar {
 	status_command i3blocks
 	colors {
 		statusline         $S_base3
-		background         $S_base04
+		background         $black
 		separator          $S_base00
 		# mode             border    bground   text
-		focused_workspace  $S_base3  $S_base2  $S_base03
-		active_workspace   $S_base1  $S_base1  $S_base03
-		inactive_workspace $S_base02 $S_base03 $S_base3
-		urgent_workspace   $S_base2  $S_base1  $S_red
-		binding_mode       $S_base04 $S_base04 $S_red
+		focused_workspace  $S_red    $S_red    $S_base3
+		active_workspace   $S_red    $S_dred   $S_base03
+		inactive_workspace $S_base03 $S_base03 $S_base2
+		urgent_workspace   $S_red    $S_base03 $S_base3
+		binding_mode       $S_base04 $S_base04 $S_base2
 	}
 }
 

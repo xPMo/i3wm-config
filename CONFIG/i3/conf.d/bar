@@ -10,13 +10,13 @@ bar {
 	status_command i3blocks
 	colors {
 		statusline         $S_base3
-		background         $S_base04
+		background         $black
 		separator          $S_base00
 		# mode             border    bground   text
-		focused_workspace  $S_base3  $S_base2  $S_base03
-		active_workspace   $S_base1  $S_base1  $S_base03
-		inactive_workspace $S_base02 $S_base03 $S_base3
-		urgent_workspace   $S_base2  $S_base1  $S_red
-		binding_mode       $S_base04 $S_base04 $S_red
+		focused_workspace  $S_red    $S_red    $S_base3
+		active_workspace   $S_red    $S_dred   $S_base03
+		inactive_workspace $S_base03 $S_base03 $S_base2
+		urgent_workspace   $S_red    $S_base03 $S_base3
+		binding_mode       $S_base04 $S_base04 $S_base2
 	}
 }

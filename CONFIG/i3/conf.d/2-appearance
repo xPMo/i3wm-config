@@ -4,6 +4,7 @@
 # ================================================
 
 # Color defs - solarized
+set $black          #000000
 set $S_base03       #002b36
 set $S_base02       #073642
 set $S_base01       #586e75
@@ -24,28 +25,15 @@ set $S_lyellow		#cccc00
 set $S_lblue		#2c98e4
 set $S_lcyan		#30b8b0
 set $S_lgreen		#85c000
+set $S_dred         #9c2220
 # extra: more contrast:
 set $S_base04		#001014
 
 
-# Colors Defs
-set $text1 #ffffff
-set $text0 #dddddd
-set $border1 #ee4028
-set $border0 #000000
-set $back1 #cc3322
-set $back2 #661100
-set $back3 #992211
-set $back0 #222222
-set $ind #ff0000
-
-# Colors:				border		background	text	indicator	child border
-client.focused			$S_base2	$S_base2	$S_base03	$S_violet
-client.focused_inactive	$S_base1	$S_base1	$S_base03	$S_violet
-client.unfocused		$S_base02	$S_base03	$S_base3	$S_violet
-#client.urgent			$border0	$back0	$text0	$ind
-#client.placeholder		$border0	$back0	$text0	$ind
-#client.background		$border0	$back0	$text0	$ind
+# Colors:				border     background  text      indicator	child border
+client.focused			$S_red     $S_red      $S_base3  $S_yellow
+client.focused_inactive	$S_red     $S_dred     $S_base3  $S_yellow
+client.unfocused		$S_base02  $S_base03   $S_base3  $S_yellow
 
 
 # Chrome modifications
