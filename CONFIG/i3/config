@@ -54,47 +54,10 @@ set $S_dred         #9c2220
 set $S_base04		#001014
 
 
-# Colors Defs
-<<<<<<< HEAD
-set $text1 #ffffff
-set $text0 #dddddd
-set $border1 #ee4028
-set $border0 #000000
-set $back1 #cc3322
-set $back2 #661100
-set $back3 #992211
-set $back0 #222222
-set $ind #ff0000
-
-# Colors:				border		background	text	indicator	child border
-client.focused			$S_red      $S_red      $S_base3	$S_yellow
-client.focused_inactive	$S_red      $S_dred	$S_base3	$S_yellow
-client.unfocused		$S_base02	$S_base03	$S_base3	$S_yellow
-#client.urgent			$border0	$back0	$text0	$ind
-#client.placeholder		$border0	$back0	$text0	$ind
-#client.background		$border0	$back0	$text0	$ind
-
-=======
-set $orange0 #661100
-set $orange1 #bb3020
-set $orange2 #c43824
-set $orange3 #ee4028
-set $grey-0  #181818
-set $grey-1  #2c2c2c
-set $grey-2  #505050
-set $grey0   #dddddd
-set $grey1   #eeeeee
-set $yorange #ff6600
-set $rorange #e04020
-
-# Colors                border   bground  text     indicator child
-client.focused          $orange1 $orange2 #ffffff  $yorange  
-client.focused_inactive $orange1 $orange0 $grey1   $yorange
-client.unfocused        $grey-0  $grey-1  $grey0   $yorange
-client.urgent           $rorange $grey-2  #ffffff  $yorange
-
-client.background $grey-1
->>>>>>> master
+# Colors:				border     background  text      indicator	child border
+client.focused			$S_red     $S_red      $S_base3  $S_yellow
+client.focused_inactive	$S_red     $S_dred     $S_base3  $S_yellow
+client.unfocused		$S_base02  $S_base03   $S_base3  $S_yellow
 
 # Chrome modifications
 new_window pixel 1
@@ -176,7 +139,6 @@ bar {
 	strip_workspace_numbers yes
 	status_command i3blocks
 	colors {
-<<<<<<< HEAD
 		statusline         $S_base3
 		background         $black
 		separator          $S_base00
@@ -186,18 +148,6 @@ bar {
 		inactive_workspace $S_base03 $S_base03 $S_base2
 		urgent_workspace   $S_red    $S_base03 $S_base3
 		binding_mode       $S_base04 $S_base04 $S_base2
-=======
-		statusline #FFFFFF
-		background #000000
-		separator #444444
-		# Colors:          border   bground  text
-		focused_workspace  $orange2 $orange2 #ffffff
-		active_workspace   $orange0 $orange1 $grey1
-		inactive_workspace $grey-1  $grey-1  $grey0
-		urgent_workspace   $rorange $grey-2  #ffffff
-
-		binding_mode #000000 #000000 $grey1
->>>>>>> master
 	}
 }
 

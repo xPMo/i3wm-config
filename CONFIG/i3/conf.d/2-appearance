@@ -3,9 +3,7 @@
 # Appearance of windows
 # ================================================
 
-<<<<<<< HEAD
 # Color defs - solarized
-set $black          #000000
 set $S_base03       #002b36
 set $S_base02       #073642
 set $S_base01       #586e75
@@ -26,38 +24,15 @@ set $S_lyellow		#cccc00
 set $S_lblue		#2c98e4
 set $S_lcyan		#30b8b0
 set $S_lgreen		#85c000
-set $S_dred         #9c2220
-# extra: more contrast:
+# extra colors
+set $black          #000000
 set $S_base04		#001014
-
+set $S_dred         #9c2220
 
 # Colors:				border     background  text      indicator	child border
 client.focused			$S_red     $S_red      $S_base3  $S_yellow
 client.focused_inactive	$S_red     $S_dred     $S_base3  $S_yellow
 client.unfocused		$S_base02  $S_base03   $S_base3  $S_yellow
-
-=======
-# Colors Defs
-set $orange0 #661100
-set $orange1 #bb3020
-set $orange2 #c43824
-set $orange3 #ee4028
-set $grey-0  #181818
-set $grey-1  #2c2c2c
-set $grey-2  #505050
-set $grey0   #dddddd
-set $grey1   #eeeeee
-set $yorange #ff6600
-set $rorange #e04020
-
-# Colors                border   bground  text     indicator child
-client.focused          $orange1 $orange2 #ffffff  $yorange  
-client.focused_inactive $orange1 $orange0 $grey1   $yorange
-client.unfocused        $grey-0  $grey-1  $grey0   $yorange
-client.urgent           $rorange $grey-2  #ffffff  $yorange
-
-client.background $grey-1
->>>>>>> master
 
 # Chrome modifications
 new_window pixel 1
