@@ -14,7 +14,8 @@ Features include:
 * Special bindings that I use with my Steam Controller
 
 **TODO:**
-* Give up and make do with what I have.
+* Figure out how to get colors from ~/.Xresources.
+* Give up.
 
 By default, bindings for:
 * [playerctl](https://github.com/acrisci/playerctl)
