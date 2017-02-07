@@ -28,7 +28,6 @@
 # ================================================
 
 # Color defs - solarized
-set $black          #000000
 set $S_base03       #002b36
 set $S_base02       #073642
 set $S_base01       #586e75
@@ -49,10 +48,10 @@ set $S_lyellow		#cccc00
 set $S_lblue		#2c98e4
 set $S_lcyan		#30b8b0
 set $S_lgreen		#85c000
-set $S_dred         #9c2220
-# extra: more contrast:
+# extra colors
+set $black          #000000
 set $S_base04		#001014
-
+set $S_dred         #9c2220
 
 # Colors:				border     background  text      indicator	child border
 client.focused			$S_red     $S_red      $S_base3  $S_yellow
