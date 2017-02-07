@@ -15,8 +15,8 @@ bar {
 		# mode             border    bground   text
 		focused_workspace  $S_red    $S_red    $S_base3
 		active_workspace   $S_red    $S_dred   $S_base03
-		inactive_workspace $S_base03 $S_base03 $S_base2
-		urgent_workspace   $S_red    $S_base03 $S_base3
-		binding_mode       $S_base04 $S_base04 $S_base2
+		inactive_workspace $S_base03 $black    $S_base2
+		urgent_workspace   $S_orange $black    $S_base3
+		binding_mode       $S_base03 $black    $S_base2
 	}
 }

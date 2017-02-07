@@ -30,9 +30,10 @@ set $S_base04		#001014
 set $S_dred         #9c2220
 
 # Colors:				border     background  text      indicator	child border
-client.focused			$S_red     $S_red      $S_base3  $S_yellow
-client.focused_inactive	$S_red     $S_dred     $S_base3  $S_yellow
-client.unfocused		$S_base02  $S_base03   $S_base3  $S_yellow
+client.focused			$S_red     $S_red      $S_base3  $S_yellow  $S_red
+client.focused_inactive	$S_red     $S_dred     $S_base3  $S_yellow  $S_dred
+client.unfocused		$S_base02  $S_base04   $S_base3  $S_yellow  $S_base03
+client.urgent           $S_orange  $S_base04   $S_base3  $S_yellow  $S_orange
 
 # Chrome modifications
 new_window pixel 1
