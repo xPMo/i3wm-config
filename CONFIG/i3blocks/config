@@ -49,7 +49,15 @@ command=$HOME/.local/bin/i3blocks-disk
 interval=30
 
 [temp]
+<<<<<<< HEAD
 command=$HOME/.local/bin/i3blocks-temp --chip coretemp-isa-0000
+=======
+command=/usr/share/i3blocks/temperature --chip radeon-pci-0100
+interval=10
+
+[temp]
+command=/usr/share/i3blocks/temperature --chip coretemp-isa-0000
+>>>>>>> master
 interval=10
 
 [wireless]
@@ -57,7 +65,11 @@ label=W
 instance=wlan0
 #instance=wlp3s0
 command=$HOME/.local/bin/i3blocks-network
+<<<<<<< HEAD
 color=#85c000
+=======
+color=#00FF00
+>>>>>>> master
 interval=20
 
 [ethernet]
@@ -65,7 +77,11 @@ label=E
 instance=enp3s0
 #instance=enp0s25
 command=$HOME/.local/bin/i3blocks-network
+<<<<<<< HEAD
 color=#85c000
+=======
+color=#00FF00
+>>>>>>> master
 interval=20
 
 [ethernet]
@@ -73,7 +89,11 @@ label=E
 instance=eth0
 #instance=enp0s25
 command=$HOME/.local/bin/i3blocks-network
+<<<<<<< HEAD
 color=#85c000
+=======
+color=#00FF00
+>>>>>>> master
 interval=20
 
 #[load]
@@ -86,22 +106,33 @@ command=printf "%.0f%%" $(xbacklight -get)
 interval=once
 signal=2
 
+<<<<<<< HEAD
 [battery]
 #label=BAT
 label=⚡
 command=$HOME/.local/bin/i3blocks-battery
 interval=30
+=======
+[playerctl]
+label=♪
+command=$HOME/.local/bin/i3blocks-playerctl
+interval=8
+signal=11
+>>>>>>> master
 
-# custom volume command to switch to headphone volume
+# custom volume command to include to headphone volume
 [volume]
 #label=VOL
-label=♪
-instance=Master
 #instance=PCM
 command=$HOME/.local/bin/i3blocks-volume
 interval=once
 signal=10
 
+[battery]
+#label=BAT
+label=⚡
+command=/usr/share/i3blocks/battery
+interval=30
 
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'

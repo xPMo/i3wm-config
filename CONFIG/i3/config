@@ -55,6 +55,7 @@ set $S_base04		#001014
 
 
 # Colors Defs
+<<<<<<< HEAD
 set $text1 #ffffff
 set $text0 #dddddd
 set $border1 #ee4028
@@ -73,6 +74,27 @@ client.unfocused		$S_base02	$S_base03	$S_base3	$S_yellow
 #client.placeholder		$border0	$back0	$text0	$ind
 #client.background		$border0	$back0	$text0	$ind
 
+=======
+set $orange0 #661100
+set $orange1 #bb3020
+set $orange2 #c43824
+set $orange3 #ee4028
+set $grey-0  #181818
+set $grey-1  #2c2c2c
+set $grey-2  #505050
+set $grey0   #dddddd
+set $grey1   #eeeeee
+set $yorange #ff6600
+set $rorange #e04020
+
+# Colors                border   bground  text     indicator child
+client.focused          $orange1 $orange2 #ffffff  $yorange  
+client.focused_inactive $orange1 $orange0 $grey1   $yorange
+client.unfocused        $grey-0  $grey-1  $grey0   $yorange
+client.urgent           $rorange $grey-2  #ffffff  $yorange
+
+client.background $grey-1
+>>>>>>> master
 
 # Chrome modifications
 new_window pixel 1
@@ -84,7 +106,6 @@ new_float pixel 1
 
 # Xfce4 Appfinder:
 for_window [class="Xfce4-appfinder"] floating enable
-for_window [class="Xfce4-appfinder"] border none
 
 # Thunar file progress
 for_window [title="^File Operation Progress$"] floating enable 
@@ -128,6 +149,8 @@ assign [class="underbird"] 12:<big>📧</big>
 # 13:<small>WWW</small>
 assign [class="irefox"] 13:<small>WWW</small>
 
+# no-focus notification
+no_focus [window_type="notification"]
 
 # ====================================================
 # Things to run on startup
@@ -153,6 +176,7 @@ bar {
 	strip_workspace_numbers yes
 	status_command i3blocks
 	colors {
+<<<<<<< HEAD
 		statusline         $S_base3
 		background         $black
 		separator          $S_base00
@@ -162,6 +186,18 @@ bar {
 		inactive_workspace $S_base03 $S_base03 $S_base2
 		urgent_workspace   $S_red    $S_base03 $S_base3
 		binding_mode       $S_base04 $S_base04 $S_base2
+=======
+		statusline #FFFFFF
+		background #000000
+		separator #444444
+		# Colors:          border   bground  text
+		focused_workspace  $orange2 $orange2 #ffffff
+		active_workspace   $orange0 $orange1 $grey1
+		inactive_workspace $grey-1  $grey-1  $grey0
+		urgent_workspace   $rorange $grey-2  #ffffff
+
+		binding_mode #000000 #000000 $grey1
+>>>>>>> master
 	}
 }
 
@@ -197,11 +233,11 @@ bindsym XF86HomePage exec --no-startup-id ~/.local/bin/i3focuslaunch firefox
 # (launch another if currently focused, and allow launching anywhere if necessary)
 bindsym $mod+Return exec --no-startup-id ~/.local/bin/i3switchlaunch urxvt "URxvt" "11:~$"
 
-bindsym $mod+x mode "Focus/Launch"
+bindsym $mod+x mode "focus/launch"
 bindsym $mod+Shift+x exec rofi -show run
 
-# Focus/Launch mode
-mode "Focus/Launch" {
+# focus/launch mode
+mode "focus/launch" {
 	bindsym Escape mode "default"
 	
 	# Launch (exception for arandr), mode default
@@ -216,7 +252,7 @@ mode "Focus/Launch" {
 	bindsym Shift+i exec --no-startup-id echo, mode "default"
 	bindsym Shift+j exec --no-startup-id echo, mode "default"
 	bindsym Shift+k exec --no-startup-id echo, mode "default"
-	bindsym Shift+l exec --no-startup-id echo, mode "default"
+	bindsym Shift+l exec --no-startup-id libreoffice, mode "default"
 	bindsym Shift+m exec --no-startup-id thunderbird, mode "default"
 	bindsym Shift+n exec --no-startup-id echo, mode "default"
 	bindsym Shift+o exec --no-startup-id libreoffice, mode "default"
@@ -245,7 +281,7 @@ mode "Focus/Launch" {
 	bindsym i exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
 	bindsym j exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
 	bindsym k exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
-	bindsym l exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
+	bindsym l exec --no-startup-id ~/.local/bin/i3focuslaunch libreoffice, mode "default"
 	bindsym m exec --no-startup-id ~/.local/bin/i3focuslaunch thunderbird, mode "default"
 	bindsym n exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
 	bindsym o exec --no-startup-id ~/.local/bin/i3focuslaunch libreoffice, mode "default"
@@ -268,21 +304,21 @@ mode "Focus/Launch" {
 # =======================================================
 
 # Skip Forward/backwards
-bindsym XF86AudioPrev exec playerctl previous
-bindsym $mod+Prior exec --no-startup-id playerctl previous
-bindsym $mod+KP_Prior exec --no-startup-id playerctl previous
-bindsym $mod+button8 --whole-window exec --no-startup-id playerctl previous
+bindsym XF86AudioPrev exec playerctl previous && pkill -RTMIN+11 i3blocks
+bindsym $mod+Prior exec --no-startup-id playerctl previous && pkill -RTMIN+11 i3blocks
+bindsym $mod+KP_Prior exec --no-startup-id playerctl previous && pkill -RTMIN+11 i3blocks
+bindsym $mod+button8 --whole-window exec --no-startup-id playerctl previous && pkill -RTMIN+11 i3blocks
 
-bindsym XF86AudioNext exec playerctl next
-bindsym $mod+Next exec --no-startup-id playerctl next
-bindsym $mod+KP_Next exec --no-startup-id playerctl next
-bindsym $mod+button9 --whole-window exec --no-startup-id playerctl next
+bindsym XF86AudioNext exec playerctl next && pkill -RTMIN+11 i3blocks
+bindsym $mod+Next exec --no-startup-id playerctl next && pkill -RTMIN+11 i3blocks
+bindsym $mod+KP_Next exec --no-startup-id playerctl next && pkill -RTMIN+11 i3blocks
+bindsym $mod+button9 --whole-window exec --no-startup-id playerctl next && pkill -RTMIN+11 i3blocks
 
 # Play/Pause
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym $mod+End exec --no-startup-id playerctl play-pause
-bindsym $mod+KP_End exec --no-startup-id playerctl play-pause
-bindsym $mod+button2 --whole-window exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPlay exec playerctl play-pause && pkill -RTMIN+11 i3blocks
+bindsym $mod+End exec --no-startup-id playerctl play-pause && pkill -RTMIN+11 i3blocks
+bindsym $mod+KP_End exec --no-startup-id playerctl play-pause && pkill -RTMIN+11 i3blocks
+bindsym $mod+button2 --whole-window exec --no-startup-id playerctl play-pause && pkill -RTMIN+11 i3blocks
 
 # Seek using $mod+Shift+mousewheel 2 seconds at a time
 bindsym $mod+Shift+button5 --whole-window exec --no-startup-id playerctl position 2-
