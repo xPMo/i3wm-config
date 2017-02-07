@@ -49,6 +49,10 @@ command=$HOME/.local/bin/i3blocks-disk
 interval=30
 
 [temp]
+command=/usr/share/i3blocks/temperature --chip radeon-pci-0100
+interval=10
+
+[temp]
 command=/usr/share/i3blocks/temperature --chip coretemp-isa-0000
 interval=10
 
