@@ -21,23 +21,23 @@
 # urgent
 
 # Global properties
-separator_block_width=8
+separator_block_width=12
 
 [cpu]
-label=CPU
-command=$HOME/local/bin/i3blocks-cpu
+label=
+command=$HOME/.local/bin/i3blocks-cpu
 interval=5
 #min_width=CPU: 100.00%
 #separator=false
 
 [memory]
-label=MEM
+label=
 command=/usr/share/i3blocks/memory
 separator=false
 interval=15
 
 [swap]
-label=SWAP
+label=
 instance=swap
 command=/usr/share/i3blocks/memory
 interval=15
@@ -57,7 +57,7 @@ command=$HOME/.local/bin/i3blocks-temp --chip coretemp-isa-0000 --index 2
 interval=10
 
 [wireless]
-label=W
+label=
 instance=wlan0
 #instance=wlp3s0
 command=$HOME/.local/bin/i3blocks-network
@@ -67,7 +67,6 @@ interval=20
 [ethernet]
 label=E
 instance=enp3s0
-#instance=enp0s25
 command=$HOME/.local/bin/i3blocks-network
 color=#85c000
 interval=20
@@ -75,14 +74,9 @@ interval=20
 [ethernet]
 label=E
 instance=eth0
-#instance=enp0s25
 command=$HOME/.local/bin/i3blocks-network
 color=#85c000
 interval=20
-
-#[load]
-#command=/usr/share/i3blocks/load_average
-#interval=10
 
 [brightness]
 label=☀
@@ -96,17 +90,13 @@ command=$HOME/.local/bin/i3blocks-playerctl
 interval=8
 signal=11
 
-# custom volume command to include to headphone volume
 [volume]
-#label=VOL
-#instance=PCM
 command=$HOME/.local/bin/i3blocks-volume
 interval=once
 signal=10
 
 [battery]
-#label=BAT
-label=⚡
+label=
 command=/usr/share/i3blocks/battery
 interval=30
 
