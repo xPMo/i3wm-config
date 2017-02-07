@@ -18,13 +18,12 @@ INTERFACE="${BLOCK_INSTANCE:-eth0}"
 
 state="$(cat /sys/class/net/$INTERFACE/operstate)"
 
-# if the interface does not exists, don't print
-[ -z "$state" ] && return 1 
+[  -z "$state" ] && return 1
 
 if [ "$state" != "up" ]; then
 	echo "down"
 	echo "down"
-	echo "#FF0000"
+	echo "#dc322f"
 	exit 0
 fi
 

@@ -27,26 +27,37 @@
 # Appearance of windows
 # ================================================
 
-# Colors Defs
-set $orange0 #661100
-set $orange1 #bb3020
-set $orange2 #c43824
-set $orange3 #ee4028
-set $grey-0  #181818
-set $grey-1  #2c2c2c
-set $grey-2  #505050
-set $grey0   #dddddd
-set $grey1   #eeeeee
-set $yorange #ff6600
-set $rorange #e04020
+# Color defs - solarized
+set $black          #000000
+set $S_base03       #002b36
+set $S_base02       #073642
+set $S_base01       #586e75
+set $S_base00       #657b83
+set $S_base0        #839496
+set $S_base1        #93a1a1
+set $S_base2        #eee8d5
+set $S_base3        #fdf6e3
+set $S_yellow       #b58900
+set $S_orange       #cb4b16
+set $S_red          #dc322f
+set $S_magenta      #d33682
+set $S_violet       #6c71c4
+set $S_blue         #268bd2
+set $S_cyan         #2aa198
+set $S_green        #859900
+set $S_lyellow		#cccc00
+set $S_lblue		#2c98e4
+set $S_lcyan		#30b8b0
+set $S_lgreen		#85c000
+set $S_dred         #9c2220
+# extra: more contrast:
+set $S_base04		#001014
 
-# Colors                border   bground  text     indicator child
-client.focused          $orange1 $orange2 #ffffff  $yorange  
-client.focused_inactive $orange1 $orange0 $grey1   $yorange
-client.unfocused        $grey-0  $grey-1  $grey0   $yorange
-client.urgent           $rorange $grey-2  #ffffff  $yorange
 
-client.background $grey-1
+# Colors:				border     background  text      indicator	child border
+client.focused			$S_red     $S_red      $S_base3  $S_yellow
+client.focused_inactive	$S_red     $S_dred     $S_base3  $S_yellow
+client.unfocused		$S_base02  $S_base03   $S_base3  $S_yellow
 
 # Chrome modifications
 new_window pixel 1
@@ -128,16 +139,15 @@ bar {
 	strip_workspace_numbers yes
 	status_command i3blocks
 	colors {
-		statusline #FFFFFF
-		background #000000
-		separator #444444
-		# Colors:          border   bground  text
-		focused_workspace  $orange2 $orange2 #ffffff
-		active_workspace   $orange0 $orange1 $grey1
-		inactive_workspace $grey-1  $grey-1  $grey0
-		urgent_workspace   $rorange $grey-2  #ffffff
-
-		binding_mode #000000 #000000 $grey1
+		statusline         $S_base3
+		background         $black
+		separator          $S_base00
+		# mode             border    bground   text
+		focused_workspace  $S_red    $S_red    $S_base3
+		active_workspace   $S_red    $S_dred   $S_base03
+		inactive_workspace $S_base03 $S_base03 $S_base2
+		urgent_workspace   $S_red    $S_base03 $S_base3
+		binding_mode       $S_base04 $S_base04 $S_base2
 	}
 }
 
