@@ -49,11 +49,11 @@ command=$HOME/.local/bin/i3blocks-disk
 interval=30
 
 [temp]
-command=$HOME/.local/bin/i3blocks-temp --chip coretemp-isa-0000
+command=$HOME/.local/bin/i3blocks-temp --chip radeon-pci-0100
 interval=10
 
 [temp]
-command=$HOME/.local/bin/i3blocks-temp --chip coretemp-isa-0000
+command=$HOME/.local/bin/i3blocks-temp --chip coretemp-isa-0000 --index 2
 interval=10
 
 [wireless]

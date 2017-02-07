@@ -29,6 +29,7 @@ my $t_warn = 70;
 my $t_crit = 90;
 my $chip = "";
 my $temperature = -9999;
+my $index = 1;
 
 sub help {
     print "Usage: temperature [-w <warning>] [-c <critical>] [--chip <chip>]\n";
@@ -38,16 +39,17 @@ sub help {
     exit 0;
 }
 
-GetOptions("help|h" => \&help,
-           "w=i"    => \$t_warn,
-           "c=i"    => \$t_crit,
-           "chip=s" => \$chip);
+GetOptions("help|h"  => \&help,
+           "w=i"     => \$t_warn,
+           "c=i"     => \$t_crit,
+           "chip=s"  => \$chip,
+		   "index=s" => \$index);
 
 # Get chip temperature
 open (SENSORS, "sensors -u $chip |") or die;
 while (<SENSORS>) {
-    if (/^\s+temp1_input:\s+[\+]*([\-]*\d+\.\d)/) {
-        $temperature = $1;
+    if (/^\s+temp($index)_input:\s+[\+]*([\-]*\d+\.\d)/) {
+        $temperature = $2;
         last;
     }
 }
