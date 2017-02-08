@@ -8,10 +8,10 @@
 # ================================================
 
 # Color defs - solarized
-set $S_base03       #002b36
-set $S_base02       #073642
-set $S_base01       #586e75
-set $S_base00       #657b83
+set $S_base-3       #002b36
+set $S_base-2       #073642
+set $S_base-1       #586e75
+set $S_base-0       #657b83
 set $S_base0        #839496
 set $S_base1        #93a1a1
 set $S_base2        #eee8d5
@@ -30,14 +30,14 @@ set $S_lcyan		#30b8b0
 set $S_lgreen		#85c000
 # extra colors
 set $black          #000000
-set $S_base04		#001014
+set $S_base-4		#001014
 set $S_dred         #9c2220
 
 # Colors:				border     background  text      indicator	child border
 client.focused			$S_red     $S_red      $S_base3  $S_yellow  $S_red
 client.focused_inactive	$S_red     $S_dred     $S_base3  $S_yellow  $S_dred
-client.unfocused		$S_base02  $S_base04   $S_base3  $S_yellow  $S_base03
-client.urgent           $S_orange  $S_base04   $S_base3  $S_yellow  $S_orange
+client.unfocused		$S_base-2  $S_base-4   $S_base3  $S_yellow  $S_base-3
+client.urgent           $S_orange  $S_base-4   $S_base3  $S_yellow  $S_orange
 
 # Chrome modifications
 new_window pixel 1
@@ -121,13 +121,13 @@ bar {
 	colors {
 		statusline         $S_base3
 		background         $black
-		separator          $S_base00
+		separator          $S_base-0
 		# mode             border    bground   text
 		focused_workspace  $S_red    $S_red    $S_base3
-		active_workspace   $S_red    $S_dred   $S_base03
-		inactive_workspace $S_base03 $black    $S_base2
+		active_workspace   $S_red    $S_dred   $S_base-3
+		inactive_workspace $S_base-3 $black    $S_base2
 		urgent_workspace   $S_orange $black    $S_base3
-		binding_mode       $S_base03 $black    $S_base2
+		binding_mode       $S_base-3 $black    $S_base2
 	}
 }
 
