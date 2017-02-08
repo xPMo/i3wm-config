@@ -4,7 +4,7 @@ more about Github workflow.)  Run `sh init.sh` to add symlinks in `~/.config/` a
 
 Features include:
 * true vim-style `hjkl` movement instead of the `jkl;` movement that is default
-* No titlebars unless floating
+* No titlebars
 * `$mod+x` for a focus/launch mode, using accompanying scripts
 * `scrotlock` script which pixelizes and 50% desaturates
 * `$mod+Return` focuses the terminal workspace and launches one if not already launched; if workspace was already focused, launches new terminal. `$mod+Shift+t` for new terminal anywhere
