@@ -17,10 +17,6 @@ bindsym Shift+XF86MonBrightnessDown exec --no-startup-id xbacklight -set 0 -step
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id xbacklight -set 100 && pkill -RTMIN+2 i3blocks
 bindsym XF86BrightnessAdjust exec i3-input -F 'exec --no-startup-id xbacklight -set %s' -P 'Set backlight to:'
 
-# reload the configuration file
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-
 # ----------------
 # LOGIN AND POWER:
 # ----------------

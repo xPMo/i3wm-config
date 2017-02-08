@@ -10,6 +10,10 @@ bindsym $mod+Tab --release workspace back_and_forth
 bindsym $mod+bracketleft workspace prev
 bindsym $mod+bracketright workspace next
 
+# Scratchpad workspace
+bindsym $mod+Shift+c move scratchpad
+bindsym $mod+c scratchpad show
+
 # Numbered on main panel, lettered on secondary
 workspace 0:0 output $monitor
 workspace 1:1 output $monitor
