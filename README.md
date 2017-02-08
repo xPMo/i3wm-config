@@ -15,6 +15,9 @@ Features include:
 * Playerctl i3block which can `notify-send` track info with album art! (I'm kinda proud of this one right now.)
 
 **TODO:**
+* Customize click events for i3blocks
+* Keyboard shortcuts to match the functionality of those click events.
+> * (e.g.: bind `$mod+Ctrl+p` to  `notify-send` `playerctl` info)
 * Figure out how to get colors from ~/.Xresources.
 * Give up.
 
