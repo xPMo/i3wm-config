@@ -305,6 +305,9 @@ $HOME/.local/bin/i3volumectl
 bindsym Shift+XF86AudioMute exec --no-startup-id i3-input \
 -F 'exec --no-startup-id $HOME/.local/bin/i3volumectl %s' -P 'Set volume:'
 
+# notification with player info
+bindsym Control+$mod+p exec --no-startup-id \
+notify-send "$(playerctl metadata title)" "by $(playerctl metadata artist)\non $(playerctl metadata album)" -i $(playerctl metadata mpris:artUrl)
 
 # ==========================================================
 # Various system control settings
