@@ -342,31 +342,29 @@ bindsym Shift+XF86MonBrightnessUp exec --no-startup-id xbacklight -set 100 && pk
 bindsym XF86BrightnessAdjust exec i3-input -F 'exec --no-startup-id xbacklight -set %s' -P 'Set backlight to:'
 
 # reload the configuration file
-bindsym $mod+Shift+c exec --no-startup-id cat ~/.config/i3/conf.d/*  > ~/.config/i3/config; reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
 
 # ----------------
 # LOGIN AND POWER:
 # ----------------
 
-# F1: lock/leave session
-bindsym $mod+F1 exec --no-startup-id sh -c ~/.local/bin/scrotlock
-bindsym $mod+Shift+F1 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# F1: Reload or restart i3 inplace
+bindsym $mod+F1 exec --no-startup-id cat ~/.config/i3/conf.d/*  > ~/.config/i3/config; reload
+bindsym $mod+Shift+F1 exec --no-startup-id cat ~/.config/i3/conf.d/*  > ~/.config/i3/config; restart
 
-# F2: suspend/hybrid-sleep
-bindsym $mod+F2 exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl suspend
+# F2: lock/leave session
+bindsym $mod+F2 exec --no-startup-id sh -c ~/.local/bin/scrotlock
+bindsym $mod+Shift+F2 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# F3: suspend/hybrid-sleep
+bindsym $mod+F3 exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl suspend
 bindsym XF86Sleep exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl suspend
-bindsym $mod+Shift+F2 exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl hybrid-sleep
+bindsym $mod+Shift+F3 exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl hybrid-sleep
 bindsym Shift+XF86Sleep exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl hybrid-sleep
 
-# F3: Hibernate
-bindsym $mod+F3 exec "i3-nagbar -t warning -m 'You pressed the hibernate shortcut. Do you really want to hibernate the computer?' -b 'Yes, shut down' 'systemctl hibernate'"
-
-# F4: Poweroff/Reboot
-bindsym $mod+F4 exec "i3-nagbar -t warning -m 'You pressed the poweroff shortcut. Do you really want to power down the computer?' -b 'Yes, shut down' 'systemctl poweroff'"
-bindsym $mod+Shift+F4 exec "i3-nagbar -t warning -m 'You pressed the reboot shortcut. Do you really want to reboot the computer?' -b 'Yes, shut down' 'systemctl reboot'"
+# Poweroff
+bindsym $mod+F4 exec "i3-nagbar -t warning -m 'Power down your computer?' -b 'Hibernate' 'systemctl hibernate' -b 'Poweroff' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot'"
 
 # xkill
 bindsym --release $mod+Shift+Escape exec xkill
