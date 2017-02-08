@@ -29,12 +29,20 @@ fi
 
 speed="$(cat /sys/class/net/$INTERFACE/speed 2> /dev/null)"
 
+id=$(nmcli -t -f name,device c show --active | grep $INTERFACE | cut -d ':' -f 1)
 ipaddr="$(ip addr show $INTERFACE | perl -n -e'/inet (.+)\// && print $1')"
 ipaddr="${ipaddr:-0.0.0.0}"
 
 # full text
-echo -n "$ipaddr"
+echo -n "$id $ipaddr"
 [ -n "$speed" ] && echo " ($speed Mbits/s)" || echo
 
 # short text
 echo "$ipaddr"
+
+case $BLOCK_BUTTON in
+	# click for more information in a notification
+	1) notify-send $INTERFACE "$(nmcli c | grep $INTERFACE | sed 's/\ \ /\n/g')" ;;
+	# right click for connection editor
+	3) nm-connection-editor ;;
+esac
