@@ -12,7 +12,7 @@ Features include:
 * Certain programs will launch on certain workspaces
 * Volume displayed in hexadecimal because why not
 * Special bindings that I use with my Steam Controller
-* Playerctl i3block which can `notify-send` track info with album art! (I'm kinda proud of this one right now.)
+* Playerctl i3block which can `notify-send` track info with album art
 
 **TODO:**
 * Customize click events for i3blocks
