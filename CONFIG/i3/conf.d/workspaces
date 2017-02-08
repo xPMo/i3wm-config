@@ -58,7 +58,7 @@ bindsym $mod+Shift+8 move container to workspace 8:8
 bindsym $mod+Shift+9 move container to workspace 9:9
 bindsym $mod+Shift+0 move container to workspace 10:X
 
-bindsym $mod+Shift+XF86HomePage move container to workspace 13:<small>WWW</small>
+bindsym $mod+Shift+XF86HomePage move container to workspace $ws_web
 bindsym $mod2+Shift+XF86HomePage move container to workspace 33:<small>WW2</small>
 
 bindsym $mod+Shift+Return move container to workspace "11:~$"

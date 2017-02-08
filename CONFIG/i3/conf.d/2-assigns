@@ -10,6 +10,7 @@ set $mod2 Mod1
 font pango:DejaVu Sans Mono 7.5
 # font pango:Noto Sans 6.5
 
+set $ws_web 13:<small>WWW</small>
 
 # Force windows to workspaces
 # <big>♫</big>
@@ -31,8 +32,10 @@ assign [class="Owlboy"] <big>♞</big>
 assign [class="cedove"] 12:<big>📧</big>
 assign [class="underbird"] 12:<big>📧</big>
 
-# 13:<small>WWW</small>
-assign [class="irefox"] 13:<small>WWW</small>
+# $ws_web
+assign [class="irefox"] $ws_web
+for_window [class="[^((?i)firefox)]" workspace="$ws_web" ] floating enable
+
 
 # no-focus notification
 no_focus [window_type="notification"]
