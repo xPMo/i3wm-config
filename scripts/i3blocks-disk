@@ -39,3 +39,7 @@ END {
 	}
 }
 '
+case $BLOCK_BUTTON in
+	#click, open file-manager on root
+	1) thunar '/' ;;
+esac
