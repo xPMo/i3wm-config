@@ -12,6 +12,7 @@ Features include:
 * Certain programs will launch on certain workspaces
 * Volume displayed in hexadecimal because why not
 * Special bindings that I use with my Steam Controller
+* Playerctl i3block which can `notify-send` track info with album art! (I'm kinda proud of this one right now.)
 
 **TODO:**
 * Figure out how to get colors from ~/.Xresources.
