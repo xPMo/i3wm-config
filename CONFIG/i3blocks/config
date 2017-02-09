@@ -57,10 +57,6 @@ interval=10
 command=$HOME/.local/bin/i3blocks-temp --chip $BLOCK_NAME --index 2 --button $BLOCK_BUTTON
 interval=10
 
-[test]
-command=echo $BLOCK_NAME $BLOCK_BUTTON
-interval=once
-
 [wireless]
 label=
 instance=wlan0
