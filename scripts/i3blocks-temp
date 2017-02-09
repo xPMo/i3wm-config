@@ -68,7 +68,7 @@ if ($temperature >= $t_crit) {
     print "#cccc00\n";
 }
 if($ENV{'BLOCK_BUTTON'}){
-	`notify-send "Temperature" "$(sensors | grep -v +0 | egrep -o '\+.+°C.')"`;
+	`notify-send Temperature "\$(sensors | grep -v +0 | egrep -o '\+.+°C.')"`;
 }
 
 exit 0;
