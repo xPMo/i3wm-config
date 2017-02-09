@@ -30,7 +30,7 @@ my $t_crit = 90;
 my $chip = "";
 my $temperature = -9999;
 my $index = 1;
-
+my $button = 0;
 sub help {
     print "Usage: temperature [-w <warning>] [-c <critical>] [--chip <chip>]\n";
     print "-w <percent>: warning threshold to become yellow\n";
@@ -43,7 +43,8 @@ GetOptions("help|h"  => \&help,
            "w=i"     => \$t_warn,
            "c=i"     => \$t_crit,
            "chip=s"  => \$chip,
-		   "index=s" => \$index);
+		   "index=s" => \$index,
+		   "button=i"=> \$button);
 
 # Get chip temperature
 open (SENSORS, "sensors -u $chip |") or die;
@@ -67,7 +68,7 @@ if ($temperature >= $t_crit) {
 } elsif ($temperature >= $t_warn) {
     print "#cccc00\n";
 }
-if($ENV{'BLOCK_BUTTON'}){
+if($button == 3){
 	`notify-send Temperature "\$(sensors | grep -v +0 | egrep -o '\+.+°C.')"`;
 }
 

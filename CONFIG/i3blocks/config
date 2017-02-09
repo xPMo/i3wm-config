@@ -48,13 +48,18 @@ instance=/
 command=$HOME/.local/bin/i3blocks-disk
 interval=30
 
-[temp]
-command=$HOME/.local/bin/i3blocks-temp --chip radeon-pci-0100
+[radeon-pci-0100]
+command=$HOME/.local/bin/i3blocks-temp --chip $BLOCK_NAME --button $BLOCK_BUTTON
 interval=10
 
-[temp]
-command=$HOME/.local/bin/i3blocks-temp --chip coretemp-isa-0000 --index 2
+[coretemp-isa-0000]
+# Not sure if i3blocks is setting environment incorrectly or if perl isn't reading it
+command=$HOME/.local/bin/i3blocks-temp --chip $BLOCK_NAME --index 2 --button $BLOCK_BUTTON
 interval=10
+
+[test]
+command=echo $BLOCK_NAME $BLOCK_BUTTON
+interval=once
 
 [wireless]
 label=
@@ -65,7 +70,7 @@ color=#85c000
 interval=20
 
 [wireless]
-label=W
+label=
 #instance=wlan0
 instance=wlp4s6
 command=$HOME/.local/bin/i3blocks-network
