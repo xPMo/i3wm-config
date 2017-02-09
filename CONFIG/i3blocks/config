@@ -105,8 +105,7 @@ interval=once
 signal=10
 
 [battery]
-label=
-command=/usr/share/i3blocks/battery
+command=$HOME/.local/bin/i3blocks-battery
 interval=30
 
 [time]

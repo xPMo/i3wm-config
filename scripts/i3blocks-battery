@@ -19,8 +19,8 @@ use utf8;
 my $acpi;
 my $status;
 my $percent;
-my $full_text;
-my $short_text;
+my $text;
+my $time;
 
 # read the first line of the "acpi" command output
 open (ACPI, 'acpi -b |') or die "Can't exec acpi: $!\n";
@@ -31,43 +31,44 @@ close(ACPI);
 if ($acpi !~ /: (\w+), (\d+)%/) {
 	die "$acpi\n";
 }
-
+$time = '';
 $status = $1;
 $percent = $2;
-$full_text = "$percent%";
+$text = "$percent%";
 
-if ($status eq 'Discharging') {
-	$full_text .= ' DIS';
-} elsif ($status eq 'Charging') {
-	$full_text .= ' CHR';
-}
-
-$short_text = $full_text;
-
+# Get time remaining
 if ($acpi =~ /(\d\d:\d\d):/) {
-	$full_text .= " ($1)";
+	$time .= " ($1)";
 }
 
-# print text
-print "$full_text\n";
-print "$short_text\n";
-
+# Get full text
+if ($status eq 'Charging') {
+	$text .= " $time\n$text\n";
+}
+else{
 # consider color and urgent flag only on discharge
-if ($status eq 'Discharging') {
 	# using Solarized colors
 	if ($percent < 20) {
-		print "#dc322f\n";
-	} elsif ($percent < 40) {
-		print "#cb4b16\n";
-	} elsif ($percent < 60) {
-		print "#b58900\n";
-	} elsif ($percent < 85) {
-		print "#85c000\n";
+		$text .= "$time\n$text\n#dc322f\n";
 	}
+	elsif ($percent < 40) {
+		$text .= "$time\n$text\n#cb4b16\n";
+	}
+	elsif ($percent < 60) {
+		$text .= "$time\n$text\n#b58900\n";
+	}
+	elsif ($percent < 85) {
+		$text .= "$time\n$text\n#85c000\n";
+	}
+	else{
+		$text .= "$time\n$text";
+	}
+}
 
-	if ($percent < 5) {
-		exit(33);
-	}
+# Print text
+print "$text";
+if ($percent < 5 and $status eq 'Discharging') {
+	exit(33);
 }
 
 exit(0);

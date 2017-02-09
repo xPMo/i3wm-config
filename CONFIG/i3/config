@@ -123,6 +123,7 @@ exec xfsettingsd
 
 bar {
 	id bar1
+	font pango:DejaVu Sans Mono,FontAwesome 7.5
 	tray_padding 3
 	strip_workspace_numbers yes
 	status_command i3blocks
