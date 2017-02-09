@@ -91,8 +91,9 @@ assign [class="cedove"] 12:<big>📧</big>
 assign [class="underbird"] 12:<big>📧</big>
 
 # $ws_web
+for_window [ workspace="$ws_web" ] floating enable
 assign [class="irefox"] $ws_web
-for_window [class="[^((?i)firefox)]" workspace="$ws_web" ] floating enable
+for_window [class="irefox"] floating disable
 
 
 # no-focus notification

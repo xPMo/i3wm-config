@@ -10,31 +10,36 @@ set $mod2 Mod1
 font pango:DejaVu Sans Mono 7.5
 # font pango:Noto Sans 6.5
 
+# Workspace defs
 set $ws_web 13:<small>WWW</small>
+set $ws_media 15:<big>♫</big>
+set $ws_game 16:<big>♞</big>
+set $ws_mail 12:<big>📧</big>
 
 # Force windows to workspaces
-# <big>♫</big>
-for_window [class="Spotify"] move to workspace <big>♫</big>
-assign [class="banshee"] <big>♫</big>
-assign [class="ementine"] <big>♫</big>
-assign [class="Pithos"] <big>♫</big>
-assign [class="Pavucontrol"] <big>♫</big>
-assign [class="usic"] <big>♫</big>
+# $ws_media
+for_window [class="Spotify"] move to workspace $ws_media
+assign [class="banshee"] $ws_media
+assign [class="ementine"] $ws_media
+assign [class="Pithos"] $ws_media
+assign [class="Pavucontrol"] $ws_media
+assign [class="usic"] $ws_media
 
-# <big>♞</big>
-assign [class="Steam"] <big>♞</big>
-assign [title="Steam"] <big>♞</big>
-assign [class="discord"] <big>♞</big>
-assign [class="owerFall"] <big>♞</big>
-assign [class="Owlboy"] <big>♞</big>
+# $ws_games
+assign [class="Steam"] $ws_games
+assign [title="Steam"] $ws_games
+assign [class="discord"] $ws_games
+assign [class="owerFall"] $ws_games
+assign [class="Owlboy"] $ws_games
 
-# 12:<big>📧</big>
-assign [class="cedove"] 12:<big>📧</big>
-assign [class="underbird"] 12:<big>📧</big>
+# $ws_mail
+assign [class="cedove"] $ws_mail
+assign [class="underbird"] $ws_mail
 
 # $ws_web
+for_window [ workspace="$ws_web" ] floating enable
 assign [class="irefox"] $ws_web
-for_window [class="[^((?i)firefox)]" workspace="$ws_web" ] floating enable
+for_window [class="irefox"] floating disable
 
 
 # no-focus notification

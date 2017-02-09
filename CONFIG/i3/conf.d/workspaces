@@ -29,7 +29,7 @@ workspace 10:X output $monitor2
 
 # Specialty workspaces
 workspace "11:~$" output $monitor
-workspace "<big>♫</big>" output $monitor2
+workspace "$ws_media" output $monitor2
 
 # switch to workspace
 bindsym $mod+1 workspace 1:1
@@ -43,8 +43,8 @@ bindsym $mod+8 workspace 8:8
 bindsym $mod+9 workspace 9:9
 bindsym $mod+0 workspace 10:X
 
-bindsym $mod+p workspace "<big>♫</big>"
-bindsym $mod+comma workspace <big>♞</big>
+bindsym $mod+p workspace "$ws_media"
+bindsym $mod+comma workspace $ws_games
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1:1
@@ -64,8 +64,8 @@ bindsym $mod2+Shift+XF86HomePage move container to workspace 33:<small>WW2</smal
 bindsym $mod+Shift+Return move container to workspace "11:~$"
 bindsym $mod2+Shift+Return move container to workspace "12:~#"
 
-bindsym $mod+Shift+p move container to workspace <big>♫</big>
-bindsym $mod+Shift+comma move container to workspace <big>♞</big>
+bindsym $mod+Shift+p move container to workspace $ws_media
+bindsym $mod+Shift+comma move container to workspace $ws_games
 
 
 # bindsym $mod+$mod2+grave workspace TEST
