@@ -21,7 +21,7 @@
 # urgent
 
 # Global properties
-separator_block_width=12
+separator_block_width=9
 
 [cpu]
 label=
