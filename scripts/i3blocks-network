@@ -42,7 +42,7 @@ echo "$ipaddr"
 
 case $BLOCK_BUTTON in
 	# click for more information in a notification
-	1) notify-send $INTERFACE "$(nmcli c | grep $INTERFACE | sed 's/\ \ /\n/g')" ;;
+	3) notify-send $INTERFACE "$(nmcli c | grep $INTERFACE | sed 's/\ \ /\n/g')" ;;
 	# right click for connection editor
-	3) nm-connection-editor ;;
+	1) nm-connection-editor ;;
 esac
