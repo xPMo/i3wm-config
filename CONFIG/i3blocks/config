@@ -37,7 +37,7 @@ separator=false
 interval=15
 
 [swap]
-label=
+label=
 instance=swap
 command=/usr/share/i3blocks/memory
 interval=15

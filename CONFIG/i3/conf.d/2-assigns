@@ -14,8 +14,8 @@ font pango:DejaVu Sans Mono,FontAwesome 7.5
 # Workspace defs
 # set $ws_web 13:<small>WWW</small>
 set $ws_web 13:<big></big>
-set $ws_media 15:<big>♫</big>
-set $ws_game 16:<big>♞</big>
+set $ws_media 15:<big></big>
+set $ws_games 16:<big></big>
 set $ws_mail 12:<big>📧</big>
 
 # Force windows to workspaces
