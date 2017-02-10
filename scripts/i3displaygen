@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 disp=  Fkey=""  mod=  range=  echo=
 
 while getopts d:Fr:em opt; do
