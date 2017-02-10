@@ -4,7 +4,7 @@
 # ==========================================================
 
 # Toggle trackpad
-bindsym $mod+Shift+Menu exec --no-startup-id sh ~/.local/bin/toggleTrackpad.sh
+bindsym $mod+Shift+Menu exec --no-startup-id sh ~/.local/bin/toggletrackpad
 
 # Toggle i3bar
 bindsym $mod+Menu bar mode toggle bar1
