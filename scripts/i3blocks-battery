@@ -48,17 +48,17 @@ if ($status eq 'Charging') {
 else{
 # consider color and urgent flag only on discharge
 	# using Solarized colors
-	if ($percent < 20) {
-		$text .= "$time\n$text\n#dc322f\n";
+	if ($percent < 15) {
+		$text .= "$time\n$text\n#dc322f\n";
 	}
 	elsif ($percent < 40) {
-		$text .= "$time\n$text\n#cb4b16\n";
+		$text .= "$time\n$text\n#cb4b16\n";
 	}
 	elsif ($percent < 60) {
-		$text .= "$time\n$text\n#b58900\n";
+		$text .= "$time\n$text\n#b58900\n";
 	}
 	elsif ($percent < 85) {
-		$text .= "$time\n$text\n#85c000\n";
+		$text .= "$time\n$text\n#85c000\n";
 	}
 	else{
 		$text .= "$time\n$text";

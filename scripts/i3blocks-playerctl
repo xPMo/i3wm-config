@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+case $BLOCK_BUTTON in
+	#click, play/pause
+	1) playerctl play-pause ;;
+	# right click, get full info on song and album art
+	3) notify-send "$title" "by $artist\non $(playerctl metadata album)" -i $(playerctl metadata mpris:artUrl);;
+esac
+
 player_status=$(playerctl status)
 title=''
 if [ -z $player_status ]; then exit 1; fi
@@ -21,10 +28,4 @@ else
 	[ ${#artist} -gt 8 ] && echo "${artist:0:7}‥" || echo "$artist"
 	[ $player_status = "Paused" ] && echo -n "#cccc00"
 fi
-
-case $BLOCK_BUTTON in
-	#click, play/pause
-	1) playerctl play-pause ;;
-	# right click, get full info on song and album art
-	3) notify-send "$title" "by $artist\non $(playerctl metadata album)" -i $(playerctl metadata mpris:artUrl)
-esac
+exit 0
