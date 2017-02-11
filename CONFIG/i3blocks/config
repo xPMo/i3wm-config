@@ -33,17 +33,21 @@ interval=5
 [memory]
 label=
 command=/usr/share/i3blocks/memory
-separator=false
-interval=15
+interval=20
+#separator=false
+#separator_block_width=3
 
-[swap]
+
+# I've never had problems with swap, so forget about it.
+#[swap]
+#label=
+#instance=swap
+#command=/usr/share/i3blocks/memory
+#interval=40
+
+# custom disk command to both used and total
+[disk-used]
 label=
-instance=swap
-command=/usr/share/i3blocks/memory
-interval=15
-
-# custom disk command to both free and total
-[free]
 instance=/
 command=$HOME/.local/bin/i3blocks-disk
 interval=30
@@ -64,6 +68,8 @@ instance=wlan0
 command=$HOME/.local/bin/i3blocks-network
 color=#85c000
 interval=20
+separator=false
+separator_block_width=3
 
 [wireless]
 label=
@@ -72,6 +78,8 @@ instance=wlp4s6
 command=$HOME/.local/bin/i3blocks-network
 color=#85c000
 interval=20
+separator=false
+separator_block_width=3
 
 [ethernet]
 label=E

@@ -19,8 +19,8 @@ ALERT_LOW="${1:-10}" # color will turn red under this value (default: 10%)
 
 df -h -P -l "$DIR" | awk -v alert_low=$ALERT_LOW '
 /\/.*/ {
-	# full text
-	print $4 "/" $2
+	# full text (FS Size Used Avail Use% Mount
+	print $3 "/" $2
 
 	# short text
 	print $4
