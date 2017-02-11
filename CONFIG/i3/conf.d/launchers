@@ -91,3 +91,17 @@ mode "focus/launch" {
 	bindsym z exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
 	
 }
+# ====================
+# Notifications
+# ====================
+# notification with player info
+bindsym Control+$mod+p exec --no-startup-id \
+notify-send "$(playerctl metadata title)" "by $(playerctl metadata artist)\non $(playerctl metadata album)" -i $(playerctl metadata mpris:artUrl)
+
+# notification with all sensor data
+bindsym Control+$mod+s exec --no-startup-id \
+notify-send Temperature "$(sensors | grep -v +0 | egrep -o '\+.+°C.')"
+
+# notification with disk information
+bindsym Control+$mod+d exec --no-startup-id \
+notify-send "Disk Usage" "$(df -h | grep '^[F\/]')"
