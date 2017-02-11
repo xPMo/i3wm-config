@@ -9,7 +9,7 @@ bar {
 	strip_workspace_numbers yes
 	status_command i3blocks
 	colors {
-		statusline         $S_base3
+		statusline         $S_base2
 		background         $black
 		separator          $S_base-0
 		# mode             border    bground   text
@@ -17,6 +17,6 @@ bar {
 		active_workspace   $S_red    $S_dred   $S_base-3
 		inactive_workspace $S_base-3 $black    $S_base2
 		urgent_workspace   $S_orange $black    $S_base3
-		binding_mode       $S_base-3 $black    $S_base2
+		binding_mode       $S_base-3 $black    $S_base1
 	}
 }
