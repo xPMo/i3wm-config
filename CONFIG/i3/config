@@ -234,10 +234,25 @@ mode "focus/launch" {
 	bindsym v exec --no-startup-id ~/.local/bin/i3focuslaunch pavucontrol, mode "default"
 	bindsym w exec --no-startup-id ~/.local/bin/i3focuslaunch firefox, mode "default"
 	bindsym x exec --no-startup-id ~/.local/bin/i3focuslaunch xfce4-appfinder, mode "default"
+	bindsym $mod+x exec --no-startup-id ~/.local/bin/i3focuslaunch xfce4-appfinder, mode "default"
 	bindsym y exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
 	bindsym z exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
 	
 }
+# ====================
+# Notifications
+# ====================
+# notification with player info
+bindsym Control+$mod+p exec --no-startup-id \
+notify-send "$(playerctl metadata title)" "by $(playerctl metadata artist)\non $(playerctl metadata album)" -i $(playerctl metadata mpris:artUrl)
+
+# notification with all sensor data
+bindsym Control+$mod+s exec --no-startup-id \
+notify-send Temperature "$(sensors | grep -v +0 | egrep -o '\+.+°C.')"
+
+# notification with disk information
+bindsym Control+$mod+d exec --no-startup-id \
+notify-send "Disk Usage" "$(df -h | grep '^[F\/]')"
 
 # =======================================================
 # Media controls (volume, play/pause, change track, etc.)
@@ -311,10 +326,6 @@ $HOME/.local/bin/i3volumectl
 # i3-input to set volume to any%
 bindsym Shift+XF86AudioMute exec --no-startup-id i3-input \
 -F 'exec --no-startup-id $HOME/.local/bin/i3volumectl %s' -P 'Set volume:'
-
-# notification with player info
-bindsym Control+$mod+p exec --no-startup-id \
-notify-send "$(playerctl metadata title)" "by $(playerctl metadata artist)\non $(playerctl metadata album)" -i $(playerctl metadata mpris:artUrl)
 
 # ==========================================================
 # Various system control settings
