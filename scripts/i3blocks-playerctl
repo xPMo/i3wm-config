@@ -7,7 +7,8 @@ player_status=$(playerctl status)
 title=''
 artist=''
 
-if [ -z $player_status ]; then exit 1; fi
+# exit 0 lets the block text be cleared
+if [ -z $player_status ]; then exit 0; fi
 if [ $player_status = "Stopped" ]; then
 	printf "⏹\\n⏹\\n#073642"
 else
