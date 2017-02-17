@@ -254,6 +254,10 @@ notify-send Temperature "$(sensors | grep -v +0 | egrep -o '\+.+°C.')"
 bindsym Control+$mod+d exec --no-startup-id \
 notify-send "Disk Usage" "$(df -h | grep '^[F\/]')"
 
+# notification with CPU usage information
+bindsym Control+$mod+x exec --no-startup-id \
+notify-send "CPU Usage" "$(mpstat -P ALL | tail -n +3 |  cut -b -48 )"
+
 # =======================================================
 # Media controls (volume, play/pause, change track, etc.)
 # =======================================================
