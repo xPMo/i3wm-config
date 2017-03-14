@@ -20,7 +20,7 @@ bindsym $mod+$mod2+w exec firefox -P -no-remote hidden
 bindsym $mod+Shift+t exec urxvt
 
 # Standalone focuslaunchers:
-bindsym XF86Mail exec --no-startup-id ~/.local/bin/i3focuslaunch icedove 
+bindsym XF86Mail exec --no-startup-id ~/.local/bin/i3focuslaunch thunderbird 
 bindsym XF86HomePage exec --no-startup-id ~/.local/bin/i3focuslaunch firefox 
 # Terminal is the exception, I want more complex behavior
 # (launch another if currently focused, and allow launching anywhere if necessary)
