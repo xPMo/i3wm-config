@@ -16,4 +16,4 @@ exec_always --no-startup-id xset -r 23
 exec xfsettingsd
 
 # begin on workspace 1
-workspace 1:1
+exec i3-msg "workspace 1:1"
