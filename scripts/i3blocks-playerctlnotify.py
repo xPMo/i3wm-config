@@ -3,7 +3,6 @@
 # Just waits for a track change and notifies i3blocks
 
 from gi.repository import Playerctl, GLib
-import subprocess
 import os
 
 player = Playerctl.Player()
@@ -15,7 +14,7 @@ def on_pause(player):
 
 def on_play(player):
     os.system(sh_called)
-    
+
 def on_meta(player, e):
     os.system(sh_called)
 
