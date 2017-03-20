@@ -50,6 +50,6 @@ done
 
 case $BLOCK_BUTTON in
   3) pactl set-sink-mute $default_sink toggle ;;  # right click, mute/unmute
-  4) pacmd set-sink-volume $default_sink $( [ $(($default_volume)) -ge $((0x10000)) ] && echo -n "0x10000" || echo $((default_volume + STEP)) );; # scroll up, increase
+  4) pacmd set-sink-volume $default_sink $( [ $((default_volume)) -ge $((0x10000)) ] && echo -n "0x10000" || echo $((default_volume + STEP)) );; # scroll up, increase
   5) pacmd set-sink-volume $default_sink $((default_volume - STEP));; # scroll up, increase
 esac
