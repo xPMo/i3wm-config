@@ -24,6 +24,9 @@ bindsym $mod+button2 --whole-window exec --no-startup-id playerctl play-pause &&
 bindsym $mod+Shift+button5 --whole-window exec --no-startup-id playerctl position 2-
 bindsym $mod+Shift+button4 --whole-window exec --no-startup-id playerctl position 2+
 
+bindsym $mod+Shift+XF86AudioLowerVolume --whole-window exec --no-startup-id playerctl position 5-
+bindsym $mod+Shift+XF86AudioRaiseVolume --whole-window exec --no-startup-id playerctl position 5+
+
 # Volume changes also force an i3status refresh
 
 # Small volume changes
