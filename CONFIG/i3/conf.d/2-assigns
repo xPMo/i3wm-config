@@ -33,6 +33,7 @@ assign [title="Steam"] $ws_games
 assign [class="discord"] $ws_games
 assign [class="owerFall"] $ws_games
 assign [class="Owlboy"] $ws_games
+assign [class="^FTL$"] $ws_games
 
 # $ws_mail
 assign [class="cedove"] $ws_mail
@@ -41,8 +42,8 @@ assign [class="underbird"] $ws_mail
 # $ws_web
 for_window [ workspace="$ws_web" ] floating enable
 assign [class="irefox"] $ws_web
-for_window [class="irefox"] floating disable
 
+for_window [instance="Navigator"] floating disable
 
 # no-focus notification
 no_focus [window_type="notification"]
