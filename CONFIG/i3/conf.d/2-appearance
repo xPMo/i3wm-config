@@ -37,7 +37,7 @@ client.urgent           $S_orange  $S_base-4   $S_base3  $S_yellow  $S_orange
 
 # Chrome modifications
 new_window pixel 1
-hide_edge_borders vertical
+hide_edge_borders both
 new_float pixel 1
 
 
