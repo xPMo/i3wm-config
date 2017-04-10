@@ -97,7 +97,7 @@ interval=20
 
 [brightness]
 label=☀
-command=printf "%.0f%%" $(xbacklight -get)
+command=printf "%.0f%%" $(light -s acpi_video0 -G)
 interval=once
 signal=2
 
