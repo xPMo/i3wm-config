@@ -11,11 +11,11 @@ bindsym $mod+Menu bar mode toggle bar1
 bindsym $mod2+Menu bar mode toggle bar2
 
 # Backlights
-bindsym XF86MonBrightnessDown exec --no-startup-id light -s acpi_video0 -U 4 && pkill -RTMIN+2 i3blocks
-bindsym XF86MonBrightnessUp exec --no-startup-id light -s acpi_video0 -A 8 && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id light -s acpi_video0 -r -U 1 && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessUp exec --no-startup-id light -s acpi_video0 -r -A 1 && pkill -RTMIN+2 i3blocks
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id light -s acpi_video0 -S 0 && pkill -RTMIN+2 i3blocks
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id light -s acpi_video0 -S 100 && pkill -RTMIN+2 i3blocks
-bindsym XF86BrightnessAdjust exec i3-input -F 'exec --no-startup-id light -s acpi_video0 -S %s' -P 'Set backlight to:'
+bindsym XF86BrightnessAdjust exec i3-input -F 'exec --no-startup-id light -s acpi_video0 -r -S %s' -P 'Set backlight to (0-24):'
 
 # ----------------
 # LOGIN AND POWER:
