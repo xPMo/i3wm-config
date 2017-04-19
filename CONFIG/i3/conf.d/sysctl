@@ -15,7 +15,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -s acpi_video0 -r -U 1 
 bindsym XF86MonBrightnessUp exec --no-startup-id light -s acpi_video0 -r -A 1 && pkill -RTMIN+2 i3blocks
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id light -s acpi_video0 -S 0 && pkill -RTMIN+2 i3blocks
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id light -s acpi_video0 -S 100 && pkill -RTMIN+2 i3blocks
-bindsym XF86BrightnessAdjust exec i3-input -F 'exec --no-startup-id light -s acpi_video0 -r -S %s' -P 'Set backlight to (0-24):'
+bindcode 248 exec i3-input \
+-F 'exec --no-startup-id light \-s acpi_video0 \-r \-S %s' -P 'Set backlight to (0-24):'
 
 # ----------------
 # LOGIN AND POWER:
