@@ -43,7 +43,7 @@ bindsym $mod+8 workspace 8:8
 bindsym $mod+9 workspace 9:9
 bindsym $mod+0 workspace 10:X
 
-bindsym $mod+p workspace "$ws_media"
+bindsym $mod+p workspace $ws_media
 bindsym $mod+comma workspace $ws_games
 
 # move focused container to workspace
