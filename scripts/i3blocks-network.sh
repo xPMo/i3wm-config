@@ -18,7 +18,7 @@ INTERFACE="${BLOCK_INSTANCE:-eth0}"
 
 state="$(cat /sys/class/net/$INTERFACE/operstate)"
 
-[  -z "$state" ] && return 1
+[  -z "$state" ] && exit 1
 
 if [ "$state" != "up" ]; then
 	echo "down"
