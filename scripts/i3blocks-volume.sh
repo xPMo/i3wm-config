@@ -41,7 +41,7 @@ default_volume=''
 # Printing
 for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
 	[ $i -ne 0 ] && echo -n " "
-	[ ${sink_names[$i]} = $default_sink ] && default_volume=${sink_volumes[$i]} && default_mute=${sink_mutes[$i]} && default_suspended=${sink_suspends[$i]} && echo -n '🔊'
+	[ ${sink_names[$i]} = $default_sink ] && default_volume=${sink_volumes[$i]} && default_mute=${sink_mutes[$i]} && default_suspended=${sink_suspends[$i]} && echo -n '✓'
 	[ ${sink_mutes[$i]} = "yes" ] && printf %s 'MUTE' || echo -n "${sink_volumes[$i]%??}"
 done
 
