@@ -12,7 +12,7 @@ Default bindings which have been changed:
 
 Features include:
 * No titlebars
-* `$mod+x` for a focus/launch mode. (Press `<key>` to attempt to focus the program.  It will launch if it fails. Press `Shift+<key>` to launch a new instance, without regard to running instances.)
+* `$mod+x` for a focus/launch mode. (Press `<key>` to attempt to focus the associated program.  It will launch if it fails. Press `Shift+<key>` to launch a new instance, without regard to running instances.)
 * `scrotlock` script which pixelizes and 50% desaturates
 * `$mod+Return` focuses the terminal workspace and launches one if not already launched; if workspace was already focused, launches new terminal. `$mod+Shift+t` for new terminal anywhere
 * `$mod+Tab` backandforth, let go of `$mod` to stay on the other workspace, or let go of `Tab` to return
@@ -24,6 +24,7 @@ Features include:
 **TODO:**
 * Customize click events for i3blocks
 * Keyboard shortcuts to match the functionality of those click events.(e.g.: ~~bind `$mod+Ctrl+p` to  `notify-send` `playerctl` info~~) (this one is done)
+* Create sway-compatible bindings for upcoming Wayland migration
 * Figure out how to get colors from ~/.Xresources.
 * Give up.
 
@@ -32,7 +33,6 @@ By default, bindings for:
 * pactl/pacmd
 * xfce4-launcher
 * Thunar
-* Icedove
 * Libreoffice
 * Blueman
 * Clementine
