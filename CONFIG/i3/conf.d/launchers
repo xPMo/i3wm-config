@@ -4,9 +4,9 @@
 # ==============================================
 
 # Printscreen (scrot)
-bindsym Print exec scrot 'scrot-%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/Screenshots'
+bindsym Print exec exec scrot 'scrot-%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/Screenshots'
 # Printscreen (xfce4-*)
-bindsym Shift+Print exec xfce4-screenshooter
+bindsym Shift+Print exec exec xfce4-screenshooter
 
 # i3-input (for marking, etc)
 bindsym $mod+i exec --no-startup-id i3-input
@@ -14,82 +14,82 @@ bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mod+grave exec --no-startup-id i3-input -F '[con_mark=%s] focus' -l 1 -P 'Focus mark: ' 
 
 # Standalone launchers:
-bindsym Shift+XF86Mail exec thunar
-bindsym Shift+XF86HomePage exec firefox -P -no-remote hidden
-bindsym $mod+$mod2+w exec firefox -P -no-remote hidden
-bindsym $mod+Shift+t exec urxvt
+bindsym Shift+XF86Mail exec exec thunar
+bindsym Shift+XF86HomePage exec exec firefox -P -no-remote hidden
+bindsym $mod+$mod2+w exec exec firefox -P -no-remote hidden
+bindsym $mod+Shift+t exec exec urxvt
 
 # Standalone focuslaunchers:
-bindsym XF86Mail exec --no-startup-id ~/.local/bin/i3focuslaunch thunderbird 
-bindsym XF86HomePage exec --no-startup-id ~/.local/bin/i3focuslaunch firefox 
+bindsym XF86Mail exec --no-startup-id exec ~/.local/bin/i3focuslaunch thunderbird 
+bindsym XF86HomePage exec --no-startup-id exec ~/.local/bin/i3focuslaunch firefox 
 # Terminal is the exception, I want more complex behavior
 # (launch another if currently focused, and allow launching anywhere if necessary)
-bindsym $mod+Return exec --no-startup-id ~/.local/bin/i3switchlaunch urxvt "URxvt" "11:~$"
+bindsym $mod+Return exec --no-startup-id exec ~/.local/bin/i3switchlaunch urxvt "URxvt" "11:~$"
 
 bindsym $mod+x mode "focus/launch"
-bindsym $mod+Shift+x exec rofi -show run
+bindsym $mod+Shift+x exec exec rofi -show run
 
 # focus/launch mode
 mode "focus/launch" {
 	bindsym Escape mode "default"
 	
 	# Launch (exception for arandr), mode default
-	bindsym Shift+a exec --no-startup-id file-roller, mode "default"
-	bindsym Shift+b exec --no-startup-id blueman-manager, mode "default"
-	bindsym Shift+c exec --no-startup-id echo, mode "default"
-	bindsym Shift+d exec --no-startup-id sh -c ~/.local/bin/i3focuslaunch arandr randr, mode "default"
-	bindsym Shift+e exec --no-startup-id gvim, mode "default"
-	bindsym Shift+f exec --no-startup-id thunar, mode "default"
-	bindsym Shift+g exec --no-startup-id gimp, mode "default"
-	bindsym Shift+h exec --no-startup-id echo, mode "default"
-	bindsym Shift+i exec --no-startup-id echo, mode "default"
-	bindsym Shift+j exec --no-startup-id echo, mode "default"
-	bindsym Shift+k exec --no-startup-id echo, mode "default"
-	bindsym Shift+l exec --no-startup-id libreoffice, mode "default"
-	bindsym Shift+m exec --no-startup-id thunderbird, mode "default"
-	bindsym Shift+n exec --no-startup-id echo, mode "default"
-	bindsym Shift+o exec --no-startup-id libreoffice, mode "default"
-	bindsym Shift+p exec --no-startup-id clementine, mode "default"
+	bindsym Shift+a exec --no-startup-id exec file-roller, mode "default"
+	bindsym Shift+b exec --no-startup-id exec blueman-manager, mode "default"
+	bindsym Shift+c exec --no-startup-id exec echo, mode "default"
+	bindsym Shift+d exec --no-startup-id exec sh -c ~/.local/bin/i3focuslaunch arandr randr, mode "default"
+	bindsym Shift+e exec --no-startup-id exec gvim, mode "default"
+	bindsym Shift+f exec --no-startup-id exec thunar, mode "default"
+	bindsym Shift+g exec --no-startup-id exec gimp, mode "default"
+	bindsym Shift+h exec --no-startup-id exec echo, mode "default"
+	bindsym Shift+i exec --no-startup-id exec echo, mode "default"
+	bindsym Shift+j exec --no-startup-id exec echo, mode "default"
+	bindsym Shift+k exec --no-startup-id exec echo, mode "default"
+	bindsym Shift+l exec --no-startup-id exec libreoffice, mode "default"
+	bindsym Shift+m exec --no-startup-id exec thunderbird, mode "default"
+	bindsym Shift+n exec --no-startup-id exec echo, mode "default"
+	bindsym Shift+o exec --no-startup-id exec libreoffice, mode "default"
+	bindsym Shift+p exec --no-startup-id exec clementine, mode "default"
 	bindsym Shift+q mode "default"
-	bindsym Shift+r exec --no-startup-id echo, mode "default"
-	bindsym Shift+s exec --no-startup-id steam, mode "default"
-	bindsym Shift+t exec --no-startup-id torbrowser-launcher, mode "default"
-	bindsym Shift+u exec --no-startup-id echo, mode "default"
-	bindsym Shift+v exec --no-startup-id pavucontrol, mode "default"
-	bindsym Shift+w exec --no-startup-id firefox, mode "default"
-	bindsym Shift+x exec --no-startup-id xfce4-appfinder, mode "default"
-	bindsym Shift+y exec --no-startup-id echo, mode "default"
-	bindsym Shift+z exec --no-startup-id echo, mode "default"
+	bindsym Shift+r exec --no-startup-id exec echo, mode "default"
+	bindsym Shift+s exec --no-startup-id exec steam, mode "default"
+	bindsym Shift+t exec --no-startup-id exec torbrowser-launcher, mode "default"
+	bindsym Shift+u exec --no-startup-id exec echo, mode "default"
+	bindsym Shift+v exec --no-startup-id exec pavucontrol, mode "default"
+	bindsym Shift+w exec --no-startup-id exec firefox, mode "default"
+	bindsym Shift+x exec --no-startup-id exec xfce4-appfinder, mode "default"
+	bindsym Shift+y exec --no-startup-id exec echo, mode "default"
+	bindsym Shift+z exec --no-startup-id exec echo, mode "default"
 
 	# Focus (exception dmenu), mode "default"
 	# The "i3focusLaunch" script will focus $2 if $2, else focus program name
-	bindsym a exec --no-startup-id ~/.local/bin/i3focuslaunch file-roller, mode "default"
-	bindsym b exec --no-startup-id ~/.local/bin/i3focuslaunch blueman-manager, mode "default"
-	bindsym c exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
-	bindsym d exec --no-startup-id dmenu_run -fn 'Noto Mono-8', mode "default"
-	bindsym e exec --no-startup-id ~/.local/bin/i3focuslaunch gvim, mode "default"
-	bindsym f exec --no-startup-id ~/.local/bin/i3focuslaunch thunar, mode "default"
-	bindsym g exec --no-startup-id ~/.local/bin/i3focuslaunch gimp, mode "default"
-	bindsym h exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
-	bindsym i exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
-	bindsym j exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
-	bindsym k exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
-	bindsym l exec --no-startup-id ~/.local/bin/i3focuslaunch libreoffice, mode "default"
-	bindsym m exec --no-startup-id ~/.local/bin/i3focuslaunch thunderbird, mode "default"
-	bindsym n exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
-	bindsym o exec --no-startup-id ~/.local/bin/i3focuslaunch libreoffice, mode "default"
-	bindsym p exec --no-startup-id ~/.local/bin/i3focuslaunch clementine, mode "default"
+	bindsym a exec --no-startup-id exec ~/.local/bin/i3focuslaunch file-roller, mode "default"
+	bindsym b exec --no-startup-id exec ~/.local/bin/i3focuslaunch blueman-manager, mode "default"
+	bindsym c exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
+	bindsym d exec --no-startup-id exec dmenu_run -fn 'Noto Mono-8', mode "default"
+	bindsym e exec --no-startup-id exec ~/.local/bin/i3focuslaunch gvim, mode "default"
+	bindsym f exec --no-startup-id exec ~/.local/bin/i3focuslaunch thunar, mode "default"
+	bindsym g exec --no-startup-id exec ~/.local/bin/i3focuslaunch gimp, mode "default"
+	bindsym h exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
+	bindsym i exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
+	bindsym j exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
+	bindsym k exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
+	bindsym l exec --no-startup-id exec ~/.local/bin/i3focuslaunch libreoffice, mode "default"
+	bindsym m exec --no-startup-id exec ~/.local/bin/i3focuslaunch thunderbird, mode "default"
+	bindsym n exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
+	bindsym o exec --no-startup-id exec ~/.local/bin/i3focuslaunch libreoffice, mode "default"
+	bindsym p exec --no-startup-id exec ~/.local/bin/i3focuslaunch clementine, mode "default"
 	bindsym q mode "default"
-	bindsym r exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
-	bindsym s exec --no-startup-id ~/.local/bin/i3focuslaunch steam, mode "default"
-	bindsym t exec --no-startup-id ~/.local/bin/i3focuslaunch torbrowser-launcher, mode "default"
-	bindsym u exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
-	bindsym v exec --no-startup-id ~/.local/bin/i3focuslaunch pavucontrol, mode "default"
-	bindsym w exec --no-startup-id ~/.local/bin/i3focuslaunch firefox, mode "default"
-	bindsym x exec --no-startup-id ~/.local/bin/i3focuslaunch xfce4-appfinder, mode "default"
-	bindsym $mod+x exec --no-startup-id ~/.local/bin/i3focuslaunch xfce4-appfinder, mode "default"
-	bindsym y exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
-	bindsym z exec --no-startup-id ~/.local/bin/i3focuslaunch echo, mode "default"
+	bindsym r exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
+	bindsym s exec --no-startup-id exec ~/.local/bin/i3focuslaunch steam, mode "default"
+	bindsym t exec --no-startup-id exec ~/.local/bin/i3focuslaunch torbrowser-launcher, mode "default"
+	bindsym u exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
+	bindsym v exec --no-startup-id exec ~/.local/bin/i3focuslaunch pavucontrol, mode "default"
+	bindsym w exec --no-startup-id exec ~/.local/bin/i3focuslaunch firefox, mode "default"
+	bindsym x exec --no-startup-id exec ~/.local/bin/i3focuslaunch xfce4-appfinder, mode "default"
+	bindsym $mod+x exec --no-startup-id exec ~/.local/bin/i3focuslaunch xfce4-appfinder, mode "default"
+	bindsym y exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
+	bindsym z exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
 	
 }
 # ====================

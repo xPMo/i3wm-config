@@ -4,16 +4,16 @@
 # ====================================================
 # exec --no-startup-id blueman-applet
 # exec --no-startup-id nm-applet
-exec_always --no-startup-id sh ~/.fehbg
-exec redshift
-exec --no-startup-id unclutter -idle 5
+exec_always --no-startup-id exec sh ~/.fehbg
+exec exec redshift
+exec --no-startup-id exec unclutter -idle 5
 
 # Synclient: higher sensitivity, reversed scrolling, two-finger-tap as middle mouse
-exec --no-startup-id synclient VertScrollDelta=-117 HorizScrollDelta=-117 HorizTwoFingerScroll=1 MinSpeed=1.25 MaxSpeed=2 TapButton2=2
-exec_always --no-startup-id xset -r 23
+exec exec --no-startup-id synclient VertScrollDelta=-117 HorizScrollDelta=-117 HorizTwoFingerScroll=1 MinSpeed=1.25 MaxSpeed=2 TapButton2=2
+exec_always exec --no-startup-id xset -r 23
 
 # need so xfce4-appfinder gets themed:
-exec xfsettingsd
+exec exec xfsettingsd
 
 # begin on workspace 1
-exec i3-msg "workspace 1:1"
+exec exec i3-msg "workspace 1:1"
