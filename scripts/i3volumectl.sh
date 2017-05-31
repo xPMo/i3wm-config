@@ -9,4 +9,4 @@ else
 # This may be in in % or dB (eg. 5% or 3dB)
 	pactl set-sink-volume $SINK ${1}
 fi
-pkill -RTMIN+10 i3blocks
+exec pkill -RTMIN+10 i3blocks
