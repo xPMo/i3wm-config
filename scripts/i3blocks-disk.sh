@@ -17,7 +17,12 @@
 DIR="${BLOCK_INSTANCE:-$HOME}"
 ALERT_LOW="${1:-10}" # color will turn red under this value (default: 10%)
 
-df -h -P -l "$DIR" | awk -v alert_low=$ALERT_LOW '
+case $BLOCK_BUTTON in
+	#click, open file-manager on root
+	1) thunar "$DIR" ;;
+esac
+
+exec df -h -P -l "$DIR" | awk -v alert_low=$ALERT_LOW '
 /\/.*/ {
 	# full text (FS Size Used Avail Use% Mount
 	print $3 "/" $2
@@ -39,7 +44,3 @@ END {
 	}
 }
 '
-case $BLOCK_BUTTON in
-	#click, open file-manager on root
-	1) thunar '/' ;;
-esac

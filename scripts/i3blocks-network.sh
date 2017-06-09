@@ -41,7 +41,7 @@ else
 fi
 case $BLOCK_BUTTON in
 	# click for more information in a notification
-	3) notify-send $ipaddr "$(nmcli c | grep $INTERFACE | sed 's/\ \ /\n/g' | grep . )" ;;
+	3) exec notify-send $ipaddr "$(nmcli c | grep $INTERFACE | sed 's/\ \ /\n/g' | grep . )" ;;
 	# right click for connection editor
-	1) nm-connection-editor ;;
+	1) exec nm-connection-editor ;;
 esac
