@@ -38,6 +38,7 @@ assign [class="^FTL$"] $ws_games
 # $ws_mail
 assign [class="cedove"] $ws_mail
 assign [class="underbird"] $ws_mail
+assign [title="Hangouts"] $ws_mail
 
 # $ws_web
 for_window [ workspace="$ws_web" ] floating enable

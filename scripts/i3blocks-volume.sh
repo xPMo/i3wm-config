@@ -4,6 +4,8 @@
 # TODO: 
 # $default_sink will be a flag set if the instance is default
 # to split the dump on newline:
+
+
 IFS=$'\n'
 
 sink_names=()
@@ -34,6 +36,14 @@ for line in $(pacmd dump); do
 			sink_suspends+=(${line##* })
 	esac
 done
+
+# BLOCK_BUTTON moved before prints so changes are reported
+case $BLOCK_BUTTON in
+  3) pactl set-sink-mute $default_sink toggle ;;  # right click, mute/unmute
+  4) pacmd set-sink-volume $default_sink $( [ $((default_volume)) -ge $((0x10000)) ] && echo -n "0x10000" || echo $((default_volume + STEP)) );; # scroll up, increase
+  5) pacmd set-sink-volume $default_sink $((default_volume - STEP));; # scroll up, increase
+esac
+
 # The first parameter sets the step to change the volume by (and units to display)
 # This may be in in % or dB (eg. 5% or 3dB)
 STEP="0x1000"
@@ -48,8 +58,3 @@ done
 # Short_text and color if mute or suspended
 [ $default_mute = "yes" ] && printf \\n%s\\n%s "MUTE" "#b58900" || printf \\n%s "${default_volume%??}" && [ $default_suspended = "yes" ] &&  printf \\n%s\\n "#2aa198" 
 
-case $BLOCK_BUTTON in
-  3) pactl set-sink-mute $default_sink toggle ;;  # right click, mute/unmute
-  4) pacmd set-sink-volume $default_sink $( [ $((default_volume)) -ge $((0x10000)) ] && echo -n "0x10000" || echo $((default_volume + STEP)) );; # scroll up, increase
-  5) pacmd set-sink-volume $default_sink $((default_volume - STEP));; # scroll up, increase
-esac
