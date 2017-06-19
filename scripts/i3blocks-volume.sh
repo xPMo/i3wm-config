@@ -18,7 +18,14 @@ for line in $(pacmd dump); do
 	case ${line%% *} in
 		set-default-sink)
 			# get sink name
-			default_sink=${line#* } ;;
+			default_sink=${line#* } 
+			# BLOCK_BUTTON as soon as default-sink caught so changes are reported
+			case $BLOCK_BUTTON in
+			  3) pactl set-sink-mute $default_sink toggle ;;  # right click, mute/unmute
+			  4) pacmd set-sink-volume $default_sink $( [ $((default_volume)) -ge $((0x10000)) ] && echo -n "0x10000" || echo $((default_volume + STEP)) );; # scroll up, increase
+			  5) pacmd set-sink-volume $default_sink $((default_volume - STEP));; # scroll up, increase
+			esac
+			;;
 		set-sink-volume)
 			# get each sink's volume
 			# name is 2/3, volume is 3/3
@@ -37,12 +44,6 @@ for line in $(pacmd dump); do
 	esac
 done
 
-# BLOCK_BUTTON moved before prints so changes are reported
-case $BLOCK_BUTTON in
-  3) pactl set-sink-mute $default_sink toggle ;;  # right click, mute/unmute
-  4) pacmd set-sink-volume $default_sink $( [ $((default_volume)) -ge $((0x10000)) ] && echo -n "0x10000" || echo $((default_volume + STEP)) );; # scroll up, increase
-  5) pacmd set-sink-volume $default_sink $((default_volume - STEP));; # scroll up, increase
-esac
 
 # The first parameter sets the step to change the volume by (and units to display)
 # This may be in in % or dB (eg. 5% or 3dB)
