@@ -67,3 +67,4 @@ done
 
 # Short_text and color if mute or suspended
 [ $default_mute = "yes" ] && printf \\n%s\\n%s "MUTE" "#b58900" || printf \\n%s "${default_volume%??}" && [ $default_suspended = "yes" ] &&  printf \\n%s\\n "#2aa198" 
+exit 0
