@@ -24,7 +24,7 @@ bindcode 248 exec i3-input \
 
 # F1: Reload or restart i3 inplace
 bindsym $mod+F1 exec --no-startup-id cat ~/.config/i3/conf.d/*  > ~/.config/i3/config; reload
-bindsym $mod+Shift+F1 exec --no-startup-id cat ~/.config/i3/conf.d/*  > ~/.config/i3/config; restart
+bindsym $mod+Shift+F1 exec --no-startup-id "cat ~/.config/i3/conf.d/*  > ~/.config/i3/config; restart"
 
 # F2: lock/leave session
 bindsym $mod+F2 exec --no-startup-id sh -c ~/.local/bin/scrotlock
