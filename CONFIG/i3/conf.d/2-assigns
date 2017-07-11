@@ -34,6 +34,7 @@ assign [class="discord"] $ws_games
 assign [class="owerFall"] $ws_games
 assign [class="Owlboy"] $ws_games
 assign [class="^FTL$"] $ws_games
+assign [class="nes9x-gtk"] $ws_games
 
 # $ws_mail
 assign [class="cedove"] $ws_mail
