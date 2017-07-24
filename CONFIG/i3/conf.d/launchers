@@ -7,6 +7,8 @@
 bindsym Print exec exec scrot 'scrot-%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/Screenshots'
 # Printscreen (xfce4-*)
 bindsym Shift+Print exec exec xfce4-screenshooter
+# active window
+bindsym Control+Print exec exec xfce4-screenshooter -w
 
 # i3-input (for marking, etc)
 bindsym $mod+i exec --no-startup-id i3-input
