@@ -51,6 +51,7 @@ for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
 		# right click, mute/unmute
 		3) pactl set-sink-mute $default_sink toggle
 		   [ $default_mute = "yes" ] && default_mute="no" || default_mute="yes"
+		   [ ${sink_mutes[$i]} = "yes" ] && sink_mutes[$i]="no" || sink_mutes[$i]="yes"
 		   ;;
 		# scroll up, increase volume
 		4) [ $((default_volume)) -ge $((0x10000)) ] && default_volume="0x10000" || default_volume=$((default_volume + STEP))

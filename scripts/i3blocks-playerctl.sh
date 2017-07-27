@@ -18,8 +18,8 @@ else
 
 	# small text if longer than 20 characters
 	[ ${#length} -gt 20 ] && echo -n "<small>"	
-	# Substring: if title>24, substring 0-22 with ellipsis
-	[ ${#title} -gt 24 ] && echo -n "${title:0:23}‥ - " || echo -n "$title - "
+	# Substring: if title>32, substring 0-31 with ellipsis
+	[ ${#title} -gt 32 ] && echo -n "${title:0:31}‥ - " || echo -n "$title - "
 	# Substring: if artist>20, substring 0-19 with ellipsis
 	[ ${#artist} -gt 20 ] && echo -n "${artist:0:19}‥" || echo -n "$artist"
 	[ ${#length} -gt 20 ] && echo "</small>" || echo
