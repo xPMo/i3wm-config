@@ -1,6 +1,6 @@
 
 # ===================================================
-# Start i3bar to display a workspace bar and i3status
+# Start i3bar to display a workspace bar and i3bloks
 # ===================================================
 
 bar {
@@ -11,12 +11,12 @@ bar {
 	colors {
 		statusline         $S_base2
 		background         $black
-		separator          $S_base-0
+		separator          $S_base-1
 		# mode             border    bground   text
 		focused_workspace  $S_red    $S_red    $S_base3
-		active_workspace   $S_red    $S_dred   $S_base-3
+		active_workspace   $S_red    $S_dred   $S_base3
 		inactive_workspace $S_base-3 $black    $S_base2
 		urgent_workspace   $S_orange $black    $S_base3
-		binding_mode       $S_base-3 $black    $S_base1
+		binding_mode       $S_base-3 $black    $S_base-0
 	}
 }

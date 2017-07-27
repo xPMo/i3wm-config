@@ -22,16 +22,17 @@
 
 # Global properties
 separator_block_width=9
+markup=pango
 
 [cpu]
-label=
+label=<small></small>
 command=$HOME/.local/bin/i3blocks-cpu
 interval=5
 #min_width=CPU: 100.00%
 #separator=false
 
 [memory]
-label=
+label=<small></small>
 command=/usr/share/i3blocks/memory
 interval=20
 #separator=false
@@ -47,7 +48,7 @@ interval=20
 
 # custom disk command to both used and total
 [disk-used]
-label=
+label=<small></small>
 instance=/
 command=$HOME/.local/bin/i3blocks-disk
 interval=30
@@ -62,7 +63,7 @@ command=$HOME/.local/bin/i3blocks-temp --chip $BLOCK_NAME --index 2 --button $BL
 interval=10
 
 [wireless]
-label=
+label=<small></small>
 instance=wlo1
 #instance=wlp3s0
 command=$HOME/.local/bin/i3blocks-network
@@ -72,7 +73,7 @@ separator=false
 separator_block_width=3
 
 [wireless]
-label=
+label=<small></small>
 #instance=wlan0
 instance=wlp4s6
 command=$HOME/.local/bin/i3blocks-network

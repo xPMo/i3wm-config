@@ -19,7 +19,7 @@ ALERT_LOW="${1:-10}" # color will turn red under this value (default: 10%)
 
 case $BLOCK_BUTTON in
 	#click, open file-manager on root
-	1) thunar "$DIR" ;;
+	1) thunar "$DIR" & ;;
 esac
 
 exec df -h -P -l "$DIR" | awk -v alert_low=$ALERT_LOW '
