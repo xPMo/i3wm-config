@@ -6,6 +6,9 @@
 # Toggle trackpad
 bindsym $mod+Shift+Menu exec --no-startup-id sh ~/.local/bin/toggletrackpad
 
+# Paste from selection with $mod+ins
+bindsym $mod+Insert exec --no-startup-id 'xsel | xvkbd -xsendevent -file -'
+
 # Toggle i3bar
 bindsym $mod+Menu bar mode toggle bar1
 
