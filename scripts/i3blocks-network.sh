@@ -20,10 +20,8 @@ state="$(cat /sys/class/net/$INTERFACE/operstate)"
 
 [  -z "$state" ] && exit 1
 
-if [ "$state" != "up" ]; then
-	echo "down"
-	echo "down"
-	echo "#dc322f"
+if [ "$state" = "down" ]; then
+	echo -e "- \n-\n#dc322f"
 else
 	speed="$(cat /sys/class/net/$INTERFACE/speed 2> /dev/null)"
 

@@ -65,7 +65,6 @@ interval=10
 [wireless]
 label=<small></small>
 instance=wlo1
-#instance=wlp3s0
 command=$HOME/.local/bin/i3blocks-network
 color=#85c000
 interval=20
@@ -74,8 +73,16 @@ separator_block_width=3
 
 [wireless]
 label=<small></small>
-#instance=wlan0
 instance=wlp4s6
+command=$HOME/.local/bin/i3blocks-network
+color=#85c000
+interval=20
+separator=false
+separator_block_width=3
+
+[wireless]
+label=<small></small>
+instance=bnep0
 command=$HOME/.local/bin/i3blocks-network
 color=#85c000
 interval=20
