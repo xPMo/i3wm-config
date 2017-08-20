@@ -21,5 +21,5 @@ exec exec i3-msg workspace 1:1
 # Scratchpad terminal popup
 for_window [title="^popup_term$"] floating enable, resize set 1280 200, move position -1 px -3 px, move scratchpad
 # DISABLE_AUTO_TITLE=true is an oh-my-zsh variable
-exec "DISABLE_AUTO_TITLE=true urxvt -title 'popup_term'"
+exec "sleep 2; exec DISABLE_AUTO_TITLE=true urxvt -title 'popup_term'"
 bindsym $mod+Shift+grave [title="^popup_term$"] scratchpad show
