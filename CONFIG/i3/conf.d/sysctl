@@ -7,7 +7,7 @@
 bindsym $mod+Shift+Menu exec --no-startup-id sh ~/.local/bin/toggletrackpad
 
 # Paste from selection with $mod+ins
-bindsym $mod+Insert exec --no-startup-id 'xsel | xvkbd -xsendevent -file -'
+bindsym --release $mod+Insert exec --no-startup-id sleep 0.2 && xdotool type "$(xsel)"
 
 # Toggle i3bar
 bindsym $mod+Menu bar mode toggle bar1
