@@ -29,7 +29,7 @@ bindsym XF86HomePage exec --no-startup-id exec ~/.local/bin/i3focuslaunch firefo
 bindsym $mod+Return exec --no-startup-id exec ~/.local/bin/i3switchlaunch urxvt "URxvt" "11:~$"
 
 bindsym $mod+x mode "focus/launch"
-bindsym $mod+Shift+x exec exec rofi -show run
+bindsym $mod+slash exec "exec rofi -modi combi -combi-modi 'window,drun,run' -show combi -display-combi '/' -display-window '' -display-drun '' -display-run ''"
 
 # focus/launch mode
 mode "focus/launch" {
