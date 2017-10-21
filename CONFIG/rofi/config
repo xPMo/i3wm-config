@@ -1,0 +1,8 @@
+rofi.combi-modi: window,drun,run
+rofi.modi: combi,drun,run
+rofi.display-combi: /
+rofi.display-window: 
+rofi.display-drun: 
+rofi.display-run: 
+rofi.sidebar-mode: true
+rofi.theme: /usr/share/rofi/themes/solarized.rasi
