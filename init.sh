@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ln -s $(pwd)/CONFIG/* -t $HOME/.config/
-cd scripts
+cd BIN
 for file in *
 do
 	echo Symlinking $file
