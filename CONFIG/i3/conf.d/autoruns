@@ -22,6 +22,7 @@ exec exec xfsettingsd
 exec exec i3-msg workspace 1:1
 
 # Scratchpad terminal popup
-for_window [title="^popup_term$"] floating enable, resize set 1284 200, move position -2 px -3 px, move scratchpad
+# matches popup_* for alarm or other popups
+for_window [title="^popup_"] floating enable, resize set 1284 200, move position -2 px -3 px, move scratchpad
 # DISABLE_AUTO_TITLE=true is an oh-my-zsh variable
 bindsym $mod+Shift+grave [title="^popup_term$"] scratchpad show

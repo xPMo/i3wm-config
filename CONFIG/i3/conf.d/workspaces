@@ -14,6 +14,17 @@ bindsym $mod+bracketright workspace next
 bindsym $mod+Shift+c move scratchpad
 bindsym $mod+c scratchpad show
 
+workspace 1:1 output $disp1
+workspace 2:2 output $disp0
+workspace 3:3 output $disp1
+workspace 4:4 output $disp0
+workspace 5:5 output $disp1
+workspace 6:6 output $disp0
+workspace 7:7 output $disp1
+workspace 8:8 output $disp0
+workspace 9:9 output $disp1
+workspace 10:X output $disp0
+
 # switch to workspace
 bindsym $mod+1 workspace 1:1
 bindsym $mod+2 workspace 2:2
