@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #click, play/pause
-[ $BLOCK_BUTTON = 1 ] && playerctl play-pause
+[[ $BLOCK_BUTTON = 1 ]] && playerctl play-pause
 
 player_status=$(playerctl status)
 title=''
@@ -35,5 +35,5 @@ else
 fi
 
 # Right click, get notification with info
-[ $BLOCK_BUTTON = 3 ] && notify-send "$title" "by $artist\non $(playerctl metadata album)" -i $(playerctl metadata mpris:artUrl)
+[[ $BLOCK_BUTTON = 3 ]] && notify-send "$title" "by $artist\non $(playerctl metadata album)" -i $(playerctl metadata mpris:artUrl)
 exit 0

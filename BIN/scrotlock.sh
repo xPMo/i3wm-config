@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 img=/tmp/lock.png
 if [ ! -f $img ]; then
 	touch $img

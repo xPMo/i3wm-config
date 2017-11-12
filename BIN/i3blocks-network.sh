@@ -21,7 +21,7 @@ state="$(cat /sys/class/net/$INTERFACE/operstate)"
 [ -z "$state" ] && exit 1
 
 if [ "$state" = "down" ]; then
-	echo "-\n-\n#dc322f"
+	echo '-\n-\n#dc322f'
 else
 	speed="$(cat /sys/class/net/$INTERFACE/speed 2> /dev/null)"
 
