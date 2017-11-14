@@ -27,4 +27,4 @@ while True:
         GLib.MainLoop().run()
     except GLib.Error:
         print("No player found. Trying again...")
-        sleep(5)
+        sleep(10)
