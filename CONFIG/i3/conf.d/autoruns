@@ -7,7 +7,7 @@
 exec_always --no-startup-id exec sh ~/.fehbg
 exec exec redshift
 exec --no-startup-id exec unclutter -idle 5
-exec exec "xrdb ~/.Xresources && exec DISABLE_AUTO_TITLE=true urxvt -title 'popup_term'"
+exec "xrdb ~/.Xresources && exec DISABLE_AUTO_TITLE=true urxvt -title 'popup_term' -e 'tmux new -t popup'"
 exec_always setxkbmap -symbols 'pc+us+inet(evdev)+custom'
 exec xset -r 23
 
