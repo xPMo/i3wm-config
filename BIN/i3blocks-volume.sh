@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
+IFS=$'\n'
 
 # Rewritten for pulse-only with bluetooth switching
 # TODO: 
 # $default_sink will be a flag set if the instance is default
-# to split the dump on newline:
-
-
-IFS=$'\n'
+# to split the dump on newline: 
 
 sink_names=()
 sink_volumes=()

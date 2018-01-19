@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+IFS=$'\n'
 
 #click, play/pause
 [[ $BLOCK_BUTTON = 1 ]] && playerctl play-pause

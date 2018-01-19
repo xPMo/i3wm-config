@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+IFS=$'\n'
 SINK=$(pacmd dump | grep lt-si | cut --delimiter=' ' -f 2)
 # The first parameter sets the step to change the volume by (and units to display)
 # Expected in the form "(+|-)([0-9]+)%"

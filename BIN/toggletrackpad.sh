@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 #set -euo pipefail
-#IFS=$'\n\t'
+
+# POSIX doesn't allow this (yet)
+#IFS=$'\n'
+IFS="
+" # but it does allow this
 
 if  synclient | grep -q 'TouchpadOff             = 0'; then
 	synclient TouchpadOff=1
