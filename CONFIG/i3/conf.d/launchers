@@ -4,7 +4,7 @@
 # ==============================================
 
 # Printscreen (scrot)
-bindsym Print exec exec scrot 'scrot-%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/Screenshots' 2>&1
+bindsym Print exec exec scrot '%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/Screenshots' 2>&1
 # Printscreen (xfce4-*)
 bindsym Shift+Print exec exec xfce4-screenshooter
 # active window

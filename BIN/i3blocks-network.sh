@@ -26,7 +26,7 @@ state="$(cat /sys/class/net/$INTERFACE/operstate)"
 [ -z "$state" ] && exit 1
 
 if [ "$state" = "down" ]; then
-	echo '-\n-\n#dc322f'
+	printf -- '-\n-\n#dc322f'
 else
 	speed="$(cat /sys/class/net/$INTERFACE/speed 2> /dev/null)"
 
@@ -35,16 +35,16 @@ else
 	ipaddr="${ipaddr:-<i>0.0.0.0</i>}"
 
 	# full text
-	[ -n "$id" ] && echo -n "$id<small> </small>"
-	echo -n "$ipaddr"
+	[ -n "$id" ] && echo -n "<small>$id "
+	echo -n "$ipaddr</small>"
 	[ -n "$speed" ] && echo " ($speed Mbits/s)" || echo
 
 	# short text
-	echo "$ipaddr"
+	echo "<small>$ipaddr</small>"
 fi
 case $BLOCK_BUTTON in
-	# click for more information in a notification
-	3) exec notify-send $ipaddr "$(nmcli c | grep $INTERFACE | sed 's/\ \ /\n/g' | grep . )" ;;
-	# right click for connection editor
+	#click for connection editor
 	1) nm-connection-editor & ;;
+	# right click for more information in a notification
+	3) exec notify-send $ipaddr "$(nmcli c | grep $INTERFACE | sed 's/\ \ /\n/g' | grep . )" ;;
 esac
