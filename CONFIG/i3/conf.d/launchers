@@ -40,7 +40,7 @@ mode "focus/launch" {
 	bindsym Shift+b exec --no-startup-id exec blueman-manager, mode "default"
 	bindsym Shift+c exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+d exec --no-startup-id exec sh -c ~/.local/bin/i3focuslaunch arandr randr, mode "default"
-	bindsym Shift+e exec --no-startup-id exec gvim, mode "default"
+	bindsym Shift+e exec --no-startup-id exec nvim-gtk, mode "default"
 	bindsym Shift+f exec --no-startup-id exec thunar, mode "default"
 	bindsym Shift+g exec --no-startup-id exec gimp, mode "default"
 	bindsym Shift+h exec --no-startup-id exec echo, mode "default"
@@ -69,7 +69,7 @@ mode "focus/launch" {
 	bindsym b exec --no-startup-id exec ~/.local/bin/i3focuslaunch blueman-manager, mode "default"
 	bindsym c exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
 	bindsym d exec --no-startup-id exec dmenu_run -fn 'Noto Mono-8', mode "default"
-	bindsym e exec --no-startup-id exec ~/.local/bin/i3focuslaunch gvim, mode "default"
+	bindsym e exec --no-startup-id exec ~/.local/bin/i3focuslaunch nvim-gtk Neovim, mode "default"
 	bindsym f exec --no-startup-id exec ~/.local/bin/i3focuslaunch thunar, mode "default"
 	bindsym g exec --no-startup-id exec ~/.local/bin/i3focuslaunch gimp, mode "default"
 	bindsym h exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
@@ -99,16 +99,16 @@ mode "focus/launch" {
 # ====================
 # notification with player info
 bindsym Control+$mod+p exec --no-startup-id \
-notify-send "$(playerctl metadata title)" "by $(playerctl metadata artist)\non $(playerctl metadata album)" -i $(playerctl metadata mpris:artUrl)
+	notify-send "$(playerctl metadata title)" "by $(playerctl metadata artist)\non $(playerctl metadata album)" -i $(playerctl metadata mpris:artUrl)
 
 # notification with all sensor data
 bindsym Control+$mod+s exec --no-startup-id \
-notify-send Temperature "$(sensors | grep -v +0 | egrep -o '\+.+°C.')"
+	notify-send Temperature "$(sensors | grep -v +0 | egrep -o '\+.+°C.')"
 
 # notification with disk information
 bindsym Control+$mod+d exec --no-startup-id \
-notify-send "Disk Usage" "$(df -h | grep '^[F\/]')"
+	notify-send "Disk Usage" "$(df -h | grep '^[F\/]')"
 
 # notification with CPU usage information
 bindsym Control+$mod+x exec --no-startup-id \
-notify-send "CPU Usage" "$(mpstat -P ALL | tail -n +3 |  cut -b -48 )"
+	notify-send "CPU Usage" "$(mpstat -P ALL | tail -n +3 |  cut -b -48 )"

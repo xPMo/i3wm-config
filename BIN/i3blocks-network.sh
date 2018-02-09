@@ -31,20 +31,20 @@ else
 	speed="$(cat /sys/class/net/$INTERFACE/speed 2> /dev/null)"
 
 	id=$(nmcli -t -f name,device c show --active | grep $INTERFACE | cut -d ':' -f 1)
-	ipaddr="$(ip addr show $INTERFACE | perl -n -e'/inet (.+)\// && print $1')"
-	ipaddr="${ipaddr:-<i>0.0.0.0</i>}"
+	realip="$(ip addr show $INTERFACE | perl -n -e'/inet (.+)\// && print $1')"
+	ip="${realip:-<i>0.0.0.0</i>}"
 
 	# full text
 	[ -n "$id" ] && echo -n "<small>$id "
-	echo -n "$ipaddr</small>"
+	echo -n "$ip</small>"
 	[ -n "$speed" ] && echo " ($speed Mbits/s)" || echo
 
 	# short text
-	echo "<small>$ipaddr</small>"
+	echo "<small>$ip</small>"
 fi
 case $BLOCK_BUTTON in
 	#click for connection editor
 	1) nm-connection-editor & ;;
 	# right click for more information in a notification
-	3) exec notify-send $ipaddr "$(nmcli c | grep $INTERFACE | sed 's/\ \ /\n/g' | grep . )" ;;
+	3) exec notify-send $realip "$(nmcli c | grep $INTERFACE | sed 's/\ \ /\n/g' | grep . )" ;;
 esac

@@ -5,24 +5,24 @@
 # exec --no-startup-id blueman-applet
 # exec --no-startup-id nm-applet
 exec_always --no-startup-id exec sh ~/.fehbg
-exec exec redshift
+exec --no-startup-id exec redshift
 exec --no-startup-id exec unclutter -idle 5
-exec "xrdb ~/.Xresources && exec DISABLE_AUTO_TITLE=true urxvt -title 'popup_term' -e 'tmux new -t popup'"
-exec_always setxkbmap -symbols 'pc+us+inet(evdev)+custom'
-exec xset -r 23
+exec --no-startup-id "xrdb ~/.Xresources && exec DISABLE_AUTO_TITLE=true urxvt -title 'popup_term' -e 'tmux new -t popup'"
+exec_always --no-startup-id setxkbmap -symbols 'pc+us+inet(evdev)+custom'
+exec --no-startup-id xset -r 23
 
 # notify script, sends a signal to the i3block on media change
-exec $HOME/.local/bin/i3blocks-playerctlnotify
+exec --no-startup-id $HOME/.local/bin/i3blocks-playerctlnotify
 
 # Synclient: higher sensitivity, reversed scrolling, two-finger-tap as middle mouse
-exec exec --no-startup-id synclient VertScrollDelta=-117 HorizScrollDelta=-117 HorizTwoFingerScroll=1 MinSpeed=1.25 MaxSpeed=2 TapButton2=2
-exec_always exec --no-startup-id xset -r 23
+exec --no-startup-id exec synclient VertScrollDelta=-117 HorizScrollDelta=-117 HorizTwoFingerScroll=1 MinSpeed=1.25 MaxSpeed=2 TapButton2=2
+exec_always --no-startup-id exec xset -r 23
 
 # need so xfce4-appfinder gets themed:
-exec exec xfsettingsd
+exec --no-startup-id exec xfsettingsd
 
 # begin on workspace 1
-exec exec i3-msg workspace 1:1
+exec --no-startup-id exec i3-msg workspace 1:1
 
 # Scratchpad terminal popup
 # matches popup_* for alarm or other popups
