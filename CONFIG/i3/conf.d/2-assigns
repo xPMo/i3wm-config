@@ -30,9 +30,11 @@ assign [class="usic"] $ws_media
 # $ws_games
 assign [class="Steam"] $ws_games
 assign [title="Steam"] $ws_games
+assign [class="itch"] $ws_games
 assign [class="discord"] $ws_games
 assign [class="owerFall"] $ws_games
 assign [class="Owlboy"] $ws_games
+assign [class="^Celeste"] $ws_games
 assign [class="^FTL$"] $ws_games
 assign [class="nes9x-gtk"] $ws_games
 

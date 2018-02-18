@@ -7,9 +7,11 @@
 exec_always --no-startup-id exec sh ~/.fehbg
 exec --no-startup-id exec redshift
 exec --no-startup-id exec unclutter -idle 5
-exec --no-startup-id "xrdb ~/.Xresources && exec DISABLE_AUTO_TITLE=true urxvt -title 'popup_term' -e 'tmux new -t popup'"
+exec --no-startup-id xrdb ~/.Xresources
+exec --no-startup-id DISABLE_AUTO_TITLE=true urxvt -title 'popup_term' -e 'tmux new -t popup'"
 exec_always --no-startup-id setxkbmap -symbols 'pc+us+inet(evdev)+custom'
 exec --no-startup-id xset -r 23
+exec --no-startup-id exec dunst
 
 # notify script, sends a signal to the i3block on media change
 exec --no-startup-id $HOME/.local/bin/i3blocks-playerctlnotify
