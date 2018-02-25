@@ -1,6 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 #set -euo pipefail
-IFS=$'\n\t'
+IFS="
+" # IFS=$'\n'
+
 #Arguments: program, program's WM_CLASS lookup, workspace
 if [ $(i3-msg -t get_workspaces | grep -ic "\"$3\",\"visible\":t") -gt 0 ] ; then
 	i3-msg "workspace $3"

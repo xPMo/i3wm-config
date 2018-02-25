@@ -1,5 +1,6 @@
-#!/usr/bin/env bash
-IFS=$'\n'
+#!/usr/bin/env sh
+IFS="
+" # IFS=$'\n'
 #Arguments: program, program's WM_CLASS lookup
 
 # class in $2, else try program name ($1)
