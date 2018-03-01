@@ -20,19 +20,19 @@ set $S_violet       #6c71c4
 set $S_blue         #268bd2
 set $S_cyan         #2aa198
 set $S_green        #859900
-set $S_lyellow		#cccc00
-set $S_lblue		#2c98e4
-set $S_lcyan		#30b8b0
-set $S_lgreen		#85c000
+set $S_lyellow      #cccc00
+set $S_lblue        #2c98e4
+set $S_lcyan        #30b8b0
+set $S_lgreen       #85c000
 # extra colors
 set $black          #000000
-set $S_base-4		#001014
+set $S_base-4       #001014
 set $S_dred         #9c2220
 
-# Colors:				border     background  text      indicator	child border
-client.focused			$S_red     $S_red      $S_base3  $S_yellow  $S_red
-client.focused_inactive	$S_red     $S_dred     $S_base3  $S_yellow  $S_dred
-client.unfocused		$S_base-2  $S_base-4   $S_base3  $S_yellow  $S_base-3
+# Colors:               border     background  text      indicator  child border
+client.focused          $S_red     $S_red      $S_base3  $S_yellow  $S_red
+client.focused_inactive $S_red     $S_dred     $S_base3  $S_yellow  $S_dred
+client.unfocused        $S_base-2  $S_base-4   $S_base3  $S_yellow  $S_base-3
 client.urgent           $S_orange  $S_base-4   $S_base3  $S_yellow  $S_orange
 
 # Chrome modifications

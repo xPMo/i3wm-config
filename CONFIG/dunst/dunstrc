@@ -179,7 +179,7 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
+    dmenu = /usr/bin/rofi -dmenu -p Action:
 
     # Browser for opening urls in context menu.
     # use xdg-open to use default
