@@ -7,8 +7,7 @@
 exec_always --no-startup-id exec sh ~/.fehbg
 exec --no-startup-id exec redshift
 exec --no-startup-id exec unclutter -idle 5
-exec --no-startup-id xrdb ~/.Xresources
-exec --no-startup-id DISABLE_AUTO_TITLE=true urxvt -title 'popup_term' -e 'tmux new -t popup'"
+exec --no-startup-id $HOME/.local/bin/xrdb-and-popup-term
 exec_always --no-startup-id setxkbmap -symbols 'pc+us+inet(evdev)+custom'
 exec --no-startup-id xset -r 23
 exec --no-startup-id exec dunst
@@ -28,6 +27,6 @@ exec --no-startup-id exec i3-msg workspace 1:1
 
 # Scratchpad terminal popup
 # matches popup_* for alarm or other popups
-for_window [title="^popup_"] floating enable, resize set 1284 200, move position -2 px -3 px, move scratchpad
+for_window [title="^popup_"] floating enable, resize set 1284 200, move position -2 px -3 px, border none, move scratchpad
 # DISABLE_AUTO_TITLE=true is an oh-my-zsh variable
 bindsym $mod+Shift+grave [title="^popup_term$"] scratchpad show
