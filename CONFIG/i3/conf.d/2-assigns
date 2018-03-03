@@ -48,6 +48,7 @@ for_window [ workspace="$ws_web" ] floating enable
 assign [class="irefox"] $ws_web
 
 for_window [instance="Navigator"] floating disable
+for_window [class="Xfce4-appfinder"] border none
 
 # no-focus notification
 no_focus [window_type="notification"]
