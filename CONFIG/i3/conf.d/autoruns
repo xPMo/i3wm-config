@@ -20,7 +20,7 @@ exec --no-startup-id exec synclient VertScrollDelta=-117 HorizScrollDelta=-117 H
 exec_always --no-startup-id exec xset -r 23
 
 # need so xfce4-appfinder gets themed:
-exec --no-startup-id exec xfsettingsd
+# exec --no-startup-id exec xfsettingsd
 
 # begin on workspace 1
 exec --no-startup-id exec i3-msg workspace 1:1
