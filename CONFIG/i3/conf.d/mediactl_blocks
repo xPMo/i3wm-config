@@ -63,6 +63,21 @@ bindsym $mod+Shift+KP_Add exec --no-startup-id \
 bindsym $mod+Shift+plus exec --no-startup-id \
 	$HOME/.local/bin/i3volumectl "+8192"
 
+# Set volume to 100%/0%
+bindsym Control+Shift+XF86AudioLowerVolume exec --no-startup-id \
+	$HOME/.local/bin/i3volumectl "0%"
+bindsym $mod+Control+Shift+KP_Subtract exec --no-startup-id \
+	$HOME/.local/bin/i3volumectl "0%"
+bindsym $mod+Control+Shift+minus exec --no-startup-id \
+	$HOME/.local/bin/i3volumectl "0%"
+
+bindsym Control+Shift+XF86AudioRaiseVolume exec --no-startup-id \
+	$HOME/.local/bin/i3volumectl "100%"
+bindsym $mod+Control+Shift+KP_Add exec --no-startup-id \
+	$HOME/.local/bin/i3volumectl "100%"
+bindsym $mod+Control+Shift+plus exec --no-startup-id \
+	$HOME/.local/bin/i3volumectl "100%"
+
 # Mute toggle
 bindsym $mod+KP_Decimal exec --no-startup-id \
 	$HOME/.local/bin/i3volumectl
