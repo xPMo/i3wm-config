@@ -46,5 +46,6 @@ case $BLOCK_BUTTON in
 	#click for connection editor
 	1) nm-connection-editor & ;;
 	# right click for more information in a notification
-	3) exec notify-send $realip "$(nmcli c | grep $INTERFACE | sed 's/\ \ /\n/g' | grep . )" ;;
+	3) exec notify-send $realip "$(nmcli c | grep $INTERFACE | sed 's/\ \ /\n/g' | grep . )" \
+		--app-name nmcli --icon network-transmit-receive ;;
 esac

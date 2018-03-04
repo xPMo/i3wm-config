@@ -36,5 +36,6 @@ else
 fi
 
 # Right click, get notification with info
-[[ $BLOCK_BUTTON = 3 ]] && notify-send "$title" "by $artist\non $(playerctl metadata album)" -i $(playerctl metadata mpris:artUrl)
+[[ $BLOCK_BUTTON = 3 ]] && notify-send "$title" "by $artist\non $(playerctl metadata album)" \
+	--icon $(playerctl metadata mpris:artUrl) --app-name playerctl
 exit 0
