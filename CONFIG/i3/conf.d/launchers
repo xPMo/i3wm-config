@@ -99,16 +99,18 @@ mode "focus/launch" {
 # ====================
 # notification with player info
 bindsym Control+$mod+p exec --no-startup-id \
-	notify-send "$(playerctl metadata title)" "by $(playerctl metadata artist)\non $(playerctl metadata album)" -i $(playerctl metadata mpris:artUrl)
+	notify-send "$(playerctl metadata title)" "by $(playerctl metadata artist)\non $(playerctl metadata album)" \
+	--icon $(playerctl metadata mpris:artUrl) --app-name playerctl
 
 # notification with all sensor data
 bindsym Control+$mod+s exec --no-startup-id \
-	notify-send Temperature "$(sensors | grep -v +0 | egrep -o '\+.+°C.')"
+	notify-send Temperature "$(sensors | grep -v +0 | egrep -o '\+.+°C.')" \
+	--app-name sensors
 
 # notification with disk information
-bindsym Control+$mod+d exec --no-startup-id \
-	notify-send "Disk Usage" "$(df -h | grep '^[F\/]')"
+bindsym $mod+Control+d exec --no-startup-id \
+	notify-send "Disk Usage:" "$(grc --colour=on df -h -T | ansifilter -M -f)" --icon harddrive --app-name df
 
 # notification with CPU usage information
 bindsym Control+$mod+x exec --no-startup-id \
-	notify-send "CPU Usage" "$(mpstat -P ALL | tail -n +3 |  cut -b -48 )"
+	notify-send "CPU Usage:" "$(mpstat -P ALL | tail -n +3 | cut -c 14-48)" --icon indicator-cpufreq --app-name mpstat

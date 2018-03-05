@@ -22,10 +22,16 @@ IFS="
 DIR="${BLOCK_INSTANCE:-$HOME}"
 ALERT_LOW="${1:-10}" # color will turn red under this value (default: 10%)
 
+
 case $BLOCK_BUTTON in
 	#click, open file-manager on root
 	1) thunar "$DIR" & ;;
-	2) notify-send "Disk Usage: $DIR" "df -h $DIR" --icon harddisk --app-name df & ;;
+	3)
+		notify-send "Disk Usage: $DIR" "$(
+			command -v ansifilter > /dev/null \
+				&& grc df -h $DIR | ansifilter -M -f --map $HOME/.local/share/ansifilter/solarized \
+				|| df -h $DIR
+		)" --icon harddrive --app-name df & ;;
 esac
 
 exec df -h -P -l "$DIR" | awk -v alert_low=$ALERT_LOW '

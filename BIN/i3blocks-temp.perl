@@ -68,8 +68,7 @@ if ($temperature >= $t_crit) {
     print "#cccc00\n";
 }
 if($button == 3){
-	`notify-send Temperature "\$(sensors | grep -v +0 | egrep -o '\+.+°C.')" \
-		--icon cpuinfo --app-name sensors`;
+	`notify-send Temperature "\$(sensors | grep -v +0 | egrep -o '\+.+°C.')" --icon cpuinfo --app-name sensors`;
 }
 
 exit 0;

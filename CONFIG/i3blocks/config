@@ -26,7 +26,7 @@ markup=pango
 
 [cpu]
 label=<small></small>
-command=$HOME/.local/bin/i3blocks-cpu
+command=$HOME/.local/bin/i3blocks-cpu --button $BLOCK_BUTTON
 interval=5
 #min_width=CPU: 100.00%
 #separator=false

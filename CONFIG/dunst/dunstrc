@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "400x5-30+20"
+    geometry = "0x5-30+20"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -162,11 +162,10 @@
     icon_position = left
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 24
+    max_icon_size = 96
 
-    # Paths to default icons.
-    icon_path = /usr/share/icons/Numix-Square/48/apps:/usr/share/icons/Numix/32/status:/usr/share/icons/Numix/32/devices:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-
+    # Paths to look for icons (Globbing not supported)
+    icon_path = /usr/share/icons/Numix-Square/48/apps:/usr/share/icons/Numix/scalable/actions:/usr/share/icons/Numix/scalable/categories:/usr/share/icons/Numix/scalable/devices:/usr/share/icons/Numix/scalable/emblems:/usr/share/icons/Numix/scalable/emotes:/usr/share/icons/Numix/scalable/mimetypes:/usr/share/icons/Numix/scalable/places:/usr/share/icons/Numix/scalable/status:/usr/share/icons/Numix/32/actions:/usr/share/icons/Numix/32/animations:/usr/share/icons/Numix/32/apps:/usr/share/icons/Numix/32/categories:/usr/share/icons/Numix/32/devices:/usr/share/icons/Numix/32/emblems:/usr/share/icons/Numix/32/emotes:/usr/share/icons/Numix/32/mimetypes:/usr/share/icons/Numix/32/places:/usr/share/icons/Numix/32/status:/usr/share/icons/Numix/24/actions:/usr/share/icons/Numix/24/animations:/usr/share/icons/Numix/24/apps:/usr/share/icons/Numix/24/categories:/usr/share/icons/Numix/24/devices:/usr/share/icons/Numix/24/emblems:/usr/share/icons/Numix/24/emotes:/usr/share/icons/Numix/24/mimetypes:/usr/share/icons/Numix/24/places:/usr/share/icons/Numix/24/status:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
     ### History ###
 
     # Should a notification popped up from history be sticky or timeout
