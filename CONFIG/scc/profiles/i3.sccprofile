@@ -1,0 +1,68 @@
+{
+    "_": "", 
+    "buttons": {
+        "A": {
+            "action": "mode(LGRIP, name('Launch Terminal', shell('urxvt')), name('Terminal Workspace', shell('~/.local/share/i3switchLaunch urxvt Urxvt \"11:~$\"')))"
+        }, 
+        "B": {
+            "action": "button(Keys.KEY_CAPSLOCK)", 
+            "name": "Escape (key66)"
+        }, 
+        "BACK": {
+            "action": "button(Keys.KEY_BACKSPACE)"
+        }, 
+        "C": {
+            "action": "hold(menu('Default.menu'), menu('Default.menu'))"
+        }, 
+        "CPADPRESS": {
+            "action": "button(Keys.BTN_LEFT)"
+        }, 
+        "LB": {
+            "action": "mode(LGRIP, name('< Move to', shell('i3-msg move container to workspace prev')), name('< Workspace', shell('i3-msg workspace prev')))"
+        }, 
+        "LGRIP": {
+            "action": "name('[MODE SHIFT]', None)", 
+            "name": "[MODE SHIFT]"
+        }, 
+        "RB": {
+            "action": "mode(LGRIP, name('Move to >', shell('i3-msg move container to workspace next')), name('Workspace >', shell('i3-msg workspace next')))"
+        }, 
+        "RPAD": {
+            "action": "button(Keys.BTN_LEFT)"
+        }, 
+        "START": {
+            "action": "shell('rofi -show') and keyboard()", 
+            "name": "Rofi, launch keyboard"
+        }, 
+        "X": {
+            "action": "mode(LGRIP, name('Move to scratchpad', shell('i3-msg move scratchpad')), name('Scratchpad show', shell('i3-msg scratchpad show')))"
+        }, 
+        "Y": {
+            "action": "button(Keys.KEY_TAB)"
+        }
+    }, 
+    "cpad": {
+        "action": "mouse()"
+    }, 
+    "gyro": {
+        "action": "mode(RPADTOUCH, sens(3.5, -1.0, 3.5, mouse(YAW)), None)"
+    }, 
+    "is_template": false, 
+    "menus": {}, 
+    "pad_left": {
+        "action": "mode(LGRIP, name('Move Container', dpad(shell('i3-msg move up'), shell('i3-msg move down'), shell('i3-msg move left'), shell('i3-msg move right'))), feedback(LEFT, 4096, 16.0, dpad(shell('i3-msg focus up'), shell('i3-msg focus down'), shell('i3-msg focus left'), shell('i3-msg focus right'))))"
+    }, 
+    "pad_right": {
+        "action": "smooth(8, 0.78, 2.0, feedback(RIGHT, 256, ball(mouse())))"
+    }, 
+    "stick": {
+        "action": "mode(LGRIP, deadzone(30000, dpad(1, shell('i3-msg resize shrink height 4px or 4ppt'), shell('i3-msg resize grow height 4px or 4ppt'), shell('i3-msg resize shrink width 4px or 4ppt'), shell('i3-msg resize grow width 4px or 4ppt'))), C, deadzone(30000, dpad(1, button(Keys.KEY_VOLUMEUP), button(Keys.KEY_VOLUMEDOWN), button(Keys.KEY_PREVIOUSSONG), button(Keys.KEY_NEXTSONG))), deadzone(30000, dpad(shell('i3-msg focus parent'), shell('i3-msg focus child'), shell('i3-msg layout toggle split'), shell('i3-msg layout tabbed'))))"
+    }, 
+    "trigger_left": {
+        "action": "trigger(50, button(Keys.BTN_RIGHT))"
+    }, 
+    "trigger_right": {
+        "action": "trigger(50, button(Keys.BTN_LEFT))"
+    }, 
+    "version": 1.3
+}

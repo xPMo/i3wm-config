@@ -1,0 +1,61 @@
+{
+    "_": "", 
+    "buttons": {
+        "A": {
+            "action": "button(Keys.KEY_ENTER)"
+        }, 
+        "B": {
+            "action": "button(Keys.KEY_ESC)"
+        }, 
+        "C": {
+            "action": "OSK.close()"
+        }, 
+        "LB": {
+            "action": "button(Keys.KEY_BACKSPACE)"
+        }, 
+        "LGRIP": {
+            "action": "button(Keys.KEY_LEFTSHIFT)"
+        }, 
+        "LPAD": {
+            "action": "OSK.press(LEFT)"
+        }, 
+        "RB": {
+            "action": "button(Keys.KEY_SPACE)"
+        }, 
+        "RGRIP": {
+            "action": "button(Keys.KEY_RIGHTALT)"
+        }, 
+        "RPAD": {
+            "action": "OSK.press(RIGHT)"
+        }, 
+        "START": {
+            "action": "button(Keys.KEY_TAB)"
+        }, 
+        "X": {
+            "action": "OSK.close()"
+        }, 
+        "Y": {
+            "action": "OSK.close()"
+        }
+    }, 
+    "cpad": {}, 
+    "gyro": {}, 
+    "is_template": false, 
+    "menus": {}, 
+    "pad_left": {
+        "action": "OSK.cursor(LEFT)"
+    }, 
+    "pad_right": {
+        "action": "OSK.cursor(RIGHT)"
+    }, 
+    "stick": {
+        "action": "OSK.move()"
+    }, 
+    "trigger_left": {
+        "action": "OSK.press(LEFT)"
+    }, 
+    "trigger_right": {
+        "action": "OSK.press(RIGHT)"
+    }, 
+    "version": 1.3
+}

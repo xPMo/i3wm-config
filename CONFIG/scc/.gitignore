@@ -1,0 +1,4 @@
+config.json
+daemon.pid
+daemon.socket
+*.mod
