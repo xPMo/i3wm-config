@@ -24,6 +24,9 @@
             "action": "name('[MODE SHIFT]', None)", 
             "name": "[MODE SHIFT]"
         }, 
+        "LPAD": {
+            "action": "mode(LGRIP, name('Toggle Tiling/Floating', shell('i3-msg floating toggle')), name('Focus Toggle', shell('i3-msg focus mode_toggle')))"
+        }, 
         "RB": {
             "action": "mode(LGRIP, name('Move to >', shell('i3-msg move container to workspace next')), name('Workspace >', shell('i3-msg workspace next')))"
         }, 
@@ -34,11 +37,15 @@
             "action": "shell('rofi -show') and keyboard()", 
             "name": "Rofi, launch keyboard"
         }, 
+        "STICKPRESS": {
+            "action": "mode(C, button(Keys.KEY_PLAYPAUSE), None)"
+        }, 
         "X": {
             "action": "mode(LGRIP, name('Move to scratchpad', shell('i3-msg move scratchpad')), name('Scratchpad show', shell('i3-msg scratchpad show')))"
         }, 
         "Y": {
-            "action": "button(Keys.KEY_TAB)"
+            "action": "menu('Workspaces')", 
+            "name": "Workspaces Menu"
         }
     }, 
     "cpad": {
@@ -48,21 +55,63 @@
         "action": "mode(RPADTOUCH, sens(3.5, -1.0, 3.5, mouse(YAW)), None)"
     }, 
     "is_template": false, 
-    "menus": {}, 
+    "menus": {
+        "Workspaces": [{
+            "action": "shell('i3-msg workspace 1:1')", 
+            "id": "item1", 
+            "name": "1"
+        }, {
+            "action": "shell('i3-msg workspace 2:2')", 
+            "id": "item2", 
+            "name": "2"
+        }, {
+            "action": "shell('i3-msg workspace 3:3')", 
+            "id": "item3", 
+            "name": "3"
+        }, {
+            "action": "shell('i3-msg workspace 4:4')", 
+            "id": "item4", 
+            "name": "4"
+        }, {
+            "action": "shell('i3-msg workspace 5:5')", 
+            "id": "item5", 
+            "name": "5"
+        }, {
+            "action": "shell('i3-msg workspace 6:6')", 
+            "id": "item6", 
+            "name": "6"
+        }, {
+            "action": "shell('i3-msg workspace 7:7')", 
+            "id": "item7", 
+            "name": "7"
+        }, {
+            "action": "shell('i3-msg workspace 8:8')", 
+            "id": "item8", 
+            "name": "8"
+        }, {
+            "action": "shell('i3-msg workspace 9:9')", 
+            "id": "item9", 
+            "name": "9"
+        }, {
+            "action": "shell('i3-msg workspace 10:X')", 
+            "id": "item10", 
+            "name": "X"
+        }]
+    }, 
     "pad_left": {
-        "action": "mode(LGRIP, name('Move Container', dpad(shell('i3-msg move up'), shell('i3-msg move down'), shell('i3-msg move left'), shell('i3-msg move right'))), feedback(LEFT, 4096, 16.0, dpad(shell('i3-msg focus up'), shell('i3-msg focus down'), shell('i3-msg focus left'), shell('i3-msg focus right'))))"
+        "action": "mode(LGRIP, deadzone(16198, dpad(1, shell('i3-msg move up'), shell('i3-msg move down'), shell('i3-msg move left'), shell('i3-msg move right'))), deadzone(23060, feedback(LEFT, 4096, 16.0, dpad(1, shell('i3-msg focus up'), shell('i3-msg focus down'), shell('i3-msg focus left'), shell('i3-msg focus right')))))"
     }, 
     "pad_right": {
         "action": "smooth(8, 0.78, 2.0, feedback(RIGHT, 256, ball(mouse())))"
     }, 
     "stick": {
-        "action": "mode(LGRIP, deadzone(30000, dpad(1, shell('i3-msg resize shrink height 4px or 4ppt'), shell('i3-msg resize grow height 4px or 4ppt'), shell('i3-msg resize shrink width 4px or 4ppt'), shell('i3-msg resize grow width 4px or 4ppt'))), C, deadzone(30000, dpad(1, button(Keys.KEY_VOLUMEUP), button(Keys.KEY_VOLUMEDOWN), button(Keys.KEY_PREVIOUSSONG), button(Keys.KEY_NEXTSONG))), deadzone(30000, dpad(shell('i3-msg focus parent'), shell('i3-msg focus child'), shell('i3-msg layout toggle split'), shell('i3-msg layout tabbed'))))"
+        "action": "mode(LGRIP, deadzone(30000, dpad(1, shell('i3-msg resize shrink height 4px or 4ppt'), shell('i3-msg resize grow height 4px or 4ppt'), shell('i3-msg resize shrink width 4px or 4ppt'), shell('i3-msg resize grow width 4px or 4ppt'))), C, deadzone(30000, dpad(1, button(Keys.KEY_VOLUMEUP), button(Keys.KEY_VOLUMEDOWN), button(Keys.KEY_PREVIOUSSONG), button(Keys.KEY_NEXTSONG))), deadzone(30000, dpad(1, shell('i3-msg focus parent'), shell('i3-msg focus child'), shell('i3-msg layout toggle split'), shell('i3-msg layout tabbed'))))"
     }, 
     "trigger_left": {
         "action": "trigger(50, button(Keys.BTN_RIGHT))"
     }, 
     "trigger_right": {
-        "action": "trigger(50, button(Keys.BTN_LEFT))"
+        "action": "mode(LGRIP, trigger(50, 255, button(Keys.KEY_LEFTSHIFT) and button(Keys.BTN_LEFT)), trigger(50, button(Keys.BTN_LEFT)))"
     }, 
     "version": 1.3
 }
