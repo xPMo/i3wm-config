@@ -54,10 +54,10 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 4
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 6
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
@@ -228,19 +228,19 @@
     # Xev might be helpful to find names for keys.
 
     # Close notification.
-    close = ctrl+space
+    close = mod1+space
 
     # Close all notifications.
-    close_all = ctrl+shift+space
+    close_all = mod1+shift+space
 
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1". Make sure this key actually exists on your keyboard layout,
     # e.g. check output of 'xmodmap -pke'
-    history = ctrl+grave
+    history = mod1+grave
 
     # Context menu.
-    context = ctrl+shift+period
+    context = mod1+shift+period
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
@@ -297,6 +297,19 @@
 #    # This notification will not be displayed
 #    summary = "foobar"
 #    format = ""
+
+[i3-info]
+    # don't save in history
+    category = "i3-info"
+    history_ignore = yes
+
+[i3-ws]
+    # Don't print appname, don't save in history
+    appname = "i3-ws"
+    format = "<b>%s</b>\n%b"
+    history_ignore = yes
+    icon_position = off
+    shrink = yes
 
 #[history-ignore]
 #    # This notification will not be saved in history
