@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
-ln -s $(pwd)/CONFIG/* -t $HOME/.config/
-cd BIN
-for file in *
-do
-	echo Symlinking $file
-	ln -s $(pwd)/$file $HOME/.local/bin/${file%.*}
-done
+shopt -s dotglob
+set -e
+
+#link-if-exists
+function lie {
+	[ -L "$1" ] || ln -s "$2" "$1"
+}
+function lie-dir {
+	pushd "$1"
+	for file in *; do
+		lie "$2/$file" "$1/$file"
+	done
+	popd
+}
+
+lie-dir "$(pwd)/CONFIG" "$HOME/.config"
+lie-dir "$(pwd)/BIN" "$HOME/.local/bin"
