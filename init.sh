@@ -4,12 +4,18 @@ set -e
 
 #link-if-exists
 function lie {
-	[ -L "$1" ] || ln -s "$2" "$1"
+	[ -L "$2" ] && return
+	if [ -f "$2" ]; then
+		echo "$2 exists and is not a symlink. Linking to $2.new"
+		ln -s "$1" "$2.new"
+	else
+		ln -s "$1" "$2"
+	fi
 }
 function lie-dir {
 	pushd "$1"
 	for file in *; do
-		lie "$2/$file" "$1/$file"
+		lie "$1/$file" "$2/$file"
 	done
 	popd
 }
