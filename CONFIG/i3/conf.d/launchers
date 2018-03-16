@@ -17,13 +17,13 @@ bindsym $mod+grave exec --no-startup-id i3-input -F '[con_mark=%s] focus' -l 1 -
 
 # Standalone launchers:
 bindsym Shift+XF86Mail exec exec thunar
-bindsym Shift+XF86HomePage exec exec firefox-developer -P -no-remote hidden
-bindsym $mod+$mod2+w exec exec firefox-nightly -P -no-remote hidden
+bindsym Shift+XF86HomePage exec exec firefox -P -no-remote hidden
+bindsym $mod+$mod2+w exec exec firefox -P -no-remote hidden
 bindsym $mod+Shift+t exec exec urxvt
 
 # Standalone focuslaunchers:
 bindsym XF86Mail exec --no-startup-id exec ~/.local/bin/i3focuslaunch thunderbird
-bindsym XF86HomePage exec --no-startup-id exec ~/.local/bin/i3focuslaunch firefox-developer Firefox
+bindsym XF86HomePage exec --no-startup-id exec ~/.local/bin/i3focuslaunch firefox Firefox
 # Terminal is the exception, I want more complex behavior
 # (launch another if currently focused, and allow launching anywhere if necessary)
 bindsym $mod+Return exec --no-startup-id exec ~/.local/bin/i3switchlaunch urxvt "URxvt" "11:~$"
@@ -58,7 +58,7 @@ mode "focus/launch" {
 	bindsym Shift+t exec --no-startup-id exec torbrowser-launcher, mode "default"
 	bindsym Shift+u exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+v exec --no-startup-id exec pavucontrol, mode "default"
-	bindsym Shift+w exec --no-startup-id exec firefox-nightly, mode "default"
+	bindsym Shift+w exec --no-startup-id exec firefox, mode "default"
 	bindsym Shift+x exec --no-startup-id exec xfce4-appfinder, mode "default"
 	bindsym Shift+y exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+z exec --no-startup-id exec echo, mode "default"
@@ -87,7 +87,7 @@ mode "focus/launch" {
 	bindsym t exec --no-startup-id exec ~/.local/bin/i3focuslaunch torbrowser-launcher, mode "default"
 	bindsym u exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
 	bindsym v exec --no-startup-id exec ~/.local/bin/i3focuslaunch pavucontrol, mode "default"
-	bindsym w exec --no-startup-id exec ~/.local/bin/i3focuslaunch firefox-nightly Firefox, mode "default"
+	bindsym w exec --no-startup-id exec ~/.local/bin/i3focuslaunch firefox Firefox, mode "default"
 	bindsym x exec --no-startup-id exec ~/.local/bin/i3focuslaunch xfce4-appfinder, mode "default"
 	bindsym $mod+x exec --no-startup-id exec ~/.local/bin/i3focuslaunch xfce4-appfinder, mode "default"
 	bindsym y exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
