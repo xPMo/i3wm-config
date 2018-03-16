@@ -4,36 +4,34 @@
 # ================================================
 
 # Color defs - solarized
-set $S_base-3       #002b36
-set $S_base-2       #073642
-set $S_base-1       #586e75
-set $S_base-0       #657b83
-set $S_base0        #839496
-set $S_base1        #93a1a1
-set $S_base2        #eee8d5
-set $S_base3        #fdf6e3
-set $S_yellow       #b58900
-set $S_orange       #cb4b16
-set $S_red          #dc322f
-set $S_magenta      #d33682
-set $S_violet       #6c71c4
-set $S_blue         #268bd2
-set $S_cyan         #2aa198
-set $S_green        #859900
-set $S_lyellow      #cccc00
-set $S_lblue        #2c98e4
-set $S_lcyan        #30b8b0
-set $S_lgreen       #85c000
+set_from_resource $color00  color0   #002b36
+set_from_resource $color01  color1   #dc322f
+set_from_resource $color02  color2   #859900
+set_from_resource $color03  color3   #b58900
+set_from_resource $color04  color4   #000000
+set_from_resource $color05  color5   #000000
+set_from_resource $color06  color6   #000000
+set_from_resource $color07  color7   #000000
+set_from_resource $color08  color8   #073642
+set_from_resource $color09  color9   #cb4b16
+set_from_resource $color10  color10  #85c000
+set_from_resource $color11  color11  #000000
+set_from_resource $color12  color12  #000000
+set_from_resource $color13  color13  #000000
+set_from_resource $color14  color14  #000000
+set_from_resource $color15  color15  #000000
+
 # extra colors
-set $black          #000000
-set $S_base-4       #001014
-set $S_dred         #9c2220
+set $black     #000000
+set $grey      #657b83
+set $base-4       #001014
+set $dred         #9c2220
 
 # Colors:               border     background  text      indicator  child border
-client.focused          $S_red     $S_red      $S_base3  $S_yellow  $S_red
-client.focused_inactive $S_red     $S_dred     $S_base3  $S_yellow  $S_dred
-client.unfocused        $S_base-2  $S_base-4   $S_base3  $S_yellow  $S_base-3
-client.urgent           $S_orange  $S_base-4   $S_base3  $S_yellow  $S_orange
+client.focused          $color09   $color01    $color15  $color03   $color01
+client.focused_inactive $color09   $dred       $color15  $color03   $dred
+client.unfocused        $color00   $base-4     $color07  $color03   $color00
+client.urgent           $color09   $base-4     $color07  $color03   $color09
 
 # Chrome modifications
 new_window pixel 1
