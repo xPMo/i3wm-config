@@ -47,11 +47,13 @@
     "cpad": {
         "action": "mouse()"
     }, 
-    "gyro": {}, 
+    "gyro": {
+        "action": "mode(RPADTOUCH, sens(3.5, -3.5, mouse(YAW)), None)"
+    }, 
     "is_template": false, 
     "menus": {}, 
     "pad_left": {
-        "action": "mode(LGRIP, circular(button(Keys.KEY_LEFTSHIFT, Keys.KEY_TAB) and button(Keys.KEY_TAB)), feedback(LEFT, 4096, 16.0, ball(XY(mouse(Rels.REL_HWHEEL), mouse(Rels.REL_WHEEL)))))"
+        "action": "mode(LGRIP, sens(0.2, 0.2, circular(button(Keys.KEY_LEFTSHIFT, Keys.KEY_TAB) and button(Keys.KEY_TAB))), feedback(LEFT, 4096, 16.0, ball(XY(mouse(Rels.REL_HWHEEL), mouse(Rels.REL_WHEEL)))))"
     }, 
     "pad_right": {
         "action": "smooth(8, 0.78, 2.0, feedback(RIGHT, 256, ball(mouse())))"
