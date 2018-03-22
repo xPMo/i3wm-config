@@ -25,5 +25,13 @@ function lie-dir {
 	popd
 }
 
+function lie-dir-bin {
+	pushd "$1"
+	for file in *; do
+		lie "$1/$file" "$2/${file%.*}"
+	done
+	popd
+}
+
 lie-dir "$(pwd)/CONFIG" "$HOME/.config"
-lie-dir "$(pwd)/BIN" "$HOME/.local/bin"
+lie-dir-bin "$(pwd)/BIN" "$HOME/.local/bin"
