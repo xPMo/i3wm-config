@@ -86,7 +86,7 @@ mode "resize" {
 	bindsym Shift+l resize grow width 1 px or 1 ppt
 
 	# use slop to resize
-	bindsym Shift+r ~/.local/bin/i3slopsize
+	bindsym Shift+r exec ~/.local/bin/i3slopsize
 
 	# back to normal: Enter or Escape
 	bindsym $mod+r mode "default"
