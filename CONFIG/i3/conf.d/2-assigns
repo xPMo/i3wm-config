@@ -8,7 +8,6 @@ set $mod2 Mod1
 
 # Font for window titles, i3bar, etc.
 # This is the way to name these fonts on Debian
-font pango:Hack 6.5
 # font pango:FontAwesome 7
 # font pango:Noto Sans 6.5
 

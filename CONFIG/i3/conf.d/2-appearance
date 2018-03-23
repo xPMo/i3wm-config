@@ -22,25 +22,23 @@ set_from_resource $color14  color14  #000000
 set_from_resource $color15  color15  #000000
 
 # extra colors
-set $black     #000000
+set $black     #040808
 set $grey      #657b83
 set $base-4       #001014
 set $dred         #9c2220
 
 # Colors:               border     background  text      indicator  child border
-client.focused          $color09   $color01    $color15  $color03   $color01
-client.focused_inactive $color09   $dred       $color15  $color03   $dred
-client.unfocused        $color00   $base-4     $color07  $color03   $color00
-client.urgent           $color09   $base-4     $color07  $color03   $color09
+client.focused          $color08   $color08    $color15  $color04   $color07
+client.focused_inactive $color08   $color00    $color15  $color04   $color00
+client.unfocused        $color00   $base-4     $color07  $color04   $color00
+client.urgent           $color09   $base-4     $color01  $color04   $color00
 
 # Chrome modifications
 new_window pixel 1
 hide_edge_borders both
 new_float pixel 1
 
-
-# force windows to float:
-
+# -- force windows to float: --
 # Xfce4 Appfinder:
 for_window [class="Xfce4-appfinder"] floating enable
 
