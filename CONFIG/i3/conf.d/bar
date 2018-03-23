@@ -5,18 +5,19 @@
 
 bar {
 	id bar1
-	tray_padding 3
+	tray_padding 2
 	strip_workspace_numbers yes
 	status_command exec i3blocks 2> /dev/null
+	position bottom
 	colors {
 		statusline         $color15
-		background         $black
+		background         $color00
 		separator          $grey
 		# mode             border    bground   text
-		focused_workspace  $color01  $color01  $color15
-		active_workspace   $color01  $dred     $color15
+		focused_workspace  $color00  $color08  $color15
+		active_workspace   $color08  $color00  $color15
 		inactive_workspace $color00  $black    $color07
-		urgent_workspace   $color09  $black    $color15
+		urgent_workspace   $color00  $black    $color01
 		binding_mode       $color00  $black    $grey
 	}
 }

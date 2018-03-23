@@ -32,13 +32,11 @@ bindsym $mod+Shift+F1 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config
 bindsym $mod+F2 exec --no-startup-id ~/.local/bin/scrotlock
 bindsym $mod+Shift+F2 exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# F3: suspend/hybrid-sleep
-bindsym $mod+F3 exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl suspend
 bindsym XF86Sleep exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl suspend
-bindsym $mod+Shift+F3 exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl hybrid-sleep
 bindsym Shift+XF86Sleep exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl hybrid-sleep
 
-# Poweroff
+# F3: 
+# $mod+F4: system
 bindsym $mod+F4 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
@@ -54,6 +52,9 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+# $mod+F5: display
+bindsym $mod+F5 $HOME/.local/bin/i3focuslaunch arandr
 
 # xkill
 bindsym --release $mod+Shift+Escape exec xkill
