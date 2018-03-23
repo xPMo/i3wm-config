@@ -33,13 +33,14 @@ bindsym $mod+x mode "focus/launch"
 bindsym $mod+slash exec "exec rofi -show"
 
 # focus/launch mode
-mode "focus/launch" {
+set $mode_launch Focus/Launch⇧
+mode "$mode_launch" {
 	bindsym Escape mode "default"
 	
 	# Launch (exception for arandr), mode default
 	bindsym Shift+a exec --no-startup-id exec file-roller, mode "default"
 	bindsym Shift+b exec --no-startup-id exec blueman-manager, mode "default"
-	bindsym Shift+c exec --no-startup-id exec echo, mode "default"
+	bindsym Shift+c exec --no-startup-id exec pkill compton, mode "default"
 	bindsym Shift+d exec --no-startup-id exec sh -c ~/.local/bin/i3focuslaunch arandr randr, mode "default"
 	bindsym Shift+e exec --no-startup-id exec nvim-gtk, mode "default"
 	bindsym Shift+f exec --no-startup-id exec thunar, mode "default"
@@ -64,11 +65,11 @@ mode "focus/launch" {
 	bindsym Shift+y exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+z exec --no-startup-id exec echo, mode "default"
 
-	# Focus (exception dmenu), mode "default"
+	# Focus (exception dmenu/compton), mode "default"
 	# The "i3focusLaunch" script will focus $2 if $2, else focus program name
 	bindsym a exec --no-startup-id exec ~/.local/bin/i3focuslaunch file-roller, mode "default"
 	bindsym b exec --no-startup-id exec ~/.local/bin/i3focuslaunch blueman-manager, mode "default"
-	bindsym c exec --no-startup-id exec ~/.local/bin/i3focuslaunch echo, mode "default"
+	bindsym c exec --no-startup-id exec compton -b, mode "default"
 	bindsym d exec --no-startup-id exec dmenu_run -fn 'Noto Mono-8', mode "default"
 	bindsym e exec --no-startup-id exec ~/.local/bin/i3focuslaunch nvim-gtk Neovim, mode "default"
 	bindsym f exec --no-startup-id exec ~/.local/bin/i3focuslaunch thunar, mode "default"
