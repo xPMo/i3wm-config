@@ -16,8 +16,8 @@ bar {
 		# mode             border    bground   text
 		focused_workspace  $color00  $color08  $color15
 		active_workspace   $color08  $color00  $color15
-		inactive_workspace $color00  $black    $color07
-		urgent_workspace   $color00  $black    $color01
-		binding_mode       $color00  $black    $grey
+		inactive_workspace $color00  $color00  $color07
+		urgent_workspace   $color00  $color00  $color01
+		binding_mode       $color00  $color00  $color07
 	}
 }

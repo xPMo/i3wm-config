@@ -32,11 +32,11 @@ bindsym XF86HomePage exec --no-startup-id exec ~/.local/bin/i3focuslaunch firefo
 # (launch another if currently focused, and allow launching anywhere if necessary)
 bindsym $mod+Return exec --no-startup-id exec ~/.local/bin/i3switchlaunch urxvt "URxvt" "11:~$"
 
-bindsym $mod+x mode "focus/launch"
 bindsym $mod+slash exec "exec rofi -show"
 
 # focus/launch mode
 set $mode_launch Focus/Launch⇧
+bindsym $mod+x mode "$mode_launch"
 mode "$mode_launch" {
 	bindsym Escape mode "default"
 	
