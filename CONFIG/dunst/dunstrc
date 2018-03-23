@@ -248,11 +248,10 @@
     background = "#002b36"
     foreground = "#586e75"
     timeout = 10
-    # Icon for notifications with low urgency, uncomment to enable
-    #icon = /path/to/icon
+    icon_position = off
 
 [urgency_normal]
-    background = "#073642"
+    background = "#002b36"
     foreground = "#fdf6e3"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
@@ -303,13 +302,14 @@
     category = "i3-info"
     history_ignore = yes
 
-[i3-ws]
+[i3-hint]
     # Don't print appname, don't save in history
-    appname = "i3-ws"
+    category = "i3-hint"
+    new_icon = "does_not_exist"
+    foreground = "#fdf6e3"
     format = "<b>%s</b>\n%b"
     history_ignore = yes
-    icon_position = off
-    shrink = yes
+
 
 #[history-ignore]
 #    # This notification will not be saved in history

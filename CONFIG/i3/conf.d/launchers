@@ -100,10 +100,7 @@ mode "focus/launch" {
 # ====================
 # notification with workspace info
 # notification with workspace status
-bindsym $mod+q exec --no-startup-id \
-	notify-send "$(i3-msg -t get_workspaces \
-	| jq '.[] | select(.focused==true).name' | cut -d '"' -f2 )" \
-	--app-name "i3-ws"
+bindsym $mod+q exec --no-startup-id i3hint workspace
 
 # notification with player info
 bindsym Control+$mod+p exec --no-startup-id \
