@@ -4,11 +4,12 @@
 # ==============================================
 
 # Printscreen (scrot)
-bindsym Print exec exec scrot '%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/Screenshots' 2>&1
+set $screenshotfile "$HOME/Pictures/Screenshots/$(date '+%Y-%m-%d %T').png"
+bindsym Print exec maim $screenshotfile
 # Printscreen (xfce4-*)
 bindsym Shift+Print exec exec xfce4-screenshooter
 # active window
-bindsym Control+Print exec exec xfce4-screenshooter -w
+bindsym Control+Print exec exec maim -i "$(xdotool getactivewindow)" $screenshotfile
 
 # i3-input (for marking, etc)
 bindsym $mod+i exec --no-startup-id i3-input
