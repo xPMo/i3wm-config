@@ -41,7 +41,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 0
+    transparency = 18
 
     # The height of the entire notification.  If the height is smaller
     # than the font height and padding combined, it will be raised
@@ -85,7 +85,7 @@
 
     ### Text ###
 
-    font = Hack 7
+    font = Hack 8
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -138,7 +138,7 @@
 
     # Split notifications into multiple lines if they don't fit into
     # geometry.
-    word_wrap = yes
+    word_wrap = no
 
     # When word_wrap is set to no, specify where to ellipsize long lines.
     # Possible values are "start", "middle" and "end".
@@ -247,8 +247,7 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#002b36"
     foreground = "#586e75"
-    timeout = 10
-    icon_position = off
+    timeout = 8
 
 [urgency_normal]
     background = "#002b36"
