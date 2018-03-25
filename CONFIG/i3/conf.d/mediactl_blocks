@@ -31,61 +31,61 @@ bindsym $mod+Shift+XF86AudioRaiseVolume --whole-window exec --no-startup-id play
 
 # Small volume changes
 bindsym XF86AudioLowerVolume exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "-1024"
+	i3volumectl "-1024"
 bindsym $mod+KP_Subtract exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "-1024"
+	i3volumectl "-1024"
 bindsym $mod+minus exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "-1024"
+	i3volumectl "-1024"
 bindsym $mod+button5 --whole-window exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "-512"
+	i3volumectl "-512"
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "+1024"
+	i3volumectl "+1024"
 bindsym $mod+KP_Add exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "+1024"
+	i3volumectl "+1024"
 bindsym $mod+plus exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "+1024"
+	i3volumectl "+1024"
 bindsym $mod+button4 --whole-window exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "+512"
+	i3volumectl "+512"
 
 # Large volume chages
 bindsym Shift+XF86AudioLowerVolume exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "-8192"
+	i3volumectl "-8192"
 bindsym $mod+Shift+KP_Subtract exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "-8192"
+	i3volumectl "-8192"
 bindsym $mod+Shift+minus exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "-8192"
+	i3volumectl "-8192"
 
 bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "+8192"
+	i3volumectl "+8192"
 bindsym $mod+Shift+KP_Add exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "+8192"
+	i3volumectl "+8192"
 bindsym $mod+Shift+plus exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "+8192"
+	i3volumectl "+8192"
 
 # Set volume to 100%/0%
 bindsym Control+Shift+XF86AudioLowerVolume exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "0%"
+	i3volumectl "0%"
 bindsym $mod+Control+Shift+KP_Subtract exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "0%"
+	i3volumectl "0%"
 bindsym $mod+Control+Shift+minus exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "0%"
+	i3volumectl "0%"
 
 bindsym Control+Shift+XF86AudioRaiseVolume exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "100%"
+	i3volumectl "100%"
 bindsym $mod+Control+Shift+KP_Add exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "100%"
+	i3volumectl "100%"
 bindsym $mod+Control+Shift+plus exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl "100%"
+	i3volumectl "100%"
 
 # Mute toggle
 bindsym $mod+KP_Decimal exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl
+	i3volumectl
 bindsym $mod+KP_Delete exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl 
+	i3volumectl 
 bindsym XF86AudioMute exec --no-startup-id \
-	$HOME/.local/bin/i3volumectl 
+	i3volumectl 
 
 # i3-input to set volume to any%
 bindsym Shift+XF86AudioMute exec --no-startup-id i3-input \
-	-F 'exec --no-startup-id $HOME/.local/bin/i3volumectl %s' -P 'Set volume:'
+	-F 'exec --no-startup-id i3volumectl %s' -P 'Set volume:'
