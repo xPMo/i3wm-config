@@ -23,6 +23,16 @@ while [ $# -gt 0 ]; do
 		)
 		notification "Workspace: $workspace"
 		;;
+	version )
+		version=$(
+			i3-msg -t get_version | jq --raw-output \
+			'(.human_readable)'
+		)
+		notification "Version: $version"
+		;;
+	* ) # use the raw argument as notification text
+		notification "$1"
+		;;
 	esac
 	shift
 done
