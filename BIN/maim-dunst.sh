@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # POSIX doesn't allow this (yet)
 IFS=$'\n'
+# I use feh, but sxiv is more common
+XIVIEWER=${XIVIEWER:-sxiv}
 set -e
 
 ssdir=${SCREENSHOT_DIRECTORY:-$HOME/Pictures/Screenshots}
