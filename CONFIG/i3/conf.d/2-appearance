@@ -20,6 +20,7 @@ set_from_resource $color12  color12  #000000
 set_from_resource $color13  color13  #000000
 set_from_resource $color14  color14  #000000
 set_from_resource $color15  color15  #000000
+set_from_resource $bground  background #000000
 
 # extra colors
 set $black     #00161d

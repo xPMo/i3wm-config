@@ -65,8 +65,9 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+z focus child
 
+set $resize_mode "Resize | Edit borders (u|p|n)"
 # resize window (you can also use the mouse for that)
-mode "Resize | Edit borders (u|p|n)" {
+mode $resize_mode {
 	# These bindings trigger as soon as you enter the resize mode
 	bindsym $vleft resize shrink width 10 px or 10 ppt
 	bindsym $vdown resize grow height 10 px or 10 ppt
@@ -113,7 +114,7 @@ bindsym $mod+Control+KP_Down resize grow height 10 px or 10 ppt
 bindsym $mod+Control+KP_Right resize grow width 10 px or 10 ppt
 bindsym $mod+Control+KP_Left resize shrink width 10 px or 10 ppt
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode $resize_mode
 
 # Freeze mode: useful for when VNC'ing into another session and all
 # commands need to go through
