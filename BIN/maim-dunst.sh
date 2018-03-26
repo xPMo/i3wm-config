@@ -4,7 +4,7 @@ IFS=$'\n'
 set -e
 
 ssdir=${SCREENSHOT_DIRECTORY:-$HOME/Pictures/Screenshots}
-[ -z "${img}" ] && img=$(mktemp "$(date +%Y-%m-%d_%T).XXX" --suffix=.png)
+[ -z "${img}" ] && img=$(mktemp "/tmp/$(date +%Y-%m-%d_%T).XXX" --suffix=.png)
 case $1 in # active window / selection / whole screen
 	w* ) maim -q -u -i $(xdotool getactivewindow) $img ;;
 	s* ) maim -q -u -s $img ;;

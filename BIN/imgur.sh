@@ -104,6 +104,7 @@ function imgur {
 
 	if [ $? -ne 0 ]; then
 		IMGUR_ERROR="Upload failed"
+		return 1
 	elif echo "$response" | grep -q 'success="0"'; then
 		msg="${response##*<error>}"
 		IMGUR_ERROR="Imgur error:${msg%%</error>*}"
@@ -162,7 +163,7 @@ function imgur-cli {
 				echo "Copied to clipboard" >&2
 			fi
 		else
-			echo "imgur_errors+=( '$IMGUR_ERROR' )"
+			echo "$IMGUR_ERROR" >&2
 		fi
 		shift
 	done
