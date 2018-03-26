@@ -4,7 +4,7 @@
 # ==========================================================
 
 # Toggle trackpad
-bindsym $mod+Shift+Menu exec --no-startup-id sh ~/.local/bin/toggletrackpad
+bindsym $mod+Shift+Menu exec --no-startup-id sh toggletrackpad
 
 # Paste from selection with $mod+ins
 bindsym --release $mod+Insert exec --no-startup-id sleep 0.2 && xdotool type "$(xsel)"
@@ -29,7 +29,7 @@ bindsym $mod+F1 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config/i3/co
 bindsym $mod+Shift+F1 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config/i3/config, restart
 
 # F2: lock/leave session
-bindsym $mod+F2 exec --no-startup-id ~/.local/bin/scrotlock
+bindsym $mod+F2 exec --no-startup-id scrotlock
 bindsym $mod+Shift+F2 exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym XF86Sleep exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl suspend

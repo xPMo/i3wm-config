@@ -25,9 +25,6 @@ exec --no-startup-id $HOME/.local/bin/popup-term
 # Notification daemon
 exec --no-startup-id exec dunst
 
-# pulseaudio
-exec --no-startup-id pulseaudio
-
 # power manager
 exec --no-startup-id xfce4-power-manager
 
@@ -38,6 +35,7 @@ exec --no-startup-id start_conky_maia
 # pamac package manager frontend 
 exec --no-startup-id pamac-tray
 # pulseaudio
+exec --no-startup-id pulseaudio
 exec --no-startup-id pa-applet
 
 # notify script, sends a signal to the i3block on media change
