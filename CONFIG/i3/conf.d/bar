@@ -11,7 +11,7 @@ bar {
 	position bottom
 	colors {
 		statusline         $color15
-		background         $color00
+		background         $black
 		separator          $grey
 		# mode             border    bground   text
 		focused_workspace  $color00  $color08  $color15

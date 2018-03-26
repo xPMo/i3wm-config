@@ -22,7 +22,7 @@ set_from_resource $color14  color14  #000000
 set_from_resource $color15  color15  #000000
 
 # extra colors
-set $black     #040808
+set $black     #00161d
 set $grey      #657b83
 set $base-4       #001014
 set $dred         #9c2220
