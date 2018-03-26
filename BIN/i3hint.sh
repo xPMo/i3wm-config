@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
-notification() {
-	notify-send "$1" "$2" --category="i3-hint" --urgency=low
+notification() { # dunst uses positive numbers by default, just take id=-8
+	dunstify --replace -8 "$1" "$2" --appname="i3-hint" --urgency=low
 }
 while [ $# -gt 0 ]; do
 	case "$1" in
