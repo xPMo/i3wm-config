@@ -31,8 +31,9 @@ GetOptions("help|h"   => \&help,
 	   );
 
 # Get reply immediately
+#  dunst uses positive ids by default, use negative id here
 if($button == 3){
-	`notify-send "CPU Usage" "\$(mpstat -P ALL | tail -n +3 | cut -c 14-16,18-24,26-32,34-40,42-48,50-56,58-64,90-97)" --icon indicator-cpufreq --app-name mpstat`;
+	`dunstify --replace=-11 "CPU Usage" "\$(mpstat -P ALL | tail -n +3 | cut -c 14-16,18-24,26-32,34-40,42-48,50-56,58-64,90-97)" --icon indicator-cpufreq --appname mpstat`;
 }
 
 # Get CPU usage

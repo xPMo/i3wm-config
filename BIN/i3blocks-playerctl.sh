@@ -1,29 +1,26 @@
 #!/usr/bin/env bash
 IFS=$'\n'
-
 #click, play/pause
 [[ $BLOCK_BUTTON = 1 ]] && playerctl play-pause
 
 player_status=$(playerctl status)
-title=''
-artist=''
 
 # exit 0 lets the block text be cleared
 if [ -z $player_status ]; then exit 0; fi
 if [ $player_status = "Stopped" ]; then
 	printf "⏹\\n⏹\\n#073642"
 else
-	title=$(playerctl metadata title)
-	artist=$(playerctl metadata artist)
-	length=$title$length
+	title="$(playerctl metadata title)"
+	artist="$(playerctl metadata artist)"
+	length="${title:- }${artist:- }"
 
 	# small text if longer than 20 characters
-	[ ${#length} -gt 20 ] && echo -n "<small>"	
+	[ ${#length} -gt 20 ] && p="$p<small>"	
 	# Substring: if title>32, substring 0-31 with ellipsis
-	[ ${#title} -gt 32 ] && echo -n "${title:0:31}‥ - " || echo -n "$title - "
+	[ ${#title} -gt 32 ] && p="$p${title:0:31}‥ - " || p="$p$title - "
 	# Substring: if artist>20, substring 0-19 with ellipsis
-	[ ${#artist} -gt 20 ] && echo -n "${artist:0:19}‥" || echo -n "$artist"
-	[ ${#length} -gt 20 ] && echo "</small>" || echo
+	[ ${#artist} -gt 20 ] && p="$p${artist:0:19}‥" || p="$p$artist"
+	[ ${#length} -gt 20 ] && echo "$p</small>" || echo $p
 
 	# Short text, always small
 	echo -n "<small>"
@@ -36,6 +33,9 @@ else
 fi
 
 # Right click, get notification with info
-[[ $BLOCK_BUTTON = 3 ]] && notify-send "$title" "by $artist\non $(playerctl metadata album)" \
-	--icon $(playerctl metadata mpris:artUrl) --app-name playerctl
+# dunstify uses postive ids by default, so use a negative id here
+# cheat and use $IFS as newline
+[[ $BLOCK_BUTTON = 3 ]] && dunstify --replace=-10 \
+	"$title" "by $artist${IFS}on $(playerctl metadata album)" \
+	--icon=$(playerctl metadata mpris:artUrl) --appname=playerctl
 exit 0

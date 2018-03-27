@@ -67,8 +67,9 @@ if ($temperature >= $t_crit) {
 } elsif ($temperature >= $t_warn) {
     print "#cccc00\n";
 }
+#  dunst uses positive ids by default, use negative id here
 if($button == 3){
-	`notify-send Temperature "\$(sensors | grep -v +0 | egrep -o '\+.+°C.')" --icon cpuinfo --app-name sensors`;
+	`dunstify --replace=-13 Temperature "\$(sensors | grep -v +0 | egrep -o '\+.+°C.')" --icon cpuinfo --appname sensors`;
 }
 
 exit 0;

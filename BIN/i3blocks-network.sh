@@ -46,7 +46,9 @@ case $BLOCK_BUTTON in
 	#click for connection editor
 	1) nm-connection-editor & ;;
 	# right click for more information in a notification
-	3) exec notify-send $realip "$(grc --colour=on ip addr show $INTERFACE | grep -v '     ' \
+	# dunst uses positive ids by default, use negative id here
+	3) exec dunstify --replace=-5 \
+		$realip "$(grc --colour=on ip addr show $INTERFACE | grep -v '     ' \
 		| ansifilter -M -f --map $HOME/.local/share/ansifilter/solarized)" \
-		--app-name nmcli --icon network-transmit-receive ;;
+		--appname nmcli --icon network-transmit-receive ;;
 esac

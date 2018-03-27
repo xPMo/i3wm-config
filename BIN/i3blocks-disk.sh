@@ -24,14 +24,15 @@ ALERT_LOW="${1:-10}" # color will turn red under this value (default: 10%)
 
 
 case $BLOCK_BUTTON in
-	#click, open file-manager on root
-	1) thunar "$DIR" & ;;
-	3)
-		notify-send "Disk Usage: $DIR" "$(
-			command -v ansifilter > /dev/null \
-				&& grc df -h $DIR | ansifilter -M -f --map $HOME/.local/share/ansifilter/solarized \
-				|| df -h $DIR
-		)" --icon harddrive --app-name df & ;;
+#click, open file-manager on root
+1) thunar "$DIR" & ;;
+3) #  dunst uses positive ids by default, use negative id here
+	dunstify --replace=-12 \
+	"Disk Usage: $DIR" "$(
+		command -v ansifilter > /dev/null \
+			&& grc df -h $DIR | ansifilter -M -f --map $HOME/.local/share/ansifilter/solarized \
+			|| df -h $DIR
+	)" --icon harddrive --appname df & ;;
 esac
 
 exec df -h -P -l "$DIR" | awk -v alert_low=$ALERT_LOW '
