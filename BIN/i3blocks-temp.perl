@@ -69,7 +69,7 @@ if ($temperature >= $t_crit) {
 }
 #  dunst uses positive ids by default, use negative id here
 if($button == 3){
-	`dunstify --replace=-13 Temperature "\$(sensors | grep -v +0 | egrep -o '\+.+°C.')" --icon cpuinfo --appname sensors`;
+	`dunstify --replace=-313 Temperature "\$(sensors | grep -v +0 | egrep -o '\+.+°C.')" --icon cpuinfo --appname sensors`;
 }
 
 exit 0;

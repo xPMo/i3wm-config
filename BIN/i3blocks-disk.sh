@@ -27,7 +27,7 @@ case $BLOCK_BUTTON in
 #click, open file-manager on root
 1) thunar "$DIR" & ;;
 3) #  dunst uses positive ids by default, use negative id here
-	dunstify --replace=-12 \
+	dunstify --replace=-312 \
 	"Disk Usage: $DIR" "$(
 		command -v ansifilter > /dev/null \
 			&& grc df -h $DIR | ansifilter -M -f --map $HOME/.local/share/ansifilter/solarized \
