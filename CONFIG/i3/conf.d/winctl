@@ -39,7 +39,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # prepare a new split
-bindsym $mod+n split toggle; exec i3hint layout
+bindsym $mod+n split toggle; exec --no-startup-id i3hint layout
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -47,7 +47,7 @@ bindsym $mod+f fullscreen
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split; exec i3hint layout
+bindsym $mod+e layout toggle split; exec --no-startup-id i3hint layout
 
 # toggle tiling / floating / sticky
 bindsym $mod+Shift+space floating toggle
@@ -93,7 +93,7 @@ mode $resize_mode {
 	bindsym Shift+$vright resize grow width 1 px or 1 ppt
 
 	# use slop to resize
-	bindsym Shift+r exec i3slopsize
+	bindsym Shift+r exec --no-startup-id i3slopsize
 
 	# change borders
 	bindsym u border none
@@ -118,7 +118,8 @@ bindsym $mod+r mode $resize_mode
 
 # Freeze mode: useful for when VNC'ing into another session and all
 # commands need to go through
-mode "freeze"{
+set $mode_freeze <b>Freeze</b> <small>(Leave with $mod+Escape)</small>
+mode --pango_markup "$mode_freeze"{
    bindsym $mod+Escape mode "default"
 }
-bindsym $mod+$mod2+Escape mode "freeze"
+bindsym $mod+$mod2+Escape mode "$mode_freeze"

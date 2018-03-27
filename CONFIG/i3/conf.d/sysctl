@@ -38,8 +38,8 @@ bindsym Shift+XF86Sleep exec --no-startup-id sh -c ~/.local/bin/scrotlock && sys
 # F3: 
 # $mod+F4: system
 bindsym $mod+F4 mode "$mode_system"
-set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-mode "$mode_system" {
+set $mode_system <b>L</b>ock, <b>E</b>xit, switch_<b>U</b>ser, <b>S</b>uspend, <b>H</b>ibernate, <b>R</b>eboot, <small>Shift+</small><b>S</b>hutdown
+mode --pango_markup "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
