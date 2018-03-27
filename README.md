@@ -10,7 +10,7 @@ Default bindings which have been changed:
 * Focus child is `$mod+z`
 * Only split toggle (on `$mod+n`), no splith/v bindings
 
-Features include:
+i3wm features:
 * No titlebars
 * `$mod+x` for a focus/launch mode. (Press `<key>` to attempt to focus the associated program.  It will launch if it fails. Press `Shift+<key>` to launch a new instance, without regard to running instances.)
 * `scrotlock` script which pixelizes and 50% desaturates
@@ -19,13 +19,25 @@ Features include:
 * Certain programs will launch on certain workspaces
 * Volume displayed in hexadecimal because why not
 * Special bindings that I use with my Steam Controller
-* Playerctl i3block which can `notify-send` track info with album art
+* Click events for most blocks
+* Keyboard shortcuts to get notifications with system information
+* Uses dunstify for `--replace`ing notifications
+* Layout notification on layout change
+* Uses `Xresources` to set gaps, colors, and (coming) more!
+
+i3blocks scripts:
+* CPU: right click to get `mpstat` notification
+* Playerctl: click to playpause, right click for notification with album art and info
+* Disks: click to open mount location, right click for `df` notification
+* Temperature: right click for detailed temperature information
+* Volume: scroll to change volume, right click to toggle mute
+
 
 **TODO:**
-* Customize click events for i3blocks
-* Keyboard shortcuts to match the functionality of those click events.(e.g.: ~~bind `$mod+Ctrl+p` to  `notify-send` `playerctl` info~~) (this one is done)
+* Set `S_COLORS` for mpstat colou?ri\[zs\]ation
+* Branch with Barless config: workspace notification on workspace change, workspace Rofi
+* Continue to customize click events for i3blocks
 * Create sway-compatible bindings for upcoming Wayland migration
-* Figure out how to get colors from ~/.Xresources.
 * Give up.
 
 By default, bindings for:
