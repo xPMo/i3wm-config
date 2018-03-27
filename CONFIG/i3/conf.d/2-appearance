@@ -3,36 +3,31 @@
 # Appearance of windows
 # ================================================
 
-# Color defs - solarized
+# Color defs - Xresources - fallback to solarized
 set_from_resource $color00  color0   #002b36
 set_from_resource $color01  color1   #dc322f
 set_from_resource $color02  color2   #859900
 set_from_resource $color03  color3   #b58900
-set_from_resource $color04  color4   #000000
-set_from_resource $color05  color5   #000000
-set_from_resource $color06  color6   #000000
-set_from_resource $color07  color7   #000000
-set_from_resource $color08  color8   #073642
+set_from_resource $color04  color4   #268bd2
+set_from_resource $color05  color5   #d33682
+set_from_resource $color06  color6   #2aa198
+set_from_resource $color07  color7   #93a1a1
+set_from_resource $color08  color8   #586e75
 set_from_resource $color09  color9   #cb4b16
 set_from_resource $color10  color10  #85c000
-set_from_resource $color11  color11  #000000
-set_from_resource $color12  color12  #000000
-set_from_resource $color13  color13  #000000
-set_from_resource $color14  color14  #000000
-set_from_resource $color15  color15  #000000
-set_from_resource $bground  background #000000
-
-# extra colors
-set $black     #00161d
-set $grey      #657b83
-set $base-4       #001014
-set $dred         #9c2220
+set_from_resource $color11  color11  #cccc00
+set_from_resource $color12  color12  #2c98e4
+set_from_resource $color13  color13  #6c71c4
+set_from_resource $color14  color14  #30b8b0
+set_from_resource $color15  color15  #eee8d5
+set_from_resource $fground  foreground #eee8d5
+set_from_resource $bground  background #002b36
 
 # Colors:               border     background  text      indicator  child border
 client.focused          $color08   $color08    $color15  $color04   $color07
 client.focused_inactive $color08   $color00    $color15  $color04   $color00
-client.unfocused        $color00   $base-4     $color07  $color04   $color00
-client.urgent           $color09   $base-4     $color01  $color04   $color00
+client.unfocused        $color00   $bground    $color07  $color04   $color00
+client.urgent           $color01   $bground    $color07  $color04   $color01
 
 # Chrome modifications
 new_window pixel 1

@@ -12,12 +12,12 @@ bar {
 	colors {
 		statusline         $color15
 		background         $bground
-		separator          $grey
+		separator          $color08
 		# mode             border    bground   text
 		focused_workspace  $color00  $color08  $color15
 		active_workspace   $color08  $color00  $color15
 		inactive_workspace $color00  $color00  $color07
-		urgent_workspace   $color00  $color00  $color01
+		urgent_workspace   $color01  $color00  $color07
 		binding_mode       $color00  $color00  $color07
 	}
 }
