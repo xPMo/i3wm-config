@@ -127,7 +127,7 @@ signal=2
 
 [playerctl]
 label=♪
-command=$HOME/.local/bin/i3blocks-playerctl
+command=$HOME/.local/bin/i3blocks-playerctl | sed 's/&/&amp;/g'
 signal=11
 
 [volume]
