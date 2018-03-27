@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-# POSIX doesn't allow this (yet)
 IFS=$'\n'
 # I use feh, but sxiv is more common
 XIVIEWER=${XIVIEWER:-sxiv}
+ssdir=${SCREENSHOT_DIRECTORY:-$HOME/Pictures/Screenshots}
 set -e
 
-ssdir=${SCREENSHOT_DIRECTORY:-$HOME/Pictures/Screenshots}
 [ -z "${img}" ] && img=$(mktemp "/tmp/$(date +%Y-%m-%d_%T).XXX" --suffix=.png)
 case $1 in # active window / selection / whole screen
 	w* ) maim -q -u -i $(xdotool getactivewindow) $img ;;
