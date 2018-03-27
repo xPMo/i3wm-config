@@ -5,13 +5,17 @@ IFS=$'\n'
 
 player_status=$(playerctl status)
 
+pango_escape() {
+	sed -e 's/&/\&amp;/g; s/</&lt;/g; s/>/\&gt;/g'
+}
+
 # exit 0 lets the block text be cleared
 if [ -z $player_status ]; then exit 0; fi
 if [ $player_status = "Stopped" ]; then
 	printf "⏹\\n⏹\\n#073642"
 else
-	title="$(playerctl metadata title)"
-	artist="$(playerctl metadata artist)"
+	title="$(playerctl metadata title | pango_escape)"
+	artist="$(playerctl metadata artist | pango_escape)"
 	length="${title:- }${artist:- }"
 
 	# small text if longer than 20 characters
