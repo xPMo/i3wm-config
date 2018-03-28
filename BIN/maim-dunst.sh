@@ -19,7 +19,7 @@ if (( $# )); then
 	img="$1"
 else
 	mkdir -p $tmpdir
-	img=$(mktemp "${tmpdir}$(date +%Y-%m-%d_%T).XXX" --suffix=.png)
+	img=$(mktemp "${tmpdir}/$(date +%Y-%m-%d_%T).XXX" --suffix=.png)
 fi
 
 # === TAKE SCREENSHOT ===
@@ -39,12 +39,12 @@ action=$(
 	dunstify --appname="$(basename $0)" \
 	"Screenshot taken." "$(basename $img)" \
 	--replace=$dunst_id \
-	--action="clip,Copy image to clipboard" \
-	--action="del,Delete image" \
-	--action="edit,Edit image with GIMP" \
-	--action="imgur,Upload image to Imgur" \
-	--action="save,Save image to $ssdir" \
-	--action="view,View image with $viewer"
+	--action="clip,1 Copy image to clipboard" \
+	--action="del,2 Delete image" \
+	--action="edit,3 Edit image with GIMP" \
+	--action="imgur,4 Upload image to Imgur" \
+	--action="save,5 Save image to $ssdir" \
+	--action="view,6 View image with $viewer"
 )
 do
 	case $action in
