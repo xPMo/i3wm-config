@@ -13,6 +13,8 @@ case $1 in # active window / selection / whole screen
 esac
 
 dunst_id=$(dunstify "" -p)
+
+# in a loop, user may want to take many actions
 while
 action=$(
 	dunstify --appname="$(basename $0)" \
@@ -31,6 +33,7 @@ do
 	edit ) gimp $img ;;
 	save ) [ -d $ssdir ] || mkdir -p $ssdir; cp $img $ssdir ;;
 	imgur) imgur -d $img ;;
+	# notification closed with out selection
 	*) break ;;
 	esac
 done

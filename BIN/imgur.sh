@@ -44,6 +44,7 @@ Upload IMAGE to Imgur
 	-d    Use dunstify to control the process
 	-h    Show this help
 	-H    Show help about the imgur shell function
+	      (for use in your own scripts)
 EOF
 }
 
