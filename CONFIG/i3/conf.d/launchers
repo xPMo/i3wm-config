@@ -6,9 +6,9 @@
 # Printscreen (maim)
 bindsym Print exec --no-startup-id maim-dunst
 # Selection (maim+slop)
-bindsym Shift+Print exec --no-startup-id maim-dunst s
+bindsym Shift+Print exec --no-startup-id "maim-dunst -s"
 # active window (maim+xdotool)
-bindsym Control+Print exec --no-startup-id maim-dunst w
+bindsym Control+Print exec --no-startup-id "maim-dunst -w"
 
 # i3-input (for marking, etc)
 bindsym $mod+i exec --no-startup-id i3-input
