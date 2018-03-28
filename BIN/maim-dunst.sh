@@ -2,29 +2,34 @@
 IFS=$'\n'
 set -e
 
-# I use feh, but sxiv is more common
-XIVIEWER=${XIVIEWER:-sxiv}
+# === ENVIRONMENT VARIABLES ===
+viewer=${XIVIEWER:-sxiv} # I use feh, but sxiv is more common
+tmpdir=${SCREENSHOT_TMPDIR:-/tmp/screenshots}
 ssdir=${SCREENSHOT_DIRECTORY:-$HOME/Pictures/Screenshots}
 
+# === GETOPTS ===
 # if no opt provided, don't shift
 # `|| true` necessary because `set -e`
 getopts ":ws" opt && shift || true
 
-# provide filename
+# === IMAGE LOCATION ===
 if (( $# )); then
 	# create path if it doesn't exist
-	[ -d $(dirname "$1") ] || mkdir -p $(dirname "$1")
+	mkdir -p $(dirname "$1")
 	img="$1"
 else
-	img=$(mktemp "/tmp/$(date +%Y-%m-%d_%T).XXX" --suffix=.png)
+	mkdir -p $tmpdir
+	img=$(mktemp "${tmpdir}$(date +%Y-%m-%d_%T).XXX" --suffix=.png)
 fi
 
+# === TAKE SCREENSHOT ===
 case $opt in # active window / selection / whole screen
 	w ) maim -q -u -i $(xdotool getactivewindow) $img ;;
 	s ) maim -q -u -s $img ;;
 	* ) maim -q -u $img ;;
 esac
 
+# === TAKE ACTION ON FILE ===
 # use the same id so the notification gets replaced every time
 dunst_id=$(dunstify "" -p)
 
@@ -39,15 +44,15 @@ action=$(
 	--action="edit,Edit image with GIMP" \
 	--action="imgur,Upload image to Imgur" \
 	--action="save,Save image to $ssdir" \
-	--action="view,View image with $XIVIEWER"
+	--action="view,View image with $viewer"
 )
 do
 	case $action in
 	clip ) xclip -selection clipboard -t $(file -b --mime-type $img) < $img ;;
 	del  ) rm $img; break ;;
-	view ) $XIVIEWER $img ;;
+	view ) $viewer $img ;;
 	edit ) gimp $img ;;
-	save ) [ -d $ssdir ] || mkdir -p $ssdir; cp $img $ssdir ;;
+	save ) mkdir -p $ssdir; cp $img $ssdir ;;
 	imgur) imgur -d $img ;;
 	# notification closed without selection
 	*) break ;;
