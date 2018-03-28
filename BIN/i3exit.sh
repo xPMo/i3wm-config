@@ -9,6 +9,7 @@ case "$1" in
 	logout) i3-msg exit ;;
 	switch_user) dm-tool switch-to-greeter ;;
 	suspend) scrotlock && $logind suspend ;;
+	hybrid-sleep) scrotlock && $logind hybrid-sleep ;;
 	hibernate) scrotlock && $logind hibernate ;;
 	reboot) $logind reboot ;;
 	shutdown) $logind poweroff ;;

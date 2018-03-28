@@ -32,8 +32,8 @@ bindsym $mod+Shift+F1 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config
 bindsym $mod+F2 exec --no-startup-id scrotlock
 bindsym $mod+Shift+F2 exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym XF86Sleep exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl suspend
-bindsym Shift+XF86Sleep exec --no-startup-id sh -c ~/.local/bin/scrotlock && systemctl hybrid-sleep
+bindsym XF86Sleep exec --no-startup-id i3exit suspend
+bindsym Shift+XF86Sleep exec --no-startup-id i3exit hybrid-sleep
 
 # F3: 
 # $mod+F4: system
