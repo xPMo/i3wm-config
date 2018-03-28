@@ -173,14 +173,14 @@ function imgur-cli {
 function imgur-eval {
 	echo 'unset $imgur_urls $imgur_delete $imgur_errors'
 	echo 'declare -a imgur_urls imgur_delete imgur_errors'
-	function f { # run in parallel
+	function f ( # run in parallel
 		if imgur $1; then
 			echo "imgur_urls+=( '$IMGUR_URL' )"
 			echo "imgur_delete+=( '$IMGUR_DELETE' )"
 		else
 			echo "imgur_errors+=( '$IMGUR_ERROR' )"
 		fi
-	}
+	)
 	while (( $# )); do
 		f "$1" &
 		shift
