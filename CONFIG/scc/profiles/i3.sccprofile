@@ -5,8 +5,7 @@
             "action": "mode(LGRIP, name('Launch Terminal', shell('urxvt')), name('Terminal Workspace', shell('~/.local/share/i3switchLaunch urxvt Urxvt \"11:~$\"')))"
         }, 
         "B": {
-            "action": "button(Keys.KEY_CAPSLOCK)", 
-            "name": "Escape (key66)"
+            "action": "mode(LGRIP, name('Close window', shell('i3-msg kill')), name('Escape (key66)', button(Keys.KEY_CAPSLOCK)))"
         }, 
         "BACK": {
             "action": "button(Keys.KEY_BACKSPACE)"

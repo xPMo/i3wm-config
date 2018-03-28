@@ -52,7 +52,7 @@
         "action": "feedback(RIGHT, 256, XY(axis(Axes.ABS_RX), raxis(Axes.ABS_RY)))"
     }, 
     "stick": {
-        "action": "sens(1.2, 1.2, XY(axis(Axes.ABS_X), raxis(Axes.ABS_Y)))"
+        "action": "mode(C, dpad(button(Keys.KEY_VOLUMEUP), button(Keys.KEY_VOLUMEDOWN)), sens(1.2, 1.2, XY(axis(Axes.ABS_X), raxis(Axes.ABS_Y))))"
     }, 
     "trigger_left": {
         "action": "axis(Axes.ABS_Z)"

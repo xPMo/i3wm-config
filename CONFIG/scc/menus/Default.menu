@@ -12,6 +12,11 @@
     "name": "Options", 
     "separator": true
 }, {
+    "action": "shell(\"scc-osd-show-bindings\")", 
+    "icon": "system/binding-display", 
+    "id": "item_i7", 
+    "name": "Display Current Bindings..."
+}, {
     "icon": "system/controller", 
     "name": "Games", 
     "submenu": ".games.menu"
