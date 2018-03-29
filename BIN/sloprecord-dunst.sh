@@ -6,7 +6,11 @@ set -ex
 viewer=${XVVIEWER:-xdg-open} # I use feh, but sxiv is more common
 tmpdir=${RECORD_TMPDIR:-/tmp/records}
 recorddir=${RECORD_DIR:-$HOME/Videos/Records}
-pidfile=${XDG_RUNTIME_DIR}/sloprecord.pid
+if [ -d $XDG_RUNTIME_DIR ]; then
+	pidfile=${XDG_RUNTIME_DIR}/sloprecord.pid
+else
+	pidfile=$tmpdir/sloprecord.pid
+fi
 
 # === END RECORDING IF IN PROGRESS ===
 if [[ -f $pidfile ]]; then
@@ -15,17 +19,6 @@ if [[ -f $pidfile ]]; then
 	rm $pidfile
 	exit 0
 fi
-
-record() {
-	if [[ -n ${X:-} ]] && [[ -n ${Y:-} ]]; then
-		url="${DISPLAY}+${X},${Y}"
-	else
-		url=$DISPLAY
-	fi
-	ffmpeg -y -f x11grab -s "${W}x${H}" -i "$url" \
-		-r 15 -f alsa -i pulse "$@" >/dev/null 2>&1 &
-	RECORD_PID=$!
-}
 
 # === GETOPTS ===
 # if no opt provided, don't shift
@@ -43,16 +36,14 @@ else
 	vid=$(mktemp "${tmpdir}/$(date +%Y-%m-%d_%T).XXX" --suffix=.mkv)
 fi
 
-set_dimensions(){ # arg: winid
-	# If given a valid window ID, will get the dimensions of that window
-	# Otherwise will get the dimensions of the root window
+# If given a valid window ID, will get the dimensions of that window
+# Otherwise will get the dimensions of the root window
+set_dimensions(){
 	# Sets X, Y, W, H for the record function to use
 	# It is important that IFS=$'\n' or $'\n\t' here
 	IFS=$'\n'
 	for line in $(
-		[[ -n ${1:-} ]] && \
-			xwininfo -id $1 || \
-			xwininfo -root
+		[[ -n ${1:-} ]] && xwininfo -id $1 || xwininfo -root
 	); do
 		case $line in # xargs is a good whitespace cleaner
 			*Width:* ) W=$(echo ${line##*:} | xargs) ;;
@@ -77,7 +68,14 @@ s ) # selection || true because of EOF
 esac
 
 # === START RECORDING ===
-record $vid
+if [[ -n ${X:-} ]] && [[ -n ${Y:-} ]]; then
+	url="${DISPLAY}+${X},${Y}"
+else
+	url=$DISPLAY
+fi
+ffmpeg -y -f x11grab -s "${W}x${H}" -i "$url" \
+	-r 15 -f alsa -i pulse "$vid" >/dev/null 2>&1 &
+RECORD_PID=$!
 echo $RECORD_PID > "$pidfile"
 notify-send --app-name=$(basename $0) \
 	--icon='media-record' \
