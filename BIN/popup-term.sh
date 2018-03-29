@@ -21,6 +21,8 @@ function nterm {
 cond() {
 	i3-msg "[title=^${title:-popup_term}$]" focus 2>&1 | grep -q "ERROR"
 }
+font=$(xrdb -query | grep -i 'urxvt[\.\*]*font:' | cut -f2)
+
 while getopts "hnxt:o:f:" opt; do
 	case ${opt} in
 		f )
