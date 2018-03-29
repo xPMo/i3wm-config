@@ -25,11 +25,8 @@ exec --no-startup-id $HOME/.local/bin/popup-term
 # Notification daemon
 exec --no-startup-id exec dunst
 
-# power manager
-exec --no-startup-id xfce4-power-manager
-
 # conky
-exec --no-startup-id start_conky_maia
+exec --no-startup-id conky
 
 # -- tray --
 # pamac package manager frontend 
