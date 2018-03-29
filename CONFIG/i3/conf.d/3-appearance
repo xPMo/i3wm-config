@@ -1,0 +1,18 @@
+
+# ================================================
+# Appearance of windows
+# ================================================
+
+# Colors:               border     background  text      indicator  child border
+client.focused          $color08   $color08    $color15  $color04   $color07
+client.focused_inactive $color08   $color00    $color15  $color04   $color00
+client.unfocused        $color00   $bground    $color07  $color04   $color00
+client.urgent           $color01   $bground    $color07  $color04   $color01
+
+# font
+font $wmfont
+
+# Chrome modifications
+new_window pixel 1
+hide_edge_borders both
+new_float pixel 1
