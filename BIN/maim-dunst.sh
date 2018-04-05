@@ -11,6 +11,7 @@ Record screen, using dunst to control the process
 	-w    screenshot current active window
 	-s    screenshot selection
 	-d    screenshot display (default)
+	-h    show this help
 	FILE  destination for screenshot
 
 The last provided flag before [ FILE ] will be used,
@@ -38,6 +39,7 @@ s ) opt="selection" ;;
 w ) opt="window" ;;
 h ) usage && exit 0 ;;
 esac
+done
 
 # === IMAGE LOCATION ===
 if (( $# )); then

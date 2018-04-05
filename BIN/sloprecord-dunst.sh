@@ -11,6 +11,7 @@ Record screen, using dunst to control the process
 	-w    record current active window
 	-s    record selection
 	-d    record display (default)
+	-h    show this help
 	FILE  destination for recording
 
 The last provided flag before [ FILE ] will be used,
@@ -47,6 +48,7 @@ s ) opt="selection" ;;
 w ) opt="window" ;;
 h ) usage && exit 0 ;;
 esac
+done
 
 # === RECORD LOCATION ===
 trap '{ rm $vid; kill $RECORD_PID || true; rm $pidfile; exit $?; }' INT
