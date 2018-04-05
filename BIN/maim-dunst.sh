@@ -8,10 +8,10 @@ $(basename $0) [ -w | -s | -d ] [ FILE ]
 
 Record screen, using dunst to control the process
 
-	-w    record current active window
-	-s    record selection
-	-d    record display (default)
-	FILE  destination for recording
+	-w    screenshot current active window
+	-s    screenshot selection
+	-d    screenshot display (default)
+	FILE  destination for screenshot
 
 The last provided flag before [ FILE ] will be used,
 or display by default.
