@@ -1,8 +1,7 @@
-#!/bin/sh
-# /usr/bin/i3exit
+#!/usr/bin/env sh
 
 # with openrc use loginctl
-[[ $(cat /proc/1/comm) == "systemd" ]] && logind=systemctl || logind=loginctl
+[ $(cat /proc/1/comm) = "systemd" ] && logind=systemctl || logind=loginctl
 
 case "$1" in
 	lock) scrotlock ;;
@@ -14,8 +13,13 @@ case "$1" in
 	reboot) $logind reboot ;;
 	shutdown) $logind poweroff ;;
 	*)
-		echo "== ! i3exit: missing or invalid argument ! =="
-		echo "Try again with: lock | logout | switch_user | suspend | hibernate | reboot | shutdown"
+		cat >&2 <<- EOF
+
+== ! i3exit: missing or invalid argument ! ==
+Supported arguments:
+lock | logout | switch_user | suspend | hibernate | hybrid-sleep | reboot | shutdown
+EOF
+
 		exit 2
 esac
 
