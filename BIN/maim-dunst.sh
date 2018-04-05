@@ -2,15 +2,42 @@
 IFS=$'\n'
 set -e
 
+usage() {
+	cat >&2 <<- EOF
+$(basename $0) [ -w | -s | -d ] [ FILE ]
+
+Record screen, using dunst to control the process
+
+	-w    record current active window
+	-s    record selection
+	-d    record display (default)
+	FILE  destination for recording
+
+The last provided flag before [ FILE ] will be used,
+or display by default.
+EOF
+}
+
 # === ENVIRONMENT VARIABLES ===
-viewer=${XIVIEWER:-sxiv} # I use feh, but sxiv is more common
-tmpdir=${SCREENSHOT_TMPDIR:-/tmp/screenshots}
+# using xdg-open is a good second guess
+# simply set $XIVIEWER in .xinitrc / .profile
+# to change
+viewer=${XIVIEWER:-xdg-open}
+TMP=${TMPDIR:-/tmp}
+tmpdir=${SCREENSHOT_TMPDIR:-$TMP/screenshots}
 ssdir=${SCREENSHOT_DIRECTORY:-$HOME/Pictures/Screenshots}
 
 # === GETOPTS ===
 # if no opt provided, don't shift
 # `|| true` necessary because `set -e`
-getopts ":ws" opt && shift || true
+opt="display"
+while getopts ":dhsw" o; do
+case $o in
+d ) opt="display" ;;
+s ) opt="selection" ;;
+w ) opt="window" ;;
+h ) usage && exit 0 ;;
+esac
 
 # === IMAGE LOCATION ===
 if (( $# )); then
@@ -24,9 +51,9 @@ fi
 
 # === TAKE SCREENSHOT ===
 case $opt in # active window / selection / whole screen
-	w ) maim -q -u -i $(xdotool getactivewindow) $img ;;
-	s ) maim -q -u -s $img ;;
-	* ) maim -q -u $img ;;
+	w* ) maim -q -u -i $(xdotool getactivewindow) $img ;;
+	s* ) maim -q -u -s $img ;;
+	d* ) maim -q -u $img ;;
 esac
 
 # === TAKE ACTION ON FILE ===

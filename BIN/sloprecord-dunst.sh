@@ -1,9 +1,25 @@
 #!/usr/bin/env bash
 IFS=$'\n\t'
-set -ex
+set -e
+
+usage() {
+	cat >&2 <<- EOF
+$(basename $0) [ -w | -s | -d ] [ FILE ]
+
+Record screen, using dunst to control the process
+
+	-w    record current active window
+	-s    record selection
+	-d    record display (default)
+	FILE  destination for recording
+
+The last provided flag before [ FILE ] will be used,
+or display by default.
+EOF
+}
 
 # === ENVIRONMENT VARIABLES ===
-viewer=${XVVIEWER:-xdg-open} # I use feh, but sxiv is more common
+viewer=${XVVIEWER:-xdg-open}
 tmpdir=${RECORD_TMPDIR:-/tmp/records}
 recorddir=${RECORD_DIR:-$HOME/Videos/Records}
 if [ -d $XDG_RUNTIME_DIR ]; then
@@ -14,16 +30,23 @@ fi
 
 # === END RECORDING IF IN PROGRESS ===
 if [[ -f $pidfile ]]; then
-	read pid -r < $pidfile || true
-	kill $pid || true
+	read -r pid < $pidfile || true
+	kill -2 $pid || true
 	rm $pidfile
 	exit 0
 fi
 
 # === GETOPTS ===
-# if no opt provided, don't shift
+# get last opt: -w or -s
 # `|| true` necessary because `set -e`
-getopts ":ws" opt && shift || true
+opt="display"
+while getopts ":dhsw" o; do
+case $o in
+d ) opt="display" ;;
+s ) opt="selection" ;;
+w ) opt="window" ;;
+h ) usage && exit 0 ;;
+esac
 
 # === RECORD LOCATION ===
 trap '{ rm $vid; kill $RECORD_PID || true; rm $pidfile; exit $?; }' INT
@@ -56,13 +79,13 @@ set_dimensions(){
 
 # === GET RECORD REGION ===
 case $opt in # active window
-w ) # active window
+w* ) # active window
 	set_dimensions $(xdotool getactivewindow)
 	;;
-s ) # selection || true because of EOF
+s* ) # selection || true because of EOF
 	read -r X Y W H < <(slop -f $'%x\t%y\t%w\t%H') ||true
 	;;
-* ) # whole screen
+d* ) # whole screen
 	set_dimensions
 	;;
 esac
@@ -82,8 +105,7 @@ notify-send --app-name=$(basename $0) \
 	"Recording" "Call this again to end recording."
 
 # === STOP RECORDING ===
-wait $RECORD_PID
-rm "$pidfile"
+wait $RECORD_PID || echo $?
 
 # === TAKE ACTION ON FILE ===
 # use the same id so the notification gets replaced every time
@@ -93,11 +115,12 @@ dunst_id=$(dunstify "" -p)
 while
 action=$(
 	dunstify --appname="$(basename $0)" \
-	"Screenshot taken." "$(basename $vid)" \
+	--icon='media-record' \
+	"Recording finished." "$(basename $vid)" \
 	--replace=$dunst_id \
 	--action="del, Delete video" \
 	--action="edit, Edit video" \
-	--action="gfyc, Upload video to gfycat" \
+	--action="gfyc, Upload video to Gfycat" \
 	--action="save, Save video to $recorddir" \
 	--action="view, View video with $viewer"
 )
