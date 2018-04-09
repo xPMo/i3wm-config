@@ -25,7 +25,7 @@ ALERT_LOW="${1:-10}" # color will turn red under this value (default: 10%)
 
 case $BLOCK_BUTTON in
 #click, open file-manager on root
-1) thunar "$DIR" & ;;
+1) i3-msg exec ${XFILEMAN:-xdg-open} "$DIR" > /dev/null ;;
 3) #  dunst uses positive ids by default, use negative id here
 	dunstify --replace=-312 \
 	"Disk Usage: $DIR" "$(

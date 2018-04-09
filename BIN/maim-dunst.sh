@@ -33,12 +33,12 @@ ssdir=${SCREENSHOT_DIRECTORY:-$HOME/Pictures/Screenshots}
 # `|| true` necessary because `set -e`
 opt="display"
 while getopts ":dhsw" o; do
-case $o in
-d ) opt="display" ;;
-s ) opt="selection" ;;
-w ) opt="window" ;;
-h ) usage && exit 0 ;;
-esac
+	case $o in
+	d ) opt="display"; shift ;;
+	s ) opt="selection"; shift;;
+	w ) opt="window"; shift ;;
+	h ) usage && exit 0 ;;
+	esac
 done
 
 # === IMAGE LOCATION ===
