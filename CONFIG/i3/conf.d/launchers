@@ -7,10 +7,9 @@
 bindsym Print exec --no-startup-id maim-dunst
 bindsym Shift+Print exec --no-startup-id "maim-dunst -s"
 bindsym Control+Print exec --no-startup-id "maim-dunst -w"
-# Recording (ffmpeg) whole-screen / selection / window
+
+# Record screen: parec, ffmpeg
 bindsym $mod+Print exec --no-startup-id sloprecord-dunst
-bindsym $mod+Shift+Print exec --no-startup-id "sloprecord-dunst -s"
-bindsym $mod+Control+Print exec --no-startup-id "sloprecord-dunst -w"
 
 # i3-input (for marking, etc)
 bindsym $mod+i exec --no-startup-id i3-input
@@ -18,7 +17,7 @@ bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mod+grave exec --no-startup-id i3-input -F '[con_mark=%s] focus' -l 1 -P 'Focus mark: ' 
 
 # Standalone launchers:
-bindsym Shift+XF86Mail exec exec thunar
+bindsym Shift+XF86Mail exec exec xdg-open $HOME
 bindsym Shift+XF86HomePage exec exec firefox -P -no-remote hidden
 bindsym $mod+$mod2+w exec exec firefox -P -no-remote hidden
 bindsym $mod+Shift+t exec exec urxvt
