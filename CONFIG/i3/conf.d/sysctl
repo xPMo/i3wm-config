@@ -20,17 +20,21 @@ bindsym Shift+XF86MonBrightnessUp exec --no-startup-id light -s acpi_video0 -S 1
 bindcode 248 exec i3-input \
 	-F 'exec --no-startup-id light \-s acpi_video0 \-r \-S %s' -P 'Set backlight to (0-24):'
 
+# F1: Show i3 information
+bindsym $mod+F1 exec i3hint version workspace layout
+bindsym $mod+Shift+F1 exec i3hint help
+
 # ----------------
 # LOGIN AND POWER:
 # ----------------
 
-# F1: Reload or restart i3 inplace
-bindsym $mod+F1 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config/i3/config, reload
-bindsym $mod+Shift+F1 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config/i3/config, restart
+# F2: Reload or restart i3 inplace
+bindsym $mod+F2 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config/i3/config, reload
+bindsym $mod+Shift+F2 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config/i3/config, restart
 
-# F2: lock/leave session
-bindsym $mod+F2 exec --no-startup-id scrotlock
-bindsym $mod+Shift+F2 exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# F1: lock/leave session
+bindsym $mod+F3 exec --no-startup-id scrotlock
+bindsym $mod+Shift+F3 exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym XF86Sleep exec --no-startup-id i3exit suspend
 bindsym Shift+XF86Sleep exec --no-startup-id i3exit hybrid-sleep
