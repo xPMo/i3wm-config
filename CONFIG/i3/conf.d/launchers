@@ -99,9 +99,6 @@ mode "$mode_launch" {
 # ====================
 # Notifications
 # ====================
-# notification with workspace info
-# notification with workspace status
-bindsym $mod+q exec --no-startup-id i3hint workspace
 
 # notification with player info
 bindsym Control+$mod+p exec --no-startup-id \
