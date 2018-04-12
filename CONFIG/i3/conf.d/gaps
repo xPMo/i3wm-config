@@ -1,0 +1,66 @@
+# ====================================================
+# settings for i3-gaps
+# ====================================================
+
+gaps inner $gaps_inner
+gaps outer $gaps_outer
+
+# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
+# gaps inner|outer current|all set|plus|minus <px>
+# gaps inner all set 10
+# gaps outer all plus 5
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders on
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will for just this workspace.
+set $mode_gaps Gaps: <b>O</b>uter, <b>I</b>nner
+set $mode_gaps_outer Outer gaps: [ <b>+</b> | <b>-</b> | <b>0</b> | <b>5</b> | <b>?</b> ]
+set $mode_gaps_inner Inner gaps: [ <b>+</b> | <b>-</b> | <b>0</b> | <b>5</b> | <b>?</b> ]
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode --pango_markup "$mode_gaps" {
+	bindsym o       mode "$mode_gaps_outer"
+	bindsym i       mode "$mode_gaps_inner"
+	bindsym Shift+o mode "$mode_gaps_outer"
+	bindsym Shift+i mode "$mode_gaps_inner"
+	bindsym Return  mode "default"
+	bindsym Escape  mode "default"
+}
+mode --pango_markup "$mode_gaps_inner" {
+	bindsym plus  gaps inner all plus 1
+	bindsym minus gaps inner all minus 1
+	bindsym 0     gaps inner all set 0
+	bindsym 5     gaps inner all set 5
+
+	bindsym Shift+plus  gaps inner current plus 1
+	bindsym Shift+minus gaps inner current minus 1
+	bindsym Shift+0     gaps inner current set 0
+	bindsym Shift+5     gaps inner current set 5
+
+	bindsym slash exec --no-startup-id i3hint gaps
+	bindsym Shift+slash exec --no-startup-id i3hint gaps
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+mode --pango_markup "$mode_gaps_outer" {
+	bindsym plus  gaps outer all plus 1
+	bindsym minus gaps outer all minus 1
+	bindsym 0     gaps outer all set 0
+	bindsym 5     gaps outer all set 5
+
+	bindsym Shift+plus  gaps outer current plus 1
+	bindsym Shift+minus gaps outer current minus 1
+	bindsym Shift+0     gaps outer current set 0
+	bindsym Shift+5     gaps outer current set 5
+
+	bindsym slash exec --no-startup-id i3hint gaps
+	bindsym Shift+slash exec --no-startup-id i3hint gaps
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}

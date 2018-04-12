@@ -6,6 +6,10 @@
 # Font
 set_from_resource $wmfont i3wm.font pango:Noto Sans 9
 
+# Set inner/outer gaps
+set_from_resource $gaps_inner i3wm.gaps_inner 5
+set_from_resource $gaps_outer i3wm.gaps_outer 0
+
 # Color defs - fallback to solarized
 set_from_resource $color00  color0     #002b36
 set_from_resource $color01  color1     #dc322f
