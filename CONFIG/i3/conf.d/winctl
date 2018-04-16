@@ -62,6 +62,9 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# move all windows to workspace root
+bindsym $mod+Shift+a [tiling workspace="__focused__"] move workspace "reorder"; [workspace="reorder"] move workspace current
+
 # focus the child container
 bindsym $mod+z focus child
 
