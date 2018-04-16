@@ -21,8 +21,8 @@ bindcode 248 exec i3-input \
 	-F 'exec --no-startup-id light \-s acpi_video0 \-r \-S %s' -P 'Set backlight to (0-24):'
 
 # F1: Show i3 information
-bindsym $mod+F1 exec i3hint version workspace layout
-bindsym $mod+Shift+F1 exec i3hint help
+bindsym $mod+F1 exec --no-startup-id i3hint version workspace layout
+bindsym $mod+Shift+F1 exec --no-startup-id i3hint help
 
 # ----------------
 # LOGIN AND POWER:
