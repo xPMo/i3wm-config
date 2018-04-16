@@ -46,7 +46,7 @@
     "is_template": false, 
     "menus": {}, 
     "pad_left": {
-        "action": "XY(axis(Axes.ABS_X), raxis(Axes.ABS_Y))"
+        "action": "feedback(LEFT, 140, 3.0, XY(axis(Axes.ABS_X), raxis(Axes.ABS_Y)))"
     }, 
     "pad_right": {
         "action": "feedback(RIGHT, 256, XY(axis(Axes.ABS_RX), raxis(Axes.ABS_RY)))"
