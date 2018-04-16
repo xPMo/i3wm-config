@@ -34,4 +34,5 @@ function lie-dir-bin {
 }
 
 lie-dir "$(pwd)/CONFIG" "$HOME/.config"
+lie-dir "$(pwd)/LIB" "$HOME/.local/lib"
 lie-dir-bin "$(pwd)/BIN" "$HOME/.local/bin"
