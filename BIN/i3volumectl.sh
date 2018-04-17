@@ -4,7 +4,7 @@ IFS="
 SINK=$(pacmd dump | grep lt-si | cut --delimiter=' ' -f 2)
 # The first parameter sets the step to change the volume by (and units to display)
 # Expected in the form "(+|-)([0-9]+)%"
-if [ -z $1 ]; then
+if [ -z ${1:-} ]; then
 	pactl set-sink-mute $SINK toggle
 else
 	pactl set-sink-mute $SINK false
