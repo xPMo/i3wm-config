@@ -11,10 +11,10 @@ while [ $# -ne 0 ]; do
 	help|h )
 		id=${id:--4}
 		notif "i3hint arguments:" \
-		'help: display this help' \
-		'layout: display split direction' \
-		'workspace: show workspace name' \
-		'version: show i3 version' \
+		'h|help: display this help' \
+		'l|layout: display split direction' \
+		'w|workspace: show workspace name' \
+		'V|version: show i3 version' \
 		'[something else]: display raw text'
 		exit 0
 		;;

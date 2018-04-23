@@ -26,6 +26,10 @@ set_from_resource $color15  color15    #eee8d5
 set_from_resource $fground  foreground #eee8d5
 set_from_resource $bground  background #002b36
 
+# Terminal
+set_from_resource $terminal i3wm.terminal i3-sensible-terminal
+set_from_resource $termclass i3wm.terminal_class '(?i)urxvt'
+
 # modifiers
 set $mod Mod4
 set $mod2 Mod1
