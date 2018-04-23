@@ -83,6 +83,7 @@ mode "$mode_launch" {
 	bindsym n exec --no-startup-id exec i3focuslaunch echo, mode "default"
 	bindsym o exec --no-startup-id exec i3focuslaunch libreoffice, mode "default"
 	bindsym p exec --no-startup-id exec i3focuslaunch clementine, mode "default"
+	bindsym Ctrl+p exec --no-startup-id exec passmenu, mode "default"
 	bindsym q mode "default"
 	bindsym r exec --no-startup-id exec i3focuslaunch echo, mode "default"
 	bindsym s exec --no-startup-id exec i3focuslaunch steam, mode "default"
