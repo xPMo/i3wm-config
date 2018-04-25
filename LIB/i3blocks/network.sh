@@ -36,8 +36,9 @@ else
 
 	# full text
 	[ -n "$id" ] && echo -n "<small>$id "
-	echo -n "$ip</small>"
-	[ -n "$speed" ] && echo " ($speed Mbits/s)" || echo
+	echo -n "$ip"
+	[ -n "$speed" ] && echo -n " @ ${speed} Mb/s"
+	echo "</small>"
 
 	# short text
 	echo "<small>$ip</small>"
