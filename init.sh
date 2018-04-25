@@ -27,7 +27,7 @@ function lie-dir {
 
 function lie-dir-bin {
 	pushd "$1"
-	for file in *; do
+	for file in $(find . -executable -type f) ; do
 		lie "$1/$file" "$2/${file%.*}"
 	done
 	popd

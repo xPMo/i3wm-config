@@ -36,7 +36,6 @@ i3blocks scripts:
 **TODO:**
 * Set `S_COLORS` for mpstat colou?ri\[zs\]ation
 * Branch with Barless config: workspace notification on workspace change, workspace Rofi
-* Continue to customize click events for i3blocks
 * Create sway-compatible bindings for upcoming Wayland migration
 * Give up.
 
@@ -50,8 +49,9 @@ By default, bindings for:
 * Clementine
 * Steam
 * Pavucontrol
-* Tor
 * File-roller
 * Firefox
 * dmenu
+* Rofi
+* Pass (password-store)
 * (more)
