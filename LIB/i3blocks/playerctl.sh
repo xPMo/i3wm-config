@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+set -e
 IFS=$'\n'
 #click, play/pause
-[[ $BLOCK_BUTTON = 1 ]] && playerctl play-pause
+[[ ${BLOCK_BUTTON:-0} = 1 ]] && playerctl play-pause
 
 player_status=$(playerctl status)
 
@@ -11,7 +12,7 @@ pango_escape() {
 
 # exit 0 lets the block text be cleared
 if [ -z $player_status ]; then exit 0; fi
-if [ $player_status = "Stopped" ]; then
+if [ $player_status = Stopped ]; then
 	printf "⏹\\n⏹\\n#073642"
 else
 	title="$(playerctl metadata title | pango_escape)"
@@ -33,13 +34,13 @@ else
 	# Substring: if length>20, substring 0-18 with ellipsis
 	[ ${#artist} -gt 8 ] && echo -n "${artist:0:7}‥" || echo -n "$artist"
 	echo "</small>"
-	[ $player_status = "Paused" ] && echo -n "#cccc00"
+	[ $player_status = Paused ] && echo -n "#cccc00"
 fi
 
 # Right click, get notification with info
 # dunstify uses postive ids by default, so use a negative id here
 # cheat and use $IFS as newline
-[[ $BLOCK_BUTTON = 3 ]] && dunstify --replace=-310 \
+[[ ${BLOCK_BUTTON:-0} = 3 ]] && dunstify --replace=-310 \
 	"$title" "by $artist${IFS}on $(playerctl metadata album)" \
 	--icon=$(playerctl metadata mpris:artUrl) --appname=playerctl
 exit 0
