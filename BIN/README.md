@@ -1,8 +1,14 @@
 # BIN: Associated Scripts:
 
-### i3exit
+### i3tool
 
-A helper script to provide easy access to logind (loginctl or systemctl).  Originally from Manjaro's i3 Community Edition, changed the lock script to my own and added `hybrid-sleep` support.
+A helper script to provide easy access to various functionality: 
+
+* logind (loginctl or systemctl)
+* i3lock
+* run a program via i3-msg
+
+Originally from Manjaro's i3 Community Edition, changed the lock script to my own and added `hybrid-sleep` support.
 
 ### i3focuslaunch
 
@@ -13,10 +19,6 @@ A script to focus a program's window.  If it fails, it will then launch the prog
 A script to provide context information to the user:  Most usefully, the current layout (splitv/splith/tabbed/stacked) and workspace.
 
 Also has an option which I use to provide help for `$gaps_mode` in my i3 config.
-
-### i3run
-
-A helper script in order to launch something in an i3 session from without, for example from a tty or a cronjob.
 
 ### i3slopsize
 
@@ -69,10 +71,6 @@ A fork of the default `passmenu` using Rofi instead of dmenu.
 
 
 ### popup-term
-
-### scrotlock
-
-A basic i3lock wrapper.  Takes a screenshot and pixelizes and slightly desaturates it before locking.
 
 ### sloprecord-dunst
 
