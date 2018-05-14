@@ -52,7 +52,7 @@ while [ $# -ne 0 ]; do
 		notification=$(printf '%s\n' $notification "i3 Version: $version" )
 		;;
 	gaps|g )
-		id=-8
+		id=${id:--8}
 		notification=$(printf '%s\n' $notification "Change gaps:" \
 		"  [ <b>+</b> | <b>-</b> ]: Increase/decrease gaps for all workspaces" \
 		"  [ <b>0</b> | <b>5</b> ]: Set gaps for all workspaces to 0 or 5" \
