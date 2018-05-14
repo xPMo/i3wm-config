@@ -55,7 +55,8 @@ Actions:
 	msg [prog [args ..]] runs the given program with its args via \`i3-msg exec\`
 
 This program matches the action on just the first few characters, so 
-be aware that both "log" and "logarithms" are matched by "logout".
+be aware that both "log" and "logarithms" are matched by "logout", for
+example.
 
 EOF
 
