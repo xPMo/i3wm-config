@@ -1,11 +1,14 @@
 #!/usr/bin/env sh
 IFS='
 	'
+id=$I3HINTID
+
 notif(){
 	title=$1
 	shift
 	dunstify --replace $id $title "$*" --appname="i3-hint" --urgency=low
 }
+
 while [ $# -ne 0 ]; do
 	case "$1" in
 	help|h )
@@ -28,7 +31,7 @@ while [ $# -ne 0 ]; do
 		case $layout in
 		splith ) layout="split horizontal" ;;
 		splitv ) layout="split vertical" ;;
-		* ) ;;
+		#stacked|tabbed) layout=$layout ;;
 		esac
 		notification=$(printf '%s\n' $notification "Layout: $layout")
 		;;
@@ -41,7 +44,7 @@ while [ $# -ne 0 ]; do
 		notification=$(printf '%s\n' $notification "Workspace: $workspace")
 		;;
 	version|V )
-		id=-7
+		id=${id:--7}
 		version=$(
 			i3-msg -t get_version | jq --raw-output \
 			'(.human_readable)'
@@ -57,7 +60,7 @@ while [ $# -ne 0 ]; do
 		)
 		;;
 	* ) # use the raw argument as notification
-		id=-9
+		id=${id:--9}
 		notification=$(printf '%s\n' $notification "$@" )
 		;;
 	esac
