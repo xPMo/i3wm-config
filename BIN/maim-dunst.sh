@@ -53,9 +53,9 @@ fi
 
 # === TAKE SCREENSHOT ===
 case $opt in # active window / selection / whole screen
-	w* ) scrot -q -u -i $(xdotool getactivewindow) $img ;;
-	s* ) scrot -q -u -s $img ;;
-	d* ) scrot -q -u $img ;;
+	w* ) maim -q -u -i $(xdotool getactivewindow) $img ;;
+	s* ) maim -q -u -s $img ;;
+	d* ) maim -q -u $img ;;
 esac
 
 # === TAKE ACTION ON FILE ===
