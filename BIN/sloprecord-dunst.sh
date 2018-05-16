@@ -3,7 +3,7 @@ IFS=$'\n\t'
 set -e
 
 usage() {
-	cat >&2 <<- EOF
+	cat >&2 << EOF
 $(basename $0) [ -w | -s | -d ] [ FILE ]
 
 Record screen, using dunst to control the process
