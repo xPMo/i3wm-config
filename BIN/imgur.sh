@@ -16,7 +16,7 @@ function toclip {
 function getclip { echo $board; }
 
 function usage_imgur {
-	cat >&2 <<- EOF
+	cat >&2 << EOF
 Imgur usage:
 \$1: filename to upload
 \$IMGUR_CLIENT_ID: IMGUR_CLIENT_ID to use
@@ -32,7 +32,7 @@ EOF
 }
 
 function usage {
-	cat >&2 <<- EOF
+	cat >&2 << EOF
 Usage: $(basename $0) -h | -H | [ -d ] IMAGE
 
 Upload IMAGE to Imgur
