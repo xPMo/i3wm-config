@@ -25,6 +25,6 @@ password=$(
 if [ $typeit -eq 0 ]; then
 	pass show -c $password 2>/dev/null
 else
-	pass show $password | tr -d '\n' |
+	pass show $password | tr '\n' '\0' |
 		xdotool type --clearmodifiers --file -
 fi

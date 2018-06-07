@@ -24,6 +24,10 @@ bindsym $mod+Shift+t exec exec urxvt
 
 # Standalone focuslaunchers:
 bindsym XF86Mail exec --no-startup-id exec i3focuslaunch thunderbird
+bindsym XF86Search exec --no-startup-id exec i3focuslaunch catfish
+bindsym XF86Explorer exec --no-startup-id exec i3focuslaunch catfish
+bindsym XF86Calculator exec --no-startup-id exec echo
+bindsym XF86Tools exec --no-startup-id exec i3focuslaunch clementine
 bindsym XF86HomePage exec --no-startup-id exec i3focuslaunch firefox Firefox
 # Terminal is the exception, I want more complex behavior
 # (launch another if currently focused, and allow launching anywhere if necessary)
@@ -43,7 +47,7 @@ mode "$mode_launch" {
 	bindsym Shift+c exec --no-startup-id exec pkill compton, mode "default"
 	bindsym Shift+d exec --no-startup-id exec sh -c ~/.local/bin/i3focuslaunch arandr randr, mode "default"
 	bindsym Shift+e exec exec nvim-gtk, mode "default"
-	bindsym Shift+f exec exec thunar, mode "default"
+	bindsym Shift+f exec exec xdg-open ~, mode "default"
 	bindsym Shift+g exec exec gimp, mode "default"
 	bindsym Shift+h exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+i exec --no-startup-id exec echo, mode "default"
@@ -72,7 +76,7 @@ mode "$mode_launch" {
 	bindsym c exec --no-startup-id exec compton -b, mode "default"
 	bindsym d exec --no-startup-id exec dmenu_run -fn 'Noto Mono-8', mode "default"
 	bindsym e exec --no-startup-id exec i3focuslaunch nvim-gtk Neovim, mode "default"
-	bindsym f exec --no-startup-id exec i3focuslaunch thunar, mode "default"
+	bindsym f exec --no-startup-id exec i3focuslaunch pcmanfm, mode "default"
 	bindsym g exec --no-startup-id exec i3focuslaunch gimp, mode "default"
 	bindsym h exec --no-startup-id exec i3focuslaunch echo, mode "default"
 	bindsym i exec --no-startup-id exec i3focuslaunch echo, mode "default"
