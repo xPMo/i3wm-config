@@ -33,7 +33,7 @@ interval=5
 
 [memory]
 label=<small></small>
-command=/usr/share/i3blocks/memory
+command=/usr/lib/i3blocks/memory
 interval=20
 #separator=false
 #separator_block_width=3
@@ -43,7 +43,7 @@ interval=20
 #[swap]
 #label=
 #instance=swap
-#command=/usr/share/i3blocks/memory
+#command=/usr/lib/i3blocks/memory
 #interval=40
 
 # custom disk command to both used and total
