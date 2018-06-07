@@ -17,7 +17,7 @@
             "action": "button(Keys.BTN_TL)"
         }, 
         "LGRIP": {
-            "action": "button(Keys.BTN_WEST)"
+            "action": "button(Keys.BTN_GAMEPAD)"
         }, 
         "RB": {
             "action": "button(Keys.BTN_TR)"
@@ -42,17 +42,19 @@
         }
     }, 
     "cpad": {}, 
-    "gyro": {}, 
+    "gyro": {
+        "action": "mode(RPADTOUCH, mouse(YAW), None)"
+    }, 
     "is_template": false, 
     "menus": {}, 
     "pad_left": {
-        "action": "rotate(3.5, feedback(LEFT, 140, 3.0, XY(axis(Axes.ABS_X), raxis(Axes.ABS_Y))))"
+        "action": "click(dpad(button(Keys.KEY_W), button(Keys.KEY_S), button(Keys.KEY_A), button(Keys.KEY_D)))"
     }, 
     "pad_right": {
-        "action": "feedback(RIGHT, 256, XY(axis(Axes.ABS_RX), raxis(Axes.ABS_RY)))"
+        "action": "smooth(8, 0.78, feedback(RIGHT, 256, ball(mouse())))"
     }, 
     "stick": {
-        "action": "mode(C, dpad(button(Keys.KEY_VOLUMEUP), button(Keys.KEY_VOLUMEDOWN)), sens(1.2, 1.2, XY(axis(Axes.ABS_X), raxis(Axes.ABS_Y))))"
+        "action": "sens(1.2, 1.2, XY(axis(Axes.ABS_X), raxis(Axes.ABS_Y)))"
     }, 
     "trigger_left": {
         "action": "axis(Axes.ABS_Z)"
