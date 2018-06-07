@@ -102,6 +102,9 @@ mode "$mode_launch" {
 	# passmenu
 	bindsym slash exec --no-startup-id exec passmenu, mode "default"
 	bindsym Shift+slash exec --no-startup-id exec passmenu --type, mode "default"
+	# get OTP codes
+	bindsym Control+slash exec --no-startup-id exec passmenu --action otp, mode "default"
+	bindsym Control+Shift+slash exec --no-startup-id exec passmenu --action otp --type, mode "default"
 }
 # ====================
 # Notifications

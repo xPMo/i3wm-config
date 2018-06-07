@@ -7,10 +7,14 @@ IFS='
 set -e
 
 typeit=0
-if [ $1 = "--type" ]; then
-	typeit=1
+action=show
+while
+	case $1 in
+	"--type") typeit=1 ;;
+	"--action"|"-a") action="$2" ;;
+	esac
 	shift
-fi
+do :; done
 
 prefix=${PASSWORD_STORE_DIR:-~/.password-store}
 
@@ -23,8 +27,8 @@ password=$(
 [ -n ${password:-} ] || exit
 
 if [ $typeit -eq 0 ]; then
-	pass show -c $password 2>/dev/null
+	pass $action -c $password 2>/dev/null
 else
-	pass show $password | tr '\n' '\0' |
+	pass $action $password | tr '\n' '\0' |
 		xdotool type --clearmodifiers --file -
 fi
