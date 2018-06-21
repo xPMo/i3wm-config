@@ -30,6 +30,10 @@ set_from_resource $bground  background #002b36
 set_from_resource $terminal i3wm.terminal i3-sensible-terminal
 set_from_resource $termclass i3wm.terminal_class '(?i)urxvt'
 
+# Display names (get from xrandr, set in .Xresources)
+set_from_resource $disp0 display0 primary
+set_from_resource $disp1 display1 primary
+
 # modifiers
 set $mod Mod4
 set $mod2 Mod1
