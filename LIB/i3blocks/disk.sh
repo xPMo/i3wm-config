@@ -30,7 +30,7 @@ case $BLOCK_BUTTON in
 	dunstify --replace=-312 \
 	"Disk Usage: $DIR" "$(
 		command -v ansifilter > /dev/null \
-			&& grc df -h $DIR | ansifilter -M -f --map $HOME/.local/share/ansifilter/solarized \
+			&& grc df -h $DIR | ansifilter -M -f --map $HOME/.local/lib/ansifilter/solarized \
 			|| df -h $DIR
 	)" --icon harddrive --appname df & ;;
 esac

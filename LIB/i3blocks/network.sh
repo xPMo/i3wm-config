@@ -50,6 +50,6 @@ case $BLOCK_BUTTON in
 	# dunst uses positive ids by default, use negative id here
 	3) exec dunstify --replace=-314 \
 		$realip "$(grc --colour=on ip addr show $INTERFACE | grep -v '     ' \
-		| ansifilter -M -f --map $HOME/.local/share/ansifilter/solarized)" \
+		| ansifilter -M -f --map $HOME/.local/lib/ansifilter/solarized)" \
 		--appname nmcli --icon network-transmit-receive ;;
 esac

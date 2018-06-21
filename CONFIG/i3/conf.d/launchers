@@ -123,7 +123,7 @@ bindsym Control+$mod+s exec --no-startup-id \
 # notification with disk information
 bindsym $mod+Control+d exec --no-startup-id \
 	notify-send "Disk Usage:" "$(grc --colour=on df -h -T -x tmpfs \
-	| ansifilter -M -f --map $HOME/.local/share/ansifilter/solarized)" \
+	| ansifilter -M -f --map $HOME/.local/lib/ansifilter/solarized)" \
 	--icon harddrive --app-name df --category=i3-info
 
 # notification with CPU usage information
@@ -133,5 +133,5 @@ bindsym Control+$mod+x exec --no-startup-id \
 
 # notification with IP information
 bindsym Control+$mod+i exec --no-startup-id \
-	notify-send "IP" "$(grc --colour=on ip route | ansifilter -M -f --map $HOME/.local/share/ansifilter/solarized)" \
+	notify-send "IP" "$(grc --colour=on ip route | ansifilter -M -f --map $HOME/.local/lib/ansifilter/solarized)" \
 	--icon network-transmit-receive --app-name "Address" --category=i3-info
