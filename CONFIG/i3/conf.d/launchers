@@ -36,7 +36,7 @@ bindsym $mod+Return exec --no-startup-id exec i3switchlaunch urxvt "URxvt" "11:~
 bindsym $mod+slash exec "exec rofi -show"
 
 # focus/launch mode
-set $mode_launch Focus/Launch⇧
+set $mode_launch Focus (_) / Launch (⇧ + _)
 bindsym $mod+x mode "$mode_launch"
 mode "$mode_launch" {
 	bindsym Escape mode "default"
