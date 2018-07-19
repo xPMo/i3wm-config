@@ -55,7 +55,7 @@ interval=30
 
 [disk-home]
 label=<small></small>
-instance=/home
+instance=/usr/local/share/music
 command=$HOME/.local/lib/i3blocks/disk.sh
 interval=30
 
@@ -68,9 +68,14 @@ interval=10
 command=$HOME/.local/lib/i3blocks/temp.perl --chip $BLOCK_NAME --index 2 --button $BLOCK_BUTTON
 interval=10
 
+[airplane-mode]
+command=rfkill -rn | awk '/ blocked/ {print " ✈ "}'
+interval=20
+separator=false
+
 [wireless]
 label=<small></small>
-instance=wlo1
+instance=wlp2s0
 command=$HOME/.local/lib/i3blocks/network.sh
 color=#85c000
 interval=20
@@ -121,7 +126,7 @@ interval=20
 
 [brightness]
 label=☀
-command=printf "%.0f%%" $(light -s acpi_video0 -G)
+command=printf "%.0f%%" $(light -s intel_backlight -G)
 interval=once
 signal=2
 
