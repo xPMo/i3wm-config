@@ -13,12 +13,12 @@ bindsym --release $mod+Insert exec --no-startup-id sleep 0.2 && xdotool type "$(
 bindsym $mod+Menu bar mode toggle bar1
 
 # Backlights
-bindsym XF86MonBrightnessDown exec --no-startup-id light -s acpi_video0 -r -U 1 && pkill -RTMIN+2 i3blocks
-bindsym XF86MonBrightnessUp exec --no-startup-id light -s acpi_video0 -r -A 1 && pkill -RTMIN+2 i3blocks
-bindsym Shift+XF86MonBrightnessDown exec --no-startup-id light -s acpi_video0 -S 0 && pkill -RTMIN+2 i3blocks
-bindsym Shift+XF86MonBrightnessUp exec --no-startup-id light -s acpi_video0 -S 100 && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id light -s intel_backlight -U 1 && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessUp exec --no-startup-id light -s intel_backlight -A 1 && pkill -RTMIN+2 i3blocks
+bindsym Shift+XF86MonBrightnessDown exec --no-startup-id light -s intel_backlight -S 5 && pkill -RTMIN+2 i3blocks
+bindsym Shift+XF86MonBrightnessUp exec --no-startup-id light -s intel_backlight -S 100 && pkill -RTMIN+2 i3blocks
 bindcode 248 exec i3-input \
-	-F 'exec --no-startup-id light \-s acpi_video0 \-r \-S %s' -P 'Set backlight to (0-24):'
+	-F 'exec --no-startup-id light \-s intel_backlight \-r \-S %s' -P 'Set backlight to (0-24):'
 
 # F1: Show i3 information
 bindsym $mod+F1 exec --no-startup-id i3hint version workspace layout
