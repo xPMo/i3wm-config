@@ -13,8 +13,8 @@ while
 	"--type") typeit=1 ;;
 	"--action"|"-a") action="$2" ;;
 	esac
-	shift
-do :; done
+	[ $# -ne 0 ]
+do shift; done
 
 prefix=${PASSWORD_STORE_DIR:-~/.password-store}
 
