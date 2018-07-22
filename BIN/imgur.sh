@@ -144,7 +144,7 @@ function imgur-notif {
 				[12]) break ;;
 			esac
 		else
-			notif "Upload failed." "$IMGUR_ERROR"
+			notify-send "Upload failed." "$IMGUR_ERROR"
 		fi
 		shift
 	done
