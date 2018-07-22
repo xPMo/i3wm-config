@@ -41,6 +41,7 @@ bindsym Shift+XF86Sleep exec --no-startup-id i3tool hybrid-sleep
 
 # F3: 
 # $mod+F4: system
+bindsym XF86PowerOff mode "$mode_system"
 bindsym $mod+F4 mode "$mode_system"
 set $mode_system <b>L</b>ock, <b>E</b>xit, switch_<b>U</b>ser, <b>S</b>uspend, <b>H</b>ibernate, <b>R</b>eboot, <small>Shift+</small><b>S</b>hutdown
 mode --pango_markup "$mode_system" {

@@ -44,6 +44,6 @@ set $mod2 Mod1
 
 # Workspace definitions
 set $ws_web 13:
-set $ws_media 15:
+set $ws_media 15:♫
 set $ws_games 16:
 set $ws_mail 12:
