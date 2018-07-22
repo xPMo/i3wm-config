@@ -3,6 +3,10 @@
 # Things to run on startup
 # ====================================================
 
+# Inhibit sleep and power buttons
+exec systemd-inhibit --what=handle-power-key:handle-suspend-key \
+	--who=i3wm --why="Handle power control in i3" sleep infinity
+
 # gnome-authentication-agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
