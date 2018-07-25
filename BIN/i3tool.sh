@@ -35,9 +35,14 @@ case $a in
 	sh*|po*|sd ) # shutdown
 		$logind poweroff ;;
 	run|m* )
-		shift
-		[ -z ${XDG_SESSION_ID:-} ] && XDG_RUNTIME_DIR="/run/user/$(id -u)"
-		exec i3-msg -s $(find ${XDG_RUNTIME_DIR}/i3 -type s) "exec '$@'"
+		sock=$(find ${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/i3 -type s)
+		if [ $1 = run ]; then
+			shift
+			exec i3-msg -s $sock -- "exec exec $@"
+		else
+			shift
+			exec i3-msg -s $sock $@
+		fi
 		;;
 	* )
 		cat >&2 << EOF
@@ -54,8 +59,7 @@ Actions:
 	shutdown | poweroff | sd  powers off the machine
 	run [prog [args ..]]      runs the given program with its args
 	                          via \`i3-msg exec\`
-	msg [prog [args ..]]      runs the given program with its args
-	                          via \`i3-msg exec\`
+	msg [cmd [cmd ...]]       runs the i3 command(s) via \`i3-msg\`
 
 This program matches the action on just the first few characters
 (unless using an abbreviation). So be aware that both "log" and
