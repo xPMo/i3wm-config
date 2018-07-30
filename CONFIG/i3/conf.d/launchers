@@ -20,7 +20,7 @@ bindsym $mod+grave exec --no-startup-id i3-input -F '[con_mark=%s] focus' -l 1 -
 bindsym Shift+XF86Mail exec exec xdg-open $HOME
 bindsym Shift+XF86HomePage exec exec firefox -P -no-remote hidden
 bindsym $mod+$mod2+w exec exec firefox -P -no-remote hidden
-bindsym $mod+Shift+t exec exec urxvt
+bindsym $mod+Shift+t exec exec $terminal
 
 # Standalone focuslaunchers:
 bindsym XF86Mail exec --no-startup-id exec i3focuslaunch thunderbird
@@ -31,7 +31,7 @@ bindsym XF86Tools exec --no-startup-id exec i3focuslaunch clementine
 bindsym XF86HomePage exec --no-startup-id exec i3focuslaunch firefox Firefox
 # Terminal is the exception, I want more complex behavior
 # (launch another if currently focused, and allow launching anywhere if necessary)
-bindsym $mod+Return exec --no-startup-id exec i3switchlaunch urxvt "URxvt" "11:~$"
+bindsym $mod+Return exec --no-startup-id exec i3switchlaunch $terminal $termClass "11:~$"
 
 bindsym $mod+slash exec "exec rofi -show"
 
