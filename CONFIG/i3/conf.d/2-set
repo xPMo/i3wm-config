@@ -31,7 +31,7 @@ set_from_resource $fground  foreground #eee8d5
 set_from_resource $bground  background #002b36
 
 # Terminal
-set_from_resource $terminal i3wm.terminal i3-sensible-terminal
+set_from_resource $terminal i3wm.terminal 'urxvtc'
 set_from_resource $termclass i3wm.terminal_class '(?i)urxvt'
 
 # Display names (get from xrandr, set in .Xresources)
