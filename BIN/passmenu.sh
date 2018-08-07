@@ -21,7 +21,7 @@ prefix=${PASSWORD_STORE_DIR:-~/.password-store}
 password=$(
 	find $prefix -iname '*.gpg' |
 		sed -e "s:^${prefix}/::" -e "s/....$//" |
-		rofi -dmenu -i "$@"
+		rofi -p "pass $action" -dmenu -i "$@"
 )
 
 [ -n ${password:-} ] || exit
