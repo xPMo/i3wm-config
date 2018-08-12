@@ -25,14 +25,14 @@ separator_block_width=9
 markup=pango
 
 [cpu]
-label=<small></small>
+label=<big></big>
 command=$HOME/.local/lib/i3blocks/cpu.perl --button $BLOCK_BUTTON
 interval=5
 #min_width=CPU: 100.00%
 #separator=false
 
 [memory]
-label=<small></small>
+label=<big></big>
 command=/usr/lib/i3blocks/memory
 interval=20
 #separator=false
@@ -48,13 +48,13 @@ interval=20
 
 # custom disk command to both used and total
 [disk-root]
-label=<small></small>
+label=<big></big>
 instance=/
 command=$HOME/.local/lib/i3blocks/disk.sh
 interval=30
 
 [disk-home]
-label=<small></small>
+label=<big></big>
 instance=/usr/local/share/music
 command=$HOME/.local/lib/i3blocks/disk.sh
 interval=30
@@ -74,7 +74,7 @@ interval=20
 separator=false
 
 [wireless]
-label=<small></small>
+label=<big></big>
 instance=wlp2s0
 command=$HOME/.local/lib/i3blocks/network.sh
 color=#85c000
@@ -83,7 +83,7 @@ separator=false
 separator_block_width=3
 
 [wireless]
-label=<small></small>
+label=<big></big>
 instance=wlp4s6
 command=$HOME/.local/lib/i3blocks/network.sh
 color=#85c000
@@ -92,7 +92,7 @@ separator=false
 separator_block_width=3
 
 [wireless]
-label=<small></small>
+label=<big></big>
 instance=bnep0
 command=$HOME/.local/lib/i3blocks/network.sh
 color=#85c000
@@ -101,7 +101,7 @@ separator=false
 separator_block_width=3
 
 [usb-ethernet]
-label=<small></small>
+label=<big></big>
 instance=enp0s29u1u2
 command=$HOME/.local/lib/i3blocks/network.sh
 color=#85c000

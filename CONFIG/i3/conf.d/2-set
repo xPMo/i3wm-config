@@ -31,15 +31,16 @@ set_from_resource $terminal i3wm.terminal 'urxvtc'
 set_from_resource $termclass i3wm.terminal_class '(?i)urxvt'
 
 # Display names (get from xrandr, set in .Xresources)
-set_from_resource $disp0 display0 primary
-set_from_resource $disp1 display1 primary
+set_from_resource $disp0 i3wm.display0 primary
+set_from_resource $disp1 i3wm.display1 primary
 
 # modifiers
 set $mod Mod4
 set $mod2 Mod1
 
 # Workspace definitions
-set $ws_web 13:
+set $ws_mail 12:<big></big>
+set $ws_web 13:<big></big>
+set $ws_doc 14:<big></big>
 set $ws_media 15:♫
-set $ws_games 16:
-set $ws_mail 12:
+set $ws_games 16:<big></big>
