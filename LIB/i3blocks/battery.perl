@@ -34,7 +34,7 @@ if ($acpi !~ /: (\w+), (\d+)%/) {
 $time = '';
 $status = $1;
 $percent = $2;
-$text = "$percent%<small>";
+$text = "$percent% <big>";
 
 # Get time remaining
 if ($acpi =~ /(\d\d:\d\d):/) {
@@ -43,25 +43,25 @@ if ($acpi =~ /(\d\d:\d\d):/) {
 
 # Get full text
 if ($status eq 'Charging') {
-	$text .= "</small>$time\n$text</small>\n";
+	$text .= "</big>$time\n$text</big>\n";
 }
 else{
 # consider color and urgent flag only on discharge
 	# using Solarized colors
 	if ($percent < 15) {
-		$text .= "</small>$time\n$text</small>\n#dc322f\n";
+		$text .= "</big>$time\n$text</big>\n#dc322f\n";
 	}
 	elsif ($percent < 40) {
-		$text .= "</small>$time\n$text</small>\n#cb4b16\n";
+		$text .= "</big>$time\n$text</big>\n#cb4b16\n";
 	}
 	elsif ($percent < 60) {
-		$text .= "</small>$time\n$text</small>\n#b58900\n";
+		$text .= "</big>$time\n$text</big>\n#b58900\n";
 	}
 	elsif ($percent < 85) {
-		$text .= "</small>$time\n$text</small>\n#85c000\n";
+		$text .= "</big>$time\n$text</big>\n#85c000\n";
 	}
 	else{
-		$text .= "</small>$time\n$text</small>";
+		$text .= "</big>$time\n$text</big>";
 	}
 }
 
