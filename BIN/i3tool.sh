@@ -12,7 +12,8 @@ lock() {
 	maim $img 2>/dev/null || import -window root $img
 	# convert inplace
 	convert $img -scale 20x20% -modulate 100,50 -scale 500x500% $img
-	i3lock -i $img
+	# add -m flag (ignore media keys) if i3lock is patched to support it
+	i3lock $(i3lock -h 2>&1 | grep -o -- -m || true) -i $img
 	rm $img
 }
 

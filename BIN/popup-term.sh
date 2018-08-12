@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 DISPLAY=:0
-USAGE="$0 [ options ]
+USAGE="$(basename $0) [ options ]
 
 	-n        	force launch new instance
 	-x        	merge ~/.Xresources first
