@@ -92,6 +92,10 @@ These actions are supported:
 * Deleting the file
 * Uploading the file to TODO
 
+### screenlayout-dunstify
+
+A simple script for interactively choosing saved ARandR/xrandr scripts from ~/.screenlayout
+
 ### toggletrackpad
 
 An old script for toggling the trackpad using `synclient`.  I haven't looked at the documentation for `libinput` for porting it.
