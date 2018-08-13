@@ -136,13 +136,21 @@ function imgur-notif {
 				--action="vVdD,Copy and open both URLs" \
 				--action="VD,Open both URLs on Imgur"
 			)
-			case $action in
-				*v*) toclip "View: $IMGUR_URL" ;&
-				*V*) xdg-open "$IMGUR_URL" ;&
-				*d*) toclip "Delete: $IMGUR_DELETE" ;&
-				*D*) xdg-open "$IMGUR_DELETE" ;&
-				[12]) break ;;
-			esac
+			if [[ $action == *v* ]]; then
+				toclip "View: $IMGUR_URL"
+			fi
+			if [[ $action == *V* ]]; then
+				xdg-open "$IMGUR_URL"
+			fi
+			if [[ $action == *d* ]]; then
+				toclip "Delete: $IMGUR_DELETE"
+			fi
+			if [[ $action == *D* ]]; then
+				xdg-open "$IMGUR_DELETE"
+			fi
+			if [[ $action == [12] ]]; then
+				break
+			fi
 		else
 			notify-send "Upload failed." "$IMGUR_ERROR"
 		fi
