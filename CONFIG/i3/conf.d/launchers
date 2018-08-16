@@ -20,7 +20,7 @@ bindsym $mod+grave exec --no-startup-id i3-input -F '[con_mark=%s] focus' -l 1 -
 bindsym Shift+XF86Mail exec exec xdg-open $HOME
 bindsym Shift+XF86HomePage exec exec firefox -P -no-remote hidden
 bindsym $mod+$mod2+w exec exec firefox -P -no-remote hidden
-bindsym $mod+Shift+t exec exec urxvt
+bindsym $mod+Shift+t exec exec $terminal
 
 # Standalone focuslaunchers:
 bindsym XF86Mail exec --no-startup-id exec i3focuslaunch thunderbird
@@ -31,7 +31,7 @@ bindsym XF86Tools exec --no-startup-id exec i3focuslaunch clementine
 bindsym XF86HomePage exec --no-startup-id exec i3focuslaunch firefox Firefox
 # Terminal is the exception, I want more complex behavior
 # (launch another if currently focused, and allow launching anywhere if necessary)
-bindsym $mod+Return exec --no-startup-id exec i3switchlaunch urxvt "URxvt" "11:~$"
+bindsym $mod+Return exec --no-startup-id exec i3switchlaunch $terminal $termClass "11:~$"
 
 bindsym $mod+slash exec "exec rofi -show"
 
@@ -53,21 +53,22 @@ mode "$mode_launch" {
 	bindsym Shift+i exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+j exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+k exec --no-startup-id exec echo, mode "default"
-	bindsym Shift+l exec --no-startup-id exec libreoffice, mode "default"
-	bindsym Shift+m exec --no-startup-id exec thunderbird, mode "default"
+	bindsym Shift+l exec exec libreoffice, mode "default"
+	bindsym Shift+m exec exec thunderbird, mode "default"
 	bindsym Shift+n exec --no-startup-id exec echo, mode "default"
-	bindsym Shift+o exec --no-startup-id exec libreoffice, mode "default"
-	bindsym Shift+p exec --no-startup-id exec clementine, mode "default"
+	bindsym Shift+o exec exec libreoffice, mode "default"
+	bindsym Shift+p exec exec clementine, mode "default"
 	bindsym Shift+q mode "default"
 	bindsym Shift+r exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+s exec --no-startup-id exec steam, mode "default"
 	bindsym Shift+t exec --no-startup-id exec torbrowser-launcher, mode "default"
 	bindsym Shift+u exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+v exec --no-startup-id exec pavucontrol, mode "default"
-	bindsym Shift+w exec --no-startup-id exec firefox, mode "default"
+	bindsym Shift+w exec firefox, mode "default"
 	bindsym Shift+x exec --no-startup-id exec xfce4-appfinder, mode "default"
 	bindsym Shift+y exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+z exec --no-startup-id exec echo, mode "default"
+	bindsym Shift+slash exec exec catfish, mode "default"
 
 	# Focus (exception dmenu/compton), mode "default"
 	# The "i3focusLaunch" script will focus $2 if $2, else focus program name
@@ -98,13 +99,14 @@ mode "$mode_launch" {
 	bindsym $mod+x exec --no-startup-id exec i3focuslaunch xfce4-appfinder, mode "default"
 	bindsym y exec --no-startup-id exec i3focuslaunch echo, mode "default"
 	bindsym z exec --no-startup-id exec i3focuslaunch echo, mode "default"
+	bindsym slash exec --no-startup-id exec i3focuslaunch catfish, mode "default"
 	
 	# passmenu
-	bindsym slash exec --no-startup-id exec passmenu, mode "default"
-	bindsym Shift+slash exec --no-startup-id exec passmenu --type, mode "default"
+	bindsym period exec --no-startup-id exec passmenu, mode "default"
+	bindsym Shift+period exec --no-startup-id exec passmenu --type, mode "default"
 	# get OTP codes
-	bindsym Control+slash exec --no-startup-id exec passmenu --action otp, mode "default"
-	bindsym Control+Shift+slash exec --no-startup-id exec passmenu --action otp --type, mode "default"
+	bindsym Control+period exec --no-startup-id exec passmenu --action otp, mode "default"
+	bindsym Control+Shift+period exec --no-startup-id exec passmenu --action otp --type, mode "default"
 }
 # ====================
 # Notifications

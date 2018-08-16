@@ -13,15 +13,15 @@ while
 	"--type") typeit=1 ;;
 	"--action"|"-a") action="$2" ;;
 	esac
-	shift
-do :; done
+	[ $# -ne 0 ]
+do shift; done
 
 prefix=${PASSWORD_STORE_DIR:-~/.password-store}
 
 password=$(
 	find $prefix -iname '*.gpg' |
 		sed -e "s:^${prefix}/::" -e "s/....$//" |
-		rofi -dmenu -i "$@"
+		rofi -p "pass $action" -dmenu -i "$@"
 )
 
 [ -n ${password:-} ] || exit

@@ -3,6 +3,13 @@
 # Things to run on startup
 # ====================================================
 
+# urxvtd
+exec --no-startup-id urxvtd --quiet --opendisplay --fork
+
+# Inhibit sleep and power buttons
+exec systemd-inhibit --what=handle-power-key:handle-suspend-key \
+	--who=i3wm --why="Handle power control in i3" sleep infinity
+
 # gnome-authentication-agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
@@ -29,10 +36,8 @@ exec --no-startup-id exec dunst
 exec --no-startup-id conky
 
 # -- tray --
-# pamac package manager frontend 
-exec --no-startup-id pamac-tray
 # pulseaudio
-exec --no-startup-id pulseaudio
+exec --no-startup-id pulseaudio -D
 exec --no-startup-id pa-applet
 
 # notify script, sends a signal to the i3block on media change

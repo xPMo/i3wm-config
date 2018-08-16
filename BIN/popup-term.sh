@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 DISPLAY=:0
-USAGE="$0 [ options ]
+USAGE="$(basename $0) [ options ]
 
 	-n        	force launch new instance
 	-x        	merge ~/.Xresources first
@@ -9,7 +9,7 @@ USAGE="$0 [ options ]
 	-f fade   	set fade percentage [0,100]"
 function nterm {
 	i3-msg exec -- "--no-startup-id DISABLE_AUTO_TITLE=true \
-		exec urxvt \
+		exec urxvtc \
 		-title '${title:-popup_term}' \
 		-bg '[${opacity:-70}]#00080a' \
 		-fadecolor '[60]#000000' \

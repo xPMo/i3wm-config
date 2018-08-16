@@ -14,6 +14,14 @@ Originally from Manjaro's i3 Community Edition, changed the lock script to my ow
 
 A script to focus a program's window.  If it fails, it will then launch the program.
 
+### i3pklaunch
+
+A script with nearly the same behaviour of `i3focuslaunch`.
+It uses `pkill` to attempt to find the given program; otherwise it will launch it.
+Lastly, it will attempt to focus using both class and title.
+
+This is reimplemented for the sake of Swaywm, where swaymsg doesn't givce feedback on whether the window was successfully focused.
+
 ### i3hint
 
 A script to provide context information to the user:  Most usefully, the current layout (splitv/splith/tabbed/stacked) and workspace.
@@ -83,6 +91,10 @@ These actions are supported:
 * Copying the recording to `$RECORD_DIR`
 * Deleting the file
 * Uploading the file to TODO
+
+### screenlayout-dunstify
+
+A simple script for interactively choosing saved ARandR/xrandr scripts from ~/.screenlayout
 
 ### toggletrackpad
 
