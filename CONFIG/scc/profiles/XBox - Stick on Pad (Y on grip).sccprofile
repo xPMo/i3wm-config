@@ -17,7 +17,7 @@
             "action": "button(Keys.BTN_TL)"
         }, 
         "LGRIP": {
-            "action": "button(Keys.BTN_NORTH)"
+            "action": "button(Keys.BTN_WEST)"
         }, 
         "RB": {
             "action": "button(Keys.BTN_TR)"

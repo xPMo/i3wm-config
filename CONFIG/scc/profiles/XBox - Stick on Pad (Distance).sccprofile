@@ -32,7 +32,7 @@
             "action": "button(Keys.BTN_START)"
         }, 
         "STICKPRESS": {
-            "action": "button(Keys.BTN_THUMBL)"
+            "action": "ring(button(Keys.BTN_THUMBL))"
         }, 
         "X": {
             "action": "button(Keys.BTN_NORTH)"
@@ -49,16 +49,16 @@
         "action": "rotate(-3.5, feedback(LEFT, 140, 3.0, sens(1.1, 1.15, XY(axis(Axes.ABS_X), raxis(Axes.ABS_Y)))))"
     }, 
     "pad_right": {
-        "action": "feedback(RIGHT, 256, XY(axis(Axes.ABS_RX), raxis(Axes.ABS_RY)))"
+        "action": "feedback(RIGHT, 142.0, 3.0, sens(2.0, 2.0, XY(axis(Axes.ABS_RX), raxis(Axes.ABS_RY))))"
     }, 
     "stick": {
-        "action": "mode(C, dpad(button(Keys.KEY_VOLUMEUP), button(Keys.KEY_VOLUMEDOWN)), sens(1.2, 1.2, XY(axis(Axes.ABS_X), raxis(Axes.ABS_Y))))"
+        "action": "sens(1.2, 1.2, XY(axis(Axes.ABS_X), raxis(Axes.ABS_Y)))"
     }, 
     "trigger_left": {
         "action": "axis(Axes.ABS_Z)"
     }, 
     "trigger_right": {
-        "action": "axis(Axes.ABS_RZ)"
+        "action": "trigger(254, 255, button(Keys.BTN_TR)) and axis(Axes.ABS_RZ)"
     }, 
     "version": 1.3
 }
