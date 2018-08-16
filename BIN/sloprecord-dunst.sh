@@ -81,7 +81,7 @@ if [ $opt = "audio" ]; then
 			;;
 		mp3 )
 			parec $PAREC_OPTS --format=s16le | \
-			lame -r --quiet -q 3 --lowpass 17 --abr 192 - $dest
+			lame -r --quiet -q 3 --lowpass 17 --abr 192 - $dest &
 			RECORD_PID=$!
 			;;
 		* ) echo "Unsupported format" >&2; exit 1 ;;
