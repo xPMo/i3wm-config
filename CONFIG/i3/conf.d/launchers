@@ -112,28 +112,8 @@ mode "$mode_launch" {
 # Notifications
 # ====================
 
-# notification with player info
-bindsym Control+$mod+p exec --no-startup-id \
-	notify-send "$(playerctl metadata title)" "by $(playerctl metadata artist)\non $(playerctl metadata album)" \
-	--icon $(playerctl metadata mpris:artUrl) --app-name playerctl --category=i3-info
-
-# notification with all sensor data
-bindsym Control+$mod+s exec --no-startup-id \
-	notify-send Temperature "$(sensors | grep -v +0 | egrep -o '\+.+°C.')" \
-	--app-name sensors --category=i3-info
-
-# notification with disk information
-bindsym $mod+Control+d exec --no-startup-id \
-	notify-send "Disk Usage:" "$(grc --colour=on df -h -T -x tmpfs \
-	| ansifilter -M -f --map $HOME/.local/lib/ansifilter/solarized)" \
-	--icon harddrive --app-name df --category=i3-info
-
-# notification with CPU usage information
-bindsym Control+$mod+x exec --no-startup-id \
-	notify-send "CPU Usage:" "$(mpstat -P ALL | tail -n +3 | cut -c 14-48 )" \
-	--icon indicator-cpufreq --app-name mpstat --category=i3-info
-
-# notification with IP information
-bindsym Control+$mod+i exec --no-startup-id \
-	notify-send "IP" "$(grc --colour=on ip route | ansifilter -M -f --map $HOME/.local/lib/ansifilter/solarized)" \
-	--icon network-transmit-receive --app-name "Address" --category=i3-info
+bindsym Control+$mod+p exec --no-startup-id sys-notif media
+bindsym Control+$mod+s exec --no-startup-id sys-notif sensors
+bindsym Control+$mod+d exec --no-startup-id sys-notif disk
+bindsym Control+$mod+x exec --no-startup-id sys-notif cpu
+bindsym Control+$mod+i exec --no-startup-id sys-notif ip
