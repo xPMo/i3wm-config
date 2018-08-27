@@ -17,6 +17,7 @@ smart_gaps on
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
+# {{{ Gaps mode
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will for just this workspace.
 set $mode_gaps Gaps: <b>O</b>uter, <b>I</b>nner
 set $mode_gaps_outer Outer gaps: [ <b>+</b> | <b>-</b> | <b>0</b> | <b>5</b> | <b>?</b> ]
@@ -64,3 +65,5 @@ mode --pango_markup "$mode_gaps_outer" {
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
+# }}}
+# vim: set foldmethod=marker:

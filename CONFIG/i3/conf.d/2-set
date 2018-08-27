@@ -10,7 +10,7 @@ set_from_resource $wmfont i3wm.font pango:Noto Sans 9
 set_from_resource $gaps_inner i3wm.gaps_inner 5
 set_from_resource $gaps_outer i3wm.gaps_outer 0
 
-# Color defs - fallback to solarized
+# {{{ Color defs - fallback to solarized
 set_from_resource $color00  color0     #002b36
 set_from_resource $color01  color1     #dc322f
 set_from_resource $color02  color2     #859900
@@ -29,6 +29,7 @@ set_from_resource $color14  color14    #30b8b0
 set_from_resource $color15  color15    #eee8d5
 set_from_resource $fground  foreground #eee8d5
 set_from_resource $bground  background #002b36
+# }}}
 
 # Terminal
 set_from_resource $terminal i3wm.terminal 'urxvtc'
@@ -42,9 +43,11 @@ set_from_resource $disp1 i3wm.display1 primary
 set $mod Mod4
 set $mod2 Mod1
 
-# Workspace definitions
+# {{{ Workspace definitions
 set $ws_mail 12:<big></big>
 set $ws_web 13:<big></big>
 set $ws_doc 14:<big></big>
 set $ws_media 15:♫
 set $ws_games 16:<big></big>
+# }}}
+# vim: set foldmethod=marker:

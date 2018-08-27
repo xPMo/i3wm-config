@@ -4,7 +4,7 @@
 # ==========================================================
 
 # Toggle trackpad
-bindsym $mod+Shift+Menu exec --no-startup-id sh toggletrackpad
+bindsym $mod+Shift+Menu exec --no-startup-id toggletrackpad
 
 # Paste from selection with $mod+ins
 bindsym --release $mod+Insert exec --no-startup-id sleep 0.2 && xdotool type "$(xsel)"
@@ -12,21 +12,19 @@ bindsym --release $mod+Insert exec --no-startup-id sleep 0.2 && xdotool type "$(
 # Toggle i3bar
 bindsym $mod+Menu bar mode toggle bar1
 
-# Backlights
+# {{{ Backlights
 bindsym XF86MonBrightnessDown exec --no-startup-id light -s intel_backlight -U 1 && pkill -RTMIN+2 i3blocks
 bindsym XF86MonBrightnessUp exec --no-startup-id light -s intel_backlight -A 1 && pkill -RTMIN+2 i3blocks
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id light -s intel_backlight -S 5 && pkill -RTMIN+2 i3blocks
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id light -s intel_backlight -S 100 && pkill -RTMIN+2 i3blocks
 bindcode 248 exec i3-input \
 	-F 'exec --no-startup-id light \-s intel_backlight \-r \-S %s' -P 'Set backlight to (0-24):'
-
+# }}}
 # F1: Show i3 information
 bindsym $mod+F1 exec --no-startup-id i3hint version workspace layout
 bindsym $mod+Shift+F1 exec --no-startup-id i3hint help
 
-# ----------------
-# LOGIN AND POWER:
-# ----------------
+# {{{ LOGIN AND POWER:
 
 # F2: Reload or restart i3 inplace
 bindsym $mod+F2 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config/i3/config, reload
@@ -57,9 +55,10 @@ mode --pango_markup "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
+# }}}
 # $mod+F5: display
 bindsym $mod+F5 $HOME/.local/bin/i3focuslaunch arandr
 
 # xkill
 bindsym --release $mod+Shift+Escape exec xkill
+# vim: set foldmethod=marker:

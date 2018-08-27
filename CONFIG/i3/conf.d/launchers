@@ -11,18 +11,18 @@ bindsym Control+Print exec --no-startup-id "maim-dunst -w"
 # Record screen: parec, ffmpeg
 bindsym $mod+Print exec --no-startup-id sloprecord-dunst
 
-# i3-input (for marking, etc)
+# {{{ i3-input (for marking, etc)
 bindsym $mod+i exec --no-startup-id i3-input
 bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mod+grave exec --no-startup-id i3-input -F '[con_mark=%s] focus' -l 1 -P 'Focus mark: ' 
-
-# Standalone launchers:
+# }}}
+# {{{ Standalone launchers:
 bindsym Shift+XF86Mail exec exec xdg-open $HOME
 bindsym Shift+XF86HomePage exec exec firefox -P -no-remote hidden
 bindsym $mod+$mod2+w exec exec firefox -P -no-remote hidden
 bindsym $mod+Shift+t exec exec $terminal
-
-# Standalone focuslaunchers:
+# }}}
+# {{{ Standalone focuslaunchers:
 bindsym XF86Mail exec --no-startup-id exec i3focuslaunch thunderbird
 bindsym XF86Search exec --no-startup-id exec i3focuslaunch catfish
 bindsym XF86Explorer exec --no-startup-id exec i3focuslaunch catfish
@@ -34,14 +34,14 @@ bindsym XF86HomePage exec --no-startup-id exec i3focuslaunch firefox Firefox
 bindsym $mod+Return exec --no-startup-id exec i3switchlaunch $terminal $termClass "11:~$"
 
 bindsym $mod+slash exec "exec rofi -show"
-
+# }}}
 # focus/launch mode
 set $mode_launch Focus (_) / Launch (⇧ + _)
 bindsym $mod+x mode "$mode_launch"
 mode "$mode_launch" {
 	bindsym Escape mode "default"
 	
-	# Launch (exception for arandr), mode default
+	# {{{ Launch (exception for arandr), mode default
 	bindsym Shift+a exec --no-startup-id exec file-roller, mode "default"
 	bindsym Shift+b exec --no-startup-id exec blueman-manager, mode "default"
 	bindsym Shift+c exec --no-startup-id exec pkill compton, mode "default"
@@ -69,8 +69,8 @@ mode "$mode_launch" {
 	bindsym Shift+y exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+z exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+slash exec exec catfish, mode "default"
-
-	# Focus (exception dmenu/compton), mode "default"
+	# }}}
+	# {{{ Focus (exception dmenu/compton), mode "default"
 	# The "i3focusLaunch" script will focus $2 if $2, else focus program name
 	bindsym a exec --no-startup-id exec ~/.local/bin/i3focuslaunch file-roller, mode "default"
 	bindsym b exec --no-startup-id exec ~/.local/bin/i3focuslaunch blueman-manager, mode "default"
@@ -100,6 +100,7 @@ mode "$mode_launch" {
 	bindsym y exec --no-startup-id exec i3focuslaunch echo, mode "default"
 	bindsym z exec --no-startup-id exec i3focuslaunch echo, mode "default"
 	bindsym slash exec --no-startup-id exec i3focuslaunch catfish, mode "default"
+	# }}}
 	
 	# passmenu
 	bindsym period exec --no-startup-id exec passmenu, mode "default"
@@ -108,12 +109,12 @@ mode "$mode_launch" {
 	bindsym Control+period exec --no-startup-id exec passmenu --action otp, mode "default"
 	bindsym Control+Shift+period exec --no-startup-id exec passmenu --action otp --type, mode "default"
 }
-# ====================
-# Notifications
-# ====================
 
+# {{{ Notifications
 bindsym Control+$mod+p exec --no-startup-id sys-notif media
 bindsym Control+$mod+s exec --no-startup-id sys-notif sensors
 bindsym Control+$mod+d exec --no-startup-id sys-notif disk
 bindsym Control+$mod+x exec --no-startup-id sys-notif cpu
 bindsym Control+$mod+i exec --no-startup-id sys-notif ip
+# }}}
+# vim: set foldmethod=marker:

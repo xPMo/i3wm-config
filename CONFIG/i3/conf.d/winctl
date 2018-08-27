@@ -9,6 +9,7 @@ focus_follows_mouse no
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# {{{ Movement
 # true vi-style movement
 set $vdown j
 set $vup k
@@ -25,7 +26,6 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+$vdown move down
 bindsym $mod+Shift+$vup move up
@@ -37,7 +37,8 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
+# }}}
+# {{{ Layout
 # prepare a new split
 bindsym $mod+n split toggle; exec --no-startup-id i3hint layout
 
@@ -52,13 +53,15 @@ bindsym $mod+e layout toggle split; exec --no-startup-id i3hint layout
 # toggle tiling / floating / sticky
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+Shift+s sticky toggle
-
+# }}}
+# {{{ Floating / Stacking
 # moving floating windows
 floating_modifier $mod
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
+# }}}
+# {{{ Nesting
 # focus the parent container
 bindsym $mod+a focus parent
 
@@ -67,7 +70,8 @@ bindsym $mod+Shift+a [tiling workspace="__focused__"] move workspace "reorder"; 
 
 # focus the child container
 bindsym $mod+z focus child
-
+# }}}
+# {{{ Resize
 set $resize_mode "Resize | Edit borders (u|p|n)"
 # resize window (you can also use the mouse for that)
 mode $resize_mode {
@@ -108,21 +112,22 @@ mode $resize_mode {
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
-
-# Alternate resize
-# TODO
+bindsym $mod+r mode $resize_mode
+# }}}
+# {{{ Alternate resize (TODO)
 
 bindsym $mod+Control+KP_Up resize shrink height 10 px or 10 ppt
 bindsym $mod+Control+KP_Down resize grow height 10 px or 10 ppt
 bindsym $mod+Control+KP_Right resize grow width 10 px or 10 ppt
 bindsym $mod+Control+KP_Left resize shrink width 10 px or 10 ppt
+# }}}
 
-bindsym $mod+r mode $resize_mode
-
-# Freeze mode: useful for when VNC'ing into another session and all
+# {{{ Freeze mode: useful for when VNC'ing into another session and all
 # commands need to go through
 set $mode_freeze <b>Freeze</b> <small>(Leave with $mod+Escape)</small>
 mode --pango_markup "$mode_freeze"{
    bindsym $mod+Escape mode "default"
 }
 bindsym $mod+$mod2+Escape mode "$mode_freeze"
+# }}}
+# vim: set foldmethod=marker:

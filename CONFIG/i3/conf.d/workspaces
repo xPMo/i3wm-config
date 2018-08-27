@@ -3,20 +3,11 @@
 # Workspace settings
 # =========================================================
 
-# workspace_auto_back_and_forth yes
-# back-and-forth on $mod+Tab
-exec xset -r 23 # disable auto-repeat
-bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+Tab --release workspace back_and_forth
-bindsym $mod+Shift+Tab move container to workspace back_and_forth
-bindsym $mod+Ctrl+Shift+Tab move container to workspace back_and_forth
-bindsym $mod+bracketleft workspace prev
-bindsym $mod+bracketright workspace next
-
-# Scratchpad workspace
+# {{{ Scratchpad workspace
 bindsym $mod+Shift+c move scratchpad
 bindsym $mod+c [title="^(?!(popup_term))"] scratchpad show
-
+# }}}
+# {{{ Output
 workspace 1:1 output $disp0
 workspace 2:2 output $disp0
 workspace 3:3 output $disp0
@@ -32,8 +23,18 @@ workspace $ws_web output $disp0
 workspace $ws_media output $disp1
 workspace $ws_mail output $disp1
 workspace $ws_doc output $disp1
+# }}}
+# {{{ switch to workspace
+# workspace_auto_back_and_forth yes
+# back-and-forth on $mod+Tab
+exec xset -r 23 # disable auto-repeat
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Tab --release workspace back_and_forth
+bindsym $mod+Shift+Tab move container to workspace back_and_forth
+bindsym $mod+Ctrl+Shift+Tab move container to workspace back_and_forth
+bindsym $mod+bracketleft workspace prev
+bindsym $mod+bracketright workspace next
 
-# switch to workspace
 bindsym $mod+1 workspace 1:1
 bindsym $mod+2 workspace 2:2
 bindsym $mod+3 workspace 3:3
@@ -48,8 +49,8 @@ bindsym $mod+0 workspace 10:X
 bindsym $mod+o workspace $ws_doc
 bindsym $mod+p workspace $ws_media
 bindsym $mod+comma workspace $ws_games
-
-# move focused container to workspace
+# }}}
+# {{{ move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1:1
 bindsym $mod+Shift+2 move container to workspace 2:2
 bindsym $mod+Shift+3 move container to workspace 3:3
@@ -70,6 +71,6 @@ bindsym $mod2+Shift+Return move container to workspace "12:~#"
 bindsym $mod+Shift+o move container to workspace $ws_doc
 bindsym $mod+Shift+p move container to workspace $ws_media
 bindsym $mod+Shift+comma move container to workspace $ws_games
-
-
+# }}}
 # bindsym $mod+$mod2+grave workspace TEST
+# vim: set foldmethod=marker:

@@ -3,7 +3,7 @@
 # Manage windows
 # =========================================================
 
-# Force windows to workspaces
+# {{{ Force windows to workspaces
 # $ws_media
 for_window [class="Spotify"] move to workspace $ws_media
 assign [class="banshee"] $ws_media
@@ -32,11 +32,11 @@ assign [title="Hangouts"] $ws_mail
 for_window [ workspace="$ws_web" ] floating enable
 assign [class="irefox"] $ws_web
 for_window [instance="Navigator"] floating disable
-
+# }}}
 # no-focus notification
 no_focus [window_type="notification"]
 
-# Open specific applications in floating mode
+# {{{ Open specific applications in floating mode
 # Xfce4 Appfinder:
 for_window [class="Xfce4-appfinder"] floating enable border none
 
@@ -68,3 +68,5 @@ for_window [class="Thus"] floating enable
 for_window [class="Timeset-gui"] floating enable
 for_window [class="(?i)virtualbox"] floating enable
 for_window [class="Xfburn"] floating enable
+# }}}
+# vim: set foldmethod=marker:
