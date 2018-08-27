@@ -1,5 +1,5 @@
 [global]
-    ### Display ###
+    # {{{ Display
 
     # Which monitor should the notifications be displayed on.
     monitor = 0
@@ -82,8 +82,8 @@
     # Set to 0 to disable.
     # Transient notifications ignore this setting.
     idle_threshold = 120
-
-    ### Text ###
+    # }}}
+    # {{{ Text
 
     font = Fira Code 8
 
@@ -156,7 +156,8 @@
     # Display indicators for URLs (U) and actions (A).
     show_indicators = yes
 
-    ### Icons ###
+    # }}}
+    # {{{ Icons 
 
     # Align icons left/right/off
     icon_position = left
@@ -166,7 +167,8 @@
 
     # Paths to look for icons (Globbing not supported)
     icon_path = /usr/share/icons/Vibrancy-Colors/apps/48:/usr/share/icons/Numix-Square/48/apps:/usr/share/icons/Numix/scalable/actions:/usr/share/icons/Numix/scalable/categories:/usr/share/icons/Numix/scalable/devices:/usr/share/icons/Numix/scalable/emblems:/usr/share/icons/Numix/scalable/emotes:/usr/share/icons/Numix/scalable/mimetypes:/usr/share/icons/Numix/scalable/places:/usr/share/icons/Numix/scalable/status:/usr/share/icons/Numix/32/actions:/usr/share/icons/Numix/32/animations:/usr/share/icons/Numix/32/apps:/usr/share/icons/Numix/32/categories:/usr/share/icons/Numix/32/devices:/usr/share/icons/Numix/32/emblems:/usr/share/icons/Numix/32/emotes:/usr/share/icons/Numix/32/mimetypes:/usr/share/icons/Numix/32/places:/usr/share/icons/Numix/32/status:/usr/share/icons/Numix/24/actions:/usr/share/icons/Numix/24/animations:/usr/share/icons/Numix/24/apps:/usr/share/icons/Numix/24/categories:/usr/share/icons/Numix/24/devices:/usr/share/icons/Numix/24/emblems:/usr/share/icons/Numix/24/emotes:/usr/share/icons/Numix/24/mimetypes:/usr/share/icons/Numix/24/places:/usr/share/icons/Numix/24/status:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-    ### History ###
+    # }}}
+    # {{{ History 
 
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
@@ -175,7 +177,8 @@
     # Maximum amount of notifications kept in history
     history_length = 40
 
-    ### Misc/Advanced ###
+    # }}}
+    # {{{ Misc/Advanced 
 
     # dmenu path.
     dmenu = /usr/bin/rofi -dmenu -p Action:
@@ -198,7 +201,8 @@
     # automatically after a crash.
     startup_notification = false
 
-    ### Legacy
+    # }}}
+    # {{{ Legacy
 
     # Use the Xinerama extension instead of RandR for multi-monitor support.
     # This setting is provided for compatibility with older nVidia drivers that
@@ -209,8 +213,8 @@
     # is connected or disconnected which might break follow mode if the screen
     # layout changes.
     force_xinerama = false
-
-# Experimental features that may or may not work correctly. Do not expect them
+    # }}}
+# {{{ Experimental features that may or may not work correctly. Do not expect them
 # to have a consistent behaviour across releases.
 [experimental]
     # Calculate the dpi to use on a per-monitor basis.
@@ -219,7 +223,8 @@
     # using the resolution and physical size. This might be useful in setups
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
-
+# }}}
+# {{{ Shortcuts
 [shortcuts]
 
     # Shortcuts are specified as [modifier+][modifier+]...key
@@ -241,7 +246,7 @@
 
     # Context menu.
     context = mod1+shift+period
-
+# }}}
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
@@ -335,4 +340,4 @@
 #    summary = *twitter.com*
 #    urgency = normal
 #
-# vim: ft=cfg
+# vim: ft=cfg foldmethod=marker
