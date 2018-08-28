@@ -15,7 +15,8 @@ smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
+# TODO: errors, not yet supported
+# smart_borders on
 
 # {{{ Gaps mode
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will for just this workspace.
@@ -43,8 +44,8 @@ mode --pango_markup "$mode_gaps_inner" {
 	bindsym Shift+0     gaps inner current set 0
 	bindsym Shift+5     gaps inner current set 5
 
-	bindsym slash exec --no-startup-id i3hint gaps
-	bindsym Shift+slash exec --no-startup-id i3hint gaps
+	bindsym slash exec --no-startup-id swayhint gaps
+	bindsym Shift+slash exec --no-startup-id swayhint gaps
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -60,8 +61,8 @@ mode --pango_markup "$mode_gaps_outer" {
 	bindsym Shift+0     gaps outer current set 0
 	bindsym Shift+5     gaps outer current set 5
 
-	bindsym slash exec --no-startup-id i3hint gaps
-	bindsym Shift+slash exec --no-startup-id i3hint gaps
+	bindsym slash exec --no-startup-id swayhint gaps
+	bindsym Shift+slash exec --no-startup-id swayhint gaps
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }

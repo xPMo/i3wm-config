@@ -1,0 +1,54 @@
+
+# =========================================================
+# 2-set: set variables
+# =========================================================
+
+# No Xresources in wayland
+# Font
+set $wmfont pango:Noto Sans 9
+
+# Set inner/outer gaps
+set $gaps_inner 5
+set $gaps_outer 0
+
+# {{{ Color defs
+set $color00 #002b36
+set $color01 #dc322f
+set $color02 #859900
+set $color03 #b58900
+set $color04 #268bd2
+set $color05 #d33682
+set $color06 #2aa198
+set $color07 #93a1a1
+set $color08 #586e75
+set $color09 #cb4b16
+set $color10 #85c000
+set $color11 #cccc00
+set $color12 #2c98e4
+set $color13 #6c71c4
+set $color14 #30b8b0
+set $color15 #eee8d5
+set $fground #eee8d5
+set $bground #002b36
+# }}}
+
+# Terminal
+set $terminal 'urxvtc'
+set $termclass '(?i)urxvt'
+
+# Display names (get from xrandr, set in .Xresources)
+set $disp0 primary
+set $disp1 primary
+
+# modifiers
+set $mod Mod4
+set $mod2 Mod1
+
+# {{{ Workspace definitions
+set $ws_mail 12:<big></big>
+set $ws_web 13:<big></big>
+set $ws_doc 14:<big></big>
+set $ws_media 15:♫
+set $ws_games 16:<big></big>
+# }}}
+# vim: set foldmethod=marker:

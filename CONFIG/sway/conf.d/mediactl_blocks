@@ -86,6 +86,6 @@ bindsym XF86AudioMute exec --no-startup-id \
 	i3volumectl 
 # }}}
 # i3-input to set volume to any%
-bindsym Shift+XF86AudioMute exec --no-startup-id i3-input \
-	-F 'exec --no-startup-id i3volumectl %s' -P 'Set volume:'
+# TODO: replace i3-input # bindsym Shift+XF86AudioMute exec --no-startup-id i3-input \
+#	-F 'exec --no-startup-id i3volumectl %s' -P 'Set volume:'
 # vim: set foldmethod=marker:

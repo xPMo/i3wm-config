@@ -9,7 +9,7 @@ bindsym $mod+Shift+Menu exec --no-startup-id toggletrackpad
 # Paste from selection with $mod+ins
 bindsym --release $mod+Insert exec --no-startup-id sleep 0.2 && xdotool type "$(xsel)"
 
-# Toggle i3bar
+# Toggle swaybar
 bindsym $mod+Menu bar mode toggle bar1
 
 # {{{ Backlights
@@ -17,25 +17,25 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -s intel_backlight -U 1
 bindsym XF86MonBrightnessUp exec --no-startup-id light -s intel_backlight -A 1 && pkill -RTMIN+2 i3blocks
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id light -s intel_backlight -S 5 && pkill -RTMIN+2 i3blocks
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id light -s intel_backlight -S 100 && pkill -RTMIN+2 i3blocks
-bindcode 248 exec i3-input \
-	-F 'exec --no-startup-id light \-s intel_backlight \-r \-S %s' -P 'Set backlight to (0-24):'
+# TODO: replace i3-input # bindcode 248 exec i3-input \
+#	-F 'exec --no-startup-id light \-s intel_backlight \-r \-S %s' -P 'Set backlight to (0-24):'
 # }}}
-# F1: Show i3 information
-bindsym $mod+F1 exec --no-startup-id i3hint version workspace layout
-bindsym $mod+Shift+F1 exec --no-startup-id i3hint help
+# F1: Show sway information
+bindsym $mod+F1 exec --no-startup-id swayhint version workspace layout
+bindsym $mod+Shift+F1 exec --no-startup-id swayhint help
 
 # {{{ LOGIN AND POWER:
 
-# F2: Reload or restart i3 inplace
-bindsym $mod+F2 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config/i3/config, reload
-bindsym $mod+Shift+F2 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config/i3/config, restart
+# F2: Reload or restart sway inplace
+bindsym $mod+F2 exec reload
+bindsym $mod+Shift+F2 restart
 
 # F1: lock/leave session
 bindsym $mod+F3 exec --no-startup-id scrotlock
-bindsym $mod+Shift+F3 exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+F3 exec --no-startup-id "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your X session.' -b 'Yes, exit sway' 'swaymsg exit'"
 
-bindsym XF86Sleep exec --no-startup-id i3tool suspend
-bindsym Shift+XF86Sleep exec --no-startup-id i3tool hybrid-sleep
+bindsym XF86Sleep exec --no-startup-id swaytool suspend
+bindsym Shift+XF86Sleep exec --no-startup-id swaytool hybrid-sleep
 
 # F3: 
 # $mod+F4: system
@@ -43,13 +43,13 @@ bindsym XF86PowerOff mode "$mode_system"
 bindsym $mod+F4 mode "$mode_system"
 set $mode_system <b>L</b>ock, <b>E</b>xit, switch_<b>U</b>ser, <b>S</b>uspend, <b>H</b>ibernate, <b>R</b>eboot, <small>Shift+</small><b>S</b>hutdown
 mode --pango_markup "$mode_system" {
-    bindsym l exec --no-startup-id i3tool lock, mode "default"
-    bindsym s exec --no-startup-id i3tool suspend, mode "default"
-    bindsym u exec --no-startup-id i3tool switch_user, mode "default"
-    bindsym e exec --no-startup-id i3tool logout, mode "default"
-    bindsym h exec --no-startup-id i3tool hibernate, mode "default"
-    bindsym r exec --no-startup-id i3tool reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3tool shutdown, mode "default"
+    bindsym l exec --no-startup-id swaytool lock, mode "default"
+    bindsym s exec --no-startup-id swaytool suspend, mode "default"
+    bindsym u exec --no-startup-id swaytool switch_user, mode "default"
+    bindsym e exec --no-startup-id swaytool logout, mode "default"
+    bindsym h exec --no-startup-id swaytool hibernate, mode "default"
+    bindsym r exec --no-startup-id swaytool reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id swaytool shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -57,7 +57,7 @@ mode --pango_markup "$mode_system" {
 }
 # }}}
 # $mod+F5: display
-bindsym $mod+F5 $HOME/.local/bin/i3focuslaunch arandr
+bindsym $mod+F5 $HOME/.local/bin/sway-pk-launch arandr
 
 # xkill
 bindsym --release $mod+Shift+Escape exec xkill

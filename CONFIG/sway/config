@@ -1,0 +1,3 @@
+# all conf.d/0-* is `gitignore`d
+# Put your `output <output> background <file> <mode> [<fallback_color>]` there
+include conf.d/*

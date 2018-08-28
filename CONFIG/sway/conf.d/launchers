@@ -14,9 +14,9 @@ bindsym $mod+Shift+Print exec --no-startup-id "sloprecord-dunst -s"
 bindsym $mod+Control+Print exec --no-startup-id "sloprecord-dunst -w"
 # }}}
 # {{{ i3-input (for marking, etc)
-bindsym $mod+i exec --no-startup-id i3-input
-bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -l 1 -P 'Mark: '
-bindsym $mod+grave exec --no-startup-id i3-input -F '[con_mark=%s] focus' -l 1 -P 'Focus mark: ' 
+# TODO: replace i3-input # bindsym $mod+i exec --no-startup-id i3-input
+# TODO: replace i3-input # bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -l 1 -P 'Mark: '
+# TODO: replace i3-input # bindsym $mod+grave exec --no-startup-id i3-input -F '[con_mark=%s] focus' -l 1 -P 'Focus mark: ' 
 # }}}
 # {{{ Standalone launchers
 bindsym Shift+XF86Mail exec exec xdg-open $HOME
@@ -25,12 +25,12 @@ bindsym $mod+$mod2+w exec exec firefox -P -no-remote hidden
 bindsym $mod+Shift+t exec exec $terminal
 # }}}
 # {{{ Standalone focuslaunchers
-bindsym XF86Mail exec --no-startup-id exec i3focuslaunch thunderbird
-bindsym XF86Search exec --no-startup-id exec i3focuslaunch catfish
-bindsym XF86Explorer exec --no-startup-id exec i3focuslaunch catfish
+bindsym XF86Mail exec --no-startup-id exec sway-pk-launch thunderbird
+bindsym XF86Search exec --no-startup-id exec sway-pk-launch catfish
+bindsym XF86Explorer exec --no-startup-id exec sway-pk-launch catfish
 bindsym XF86Calculator exec --no-startup-id exec echo
-bindsym XF86Tools exec --no-startup-id exec i3focuslaunch clementine
-bindsym XF86HomePage exec --no-startup-id exec i3focuslaunch firefox Firefox
+bindsym XF86Tools exec --no-startup-id exec sway-pk-launch clementine
+bindsym XF86HomePage exec --no-startup-id exec sway-pk-launch firefox Firefox
 # Terminal is the exception, I want more complex behavior
 # (launch another if currently focused, and allow launching anywhere if necessary)
 bindsym $mod+Return exec --no-startup-id exec i3switchlaunch $terminal $termClass "11:~$"
@@ -47,7 +47,7 @@ mode "$mode_launch" {
 	bindsym Shift+a exec --no-startup-id exec file-roller, mode "default"
 	bindsym Shift+b exec --no-startup-id exec blueman-manager, mode "default"
 	bindsym Shift+c exec --no-startup-id exec pkill compton, mode "default"
-	bindsym Shift+d exec --no-startup-id exec sh -c ~/.local/bin/i3focuslaunch arandr randr, mode "default"
+	bindsym Shift+d exec --no-startup-id exec sh -c ~/.local/bin/sway-pk-launch arandr randr, mode "default"
 	bindsym Shift+e exec exec nvim-gtk, mode "default"
 	bindsym Shift+f exec exec xdg-open ~, mode "default"
 	bindsym Shift+g exec exec gimp, mode "default"
@@ -73,35 +73,35 @@ mode "$mode_launch" {
 	bindsym Shift+slash exec exec catfish, mode "default"
 	# }}}
 	# {{{ Focus (exception dmenu/compton), mode "default"
-	# The "i3focusLaunch" script will focus $2 if $2, else focus program name
-	bindsym a exec --no-startup-id exec ~/.local/bin/i3focuslaunch file-roller, mode "default"
-	bindsym b exec --no-startup-id exec ~/.local/bin/i3focuslaunch blueman-manager, mode "default"
+	# The "sway-pk-launch" script will focus $2 if $2, else focus program name
+	bindsym a exec --no-startup-id exec ~/.local/bin/sway-pk-launch file-roller, mode "default"
+	bindsym b exec --no-startup-id exec ~/.local/bin/sway-pk-launch blueman-manager, mode "default"
 	bindsym c exec --no-startup-id exec compton -b, mode "default"
 	bindsym d exec --no-startup-id exec dmenu_run -fn 'Noto Mono-8', mode "default"
-	bindsym e exec --no-startup-id exec i3focuslaunch nvim-gtk Neovim, mode "default"
-	bindsym f exec --no-startup-id exec i3focuslaunch pcmanfm, mode "default"
-	bindsym g exec --no-startup-id exec i3focuslaunch gimp, mode "default"
-	bindsym h exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym i exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym j exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym k exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym l exec --no-startup-id exec i3focuslaunch libreoffice, mode "default"
-	bindsym m exec --no-startup-id exec i3focuslaunch thunderbird, mode "default"
-	bindsym n exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym o exec --no-startup-id exec i3focuslaunch libreoffice, mode "default"
-	bindsym p exec --no-startup-id exec i3focuslaunch clementine, mode "default"
+	bindsym e exec --no-startup-id exec sway-pk-launch nvim-gtk Neovim, mode "default"
+	bindsym f exec --no-startup-id exec sway-pk-launch pcmanfm, mode "default"
+	bindsym g exec --no-startup-id exec sway-pk-launch gimp, mode "default"
+	bindsym h exec --no-startup-id exec sway-pk-launch echo, mode "default"
+	bindsym i exec --no-startup-id exec sway-pk-launch echo, mode "default"
+	bindsym j exec --no-startup-id exec sway-pk-launch echo, mode "default"
+	bindsym k exec --no-startup-id exec sway-pk-launch echo, mode "default"
+	bindsym l exec --no-startup-id exec sway-pk-launch libreoffice, mode "default"
+	bindsym m exec --no-startup-id exec sway-pk-launch thunderbird, mode "default"
+	bindsym n exec --no-startup-id exec sway-pk-launch echo, mode "default"
+	bindsym o exec --no-startup-id exec sway-pk-launch libreoffice, mode "default"
+	bindsym p exec --no-startup-id exec sway-pk-launch clementine, mode "default"
 	bindsym q mode "default"
-	bindsym r exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym s exec --no-startup-id exec i3focuslaunch steam, mode "default"
-	bindsym t exec --no-startup-id exec i3focuslaunch torbrowser-launcher, mode "default"
-	bindsym u exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym v exec --no-startup-id exec i3focuslaunch pavucontrol, mode "default"
-	bindsym w exec --no-startup-id exec i3focuslaunch firefox Firefox, mode "default"
-	bindsym x exec --no-startup-id exec i3focuslaunch xfce4-appfinder, mode "default"
-	bindsym $mod+x exec --no-startup-id exec i3focuslaunch xfce4-appfinder, mode "default"
-	bindsym y exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym z exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym slash exec --no-startup-id exec i3focuslaunch catfish, mode "default"
+	bindsym r exec --no-startup-id exec sway-pk-launch echo, mode "default"
+	bindsym s exec --no-startup-id exec sway-pk-launch steam, mode "default"
+	bindsym t exec --no-startup-id exec sway-pk-launch torbrowser-launcher, mode "default"
+	bindsym u exec --no-startup-id exec sway-pk-launch echo, mode "default"
+	bindsym v exec --no-startup-id exec sway-pk-launch pavucontrol, mode "default"
+	bindsym w exec --no-startup-id exec sway-pk-launch firefox Firefox, mode "default"
+	bindsym x exec --no-startup-id exec sway-pk-launch xfce4-appfinder, mode "default"
+	bindsym $mod+x exec --no-startup-id exec sway-pk-launch xfce4-appfinder, mode "default"
+	bindsym y exec --no-startup-id exec sway-pk-launch echo, mode "default"
+	bindsym z exec --no-startup-id exec sway-pk-launch echo, mode "default"
+	bindsym slash exec --no-startup-id exec sway-pk-launch catfish, mode "default"
 	# }}}
 	
 	# passmenu

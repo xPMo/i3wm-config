@@ -25,7 +25,7 @@ while [ $# -ne 0 ]; do
 	layout|l )
 		id=${id:--5}
 		layout=$(
-			i3-msg -t get_tree | jq --raw-output \
+			swaymsg -t get_tree | jq --raw-output \
 			'recurse(.nodes[]) | select(.nodes[].focused==true).layout'
 		)
 		case $layout in
@@ -38,7 +38,7 @@ while [ $# -ne 0 ]; do
 	workspace|w )
 		id=${id:--6}
 		workspace=$(
-			i3-msg -t get_workspaces | jq --raw-output \
+			swaymsg -t get_workspaces | jq --raw-output \
 			'.[] | select(.focused==true).name'
 		)
 		notification=$(printf '%s\n' $notification "Workspace: $workspace")
@@ -46,7 +46,7 @@ while [ $# -ne 0 ]; do
 	version|V )
 		id=${id:--7}
 		version=$(
-			i3-msg -t get_version | jq --raw-output \
+			swaymsg -t get_version | jq --raw-output \
 			'(.human_readable)'
 		)
 		notification=$(printf '%s\n' $notification "i3 Version: $version" )

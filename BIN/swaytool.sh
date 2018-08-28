@@ -6,10 +6,11 @@ set -e
 # with openrc use loginctl
 [ $(cat /proc/1/comm) = "systemd" ] && logind=systemctl || logind=loginctl
 
+sock=$(find ${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/i3 -type s)
 lock() {
 	img=$(mktemp --suffix=.png)
 	trap '{ rm $img; exit $?; }' INT
-	maim $img 2>/dev/null || import -window root $img
+	swaygrab -s $sock $img
 	# convert inplace
 	convert $img -scale 20x20% -modulate 100,50 -scale 500x500% $img
 	# add -m flag (ignore media keys) if i3lock is patched to support it
@@ -22,7 +23,7 @@ case $a in
 	loc* ) # lock
 		lock ;;
 	log*|e*|x* ) # logout
-		i3-msg exit ;;
+		swaymsg -s $sock exit ;;
 	sw*|su ) # switch user
 		dm-tool switch-to-greeter ;;
 	sus* ) # suspend to RAM
@@ -36,13 +37,12 @@ case $a in
 	sh*|po*|sd ) # shutdown
 		$logind poweroff ;;
 	run|m* )
-		sock=$(find ${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/i3 -type s)
 		if [ $1 = run ]; then
 			shift
-			exec i3-msg -s $sock -- "exec exec $@"
+			exec swaymsg -s $sock -- "exec exec $@"
 		else
 			shift
-			exec i3-msg -s $sock $@
+			exec swaymsg -s $sock $@
 		fi
 		;;
 	* )

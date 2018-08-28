@@ -34,7 +34,8 @@ assign [class="irefox"] $ws_web
 for_window [instance="Navigator"] floating disable
 # }}}
 # no-focus notification
-no_focus [window_type="notification"]
+# TODO: errors, but it shouldn't
+# no_focus [window_type="notification"]
 
 # {{{ Open specific applications in floating mode
 # Xfce4 Appfinder:
@@ -44,7 +45,7 @@ for_window [class="Xfce4-appfinder"] floating enable border none
 for_window [title="^File Operation Progress$"] floating enable 
 
 # Steam on-screen keyboard
-for_window [title="^Steam Keyboard"] floating enable; exec sleep 0.1 && i3-msg focus tiling
+for_window [title="^Steam Keyboard"] floating enable; exec sleep 0.1 && swaymsg focus tiling
 no_focus [title="^Steam Keyboard"]
 
 for_window [title="alsamixer"] floating enable

@@ -14,7 +14,6 @@ exec systemd-inhibit --what=handle-power-key:handle-suspend-key \
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # set background, color
-exec_always --no-startup-id exec sh $HOME/.fehbg
 exec --no-startup-id exec redshift
 
 # kb/mouse
@@ -44,7 +43,7 @@ exec --no-startup-id pa-applet
 exec --no-startup-id $HOME/.local/lib/i3blocks/playerctlnotify.py
 
 # begin on workspace 1
-exec --no-startup-id exec i3-msg workspace 1:1
+exec --no-startup-id exec swaymsg workspace 1:1
 
 # Scratchpad terminal popup
 # matches popup_* for alarm or other popups
