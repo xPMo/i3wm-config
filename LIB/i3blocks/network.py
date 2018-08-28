@@ -66,7 +66,7 @@ class NMDev:
             s.append('<span foreground="{}">'.format(self.color))
             e.insert(0, '</span>')
         s.append(self.icon())
-        if self.connection != '--':
+        if self.connection != '--' and self.method != 'ethernet':
             s.append(f' {self.connection}')
         s.append('<small> ')
         e.insert(0, '</small>')
