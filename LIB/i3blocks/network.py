@@ -10,6 +10,11 @@ colorkey = {
         'connected': '#85c000',
         'connecting': '#cccc00',
     },
+    'ethernet': {
+        'disconnected': '#dc322f',
+        'connected': '#859900',
+        'connecting': '#b58900',
+    },
     'bt': {
         'disconnected': '#dc322f',
         'connected': '#85c000',
@@ -28,7 +33,7 @@ colorkey = {
 class NMDev:
     name = ''
     method = None
-    connection = False
+    connection = None
     address = None
     state = None
     color = None
@@ -42,38 +47,45 @@ class NMDev:
                 f'{self.name} ' if self.name is not None else '',
                 f'{self.address.ip}' if self.address is not None else '',
         ])
+
+    def icon(self, small=False):
+        if self.method == 'wifi':
+            s = ''
+        elif self.method == 'ethernet':
+            s = ''
+        elif self.method == 'bt':
+            s = ''
+        elif self.method == 'tun':
+            s = '嬨'
+        return s if small else '<span size="x-large">' + s + '</span>'
+
     def block_text(self):
         s = []
         e = []
         if self.color is not None:
             s.append('<span foreground="{}">'.format(self.color))
             e.insert(0, '</span>')
-        if self.method == 'wifi':
-            s.append('<big></big>')
-        elif self.method == 'eth':
-            s.append('E')
-        elif self.method == 'bt':
-            s.append('<span size="large"></span>')
-        elif self.method == 'tun':
-            s.append('<span size="large">嬨</span>')
-        s.append('<small>')
-        e.insert(0, '</small>')
+        s.append(self.icon())
         if self.connection != '--':
-            s.append(f'{self.connection} ')
+            s.append(f' {self.connection}')
+        s.append('<small> ')
+        e.insert(0, '</small>')
         if self.address is not None:
             s.append(str(self.address.ip))
         s.extend(e)
         return ''.join(s)
+
     def short_text(self):
         s = []
         e = []
         if self.color is not None:
             s.append('<span foreground="{}">'.format(self.color))
             e.insert(0, '</span>')
+        s.append(self.icon(small=True))
         s.append('<small>')
         e.insert(0, '</small>')
-        if self.address is not None:
-            s.append(str(self.address.ip))
+        if self.connection != '--':
+            s.append(f'{self.connection} ')
         s.extend(e)
         return ''.join(s)
 
@@ -90,8 +102,6 @@ elif button == '3':
             stderr=open('/dev/null', 'w'),
             preexec_fn=os.setpgrp
     )
-
-
 
 devs = []
 with subprocess.Popen(['nmcli', 'device', 'show'], stdout=subprocess.PIPE) as p:
