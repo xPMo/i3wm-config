@@ -48,5 +48,6 @@ exec --no-startup-id exec i3-msg workspace 1:1
 
 # Scratchpad terminal popup
 # matches popup_* for alarm or other popups
-for_window [title="^popup_"] floating enable, border none, resize set $dispwidth 280, move position -2 px -3 px, move scratchpad
+for_window [title="^popup_"] floating enable, border none,  move scratchpad
+for_window [title="^popup_term$"] resize set $dispwidth 280, move position -2 px -3 px, sticky enable
 bindsym $mod+v [title="^popup_term$"] scratchpad show
