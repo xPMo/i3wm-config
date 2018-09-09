@@ -26,6 +26,9 @@ exec --no-startup-id xset -r 23
 # clipboard manager
 exec --no-startup-id clipit
 
+# KDE Connect
+exec --no-startup-id kdeconnect-indicator
+
 # launch popup terminal
 exec --no-startup-id $HOME/.local/bin/popup-term
 
@@ -49,5 +52,5 @@ exec --no-startup-id exec i3-msg workspace 1:1
 # Scratchpad terminal popup
 # matches popup_* for alarm or other popups
 for_window [title="^popup_"] floating enable, border none,  move scratchpad
-for_window [title="^popup_term$"] resize set $dispwidth 280, move position -2 px -3 px, sticky enable
+for_window [title="^popup_term$"] resize set $dispwidth 280, move position 0 px 0 px, sticky enable
 bindsym $mod+v [title="^popup_term$"] scratchpad show
