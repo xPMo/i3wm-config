@@ -30,9 +30,9 @@ bindsym $mod+Shift+F1 exec --no-startup-id swayhint help
 bindsym $mod+F2 exec reload
 bindsym $mod+Shift+F2 restart
 
-# F1: lock/leave session
-bindsym $mod+F3 exec --no-startup-id scrotlock
-bindsym $mod+Shift+F3 exec --no-startup-id "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your X session.' -b 'Yes, exit sway' 'swaymsg exit'"
+# F3: lock/leave session
+bindsym $mod+F3 exec --no-startup-id swaytool lock
+bindsym $mod+Shift+F3 exec --no-startup-id "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'"
 
 bindsym XF86Sleep exec --no-startup-id swaytool suspend
 bindsym Shift+XF86Sleep exec --no-startup-id swaytool hybrid-sleep
