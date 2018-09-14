@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 IFS="
-"
+	"
 set -e
 
 # with openrc use loginctl
@@ -42,7 +42,7 @@ case $a in
 			exec swaymsg -s $sock -- "exec exec $@"
 		else
 			shift
-			exec swaymsg -s $sock $@
+			exec swaymsg -s $sock -- "$@"
 		fi
 		;;
 	* )
@@ -61,13 +61,15 @@ Actions:
 	run [prog [args ..]]      runs the given program with its args
 	                          via \`i3-msg exec\`
 	msg [cmd [cmd ...]]       runs the i3 command(s) via \`i3-msg\`
+	help                      show this help
 
 This program matches the action on just the first few characters
 (unless using an abbreviation). So be aware that both "log" and
 "logarithms" are matched by "logout", for example.
 
 EOF
-	exit 2
+	case $a in
+		--h*|-h*|h*) exit 0 ;;
+		*) exit 1
+	esac
 esac
-
-exit 0
