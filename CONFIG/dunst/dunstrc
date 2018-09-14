@@ -125,7 +125,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b> (%a)\n%b"
+    format = "<b>%s</b> <small>(%a)</small>\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -304,6 +304,7 @@
 [i3-info]
     # don't save in history
     category = "i3-info"
+	format = "%s\n%b"
     history_ignore = yes
 
 [i3-hint]
@@ -311,9 +312,14 @@
     appname = "i3-hint"
     new_icon = "does_not_exist"
     foreground = "#fdf6e3"
-    format = "<b>%s</b>\n%b"
+    format = "%s\n%b"
     history_ignore = yes
 
+[Clementine]
+	# handle formatting in Clementine
+	appname = "Clementine"
+	format = "%s\n%b"
+	history_ignore = yes
 
 #[history-ignore]
 #    # This notification will not be saved in history
