@@ -6,7 +6,7 @@ A helper script to provide easy access to various functionality:
 
 * logind (loginctl or systemctl)
 * i3lock
-* run a program via i3-msg
+* run a program via swaymsg
 
 Originally from Manjaro's i3 Community Edition, changed the lock script to my own and added `hybrid-sleep` support.
 

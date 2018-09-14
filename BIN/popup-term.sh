@@ -9,7 +9,7 @@ USAGE="$(basename $0) [ options ]
 	-f fade   	set fade percentage [0,100]"
 command -v dtach && cmd="-e dtach -A $XDG_RUNTIME_DIR/dtach_popup_term zsh"
 function nterm {
-	i3-msg exec -- "--no-startup-id DISABLE_AUTO_TITLE=true \
+	swaymsg exec -- "--no-startup-id DISABLE_AUTO_TITLE=true \
 		exec urxvtc \
 		-title '${title:-popup_term}' \
 		-bg '[${opacity:-70}]#00080a' \
@@ -21,7 +21,7 @@ function nterm {
 	"
 }
 cond() {
-	i3-msg "[title=^${title:-popup_term}$]" focus 2>&1 | grep -q "ERROR"
+	swaymsg "[title=^${title:-popup_term}$]" focus 2>&1 | grep -q "ERROR"
 }
 font=$(xrdb -query | grep -i 'urxvt[\.\*]*font:' | cut -f2)
 

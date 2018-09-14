@@ -59,8 +59,8 @@ Actions:
 	reboot | rb               reboots the machine
 	shutdown | poweroff | sd  powers off the machine
 	run [prog [args ..]]      runs the given program with its args
-	                          via \`i3-msg exec\`
-	msg [cmd [cmd ...]]       runs the i3 command(s) via \`i3-msg\`
+	                          via \`swaymsg exec\`
+	msg [cmd [cmd ...]]       runs the i3 command(s) via \`swaymsg\`
 	help                      show this help
 
 This program matches the action on just the first few characters
