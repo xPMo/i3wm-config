@@ -7,6 +7,7 @@ USAGE="$(basename $0) [ options ]
 	-t title  	set title of window
 	-o opacity	set opacity [0,100]
 	-f fade   	set fade percentage [0,100]"
+command -v dtach && cmd="-e dtach -A $XDG_RUNTIME_DIR/dtach_popup_term zsh"
 function nterm {
 	i3-msg exec -- "--no-startup-id DISABLE_AUTO_TITLE=true \
 		exec urxvtc \
@@ -15,7 +16,8 @@ function nterm {
 		-fadecolor '[60]#000000' \
 		-fade ${fade:-30} \
 		-fn '${font:-xft:Hack:size=8}' \
-		-letsp ${letsp:- -1}
+		-letsp ${letsp:- -1} \
+		$cmd
 	"
 }
 cond() {
