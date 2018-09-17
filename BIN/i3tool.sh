@@ -36,7 +36,7 @@ case $a in
 	sh*|po*|sd ) # shutdown
 		$logind poweroff ;;
 	run|m* )
-		sock=$(find ${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/i3 -type s)
+		sock=$(DISPLAY=${DISPLAY-:0} i3 --get-socketpath)
 		if [ $1 = run ]; then
 			shift
 			exec i3-msg -s $sock -- "exec exec $@"
