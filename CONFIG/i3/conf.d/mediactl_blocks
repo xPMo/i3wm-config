@@ -26,6 +26,9 @@ bindsym $mod+Shift+button4 --whole-window exec --no-startup-id playerctl positio
 
 bindsym $mod+Shift+XF86AudioLowerVolume --whole-window exec --no-startup-id playerctl position 5-
 bindsym $mod+Shift+XF86AudioRaiseVolume --whole-window exec --no-startup-id playerctl position 5+
+
+bindsym Shift+XF86AudioPrev --whole-window exec --no-startup-id playerctl position 5-
+bindsym Shift+XF86AudioNext --whole-window exec --no-startup-id playerctl position 5+
 # }}}
 # {{{ Small volume changes
 # Volume changes also force an i3status refresh

@@ -14,7 +14,7 @@ function nterm {
 		-title '${title:-popup_term}' \
 		-bg '[${opacity:-70}]#00080a' \
 		-fadecolor '[60]#000000' \
-		-fade ${fade:-30} \
+		-fade ${fade:-50} \
 		-fn '${font:-xft:Hack:size=8}' \
 		-letsp ${letsp:- -1} \
 		$cmd
