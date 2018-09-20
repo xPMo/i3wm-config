@@ -9,7 +9,7 @@ bindsym $mod+Prior exec --no-startup-id playerctl previous
 bindsym $mod+KP_Prior exec --no-startup-id playerctl previous
 bindsym $mod+button8 --whole-window exec --no-startup-id playerctl previous
 
-bindsym XF86AudioNext --no-startup-id exec playerctl next
+bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym $mod+Next exec --no-startup-id playerctl next
 bindsym $mod+KP_Next exec --no-startup-id playerctl next
 bindsym $mod+button9 --whole-window exec --no-startup-id playerctl next
