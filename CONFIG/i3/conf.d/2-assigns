@@ -28,6 +28,7 @@ assign [title="Hangouts"] $ws_mail
 assign [class="^discord"] $ws_mail
 assign [class="^Fractal"] $ws_mail
 assign [class="^qTox"] $ws_mail
+assign [class="^uTox"] $ws_mail
 
 # $ws_web
 for_window [ workspace="$ws_web" ] floating enable
