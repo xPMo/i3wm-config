@@ -23,12 +23,13 @@ assign [class="^FTL$"] $ws_games
 assign [class="nes9x-gtk"] $ws_games
 
 # $ws_mail
-assign [class="^Thunderbird"] $ws_mail
-assign [title="Hangouts"] $ws_mail
-assign [class="^discord"] $ws_mail
 assign [class="^Fractal"] $ws_mail
+assign [class="^Signal"] $ws_mail
+assign [class="^Thunderbird"] $ws_mail
+assign [class="^discord"] $ws_mail
 assign [class="^qTox"] $ws_mail
 assign [class="^uTox"] $ws_mail
+assign [title="Hangouts"] $ws_mail
 
 # $ws_web
 for_window [ workspace="$ws_web" ] floating enable
