@@ -16,7 +16,6 @@ assign [class="usic"] $ws_media
 assign [class="Steam"] $ws_games
 assign [title="Steam"] $ws_games
 assign [class="itch"] $ws_games
-assign [class="discord"] $ws_games
 assign [class="owerFall"] $ws_games
 assign [class="Owlboy"] $ws_games
 assign [class="^Celeste"] $ws_games
@@ -24,9 +23,11 @@ assign [class="^FTL$"] $ws_games
 assign [class="nes9x-gtk"] $ws_games
 
 # $ws_mail
-assign [class="cedove"] $ws_mail
-assign [class="underbird"] $ws_mail
+assign [class="^Thunderbird"] $ws_mail
 assign [title="Hangouts"] $ws_mail
+assign [class="^discord"] $ws_mail
+assign [class="^Fractal"] $ws_mail
+assign [class="^qTox"] $ws_mail
 
 # $ws_web
 for_window [ workspace="$ws_web" ] floating enable
@@ -44,7 +45,8 @@ for_window [class="Xfce4-appfinder"] floating enable border none
 for_window [title="^File Operation Progress$"] floating enable 
 
 # Steam on-screen keyboard
-for_window [title="^Steam Keyboard"] floating enable; exec sleep 0.1 && i3-msg focus tiling
+for_window [title="^Steam Keyboard"] floating enable border none; \
+	exec sleep 0.1 && i3-msg focus tiling
 no_focus [title="^Steam Keyboard"]
 
 for_window [title="alsamixer"] floating enable
