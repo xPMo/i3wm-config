@@ -9,16 +9,16 @@ USAGE="$(basename $0) [ options ]
 	-f fade   	set fade percentage [0,100]"
 command -v dtach && cmd="-e dtach -A $XDG_RUNTIME_DIR/dtach_popup_term zsh"
 function nterm {
-	i3-msg exec -- "--no-startup-id DISABLE_AUTO_TITLE=true \
-		exec urxvtc \
-		-title '${title:-popup_term}' \
-		-bg '[${opacity:-70}]#00080a' \
-		-fadecolor '[60]#000000' \
-		-fade ${fade:-50} \
-		-fn '${font:-xft:Hack:size=8}' \
-		-letsp ${letsp:- -1} \
-		$cmd
-	"
+	DISABLE_AUTO_TITLE=true \
+	PS1_HEADER=$'%{\e[38;5;246m%}δ:' \
+	exec urxvtc \
+	-title ${title:-popup_term} \
+	-bg [${opacity:-70}]#00080a \
+	-fadecolor [60]#000000 \
+	-fade ${fade:-50} \
+	-fn ${font:-xft:Hack:size=8} \
+	-letsp ${letsp:- -1} \
+	$cmd
 }
 cond() {
 	i3-msg "[title=^${title:-popup_term}$]" focus 2>&1 | grep -q "ERROR"
