@@ -7,18 +7,20 @@ USAGE="$(basename $0) [ options ]
 	-t title  	set title of window
 	-o opacity	set opacity [0,100]
 	-f fade   	set fade percentage [0,100]"
-command -v dtach && cmd="-e dtach -A $XDG_RUNTIME_DIR/dtach_popup_term zsh"
+if command -v dtach > /dev/null; then
+	export DTACH="$XDG_RUNTIME_DIR/dtach_popup_term"
+	cmd="-e dtach -A $DTACH zsh"
+fi
 function nterm {
-	swaymsg exec -- "--no-startup-id DISABLE_AUTO_TITLE=true \
-		exec urxvtc \
-		-title '${title:-popup_term}' \
-		-bg '[${opacity:-70}]#00080a' \
-		-fadecolor '[60]#000000' \
-		-fade ${fade:-30} \
-		-fn '${font:-xft:Hack:size=8}' \
-		-letsp ${letsp:- -1} \
-		$cmd
-	"
+	DISABLE_AUTO_TITLE=true \
+	PS1_HEADER=$'%{\e[38;5;246m%}δ:' \
+	exec urxvtc \
+	-title ${title:-popup_term} \
+	-bg [${opacity:-70}]#00080a \
+	-fadecolor [60]#000000 \
+	-fade ${fade:-50} \
+	-fn ${font:-xft:Hack:size=8} \
+	$cmd # expand $cmd
 }
 cond() {
 	swaymsg "[title=^${title:-popup_term}$]" focus 2>&1 | grep -q "ERROR"

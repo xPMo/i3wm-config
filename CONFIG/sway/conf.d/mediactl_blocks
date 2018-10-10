@@ -4,18 +4,18 @@
 # =======================================================
 
 # {{{ Skip Forward/backwards
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym $mod+Prior exec --no-startup-id playerctl previous
 bindsym $mod+KP_Prior exec --no-startup-id playerctl previous
 bindsym $mod+button8 --whole-window exec --no-startup-id playerctl previous
 
-bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym $mod+Next exec --no-startup-id playerctl next
 bindsym $mod+KP_Next exec --no-startup-id playerctl next
 bindsym $mod+button9 --whole-window exec --no-startup-id playerctl next
 # }}}
 # {{{ Play/Pause
-bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym $mod+End exec --no-startup-id playerctl play-pause
 bindsym $mod+KP_End exec --no-startup-id playerctl play-pause
 bindsym $mod+button2 --whole-window exec --no-startup-id playerctl play-pause
@@ -26,6 +26,9 @@ bindsym $mod+Shift+button4 --whole-window exec --no-startup-id playerctl positio
 
 bindsym $mod+Shift+XF86AudioLowerVolume --whole-window exec --no-startup-id playerctl position 5-
 bindsym $mod+Shift+XF86AudioRaiseVolume --whole-window exec --no-startup-id playerctl position 5+
+
+bindsym Shift+XF86AudioPrev --whole-window exec --no-startup-id playerctl position 5-
+bindsym Shift+XF86AudioNext --whole-window exec --no-startup-id playerctl position 5+
 # }}}
 # {{{ Small volume changes
 # Volume changes also force an i3status refresh

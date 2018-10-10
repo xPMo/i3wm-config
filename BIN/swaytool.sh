@@ -6,7 +6,7 @@ set -e
 # with openrc use loginctl
 [ $(cat /proc/1/comm) = "systemd" ] && logind=systemctl || logind=loginctl
 
-sock=$(find ${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/i3 -type s)
+sock=$(find ${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/sway -type s)
 lock() {
 	img=$(mktemp --suffix=.png)
 	trap '{ rm $img; exit $?; }' INT
