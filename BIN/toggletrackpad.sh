@@ -1,11 +1,8 @@
 #!/usr/bin/env sh
-#set -euo pipefail
+set -eu
 
 IFS="
-" #IFS=$'\n'
-
-if  synclient | grep -q 'TouchpadOff             = 0'; then
-	synclient TouchpadOff=1
-else
-	synclient TouchpadOff=0
-fi
+"
+dev=$(xinput list --name-only | grep Touchpad)
+xinput list-props $dev | grep -q 'Device Enabled.*1$' &&
+	exec xinput disable $dev || exec xinput enable $dev
