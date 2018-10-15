@@ -3,7 +3,6 @@ DISPLAY=:0
 USAGE="$(basename $0) [ options ]
 
 	-n        	force launch new instance
-	-x        	merge ~/.Xresources first
 	-t title  	set title of window
 	-o opacity	set opacity [0,100]
 	-f fade   	set fade percentage [0,100]"
@@ -41,7 +40,6 @@ while getopts "hnxt:o:f:" opt; do
 			else echo "$USAGE"; exit 1
 			fi ;;
 		t ) title="${OPTARG}" ;;
-		x ) xrdb -merge ~/.Xresources ;;
 		h ) echo "$USAGE"; exit 0 ;;
 	esac
 done

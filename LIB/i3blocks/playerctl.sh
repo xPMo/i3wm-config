@@ -40,7 +40,5 @@ fi
 # Right click, get notification with info
 # dunstify uses postive ids by default, so use a negative id here
 # cheat and use $IFS as newline
-[[ ${BLOCK_BUTTON:-0} = 3 ]] && dunstify --replace=-310 \
-	"$title" "by $artist${IFS}on $(playerctl metadata album)" \
-	--icon=$(playerctl metadata mpris:artUrl) --appname=playerctl
+[[ ${BLOCK_BUTTON:-0} = 3 ]] && sys-notif media
 exit 0

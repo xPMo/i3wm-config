@@ -3,20 +3,25 @@
 # Various system control settings
 # ==========================================================
 
-# Toggle trackpad
-bindsym $mod+Shift+Menu exec --no-startup-id toggletrackpad
-
 # Paste from selection with $mod+ins
 bindsym --release $mod+Insert exec --no-startup-id sleep 0.2 && xdotool type "$(xsel)"
 
 # Toggle swaybar
 bindsym $mod+Menu bar mode toggle bar1
 
+# Toggle touchpad
+bindsym XF86TouchpadToggle exec --no-startup-id toggletrackpad
+bindsym $mod+Shift+Menu exec --no-startup-id toggletrackpad
+
 # {{{ Backlights
-bindsym XF86MonBrightnessDown exec --no-startup-id light -s intel_backlight -U 1 && pkill -RTMIN+2 i3blocks
-bindsym XF86MonBrightnessUp exec --no-startup-id light -s intel_backlight -A 1 && pkill -RTMIN+2 i3blocks
-bindsym Shift+XF86MonBrightnessDown exec --no-startup-id light -s intel_backlight -S 5 && pkill -RTMIN+2 i3blocks
-bindsym Shift+XF86MonBrightnessUp exec --no-startup-id light -s intel_backlight -S 100 && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id \
+	light -U 1 && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessUp exec --no-startup-id \
+	light -A 1 && pkill -RTMIN+2 i3blocks
+bindsym Shift+XF86MonBrightnessDown exec --no-startup-id \
+	light -S 5 && pkill -RTMIN+2 i3blocks
+bindsym Shift+XF86MonBrightnessUp exec --no-startup-id \
+	light -S 100 && pkill -RTMIN+2 i3blocks
 # }}}
 # F1: Show sway information
 bindsym $mod+F1 exec --no-startup-id swayhint version workspace layout

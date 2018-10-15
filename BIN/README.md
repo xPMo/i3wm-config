@@ -80,6 +80,8 @@ A fork of the default `passmenu` using Rofi instead of dmenu.
 
 ### popup-term
 
+Launches an instance of `urxvtc` with certain flags/vars set for dropdown use.
+
 ### sloprecord-dunst
 
 A wrapper script for `ffmpeg` and `parecord` which uses `dunstify` to take actions on the recording.  It uses a lock in `$XDG_RUNTIME_DIR` to prevent multiple recordings at once.  Calling it a second time is the standard way of stopping the recording.
@@ -96,6 +98,19 @@ These actions are supported:
 
 A simple script for interactively choosing saved ARandR/xrandr scripts from ~/.screenlayout
 
+### sys-notif
+
+Notify the user about various system information:
+
+* Media playing via `playerctl`
+* Temperature/power via `sensors`
+* Disk usage via `df`
+* CPU usage via `mpstat`
+* IP address via `ip`
+* Current time via `date`
+
+Requires grc and ansifilter to colou?rize the output.
+
 ### toggletrackpad
 
-An old script for toggling the trackpad using `synclient`.  I haven't looked at the documentation for `libinput` for porting it.
+A script for toggling the touchpad. Requires using `xinput`+`libinput`.
