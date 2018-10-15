@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-from enum import Enum
-import os
-import subprocess
-import ipaddress
+import os, subprocess, ipaddress
 
 colorkey = {
     'wifi': {
@@ -32,7 +29,7 @@ colorkey = {
 
 class NMDev:
     name = ''
-    method = None
+    type_ = None
     connection = None
     address = None
     state = None
@@ -42,20 +39,20 @@ class NMDev:
     def __str__(self):
         return ''.join([
                 '[not connected] ' if self.state == False else '',
-                f'{self.method}|' if self.method is not None else '',
+                f'{self.type_}|' if self.type_ is not None else '',
                 f'{self.connection} ' if self.connection != "--" else '',
                 f'{self.name} ' if self.name is not None else '',
                 f'{self.address.ip}' if self.address is not None else '',
         ])
 
     def icon(self, small=False):
-        if self.method == 'wifi':
+        if self.type_ == 'wifi':
             s = ''
-        elif self.method == 'ethernet':
+        elif self.type_ == 'ethernet':
             s = ''
-        elif self.method == 'bt':
+        elif self.type_ == 'bt':
             s = ''
-        elif self.method == 'tun':
+        elif self.type_ == 'tun':
             s = '嬨'
         return s if small else '<span size="x-large">' + s + '</span>'
 
@@ -66,7 +63,7 @@ class NMDev:
             s.append('<span foreground="{}">'.format(self.color))
             e.insert(0, '</span>')
         s.append(self.icon())
-        if self.connection != '--' and self.method != 'ethernet':
+        if self.connection != '--' and self.type_ != 'ethernet':
             s.append(f' {self.connection}')
         s.append('<small> ')
         e.insert(0, '</small>')
@@ -120,7 +117,7 @@ with subprocess.Popen(['nmcli', 'device', 'show'], stdout=subprocess.PIPE) as p:
         if 'DEVICE' in line:
             device.name = line.split()[1]
         elif 'TYPE' in line:
-            device.method = line.split()[1]
+            device.type_ = line.split()[1]
             for key, value in colorkey.items():
                 if key in line:
                     color = value
@@ -139,5 +136,5 @@ with subprocess.Popen(['nmcli', 'device', 'show'], stdout=subprocess.PIPE) as p:
 
     devs.append(device)
 
-    print(' '.join(d.block_text() for d in devs if d.method != 'loopback'))
-    print(' '.join(d.short_text() for d in devs if d.method != 'loopback'))
+    print(' '.join(d.block_text() for d in devs if d.type_ != 'loopback'))
+    print(' '.join(d.short_text() for d in devs if d.type_ != 'loopback'))

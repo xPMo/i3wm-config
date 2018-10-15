@@ -15,13 +15,13 @@ bindsym $mod+Shift+Menu exec --no-startup-id toggletrackpad
 
 # {{{ Backlights
 bindsym XF86MonBrightnessDown exec --no-startup-id \
-	light -s intel_backlight -U 1 && pkill -RTMIN+2 i3blocks
+	light -U 1 && pkill -RTMIN+2 i3blocks
 bindsym XF86MonBrightnessUp exec --no-startup-id \
-	light -s intel_backlight -A 1 && pkill -RTMIN+2 i3blocks
+	light -A 1 && pkill -RTMIN+2 i3blocks
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id \
-	light -s intel_backlight -S 5 && pkill -RTMIN+2 i3blocks
+	light -S 5 && pkill -RTMIN+2 i3blocks
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id \
-	light -s intel_backlight -S 100 && pkill -RTMIN+2 i3blocks
+	light -S 100 && pkill -RTMIN+2 i3blocks
 # }}}
 # F1: Show i3 information
 bindsym $mod+F1 exec --no-startup-id i3hint version workspace layout
