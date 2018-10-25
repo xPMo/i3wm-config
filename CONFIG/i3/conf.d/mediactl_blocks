@@ -33,37 +33,37 @@ bindsym Shift+XF86AudioNext --whole-window exec --no-startup-id playerctl positi
 # {{{ Small volume changes
 # Volume changes also force an i3status refresh
 bindsym XF86AudioLowerVolume exec --no-startup-id \
-	i3volumectl "-1024"
+	i3volumectl "-2048"
 bindsym $mod+KP_Subtract exec --no-startup-id \
-	i3volumectl "-1024"
+	i3volumectl "-2048"
 bindsym $mod+minus exec --no-startup-id \
-	i3volumectl "-1024"
+	i3volumectl "-2048"
 bindsym $mod+button5 --whole-window exec --no-startup-id \
 	i3volumectl "-512"
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id \
-	i3volumectl "+1024"
+	i3volumectl "+2048"
 bindsym $mod+KP_Add exec --no-startup-id \
-	i3volumectl "+1024"
+	i3volumectl "+2048"
 bindsym $mod+plus exec --no-startup-id \
-	i3volumectl "+1024"
+	i3volumectl "+2048"
 bindsym $mod+button4 --whole-window exec --no-startup-id \
 	i3volumectl "+512"
 # }}}
 # {{{ Large volume chages
 bindsym Shift+XF86AudioLowerVolume exec --no-startup-id \
-	i3volumectl "-8192"
+	i3volumectl "-16384"
 bindsym $mod+Shift+KP_Subtract exec --no-startup-id \
-	i3volumectl "-8192"
+	i3volumectl "-16384"
 bindsym $mod+Shift+minus exec --no-startup-id \
-	i3volumectl "-8192"
+	i3volumectl "-16384"
 
 bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id \
-	i3volumectl "+8192"
+	i3volumectl "+16384"
 bindsym $mod+Shift+KP_Add exec --no-startup-id \
-	i3volumectl "+8192"
+	i3volumectl "+16384"
 bindsym $mod+Shift+plus exec --no-startup-id \
-	i3volumectl "+8192"
+	i3volumectl "+16384"
 # }}}
 # {{{ Set volume to 100%/0%
 bindsym Control+Shift+XF86AudioLowerVolume exec --no-startup-id \
