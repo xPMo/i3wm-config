@@ -76,16 +76,16 @@ time|date)
 	app=date
 	;;
 * )
-	cat >&2 << EOF
-Usage: $(basename $0) [ action ]
+	cat >&2 <<- EOF
+	Usage: $(basename $0) [ action ]
 
-Actions:
+	Actions:
 
-This program matches the action on just the first few characters
-(unless using an abbreviation). So be aware that both "log" and
-"logarithms" are matched by "logout", for example.
+	This program matches the action on just the first few characters
+	(unless using an abbreviation). So be aware that both "log" and
+	"logarithms" are matched by "logout", for example.
 
-EOF
+	EOF
 	exit 2
 esac
 
