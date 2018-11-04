@@ -1,6 +1,7 @@
 # i3wm-config
-My i3, i3blocks, and accompanying config files.  Make of it what you will. (Also, trying to learn
-more about Github workflow.)  Run `sh init.sh` to add symlinks in `~/.config/` and `~/.local/bin/`.
+My i3, i3blocks, and accompanying config files.
+The work of one year of constant tweaking and three years of occasional tweaking.
+Run `sh init.sh` to add symlinks in `~/.config/` and `~/.local/bin/`.
 
 Default bindings which have been changed:
 * true vim-style `hjkl` movement instead of the `jkl;` movement that is default
@@ -25,33 +26,43 @@ i3wm features:
 * Layout notification on layout change
 * Uses `Xresources` to set gaps, colors, and (coming) more!
 
-i3blocks scripts:
+**i3blocks scripts:**
 * CPU: right click to get `mpstat` notification
 * Playerctl: click to playpause, right click for notification with album art and info
 * Disks: click to open mount location, right click for `df` notification
 * Temperature: right click for detailed temperature information
 * Volume: scroll to change volume, right click to toggle mute
 
+**Associated scripts:** *(See ./BIN/README.md)*
 
 **TODO:**
 * Set `S_COLORS` for mpstat colou?ri\[zs\]ation
 * Branch with Barless config: workspace notification on workspace change, workspace Rofi
-* Create sway-compatible bindings for upcoming Wayland migration
 * Give up.
 
-By default, bindings for:
-* [playerctl](https://github.com/acrisci/playerctl)
-* pactl/pacmd
-* xfce4-launcher
-* Thunar
-* Libreoffice
+Programs I have `bindsym exec`s for:
+<!--!sort -d-->
+* Arandr
 * Blueman
+* catfish (an mlocate wrapper)
 * Clementine
-* Steam
-* Pavucontrol
+* Compton
+* dmenu
+* \$FILEMAN via xdg-open
 * File-roller
 * Firefox
-* dmenu
+* GIMP
+* Libreoffice
+* [light](https://github.com/haikarainen/light)
+* [maim](https://github.com/naelstrof/maim)
+* [Neovim-GTK](https://github.com/daa84/neovim-gtk)
+* pactl/pacmd
+* Pass (password-store), via passmenu (either the dmenu-based one or my rofi-based one)
+* Pavucontrol
+* [playerctl](https://github.com/acrisci/playerctl)
 * Rofi
-* Pass (password-store)
-* (more)
+* Steam
+* Thunderbird
+* Torbrowser
+* xfce4-launcher
+* (possibly others)
