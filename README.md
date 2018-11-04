@@ -7,12 +7,18 @@ and one more year of occasional tweaking.
 Run `sh init.sh` to add symlinks in `~/.config/` and `~/.local/bin/`.
 
 Default bindings which have been changed:
-* true vim-style `hjkl` movement instead of the `jkl;` movement that is default
-* i3 reload/restart are now `$mod+F1` and `$mod+Shift+F1`
-* i3 exit is `$mod+Shift+F2` (lock is `$mod+F2`)
-* Scratchpad is `$mod+(Shift+)c`
-* Focus child is `$mod+z`
-* Only split toggle (on `$mod+n`), no splith/v bindings
+| Binding | i3's default | Mine |
+| --- | --- | --- |
+| Move between windows | `$mod+[jkl;]` | `$mod+hjkl` (as in Vi) |
+| Resize windows | `jkl;` | `hjkl` (as in Vi) |
+| Reload i3 configuration | `$mod+Shift+c` | `$mod+F2` |
+| Restart i3 in-place | `$mod+Shift+r` | `$mod+Shift+F2` |
+| Focus Child container | `$mod+d` (commented out because of dmenu) | `$mod+z` (to complement `$mod+a`) |
+| Focus/move window to Scratchpad | `$mod+minus` `$mod+Shift+minus` | `$mod+c` `$mod+Shift+c` |
+| Launch dmenu | `$mod+d` | `$mod+x,d` (`$mod+x` changes modes) |
+| Split horizontal/vertical | `$mod+h` `$mod+v` | *unset* |
+| Split toggle | *unset* | `$mod+n` |
+| Exit i3 with `i3-nagbar` | `$mod+Shift+e` | `$mod+Shift+F3` |
 
 i3wm features:
 * No titlebars
