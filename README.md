@@ -1,6 +1,9 @@
 # i3wm-config
 My i3, i3blocks, and accompanying config files.
-The work of one year of constant tweaking and three years of occasional tweaking.
+The work of one year of constant tweaking,
+two years of occasional tweaking,
+one month of merging stuff from Manjaro-i3-CE,
+and one more year of occasional tweaking.
 Run `sh init.sh` to add symlinks in `~/.config/` and `~/.local/bin/`.
 
 Default bindings which have been changed:
