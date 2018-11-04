@@ -8,23 +8,24 @@ Run `sh init.sh` to add symlinks in `~/.config/` and `~/.local/bin/`.
 
 Default bindings which have been changed:
 
-| Binding | i3's default | Mine |
-| --- | --- | --- |
-| Move between windows | `$mod+[jkl;]` | `$mod+hjkl` (as in Vi) |
-| Resize windows | `jkl;` | `hjkl` (as in Vi) |
-| Reload i3 configuration | `$mod+Shift+c` | `$mod+F2` |
-| Restart i3 in-place | `$mod+Shift+r` | `$mod+Shift+F2` |
-| Focus Child container | `$mod+d` (commented out because of dmenu) | `$mod+z` (to complement `$mod+a`) |
-| Focus/move window to Scratchpad | `$mod+minus` `$mod+Shift+minus` | `$mod+c` `$mod+Shift+c` |
-| Launch dmenu | `$mod+d` | `$mod+x,d` (`$mod+x` changes modes) |
-| Split horizontal/vertical | `$mod+h` `$mod+v` | *unset* |
-| Split toggle | *unset* | `$mod+n` |
-| Exit i3 with `i3-nagbar` | `$mod+Shift+e` | `$mod+Shift+F3` |
+i3 Action | Default Binding | My Binding
+--- | --- | ---
+Move between windows | `$mod+[jkl;]` | `$mod+[hjkl]` (as in Vi)
+Resize windows | `jkl;` | `hjkl` (as in Vi)
+Reload i3 configuration | `$mod+Shift+c` | `$mod+F2`
+Restart i3 in-place | `$mod+Shift+r` | `$mod+Shift+F2`
+Focus Child container | `$mod+d` (commented out because of dmenu) | `$mod+z` (to complement `$mod+a`)
+Focus/move window to Scratchpad | `$mod+minus` `$mod+Shift+minus` | `$mod+c` `$mod+Shift+c`
+Launch dmenu | `$mod+d` | `$mod+x,d` (`$mod+x` changes modes)
+Launch terminal | `$mod+Return` | `$mod+Shift+t` **OR** `$mod+Return`\* (see below for more information)
+Split horizontal/vertical | `$mod+h` `$mod+v` | *unset*
+Split toggle | *unset* | `$mod+n`
+Exit i3 with `i3-nagbar` | `$mod+Shift+e` | `$mod+Shift+F3`
 
 i3wm features:
 * No titlebars
 * `$mod+x` for a focus/launch mode. (Press `<key>` to attempt to focus the associated program.  It will launch if it fails. Press `Shift+<key>` to launch a new instance, without regard to running instances.)
-* `scrotlock` script which pixelizes and 50% desaturates
+* Locking script which pixelizes and 50% desaturates
 * `$mod+Return` focuses the terminal workspace and launches one if not already launched; if workspace was already focused, launches new terminal. `$mod+Shift+t` for new terminal anywhere
 * `$mod+Tab` backandforth, let go of `$mod` to stay on the other workspace, or let go of `Tab` to return
 * Certain programs will launch on certain workspaces
