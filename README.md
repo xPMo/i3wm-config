@@ -7,6 +7,7 @@ and one more year of occasional tweaking.
 Run `sh init.sh` to add symlinks in `~/.config/` and `~/.local/bin/`.
 
 Default bindings which have been changed:
+
 | Binding | i3's default | Mine |
 | --- | --- | --- |
 | Move between windows | `$mod+[jkl;]` | `$mod+hjkl` (as in Vi) |
