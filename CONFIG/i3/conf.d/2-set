@@ -33,7 +33,7 @@ set_from_resource $bground  background #002b36
 
 # Terminal
 set_from_resource $terminal i3wm.terminal 'urxvtc'
-set_from_resource $termclass i3wm.terminal_class '(?i)urxvt'
+set_from_resource $termclass i3wm.terminal_class 'urxvt'
 
 # Display names (get from xrandr, set in .Xresources)
 set_from_resource $disp0 i3wm.display0 primary
