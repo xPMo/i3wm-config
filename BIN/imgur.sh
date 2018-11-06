@@ -154,7 +154,7 @@ function imgur-cli {
 		if imgur $1; then
 			echo "Uploaded $1. Open URLs? (y/N)" >&2
 			read y
-			if [[ ${y^} =~ y ]]; then
+			if [[ ${y} == [yY]* ]]; then
 				xdg-open $IMGUR_URL
 				xdg-open $IMGUR_DELETE
 			else
