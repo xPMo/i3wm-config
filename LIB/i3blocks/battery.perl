@@ -28,7 +28,7 @@ $acpi = <ACPI>;
 close(ACPI);
 
 # fail on unexpected output
-if ($acpi !~ /: (\w+), (\d+)%/) {
+if ($acpi !~ /: ([\w ]+), (\d+)%/) {
 	die "$acpi\n";
 }
 $time = '';
