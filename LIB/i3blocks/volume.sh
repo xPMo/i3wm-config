@@ -44,12 +44,19 @@ default_volume=''
 
 # Printing
 for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
-	[ $i -ne 0 ] && echo -n " "
-	[ ${sink_names[$i]} = $default_sink ] && default_volume=${sink_volumes[$i]} && default_mute=${sink_mutes[$i]} && default_suspended=${sink_suspends[$i]} && echo -n '✓' && case $BLOCK_BUTTON in
+	[[ $i -ne 0 ]] && echo -n " "
+
+	if [[ ${sink_names[$i]} = $default_sink ]]; then
+		default_volume=${sink_volumes[$i]}
+		default_mute=${sink_mutes[$i]}
+		default_suspended=${sink_suspends[$i]}
+		echo -n '✓'
+
+		case $BLOCK_BUTTON in
 		# right click, mute/unmute
 		3) pactl set-sink-mute $default_sink toggle
-		   [ $default_mute = "yes" ] && default_mute="no" || default_mute="yes"
-		   [ ${sink_mutes[$i]} = "yes" ] && sink_mutes[$i]="no" || sink_mutes[$i]="yes"
+		   [[ $default_mute = "yes" ]] && default_mute="no" || default_mute="yes"
+		   [[ ${sink_mutes[$i]} = "yes" ]] && sink_mutes[$i]="no" || sink_mutes[$i]="yes"
 		   ;;
 		# scroll up, increase volume
 		4) [ $((default_volume)) -ge $((0x10000)) ] && default_volume="0x10000" || default_volume=$((default_volume + STEP))
@@ -59,8 +66,11 @@ for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
 		5) default_volume=$((default_volume - STEP))
 		   pacmd set-sink-volume $default_sink $((default_volume))
 		   ;;
-	esac
-	[ ${sink_mutes[$i]} = "yes" ] && printf %s 'MUTE' || echo -n "${sink_volumes[$i]%??}"
+		esac
+
+	fi
+
+	[[ ${sink_mutes[$i]} = "yes" ]] && printf %s 'MUTE' || echo -n "${sink_volumes[$i]%??}"
 done
 
 # Short_text and color if mute or suspended
