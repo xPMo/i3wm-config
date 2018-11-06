@@ -36,9 +36,7 @@ for line in $(pacmd dump); do
 	esac
 done
 
-
-# The first parameter sets the step to change the volume by (and units to display)
-# This may be in in % or dB (eg. 5% or 3dB)
+# The first parameter sets the step to change the volume by
 STEP="${1:-0x1000}"
 
 # Printing
@@ -56,7 +54,6 @@ for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
 			;;
 		4) # scroll up, increase volume
 			sink_volumes[$i]=$(printf '0x%x\n' $((sink_volumes[$i] + STEP)))
-			echo >&2 "${sink_volumes[$i]}"
 			(( sink_volumes[i] > 0x10000)) && sink_volumes[$i]="0x10000"
 			pacmd set-sink-volume ${sink_names[$i]} $((sink_volumes[$i]))
 			;;
