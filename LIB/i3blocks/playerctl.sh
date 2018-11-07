@@ -2,12 +2,10 @@
 set -e
 IFS=$'\n\t'
 
-# Requires playerctl>=2.0
-PLAYERCTL="$HOME/Repos/playerctl/mesonbuild/playerctl/playerctl"
-
 print_loop() {
 	while true; do
-	$PLAYERCTL --follow metadata --format \
+	# requires playerctl>=2.0
+	playerctl --follow metadata --format \
 		$'{{status}}\t{{artist}} - {{title}} {{duration(position)}}|{{duration(mpris:length)}}' | {
 		while read status line; do
 			# escape [&<>] for pango formatting
@@ -15,9 +13,9 @@ print_loop() {
 			line=${line/>/&gt;}
 			line=${line/</&lt;}
 			case $status in
-				Paused) echo "<span foreground=#cccc00 size=smaller>$line</span>" ;;
+				Paused) echo "<span foreground=\"#cccc00\" size=\"smaller\">$line</span>" ;;
 				Playing) echo "<small>$line</small>" ;;
-				Stopped) echo '<span foreground=#073642>⏹</span>' ;;
+				Stopped) echo '<span foreground="#073642">⏹</span>' ;;
 			esac
 		done
 	}
@@ -30,7 +28,7 @@ print_loop() {
 print_loop &
 while read button; do
 	case $button in
-		1) $PLAYERCTL play-pause ;;
+		1) playerctl play-pause ;;
 		3) sys-notif media ;;
 	esac
 done
