@@ -17,7 +17,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id exec redshift
 
 # kb/mouse
-exec --no-startup-id exec unclutter -idle 5
+exec --no-startup-id exec unclutter
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id setxkbmap -symbols 'pc+us+inet(evdev)+custom'
 exec --no-startup-id xset -r 23

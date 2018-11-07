@@ -36,33 +36,39 @@ for line in $(pacmd dump); do
 	esac
 done
 
-
-# The first parameter sets the step to change the volume by (and units to display)
-# This may be in in % or dB (eg. 5% or 3dB)
-STEP="0x1000"
-default_volume=''
+# The first parameter sets the step to change the volume by
+STEP="${1:-0x1000}"
 
 # Printing
 for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
-	[ $i -ne 0 ] && echo -n " "
-	[ ${sink_names[$i]} = $default_sink ] && default_volume=${sink_volumes[$i]} && default_mute=${sink_mutes[$i]} && default_suspended=${sink_suspends[$i]} && echo -n '✓' && case $BLOCK_BUTTON in
-		# right click, mute/unmute
-		3) pactl set-sink-mute $default_sink toggle
-		   [ $default_mute = "yes" ] && default_mute="no" || default_mute="yes"
-		   [ ${sink_mutes[$i]} = "yes" ] && sink_mutes[$i]="no" || sink_mutes[$i]="yes"
-		   ;;
-		# scroll up, increase volume
-		4) [ $((default_volume)) -ge $((0x10000)) ] && default_volume="0x10000" || default_volume=$((default_volume + STEP))
-		   pacmd set-sink-volume $default_sink $((default_volume)) 
-		   ;;
-		# scroll up, increase
-		5) default_volume=$((default_volume - STEP))
-		   pacmd set-sink-volume $default_sink $((default_volume))
-		   ;;
-	esac
-	[ ${sink_mutes[$i]} = "yes" ] && printf %s 'MUTE' || echo -n "${sink_volumes[$i]%??}"
+	[[ $i -ne 0 ]] && echo -n " "
+
+	if [[ ${sink_names[$i]} = $default_sink ]]; then
+		def=$i
+		echo -n '✓'
+
+		case $BLOCK_BUTTON in
+		3) # right click, mute/unmute
+			pactl set-sink-mute ${sink_names[$i]} toggle
+			[[ ${sink_mutes[$i]} = "yes" ]] && sink_mutes[$i]="no" || sink_mutes[$i]="yes"
+			;;
+		4) # scroll up, increase volume
+			sink_volumes[$i]=$(printf '0x%x\n' $((sink_volumes[$i] + STEP)))
+			(( sink_volumes[i] > 0x10000)) && sink_volumes[$i]="0x10000"
+			pacmd set-sink-volume ${sink_names[$i]} $((sink_volumes[$i]))
+			;;
+		5) # scroll up, increase
+			sink_volumes[$i]=$(printf '0x%x\n' $((sink_volumes[$i] - STEP)))
+			((sink_volumes[$i] < 0)) && sink_volumes[$i]="0x000"
+			pacmd set-sink-volume ${sink_names[$i]} $((sink_volumes[$i]))
+			;;
+		esac
+
+	fi
+
+	[[ ${sink_mutes[$i]} = "yes" ]] && printf %s 'MUTE' || echo -n "${sink_volumes[$i]%??}"
 done
 
 # Short_text and color if mute or suspended
-[ $default_mute = "yes" ] && printf \\n%s\\n%s "MUTE" "#b58900" || printf \\n%s "${default_volume%??}" && [ $default_suspended = "yes" ] &&  printf \\n%s\\n "#2aa198" 
+[ ${sink_mutes[$def]} = "yes" ] && printf \\n%s\\n%s "MUTE" "#b58900" || printf \\n%s "${sink_volumes[$def]%??}" && [ ${sink_suspends[$def]} = "yes" ] &&  printf \\n%s\\n "#2aa198" 
 exit 0

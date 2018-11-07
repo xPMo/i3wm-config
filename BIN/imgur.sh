@@ -136,21 +136,11 @@ function imgur-notif {
 				--action="vVdD,Copy and open both URLs" \
 				--action="VD,Open both URLs on Imgur"
 			)
-			if [[ $action == *v* ]]; then
-				toclip "View: $IMGUR_URL"
-			fi
-			if [[ $action == *V* ]]; then
-				xdg-open "$IMGUR_URL"
-			fi
-			if [[ $action == *d* ]]; then
-				toclip "Delete: $IMGUR_DELETE"
-			fi
-			if [[ $action == *D* ]]; then
-				xdg-open "$IMGUR_DELETE"
-			fi
-			if [[ $action == [12] ]]; then
-				break
-			fi
+			[[ $action == *v* ]] && toclip "View: $IMGUR_URL"
+			[[ $action == *V* ]] && xdg-open "$IMGUR_URL"
+			[[ $action == *d* ]] && toclip "Delete: $IMGUR_DELETE"
+			[[ $action == *D* ]] && xdg-open "$IMGUR_DELETE"
+			[[ $action == [12] ]] && break
 		else
 			notify-send "Upload failed." "$IMGUR_ERROR"
 		fi
@@ -162,9 +152,9 @@ function imgur-notif {
 function imgur-cli {
 	while (( $# )); do
 		if imgur $1; then
-			echo "Uploaded $1. Open URLs? (y/n)" >&2
+			echo "Uploaded $1. Open URLs? (y/N)" >&2
 			read y
-			if [[ $y =~ y ]]; then
+			if [[ ${y} == [yY]* ]]; then
 				xdg-open $IMGUR_URL
 				xdg-open $IMGUR_DELETE
 			else
