@@ -86,7 +86,7 @@ signal=2
 [playerctl]
 label=♪
 command=$HOME/.local/lib/i3blocks/playerctl.sh
-signal=11
+interval=persist
 
 [volume]
 command=$HOME/.local/lib/i3blocks/volume.sh
