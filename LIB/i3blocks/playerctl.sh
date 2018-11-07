@@ -26,6 +26,7 @@ print_loop() {
 }
 
 print_loop &
+# requires i3blocks@6e8b51d or later
 while read button; do
 	case $button in
 		1) playerctl play-pause ;;
