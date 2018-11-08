@@ -7,30 +7,21 @@ a=$(echo $1 | tr '[A-Z]' '[a-z]')
 case $a in
 player|media)
 	#TODO
-	status=$(playerctl status)
-	case $status in
-	Stopped)
-		summary="Stopped</span>"
-		hint='string:fgcolor:#dc322f'
-		;;
-
-	Playing|Paused)
-		[ $status = Paused ] && hint='string:fgcolor:#eee785
-'
-		summary="${before}$(playerctl metadata title)</b> by <b>$(playerctl metadata artist)${after}"
-		# POSIX way to bring heredoc into variable
-		{ body=$(tr -d \\t); } <<- EOF
-			on <b>$(playerctl metadata album)</b> ($(playerctl metadata year))
-			Length: $(date --utc --date="@$(playerctl metadata mpris:length | head -c -6)" '+%H:%M:%S') \
-			| Play count: $(playerctl metadata xesam:useCount)
-			<small>$(basename $(playerctl metadata xesam:url))
-			$(playerctl metadata xesam:comment)</small>
-		EOF
-		icon="$(playerctl metadata mpris:artUrl)"
-		hint="${hint}double:position:$(playerctl position)"
-		;;
-	esac
+	playerctl metadata --format \
+'{{status}}
+{{mpris:artUrl}}
+{{artist}}</b> by<b>{{title}}
+on <b>{{album}}</b> {{year}}
+{{duration(position)}} of {{duration(length)}} | Play count: {{xesam:useCount}}
+<small>{{xesam:url}}
+{{xesam:comment}}</small>' | {
+	read status
+	read icon
+	read summary
+	body=$(cat)
+}
 	id=-200
+	[ $status = Paused ] && hint='string:fgcolor:#eee785'
 	app="playerctl"
 	;;
 sensors)
