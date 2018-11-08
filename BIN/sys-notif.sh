@@ -1,28 +1,24 @@
-#!/usr/bin/env sh
-IFS="
-	"
+#!/usr/bin/env bash
+IFS=$'\n\t'
 set -e
 
-a=$(echo $1 | tr '[A-Z]' '[a-z]')
-case $a in
+case ${1,,} in
 player|media)
-	#TODO
-	playerctl metadata --format \
-'{{status}}
+	{
+		read status
+		read icon
+		read summary
+		body=$(cat)
+	} < <( playerctl metadata --format '{{status}}
 {{mpris:artUrl}}
 {{artist}}</b> by<b>{{title}}
 on <b>{{album}}</b> {{year}}
 {{duration(position)}} of {{duration(length)}} | Play count: {{xesam:useCount}}
 <small>{{xesam:url}}
-{{xesam:comment}}</small>' | {
-	read status
-	read icon
-	read summary
-	body=$(cat)
-}
+{{xesam:comment}}</small>' )
 	id=-200
-	[ $status = Paused ] && hint='string:fgcolor:#eee785'
-	app="playerctl"
+	[[ $status = Paused ]] && hint='string:fgcolor:#eee785'
+	app=playerctl
 	;;
 sensors)
 	summary="Sensors"
@@ -50,7 +46,7 @@ cpu)
 	id=-203
 	;;
 ip)
-	summary="IP"
+	summary="IP Address"
 	body="$(grc --colour=on ip route | sed 's/^\(.*\)dev \([^ ]*\)/\2: \1/g' |
 		ansifilter -M -f --map $HOME/.local/lib/ansifilter/solarized)"
 	icon=network-transmit-receive
