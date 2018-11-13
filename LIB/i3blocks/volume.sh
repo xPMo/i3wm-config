@@ -75,4 +75,5 @@ if [[ ${sink_mutes[$def]} = "yes" ]]; then
 else
 	printf \\n%s "${sink_volumes[$def]%??}"
 	[[ ${sink_suspends[$def]} = "yes" ]] &&  printf \\n%s\\n "#2aa198" 
+fi
 exit 0
