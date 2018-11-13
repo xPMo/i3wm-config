@@ -25,7 +25,7 @@ bindsym $mod+$mod2+w exec exec firefox -P -no-remote hidden
 bindsym $mod+Shift+t exec exec $terminal
 # }}}
 # {{{ Standalone focuslaunchers
-bindsym XF86Mail exec --no-startup-id exec i3focuslaunch thunderbird
+bindsym XF86Mail exec --no-startup-id exec i3focuslaunch thunderbird Thunderbird
 bindsym XF86Search exec --no-startup-id exec i3focuslaunch catfish
 bindsym XF86Explorer exec --no-startup-id exec i3focuslaunch catfish
 bindsym XF86Calculator exec --no-startup-id exec echo
@@ -86,7 +86,7 @@ mode "$mode_launch" {
 	bindsym j exec --no-startup-id exec i3focuslaunch echo, mode "default"
 	bindsym k exec --no-startup-id exec i3focuslaunch echo, mode "default"
 	bindsym l exec --no-startup-id exec i3focuslaunch libreoffice, mode "default"
-	bindsym m exec --no-startup-id exec i3focuslaunch thunderbird, mode "default"
+	bindsym m exec --no-startup-id exec i3focuslaunch thunderbird Thunderbird, mode "default"
 	bindsym n exec --no-startup-id exec i3focuslaunch echo, mode "default"
 	bindsym o exec --no-startup-id exec i3focuslaunch libreoffice, mode "default"
 	bindsym p exec --no-startup-id exec i3focuslaunch clementine, mode "default"
