@@ -67,7 +67,7 @@ mode "$mode_launch" {
 	bindsym Shift+u exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+v exec --no-startup-id exec pavucontrol, mode "default"
 	bindsym Shift+w exec firefox, mode "default"
-	bindsym Shift+x exec --no-startup-id exec xfce4-appfinder, mode "default"
+	bindsym Shift+x exec exec xfce4-appfinder, mode "default"
 	bindsym Shift+y exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+z exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+slash exec exec catfish, mode "default"
