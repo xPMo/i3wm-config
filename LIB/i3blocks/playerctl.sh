@@ -1,44 +1,35 @@
 #!/usr/bin/env bash
 set -e
-IFS=$'\n'
-#click, play/pause
-[[ ${BLOCK_BUTTON:-0} = 1 ]] && playerctl play-pause
+IFS=$'\n\t'
 
-player_status=$(playerctl status)
-
-pango_escape() {
-	sed -e 's/&/\&amp;/g; s/</&lt;/g; s/>/\&gt;/g'
+print_loop() {
+	while true; do
+	# requires playerctl>=2.0
+	playerctl --follow metadata --format \
+		$'{{status}}\t{{artist}} - {{title}} {{duration(position)}}|{{duration(mpris:length)}}' | {
+		while read status line; do
+			# escape [&<>] for pango formatting
+			line=${line/&/&amp;}
+			line=${line/>/&gt;}
+			line=${line/</&lt;}
+			case $status in
+				Paused) echo "<span foreground=\"#cccc00\" size=\"smaller\">$line</span>" ;;
+				Playing) echo "<small>$line</small>" ;;
+				Stopped) echo '<span foreground="#073642">⏹</span>' ;;
+			esac
+		done
+	}
+	# no current players
+	echo '<span foreground=#dc322f>⏹</span>'
+	sleep 15
+	done
 }
 
-# exit 0 lets the block text be cleared
-if [ -z $player_status ]; then exit 0; fi
-if [ $player_status = Stopped ]; then
-	printf "⏹\\n⏹\\n#073642"
-else
-	title="$(playerctl metadata title | pango_escape)"
-	artist="$(playerctl metadata artist | pango_escape)"
-	length="${title:- }${artist:- }"
-
-	# small text if longer than 20 characters
-	[ ${#length} -gt 20 ] && p="$p<small>"	
-	# Substring: if title>32, substring 0-31 with ellipsis
-	[ ${#title} -gt 32 ] && p="$p${title:0:31}‥ - " || p="$p$title - "
-	# Substring: if artist>20, substring 0-19 with ellipsis
-	[ ${#artist} -gt 20 ] && p="$p${artist:0:19}‥" || p="$p$artist"
-	[ ${#length} -gt 20 ] && echo "$p</small>" || echo $p
-
-	# Short text, always small
-	echo -n "<small>"
-	# Substring: if length>12, substring 0-11 with ellipsis
-	[ ${#title} -gt 12 ] && echo -n "${title:0:11}‥|" || echo -n "$title|"
-	# Substring: if length>20, substring 0-18 with ellipsis
-	[ ${#artist} -gt 8 ] && echo -n "${artist:0:7}‥" || echo -n "$artist"
-	echo "</small>"
-	[ $player_status = Paused ] && echo -n "#cccc00"
-fi
-
-# Right click, get notification with info
-# dunstify uses postive ids by default, so use a negative id here
-# cheat and use $IFS as newline
-[[ ${BLOCK_BUTTON:-0} = 3 ]] && sys-notif media
-exit 0
+print_loop &
+# requires i3blocks@6e8b51d or later
+while read button; do
+	case $button in
+		1) playerctl play-pause ;;
+		3) sys-notif media ;;
+	esac
+done

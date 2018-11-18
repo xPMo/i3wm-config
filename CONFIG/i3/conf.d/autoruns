@@ -43,8 +43,5 @@ exec --no-startup-id conky
 exec --no-startup-id pulseaudio -D
 exec --no-startup-id pa-applet
 
-# notify script, sends a signal to the i3block on media change
-exec --no-startup-id $HOME/.local/lib/i3blocks/playerctlnotify.py
-
 # begin on workspace 1
 exec --no-startup-id exec i3-msg workspace 1:1
