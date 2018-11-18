@@ -11,7 +11,7 @@ player|media)
 		body=$(cat)
 	} < <( playerctl metadata --format '{{status}}
 {{mpris:artUrl}}
-{{artist}}</b> by<b>{{title}}
+{{title}}</b> by <b>{{artist}}
 on <b>{{album}}</b> {{year}}
 {{duration(position)}} of {{duration(length)}} | Play count: {{xesam:useCount}}
 <small>{{xesam:url}}
