@@ -2,8 +2,7 @@
 set -e
 IFS=$'\n\t'
 
-print_loop() {
-	while true; do
+while true; do
 	# requires playerctl>=2.0
 	playerctl --follow metadata --format \
 		$'{{status}}\t{{artist}} - {{title}} {{duration(position)}}|{{duration(mpris:length)}}' | {
@@ -22,10 +21,8 @@ print_loop() {
 	# no current players
 	echo '<span foreground=#dc322f>⏹</span>'
 	sleep 15
-	done
-}
+done &
 
-print_loop &
 # requires i3blocks@6e8b51d or later
 while read button; do
 	case $button in
