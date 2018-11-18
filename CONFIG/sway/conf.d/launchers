@@ -13,11 +13,6 @@ bindsym $mod+Print exec --no-startup-id sloprecord-dunst
 bindsym $mod+Shift+Print exec --no-startup-id "sloprecord-dunst -s"
 bindsym $mod+Control+Print exec --no-startup-id "sloprecord-dunst -w"
 # }}}
-# {{{ i3-input (for marking, etc)
-# TODO: replace i3-input # bindsym $mod+i exec --no-startup-id i3-input
-# TODO: replace i3-input # bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -l 1 -P 'Mark: '
-# TODO: replace i3-input # bindsym $mod+grave exec --no-startup-id i3-input -F '[con_mark=%s] focus' -l 1 -P 'Focus mark: ' 
-# }}}
 # {{{ Standalone launchers
 bindsym Shift+XF86Mail exec exec xdg-open $HOME
 bindsym Shift+XF86HomePage exec exec firefox -P -no-remote hidden
@@ -25,7 +20,7 @@ bindsym $mod+$mod2+w exec exec firefox -P -no-remote hidden
 bindsym $mod+Shift+t exec exec $terminal
 # }}}
 # {{{ Standalone focuslaunchers
-bindsym XF86Mail exec --no-startup-id exec sway-pk-launch thunderbird
+bindsym XF86Mail exec --no-startup-id exec sway-pk-launch thunderbird Thunderbird
 bindsym XF86Search exec --no-startup-id exec sway-pk-launch catfish
 bindsym XF86Explorer exec --no-startup-id exec sway-pk-launch catfish
 bindsym XF86Calculator exec --no-startup-id exec echo
@@ -67,7 +62,7 @@ mode "$mode_launch" {
 	bindsym Shift+u exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+v exec --no-startup-id exec pavucontrol, mode "default"
 	bindsym Shift+w exec firefox, mode "default"
-	bindsym Shift+x exec --no-startup-id exec xfce4-appfinder, mode "default"
+	bindsym Shift+x exec exec xfce4-appfinder, mode "default"
 	bindsym Shift+y exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+z exec --no-startup-id exec echo, mode "default"
 	bindsym Shift+slash exec exec catfish, mode "default"
@@ -78,6 +73,7 @@ mode "$mode_launch" {
 	bindsym b exec --no-startup-id exec ~/.local/bin/sway-pk-launch blueman-manager, mode "default"
 	bindsym c exec --no-startup-id exec compton -b, mode "default"
 	bindsym d exec --no-startup-id exec dmenu_run -fn 'Noto Mono-8', mode "default"
+<<<<<<< HEAD:CONFIG/sway/conf.d/launchers
 	bindsym e exec --no-startup-id exec sway-pk-launch nvim-gtk Neovim, mode "default"
 	bindsym f exec --no-startup-id exec sway-pk-launch pcmanfm, mode "default"
 	bindsym g exec --no-startup-id exec sway-pk-launch gimp, mode "default"
@@ -86,7 +82,7 @@ mode "$mode_launch" {
 	bindsym j exec --no-startup-id exec sway-pk-launch echo, mode "default"
 	bindsym k exec --no-startup-id exec sway-pk-launch echo, mode "default"
 	bindsym l exec --no-startup-id exec sway-pk-launch libreoffice, mode "default"
-	bindsym m exec --no-startup-id exec sway-pk-launch thunderbird, mode "default"
+	bindsym m exec --no-startup-id exec sway-pk-launch thunderbird Thunderbird, mode "default"
 	bindsym n exec --no-startup-id exec sway-pk-launch echo, mode "default"
 	bindsym o exec --no-startup-id exec sway-pk-launch libreoffice, mode "default"
 	bindsym p exec --no-startup-id exec sway-pk-launch clementine, mode "default"

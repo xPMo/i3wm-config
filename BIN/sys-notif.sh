@@ -1,37 +1,24 @@
-#!/usr/bin/env sh
-IFS="
-	"
+#!/usr/bin/env bash
+IFS=$'\n\t'
 set -e
 
-a=$(echo $1 | tr '[A-Z]' '[a-z]')
-case $a in
+case ${1,,} in
 player|media)
-	#TODO
-	status=$(playerctl status)
-	case $status in
-	Stopped)
-		summary="Stopped</span>"
-		hint='string:fgcolor:#dc322f'
-		;;
-
-	Playing|Paused)
-		[ $status = Paused ] && hint='string:fgcolor:#eee785
-'
-		summary="${before}$(playerctl metadata title)</b> by <b>$(playerctl metadata artist)${after}"
-		# POSIX way to bring heredoc into variable
-		{ body=$(tr -d \\t); } <<- EOF
-			on <b>$(playerctl metadata album)</b> ($(playerctl metadata year))
-			Length: $(date --utc --date="@$(playerctl metadata mpris:length | head -c -6)" '+%H:%M:%S') \
-			| Play count: $(playerctl metadata xesam:useCount)
-			<small>$(basename $(playerctl metadata xesam:url))
-			$(playerctl metadata xesam:comment)</small>
-		EOF
-		icon="$(playerctl metadata mpris:artUrl)"
-		hint="${hint}double:position:$(playerctl position)"
-		;;
-	esac
+	{
+		read status
+		read icon
+		read summary
+		body=$(cat)
+	} < <( playerctl metadata --format '{{status}}
+{{mpris:artUrl}}
+{{title}}</b> by <b>{{artist}}
+on <b>{{album}}</b> {{year}}
+{{duration(position)}} of {{duration(length)}} | Play count: {{xesam:useCount}}
+<small>{{xesam:url}}
+{{xesam:comment}}</small>' )
 	id=-200
-	app="playerctl"
+	[[ $status = Paused ]] && hint='string:fgcolor:#eee785'
+	app=playerctl
 	;;
 sensors)
 	summary="Sensors"
@@ -59,7 +46,7 @@ cpu)
 	id=-203
 	;;
 ip)
-	summary="IP"
+	summary="IP Address"
 	body="$(grc --colour=on ip route | sed 's/^\(.*\)dev \([^ ]*\)/\2: \1/g' |
 		ansifilter -M -f --map $HOME/.local/lib/ansifilter/solarized)"
 	icon=network-transmit-receive

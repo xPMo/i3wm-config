@@ -70,5 +70,10 @@ for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
 done
 
 # Short_text and color if mute or suspended
-[ ${sink_mutes[$def]} = "yes" ] && printf \\n%s\\n%s "MUTE" "#b58900" || printf \\n%s "${sink_volumes[$def]%??}" && [ ${sink_suspends[$def]} = "yes" ] &&  printf \\n%s\\n "#2aa198" 
+if [[ ${sink_mutes[$def]} = "yes" ]]; then
+	printf \\n%s\\n%s "MUTE" "#b58900"
+else
+	printf \\n%s "${sink_volumes[$def]%??}"
+	[[ ${sink_suspends[$def]} = "yes" ]] &&  printf \\n%s\\n "#2aa198" 
+fi
 exit 0
