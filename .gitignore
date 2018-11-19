@@ -1,2 +1,3 @@
 CONFIG/i3/config
+LIB/i3blocks/_*
 CONFIG/i3/conf.d/0-*
