@@ -98,5 +98,5 @@ command=$HOME/.local/lib/i3blocks/battery.perl
 interval=30
 
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
-interval=5
+command=$HOME/.local/lib/i3blocks/date.sh
+interval=persist
