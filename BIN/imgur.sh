@@ -3,17 +3,17 @@ IFS=$'\n'
 set -e
 
 function toclip {
-	board=$"${board}\n$@"
+	board="$board"$'\n'"$*"
 	if command -v xsel >/dev/null 2>&1; then
 		echo -e "$board" | xsel -b
 	elif command -v xclip >/dev/null 2>&1; then
 		echo -e "$board" | xclip -selection clipboard
 	else
-		echo "$@" >> $HOME/.clip
+		echo "$@" >> "$HOME/.clip"
 	fi
 }
 
-function getclip { echo $board; }
+function getclip { echo "$board"; }
 
 function usage_imgur {
 	cat >&2 << EOF
@@ -60,11 +60,11 @@ function imgur {
 	# > fallback to ~/.imgur
 	if [[ -z "${IMGUR_CLIENT_ID:-}" ]]; then
 		if [[ -f "${XDG_DATA_DIR:-$HOME/.local/share}/imgur/client.id" ]]; then
-			read IMGUR_CLIENT_ID < "${XDG_DATA_DIR:-$HOME/.local/share}/imgur/client.id"
+			read -r IMGUR_CLIENT_ID < "${XDG_DATA_DIR:-$HOME/.local/share}/imgur/client.id"
 		elif [[ -f "$HOME/.imgur/client.id" ]]; then
-			read IMGUR_CLIENT_ID < "$HOME/.imgur/client.id"
+			read -r IMGUR_CLIENT_ID < "$HOME/.imgur/client.id"
 		elif [[ -f "$HOME/.imgur" ]]; then
-			read IMGUR_CLIENT_ID < "$HOME/.imgur"
+			read -r IMGUR_CLIENT_ID < "$HOME/.imgur"
 		else
 			IMGUR_ERROR="No client ID found."
 			return 1
@@ -96,17 +96,14 @@ function imgur {
 	else
 		# File -> imgur
 		# Check file exists
-		if [ "$file" != "-" -a ! -f "$file" ]; then
+		if [ "$file" != "-" ] && [ ! -f "$file" ]; then
 			IMGUR_ERROR="File does not exist"
 			return 1
 		fi
 		response=$(imgur_upload "@$file") 2>/dev/null
 	fi
 
-	if [ $? -ne 0 ]; then
-		IMGUR_ERROR="Upload failed"
-		return 1
-	elif echo "$response" | grep -q 'success="0"'; then
+	if echo "$response" | grep -q 'success="0"'; then
 		msg="${response##*<error>}"
 		IMGUR_ERROR="Imgur error:${msg%%</error>*}"
 		return 1
@@ -119,15 +116,15 @@ function imgur {
 	url="${url%%</link>*}"
 	delete_hash="${response##*<deletehash>}"
 	delete_hash="${delete_hash%%</deletehash>*}"
-	IMGUR_URL="$(echo $url | sed -e 's/^http:/https:/')"
+	IMGUR_URL="${url/^http:/https:}"
 	IMGUR_DELETE="https://imgur.com/delete/$delete_hash"
 }
 
 function imgur-notif {
 	while (( $# )); do
-		if imgur $1; then
+		if imgur "$1"; then
 			action=$(
-				dunstify --appname="$(basename $0)" \
+				dunstify --appname="$(basename "$0")" \
 				"Image uploaded" "$IMGUR_URL" \
 				--timeout=0 \
 				--action="Vd,View on Imgur, copy delete URL to clipboard" \
@@ -151,14 +148,14 @@ function imgur-notif {
 
 function imgur-cli {
 	while (( $# )); do
-		if imgur $1; then
+		if imgur "$1"; then
 			echo "Uploaded $1. Open URLs? (y/N)" >&2
 			read y
-			if [[ ${y} == [yY]* ]]; then
-				xdg-open $IMGUR_URL
-				xdg-open $IMGUR_DELETE
+			if [[ "$y" == [yY]* ]]; then
+				xdg-open "$IMGUR_URL"
+				xdg-open "$IMGUR_DELETE"
 			else
-				toclip "View: $IMGUR_URL\nDelete: $IMGUR_DELETE"
+				toclip "View: $IMGUR_URL"$'\n'"Delete: $IMGUR_DELETE"
 				echo "Copied to clipboard" >&2
 			fi
 		else
@@ -169,10 +166,10 @@ function imgur-cli {
 }
 
 function imgur-eval {
-	echo 'unset $imgur_urls $imgur_delete $imgur_errors'
+	echo 'unset imgur_urls imgur_delete imgur_errors'
 	echo 'declare -a imgur_urls imgur_delete imgur_errors'
 	function f { # run in parallel
-		if imgur $1; then
+		if imgur "$1"; then
 			echo "imgur_urls+=( '$IMGUR_URL' )"
 			echo "imgur_delete+=( '$IMGUR_DELETE' )"
 		else

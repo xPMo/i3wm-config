@@ -8,8 +8,8 @@ class=${2:-$1}
 # (?i) for case-insensitivity
 con_id=$( i3-msg -t get_tree | jq 'recurse(.nodes[]) |
 	select(.window_properties|type=="object") | select(
-		(.window_properties.class | contains("'$class'"))
-		or (.window_properties.instance | contains("'$class'"))
+		(.window_properties.class | contains("'"$class"'"))
+		or (.window_properties.instance | contains("'"$class"'"))
 	).id
 ' | head -n1 )
 if [ -n "${con_id:-}" ]; then

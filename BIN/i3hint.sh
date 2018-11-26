@@ -6,7 +6,7 @@ id=$I3HINTID
 notif(){
 	title=$1
 	shift
-	dunstify --replace $id $title "$*" --appname="i3-hint" --urgency=low
+	dunstify --replace "$id" "$title" "$*" --appname="i3-hint" --urgency=low
 }
 
 while [ $# -ne 0 ]; do
