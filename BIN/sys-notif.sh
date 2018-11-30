@@ -84,7 +84,3 @@ else
 	notify-send "$summary" "$body" --app-name="$app" --icon="$icon" \
 		--hint="$hint" --urgency=low
 fi
-
-
-exit 0
-
