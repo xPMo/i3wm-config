@@ -29,7 +29,7 @@ while read -r button; do
 	case $button in
 		1) playerctl play-pause ;;
 		3) sys-notif media ;;
-		4) playerctl "$seek-" ;;
-		5) playerctl "$seek+" ;;
+		4) playerctl position "$seek-" ;;
+		5) playerctl position "$seek+" ;;
 	esac
 done
