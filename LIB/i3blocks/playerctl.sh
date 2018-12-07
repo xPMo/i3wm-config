@@ -2,11 +2,13 @@
 set -e
 IFS=$'\n\t'
 
+seek=3
+
 while true; do
 	# requires playerctl>=2.0
 	playerctl --follow metadata --format \
 		$'{{status}}\t{{artist}} - {{title}} {{duration(position)}}|{{duration(mpris:length)}}' |
-	while read status line; do
+	while read -r status line; do
 		# escape [&<>] for pango formatting
 		line=${line/&/&amp;}
 		line=${line/>/&gt;}
@@ -23,9 +25,11 @@ while true; do
 done &
 
 # requires i3blocks@6e8b51d or later
-while read button; do
+while read -r button; do
 	case $button in
 		1) playerctl play-pause ;;
 		3) sys-notif media ;;
+		4) playerctl "$seek-" ;;
+		5) playerctl "$seek+" ;;
 	esac
 done
