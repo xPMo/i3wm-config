@@ -17,7 +17,7 @@
             "action": "button(Keys.BTN_LEFT)"
         }, 
         "LB": {
-            "action": "mode(LGRIP, name('< Move to', shell('i3-msg move container to workspace prev')), name('< Workspace', shell('i3-msg workspace prev')))"
+            "action": "mode(LGRIP, name('< Container to WS', shell('i3-msg move container to workspace prev')), name('< Workspace', shell('i3-msg workspace prev')))"
         }, 
         "LGRIP": {
             "action": "name('[MODE SHIFT]', None)", 
@@ -27,7 +27,7 @@
             "action": "mode(LGRIP, name('Toggle Tiling/Floating', shell('i3-msg floating toggle')), name('Focus Toggle', shell('i3-msg focus mode_toggle')))"
         }, 
         "RB": {
-            "action": "mode(LGRIP, name('Move to >', shell('i3-msg move container to workspace next')), name('Workspace >', shell('i3-msg workspace next')))"
+            "action": "mode(LGRIP, name('Container to WS >', shell('i3-msg move container to workspace next')), name('Workspace >', shell('i3-msg workspace next')))"
         }, 
         "RPAD": {
             "action": "button(Keys.BTN_LEFT)"

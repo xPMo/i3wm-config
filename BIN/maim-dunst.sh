@@ -33,29 +33,30 @@ ssdir=${SCREENSHOT_DIRECTORY:-$HOME/Pictures/Screenshots}
 # `|| true` necessary because `set -e`
 opt="display"
 while getopts ":dhsw" o; do
-	case $o in
+	case "$o" in
 	d ) opt="display"; shift ;;
 	s ) opt="selection"; shift;;
 	w ) opt="window"; shift ;;
 	h ) usage && exit 0 ;;
+	* ) usage && exit 1 ;;
 	esac
 done
 
 # === IMAGE LOCATION ===
 if (( $# )); then
 	# create path if it doesn't exist
-	mkdir -p $(dirname "$1")
+	mkdir -p "$(dirname "$1")"
 	img="$1"
 else
-	mkdir -p $tmpdir
+	mkdir -p "$tmpdir"
 	img=$(mktemp "${tmpdir}/$(date +%Y-%m-%d_%T).XXX" --suffix=.png)
 fi
 
 # === TAKE SCREENSHOT ===
 case $opt in # active window / selection / whole screen
-	w* ) maim -q -u -i $(xdotool getactivewindow) $img ;;
-	s* ) maim -q -u -s $img ;;
-	d* ) maim -q -u $img ;;
+	w* ) maim -q -u -i "$(xdotool getactivewindow)" "$img" ;;
+	s* ) maim -q -u -s "$img" ;;
+	d* ) maim -q -u "$img" ;;
 esac
 
 # === TAKE ACTION ON FILE ===
@@ -65,9 +66,9 @@ dunst_id=$(dunstify "" -p)
 # in a loop, user may want to take many actions
 while
 action=$(
-	dunstify --appname="$(basename $0)" \
-	"Screenshot taken." "$(basename $img)" \
-	--replace=$dunst_id \
+	dunstify --appname="$(basename "$0")" \
+	"Screenshot taken." "$(basename "$img")" \
+	--replace="$dunst_id" \
 	--action="clip,1 Copy image to clipboard" \
 	--action="del,2 Delete image" \
 	--action="edit,3 Edit image with GIMP" \
@@ -77,12 +78,12 @@ action=$(
 )
 do
 	case $action in
-	clip ) xclip -selection clipboard -t $(file -b --mime-type $img) < $img ;;
-	del  ) rm $img; break ;;
-	view ) $viewer $img ;;
-	edit ) gimp $img ;;
-	save ) mkdir -p $ssdir; cp $img $ssdir ;;
-	imgur) imgur -d $img ;;
+	clip ) xclip -selection clipboard -t "$(file -b --mime-type "$img")" < "$img" ;;
+	del  ) rm "$img"; break ;;
+	view ) "$viewer" "$img" ;;
+	edit ) gimp "$img" ;;
+	save ) mkdir -p "$ssdir"; cp "$img" "$ssdir" ;;
+	imgur) imgur -d "$img" ;;
 	# notification closed without selection
 	*) break ;;
 	esac
