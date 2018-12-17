@@ -11,7 +11,7 @@ lock() {
 	trap '{ rm $img; exit $?; }' INT
 	maim $img 2>/dev/null || import -window root $img
 	# convert inplace
-	convert $img -scale 20x20% -modulate 100,50 -scale 500x500% $img
+	convert $img -scale 20x20% -modulate 100,30 -scale 500x500% $img
 	# add -m flag (ignore media keys) if i3lock is patched to support it
 	i3lock $(i3lock -h 2>&1 | grep -o -- -m || true) -i $img
 	rm $img
@@ -36,7 +36,8 @@ case $a in
 	sh*|po*|sd ) # shutdown
 		$logind poweroff ;;
 	run|m* )
-		sock=$(DISPLAY=${DISPLAY-:0} i3 --get-socketpath)
+		sock=$(DISPLAY=${DISPLAY-:0} XAUTHORITY=${XAUTHORITY-"$HOME/.Xauthority"} \
+			i3 --get-socketpath)
 		if [ $1 = run ]; then
 			shift
 			exec i3-msg -s $sock -- "exec exec $@"
