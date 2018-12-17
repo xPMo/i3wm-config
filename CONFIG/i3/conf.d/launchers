@@ -2,6 +2,7 @@
 # ==============================================
 # Program Launchers
 # ==============================================
+set $fexec exec --no-startup-id i3focuslaunch
 # {{{ Screenshot / Record
 # Printscreen (maim) whole-screen / selection / window
 bindsym Print exec --no-startup-id maim-dunst
@@ -25,12 +26,12 @@ bindsym $mod+$mod2+w exec exec firefox -P -no-remote hidden
 bindsym $mod+Shift+t exec exec $terminal
 # }}}
 # {{{ Standalone focuslaunchers
-bindsym XF86Mail exec --no-startup-id exec i3focuslaunch thunderbird Thunderbird
-bindsym XF86Search exec --no-startup-id exec i3focuslaunch catfish
-bindsym XF86Explorer exec --no-startup-id exec i3focuslaunch catfish
+bindsym XF86Mail $fexec thunderbird Thunderbird
+bindsym XF86Search $fexec catfish
+bindsym XF86Explorer $fexec catfish
 bindsym XF86Calculator exec --no-startup-id exec echo
-bindsym XF86Tools exec --no-startup-id exec i3focuslaunch clementine
-bindsym XF86HomePage exec --no-startup-id exec i3focuslaunch firefox Firefox
+bindsym XF86Tools $fexec clementine
+bindsym XF86HomePage $fexec firefox Firefox
 # Terminal is the exception, I want more complex behavior
 # (launch another if currently focused, and allow launching anywhere if necessary)
 bindsym $mod+Return exec --no-startup-id exec i3switchlaunch $terminal $termClass "11:~$"
@@ -78,30 +79,30 @@ mode "$mode_launch" {
 	bindsym b exec --no-startup-id exec ~/.local/bin/i3focuslaunch blueman-manager, mode "default"
 	bindsym c exec --no-startup-id exec compton -b, mode "default"
 	bindsym d exec --no-startup-id exec dmenu_run -fn 'Noto Mono-8', mode "default"
-	bindsym e exec --no-startup-id exec i3focuslaunch nvim-gtk Neovim, mode "default"
-	bindsym f exec --no-startup-id exec i3focuslaunch pcmanfm, mode "default"
-	bindsym g exec --no-startup-id exec i3focuslaunch gimp, mode "default"
-	bindsym h exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym i exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym j exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym k exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym l exec --no-startup-id exec i3focuslaunch libreoffice, mode "default"
-	bindsym m exec --no-startup-id exec i3focuslaunch thunderbird Thunderbird, mode "default"
-	bindsym n exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym o exec --no-startup-id exec i3focuslaunch libreoffice, mode "default"
-	bindsym p exec --no-startup-id exec i3focuslaunch clementine, mode "default"
+	bindsym e $fexec nvim-gtk Neovim, mode "default"
+	bindsym f $fexec pcmanfm, mode "default"
+	bindsym g $fexec gimp, mode "default"
+	bindsym h $fexec echo, mode "default"
+	bindsym i $fexec echo, mode "default"
+	bindsym j $fexec echo, mode "default"
+	bindsym k $fexec echo, mode "default"
+	bindsym l $fexec libreoffice, mode "default"
+	bindsym m $fexec thunderbird Thunderbird, mode "default"
+	bindsym n $fexec echo, mode "default"
+	bindsym o $fexec libreoffice, mode "default"
+	bindsym p $fexec clementine, mode "default"
 	bindsym q mode "default"
-	bindsym r exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym s exec --no-startup-id exec i3focuslaunch steam, mode "default"
-	bindsym t exec --no-startup-id exec i3focuslaunch torbrowser-launcher, mode "default"
-	bindsym u exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym v exec --no-startup-id exec i3focuslaunch pavucontrol, mode "default"
-	bindsym w exec --no-startup-id exec i3focuslaunch firefox Firefox, mode "default"
-	bindsym x exec --no-startup-id exec i3focuslaunch xfce4-appfinder, mode "default"
-	bindsym $mod+x exec --no-startup-id exec i3focuslaunch xfce4-appfinder, mode "default"
-	bindsym y exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym z exec --no-startup-id exec i3focuslaunch echo, mode "default"
-	bindsym slash exec --no-startup-id exec i3focuslaunch catfish, mode "default"
+	bindsym r $fexec echo, mode "default"
+	bindsym s $fexec steam, mode "default"
+	bindsym t $fexec torbrowser-launcher, mode "default"
+	bindsym u $fexec echo, mode "default"
+	bindsym v $fexec pavucontrol, mode "default"
+	bindsym w $fexec firefox Firefox, mode "default"
+	bindsym x $fexec xfce4-appfinder, mode "default"
+	bindsym $mod+x $fexec xfce4-appfinder, mode "default"
+	bindsym y $fexec echo, mode "default"
+	bindsym z $fexec echo, mode "default"
+	bindsym slash $fexec catfish, mode "default"
 	# }}}
 	
 	# passmenu
