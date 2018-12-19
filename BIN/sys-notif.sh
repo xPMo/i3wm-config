@@ -5,9 +5,9 @@ set -e
 case ${1,,} in
 player|media)
 	{
-		read status
-		read icon
-		read summary
+		read -r status
+		read -r icon
+		read -r summary
 		body=$(cat)
 	} < <( playerctl metadata --format '{{status}}
 {{mpris:artUrl}}
@@ -31,7 +31,7 @@ sensors)
 disk)
 	summary='Disk Usage:'
 	body="$(grc --colour=on df -h -T -x tmpfs -x overlay -x devtmpfs |
-		ansifilter -M -f --map $HOME/.local/lib/ansifilter/solarized)"
+		ansifilter -M -f --map "$HOME/.local/lib/ansifilter/solarized")"
 	icon=harddrive
 	app=df
 	hint=int:0:0
@@ -48,7 +48,7 @@ cpu)
 ip)
 	summary="IP Address"
 	body="$(grc --colour=on ip route | sed 's/^\(.*\)dev \([^ ]*\)/\2: \1/g' |
-		ansifilter -M -f --map $HOME/.local/lib/ansifilter/solarized)"
+		ansifilter -M -f --map "$HOME/.local/lib/ansifilter/solarized")"
 	icon=network-transmit-receive
 	app=Address
 	hint=int:0:0

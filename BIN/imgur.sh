@@ -33,7 +33,7 @@ EOF
 
 function usage {
 	cat >&2 << EOF
-Usage: $(basename $0) -h | -H | [ -d ] IMAGE
+Usage: $(basename "$0") -h | -H | [ -d ] IMAGE
 
 Upload IMAGE to Imgur
 
