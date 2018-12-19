@@ -62,6 +62,33 @@ mode --pango_markup "$mode_system" {
 # $mod+F5: display
 bindsym $mod+F5 $HOME/.local/bin/i3focuslaunch arandr
 
+# {{{ Mouseless
+set $mode_mouse "Mouse, S+<b>↵</b> to click"
+bindsym $mod+Mod1+m mode $mode_mouse
+mode $mode_mouse { bindsym Shift+k exec xdotool mousemove_relative -- 0 -250
+	bindsym Shift+j exec xdotool mousemove_relative -- 0 250
+	bindsym Shift+h exec xdotool mousemove_relative -- -250 0
+	bindsym Shift+l exec xdotool mousemove_relative -- 250 0
+	bindsym Shift+Up exec xdotool mousemove_relative -- 0 -250
+	bindsym Shift+Down exec xdotool mousemove_relative -- 0 250
+	bindsym Shift+Left exec xdotool mousemove_relative -- -250 0
+	bindsym Shift+Right exec xdotool mousemove_relative -- 250 0
+
+	bindsym k exec xdotool mousemove_relative -- 0 -15
+	bindsym j exec xdotool mousemove_relative -- 0 15
+	bindsym h exec xdotool mousemove_relative -- -15 0
+	bindsym l exec xdotool mousemove_relative -- 15 0
+	bindsym Up exec xdotool mousemove_relative -- 0 -15
+	bindsym Down exec xdotool mousemove_relative -- 0 15
+	bindsym Left exec xdotool mousemove_relative -- -15 0
+	bindsym Right exec xdotool mousemove_relative -- 15 0
+
+	bindsym Return exec xdotool click 1
+	bindsym Shift+Return exec xdotool click 3
+
+	bindsym Escape mode default
+}
+# }}}
 # xkill
 bindsym --release $mod+Shift+Escape exec xkill
 # vim: set foldmethod=marker:
