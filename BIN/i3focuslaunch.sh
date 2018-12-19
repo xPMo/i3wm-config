@@ -5,9 +5,10 @@ IFS="
 
 # class in $2, else try program name ($1)
 class=${2:-$1}
-# (?i) for case-insensitivity
-con_id=$( i3-msg -t get_tree | jq 'recurse(.nodes[]) |
-	select(.window_properties|type=="object") | select(
+# root.workspace.container.(nodes+floating_nodes)
+con_id=$( i3-msg -t get_tree | jq \
+	'.nodes[].nodes[].nodes[] | (.nodes + .floating_nodes)[] | recurse(.nodes[]) |
+	select(.window_properties | type=="object") | select(
 		(.window_properties.class | contains("'"$class"'"))
 		or (.window_properties.instance | contains("'"$class"'"))
 	).id
