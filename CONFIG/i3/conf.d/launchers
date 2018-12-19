@@ -38,7 +38,7 @@ bindsym $mod+Return exec --no-startup-id exec i3switchlaunch $terminal $termClas
 
 bindsym $mod+slash exec "exec rofi -show"
 # }}}
-# focus/launch mode
+# {{{ Focus/Launch mode
 set $mode_launch Focus (_) / Launch (⇧ + _)
 bindsym $mod+x mode "$mode_launch"
 mode "$mode_launch" {
@@ -75,8 +75,8 @@ mode "$mode_launch" {
 	# }}}
 	# {{{ Focus (exception dmenu/compton), mode "default"
 	# The "i3focusLaunch" script will focus $2 if $2, else focus program name
-	bindsym a exec --no-startup-id exec ~/.local/bin/i3focuslaunch file-roller, mode "default"
-	bindsym b exec --no-startup-id exec ~/.local/bin/i3focuslaunch blueman-manager, mode "default"
+	bindsym a $fexec file-roller, mode "default"
+	bindsym b $fexec blueman-manager, mode "default"
 	bindsym c exec --no-startup-id exec compton -b, mode "default"
 	bindsym d exec --no-startup-id exec dmenu_run -fn 'Noto Mono-8', mode "default"
 	bindsym e $fexec nvim-gtk Neovim, mode "default"
@@ -112,7 +112,7 @@ mode "$mode_launch" {
 	bindsym Control+period exec --no-startup-id exec passmenu --action otp, mode "default"
 	bindsym Control+Shift+period exec --no-startup-id exec passmenu --action otp --type, mode "default"
 }
-
+# }}}
 # {{{ Notifications
 bindsym Control+$mod+p exec --no-startup-id sys-notif media
 bindsym Control+$mod+s exec --no-startup-id sys-notif sensors
