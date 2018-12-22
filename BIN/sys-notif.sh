@@ -54,12 +54,20 @@ ip)
 	hint=int:0:0
 	id=-204
 	;;
+internet|iusage)
+	summary="Internet Usage"
+	body="$(vnstat | sed '/^$/d; s: / :|:g')"
+	icon=network-transmit-receive
+	app=vnStat
+	hint=int:0:0
+	id=-205
+	;;
 time|date)
 	summary="<big>$(date +%T)</big>"
 	body=$(date "+%A %Y-%m-%d%n(%Z | %z)" )
 	icon=clock
 	hint=int:0:0
-	id=-204
+	id=-206
 	app=date
 	;;
 * )
