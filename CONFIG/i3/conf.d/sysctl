@@ -65,7 +65,7 @@ bindsym $mod+F5 $HOME/.local/bin/i3focuslaunch arandr
 # {{{ Mouseless
 set $mode_mouse "Mouse, S+<b>↵</b> to click"
 bindsym $mod+Mod1+m mode $mode_mouse
-mode $mode_mouse { bindsym Shift+k exec xdotool mousemove_relative -- 0 -250
+mode --pango_markup $mode_mouse { bindsym Shift+k exec xdotool mousemove_relative -- 0 -250
 	bindsym Shift+j exec xdotool mousemove_relative -- 0 250
 	bindsym Shift+h exec xdotool mousemove_relative -- -250 0
 	bindsym Shift+l exec xdotool mousemove_relative -- 250 0
