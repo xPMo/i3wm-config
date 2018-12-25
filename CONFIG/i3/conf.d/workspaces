@@ -5,8 +5,8 @@
 
 # {{{ Scratchpad workspace
 bindsym $mod+Shift+c move scratchpad
-bindsym $mod+c [title="^(?!(popup_term))"] scratchpad show
-bindsym $mod+v [title="^popup_term$"] scratchpad show
+bindsym $mod+c scratchpad show
+bindsym $mod+v [con_mark="^popup_term$"] scratchpad show
 # }}}
 # {{{ Output
 workspace 1:1 output $disp0
