@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-set -eu
-
-eval $(slop -q -b 4 -c 0.03,0.21,0.26,0.5 -t 0 -f "X=%x Y=%y W=%w H=%h")
-i3-msg floating enable && xdotool getactivewindow windowmove $X $Y && xdotool getactivewindow windowsize $W $H
+#!/usr/bin/env sh
+eval "$(slop -q -b 4 -c 0.03,0.21,0.26,0.5 -t 0 -f \
+	"i3-msg floating enable, move position %x %y, resize set %w %h")"
