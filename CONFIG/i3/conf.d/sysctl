@@ -29,9 +29,9 @@ bindsym $mod+Shift+F1 exec --no-startup-id i3hint help
 
 # {{{ LOGIN AND POWER:
 
-# F2: Reload or restart i3 inplace
-bindsym $mod+F2 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config/i3/config, reload
-bindsym $mod+Shift+F2 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config/i3/config, restart
+# F2: Reload or restart i3 inplace - use '&& i3-msg' to prevent race condition
+bindsym $mod+F2 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config/i3/config && i3-msg reload
+bindsym $mod+Shift+F2 exec --no-startup-id cat ~/.config/i3/conf.d/* > ~/.config/i3/config && i3-msg restart
 
 # F3: lock/leave session
 bindsym $mod+F3 exec --no-startup-id i3tool lock
