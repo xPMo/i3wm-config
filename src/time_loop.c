@@ -10,12 +10,13 @@ int main(int argc, char **argv)
 		d = atoi(argv[1]);
 		if(!d) d = 1;
 	}
-	do{
+	do {
 		time_t t = time(NULL);
 		struct tm tm = *localtime(&t);
 		printf("%d-%.2d-%.2d %.2d:%.2d:%.2d\n",
 				tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,
 				tm.tm_hour, tm.tm_min, tm.tm_sec);
-	}while(!sleep(d));
+		sleep(d);
+	} while(1);
 }
 
