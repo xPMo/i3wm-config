@@ -16,7 +16,7 @@ while true; do
 		case $status in
 			Paused) echo '<span foreground="#cccc00" size="smaller">'"$line"'</span>' ;;
 			Playing) echo "<small>$line</small>" ;;
-			Stopped) echo '<span foreground="#073642">⏹</span>' ;;
+			*) echo '<span foreground="#073642">⏹</span>' ;;
 		esac
 	done
 	# no current players
