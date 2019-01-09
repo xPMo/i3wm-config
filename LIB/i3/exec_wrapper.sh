@@ -7,4 +7,4 @@ case "$status" in
 	*) msg="Status $status: $*" ;;
 esac
 notify-send "$1 failed with status $status" "$msg"
-echo  "$*: $msg" >> "$HOME/.xsession-errors"
+echo  "$0 $*: $msg" >> "$HOME/.xsession-errors"
