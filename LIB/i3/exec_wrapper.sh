@@ -6,6 +6,5 @@ case "$status" in
 	127) msg="Command not found: $*" ;;
 	*) msg="Status $status: $*" ;;
 esac
-
 notify-send "$1 failed with status $status" "$msg"
-echo "$msg" >> "$HOME/log"
+echo  "$*: $msg" >> "$HOME/.xsession-errors"
