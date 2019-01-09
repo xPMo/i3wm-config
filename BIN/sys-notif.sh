@@ -33,7 +33,7 @@ disk)
 	body="$(grc --colour=on df -h -T -x tmpfs -x overlay -x devtmpfs |
 		ansifilter -M -f --map "$HOME/.local/lib/ansifilter/solarized")"
 	icon=harddrive
-	app=df
+	app="df"
 	hint=int:0:0
 	id=-202
 	;;
@@ -68,11 +68,11 @@ time|date)
 	icon=clock
 	hint=int:0:0
 	id=-206
-	app=date
+	app="date"
 	;;
 * )
 	cat >&2 <<- EOF
-	Usage: $(basename $0) [ action ]
+	Usage: $(basename "$0") [ action ]
 
 	Actions:
 

@@ -150,7 +150,7 @@ function imgur-cli {
 	while (( $# )); do
 		if imgur "$1"; then
 			echo "Uploaded $1. Open URLs? (y/N)" >&2
-			read y
+			read -r y
 			if [[ "$y" == [yY]* ]]; then
 				xdg-open "$IMGUR_URL"
 				xdg-open "$IMGUR_DELETE"
