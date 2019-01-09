@@ -48,7 +48,7 @@ for_window [title="^File Operation Progress$"] floating enable
 
 # Steam on-screen keyboard
 for_window [title="^Steam Keyboard"] floating enable border none; \
-	exec sleep 0.1 && i3-msg focus tiling
+	$exec sleep 0.1 && i3-msg focus tiling
 no_focus [title="^Steam Keyboard"]
 
 for_window [title="alsamixer"] floating enable

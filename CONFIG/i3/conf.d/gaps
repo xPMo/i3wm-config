@@ -43,8 +43,8 @@ mode --pango_markup "$mode_gaps_inner" {
 	bindsym Shift+0     gaps inner current set 0
 	bindsym Shift+5     gaps inner current set 5
 
-	bindsym slash exec --no-startup-id i3hint gaps
-	bindsym Shift+slash exec --no-startup-id i3hint gaps
+	bindsym slash $exec --no-startup-id i3hint gaps
+	bindsym Shift+slash $exec --no-startup-id i3hint gaps
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -60,8 +60,8 @@ mode --pango_markup "$mode_gaps_outer" {
 	bindsym Shift+0     gaps outer current set 0
 	bindsym Shift+5     gaps outer current set 5
 
-	bindsym slash exec --no-startup-id i3hint gaps
-	bindsym Shift+slash exec --no-startup-id i3hint gaps
+	bindsym slash $exec --no-startup-id i3hint gaps
+	bindsym Shift+slash $exec --no-startup-id i3hint gaps
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
