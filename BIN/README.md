@@ -1,38 +1,32 @@
 # BIN: Associated Scripts:
 
-### i3tool
+## i3tool
 
-A helper script to provide easy access to various functionality: 
+Simply sources and runs the `i3tool` library function from `../LIB`
 
-* logind (loginctl or systemctl)
-* i3lock
-* run a program via i3-msg
-
-Originally from Manjaro's i3 Community Edition, changed the lock script to my own and added `hybrid-sleep` support.
-
-### i3hint
+## i3hint
 
 A script to provide context information to the user:  Most usefully, the current layout (splitv/splith/tabbed/stacked) and workspace.
 
 Also has an option which I use to provide help for `$gaps_mode` in my i3 config.
 
-### i3volumectl
+## i3volumectl
 
 Calling this script without any arguments toggles mute.  Otherwise, the argument is used to change the default sink's volume.
 
 
-### imgur
+## imgur
 
 This is a heavily modified fork of the well-known `imgur.sh` modified to make use of `dunstify` to control what actions to take on the urls.  I use this in conjunction with my `maim-dunst` script for full notification-based control.
 
 It also has a `-e` option which prints out statements to be `eval`'d by bash for use in other scripts.
 
-### ix-dunst
+## ix-dunst
 
 A fork of `ix` which uses `dunstify` actions for control.
 
 
-### maim-dunst
+## maim-dunst
 
 A wrapper script for maim which uses `dunstify` to take actions on the resulting screenshot.  These actions are supported:
 
@@ -43,16 +37,16 @@ A wrapper script for maim which uses `dunstify` to take actions on the resulting
 * Moving the screenshot to `$SCREENSHOT_DIR`
 * Deleting the image
 
-### passmenu
+## passmenu
 
 A fork of the default `passmenu` using Rofi instead of dmenu.
 
 
-### popup-term
+## popup-term
 
 Launches an instance of `urxvtc` with certain flags/vars set for dropdown use.
 
-### sloprecord-dunst
+## sloprecord-dunst
 
 A wrapper script for `ffmpeg` and `parecord` which uses `dunstify` to take actions on the recording.  It uses a lock in `$XDG_RUNTIME_DIR` to prevent multiple recordings at once.  Calling it a second time is the standard way of stopping the recording.
 
@@ -64,11 +58,11 @@ These actions are supported:
 * Deleting the file
 * Uploading the file to TODO
 
-### screenlayout-dunstify
+## screenlayout-dunstify
 
 A simple script for interactively choosing saved ARandR/xrandr scripts from ~/.screenlayout
 
-### sys-notif
+## sys-notif
 
 Notify the user about various system information:
 
@@ -81,6 +75,6 @@ Notify the user about various system information:
 
 Requires grc and ansifilter to colou?rize the output.
 
-### toggletrackpad
+## toggletrackpad
 
 A script for toggling the touchpad. Requires using `xinput`+`libinput`.
