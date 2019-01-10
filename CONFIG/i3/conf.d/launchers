@@ -26,15 +26,15 @@ bindsym $mod+$mod2+w $exec firefox -P -no-remote hidden
 bindsym $mod+Shift+t $exec $terminal
 # }}}
 # {{{ Standalone focuslaunchers
-bindsym XF86Mail $fexec thunderbird Thunderbird
+bindsym XF86Mail $fexec thunderbird --class Thunderbird
 bindsym XF86Search $fexec catfish
 bindsym XF86Explorer $fexec catfish
 bindsym XF86Calculator $exec --no-startup-id exec echo
 bindsym XF86Tools $fexec clementine
-bindsym XF86HomePage $fexec firefox Firefox
+bindsym XF86HomePage $fexec firefox --class Firefox
 # Terminal is the exception, I want more complex behavior
 # (launch another if currently focused, and allow launching anywhere if necessary)
-bindsym $mod+Return $exec --no-startup-id exec i3tool slaunch "11:~$" $terminal -c $termClass
+bindsym $mod+Return $exec --no-startup-id exec i3tool slaunch "11:~$" $terminal --class $termClass
 
 bindsym $mod+slash $exec "exec rofi -show"
 # }}}
@@ -48,7 +48,7 @@ mode "$mode_launch" {
 	bindsym Shift+a $exec --no-startup-id exec file-roller, mode "default"
 	bindsym Shift+b $exec --no-startup-id exec blueman-manager, mode "default"
 	bindsym Shift+c $exec --no-startup-id exec pkill compton, mode "default"
-	bindsym Shift+d $exec --no-startup-id exec sh -c ~/.local/bin/i3focuslaunch arandr randr, mode "default"
+	bindsym Shift+d $exec --no-startup-id exec sh --class ~/.local/bin/i3focuslaunch arandr randr, mode "default"
 	bindsym Shift+e $exec nvim-gtk, mode "default"
 	bindsym Shift+f $exec xdg-open ~, mode "default"
 	bindsym Shift+g $exec gimp, mode "default"
@@ -79,7 +79,7 @@ mode "$mode_launch" {
 	bindsym b $fexec blueman-manager, mode "default"
 	bindsym c $exec --no-startup-id exec compton -b, mode "default"
 	bindsym d $exec --no-startup-id exec dmenu_run -fn 'Noto Mono-8', mode "default"
-	bindsym e $fexec nvim-gtk Neovim, mode "default"
+	bindsym e $fexec nvim-gtk --class Neovim, mode "default"
 	bindsym f $fexec pcmanfm, mode "default"
 	bindsym g $fexec gimp, mode "default"
 	bindsym h $fexec echo, mode "default"
@@ -87,7 +87,7 @@ mode "$mode_launch" {
 	bindsym j $fexec echo, mode "default"
 	bindsym k $fexec echo, mode "default"
 	bindsym l $fexec libreoffice, mode "default"
-	bindsym m $fexec thunderbird Thunderbird, mode "default"
+	bindsym m $fexec thunderbird --class Thunderbird, mode "default"
 	bindsym n $fexec echo, mode "default"
 	bindsym o $fexec libreoffice, mode "default"
 	bindsym p $fexec clementine, mode "default"
@@ -97,7 +97,7 @@ mode "$mode_launch" {
 	bindsym t $fexec torbrowser-launcher, mode "default"
 	bindsym u $fexec echo, mode "default"
 	bindsym v $fexec pavucontrol, mode "default"
-	bindsym w $fexec firefox Firefox, mode "default"
+	bindsym w $fexec firefox --class Firefox, mode "default"
 	bindsym x $fexec xfce4-appfinder, mode "default"
 	bindsym $mod+x $fexec xfce4-appfinder, mode "default"
 	bindsym y $fexec echo, mode "default"
