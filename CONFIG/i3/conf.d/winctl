@@ -72,7 +72,7 @@ bindsym $mod+Shift+a [tiling workspace="__focused__"] move workspace "reorder"; 
 bindsym $mod+z focus child
 # }}}
 # {{{ Resize
-set $resize_mode "Resize | Edit borders (u|p|n)"
+set $resize_mode "Resize | Slop (s) | Borders (u|p|n)"
 # resize window (you can also use the mouse for that)
 mode $resize_mode {
 	# These bindings trigger as soon as you enter the resize mode
@@ -100,7 +100,7 @@ mode $resize_mode {
 	bindsym Shift+$vright resize grow width 1 px or 1 ppt
 
 	# use slop to resize
-	bindsym Shift+r $exec --no-startup-id i3slopsize
+	bindsym s $exec --no-startup-id i3slopsize
 
 	# change borders
 	bindsym u border none
