@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 i3tool()(
-	# {{{ Utility/hidden functions
+	# {{{ Hidden functions
 	# if $SHELL supports it, unset all functions
 	if [ -n "${BASH_VERSION:-}" ]; then
 		_is_fn_() {
@@ -30,7 +30,8 @@ i3tool()(
 		done
 		return 1
 	}
-
+	# }}}
+	# {{{ Utility functions
 	help_(){
 		cat >&2 << EOF
 $_prog [ options ] [ command ] ([ argument ... ])
@@ -58,8 +59,16 @@ Subcommands:
 	_*                              (utility functions, can be called if desired)
 EOF
 	}
+
+	msg_(){
+		case "$session" in
+			i3) i3-msg "$@";;
+			sway) swaymsg "$@" ;;
+			*) return 1 ;;
+		esac
+	}
 	# }}}
-	# {{{ System functions
+	# {{{ System info functions
 	get_logind_(){
 		cat /proc/1/comm
 	}
@@ -104,14 +113,8 @@ EOF
 		echo >&2 "No locking program could be found."
 		return 1
 	}
-
-	msg_(){
-		case "$session" in
-			i3) i3-msg "$@";;
-			sway) swaymsg "$@" ;;
-			*) return 1 ;;
-		esac
-	}
+	# }}}
+	# {{{ System action functions
 
 	exit_(){
 		msg_ exit
@@ -140,7 +143,22 @@ EOF
 		"${logind:-$(get_logind_)}" hibernate
 	}
 	# }}}
-	# {{{ i3/sway functions
+	# {{{ $session info functions
+	get_layout_() {
+		msg_ -t get_tree | jq --raw-output \
+		'recurse(.nodes[]) | select(.nodes[].focused==true).layout'
+	}
+
+	get_workspace_() {
+		msg_ -t get_workspaces | jq --raw-output \
+		'.[] | select(.focused==true).name'
+	}
+
+	get_version_() {
+		msg_ -t get_version | jq --raw-output '(.human_readable)'
+	}
+	# }}}
+	# {{{ $session action functions
 	exec_(){
 		msg_ -- exec "$@"
 	}
