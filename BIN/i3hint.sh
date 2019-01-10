@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 IFS='
 	'
+# shellcheck disable=1090
+. "$(dirname "$(realpath "$0")")/../LIB/i3/i3tool.sh"
 id=$I3HINTID
 
 notif(){
@@ -25,10 +27,7 @@ while [ $# -ne 0 ]; do
 		;;
 	layout|l )
 		id="${id:--5}"
-		layout="$(
-			i3-msg -t get_tree | jq --raw-output \
-			'recurse(.nodes[]) | select(.nodes[].focused==true).layout'
-		)"
+		layout="$(i3tool --session i3 get_layout)"
 		case "$layout" in
 		splith ) layout="split horizontal" ;;
 		splitv ) layout="split vertical" ;;
@@ -38,18 +37,12 @@ while [ $# -ne 0 ]; do
 		;;
 	workspace|w )
 		id="${id:--6}"
-		workspace="$(
-			i3-msg -t get_workspaces | jq --raw-output \
-			'.[] | select(.focused==true).name'
-		)"
+		workspace="$(i3tool --session i3 get_workspace)"
 		notification=$(printf '%s\n' "$notification" "Workspace: $workspace")
 		;;
 	version|V )
 		id="${id:--7}"
-		version="$(
-			i3-msg -t get_version | jq --raw-output \
-			'(.human_readable)'
-		)"
+		version="$(i3tool --session i3 get_version)"
 		notification="$(printf '%s\n' "$notification" "i3 Version: $version" )"
 		;;
 	gaps|g )

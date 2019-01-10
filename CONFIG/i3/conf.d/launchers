@@ -2,7 +2,7 @@
 # ==============================================
 # Program Launchers
 # ==============================================
-set $fexec exec --no-startup-id i3focuslaunch
+set $fexec exec --no-startup-id i3tool flaunch
 # {{{ Screenshot / Record
 # Printscreen (maim) whole-screen / selection / window
 bindsym Print $exec --no-startup-id maim-dunst
@@ -34,7 +34,7 @@ bindsym XF86Tools $fexec clementine
 bindsym XF86HomePage $fexec firefox Firefox
 # Terminal is the exception, I want more complex behavior
 # (launch another if currently focused, and allow launching anywhere if necessary)
-bindsym $mod+Return $exec --no-startup-id exec i3switchlaunch $terminal $termClass "11:~$"
+bindsym $mod+Return $exec --no-startup-id exec i3tool slaunch $terminal $termClass "11:~$"
 
 bindsym $mod+slash $exec "exec rofi -show"
 # }}}
