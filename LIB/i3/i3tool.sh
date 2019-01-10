@@ -228,7 +228,10 @@ sresize_(){
 unset flag
 for a in "$@" ,; do
 	# unset arguments on first iteration
-	[ -z "${flag:-}" ] && set --
+	if [ -z "${flag:-}" ]; then
+		set --
+		flag=1
+	fi
 	case "$a" in
 	,)
 		# execute built action
@@ -259,7 +262,6 @@ for a in "$@" ,; do
 		# rebuild arguments
 		set -- "$@" "$a" ;;
 	esac
-	flag='1'
 done
 # }}}
 )
