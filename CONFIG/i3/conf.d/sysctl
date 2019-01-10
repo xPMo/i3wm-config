@@ -52,7 +52,7 @@ mode --pango_markup "$mode_system" {
     bindsym e $exec --no-startup-id i3tool logout, mode "default"
     bindsym h $exec --no-startup-id i3tool hibernate, mode "default"
     bindsym r $exec --no-startup-id i3tool reboot, mode "default"
-    bindsym Shift+s $exec --no-startup-id i3tool shutdown, mode "default"
+    bindsym Shift+s $exec --no-startup-id i3tool poweroff, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
