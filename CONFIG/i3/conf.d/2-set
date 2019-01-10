@@ -4,7 +4,7 @@
 # =========================================================
 
 # launch wrapped
-#set $exec $HOME/.local/lib/i3/exec_wrapper.sh
+#set $exec exec $HOME/.local/lib/i3/exec_wrapper.sh
 set $exec exec
 
 # Font

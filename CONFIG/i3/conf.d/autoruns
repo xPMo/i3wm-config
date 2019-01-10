@@ -44,4 +44,4 @@ $exec --no-startup-id pulseaudio -D
 $exec --no-startup-id pa-applet
 
 # begin on workspace 1
-workspace 1:1
+$exec --no-startup-id i3-msg workspace 1:1
