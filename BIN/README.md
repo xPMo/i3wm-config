@@ -10,41 +10,11 @@ A helper script to provide easy access to various functionality:
 
 Originally from Manjaro's i3 Community Edition, changed the lock script to my own and added `hybrid-sleep` support.
 
-### i3focuslaunch
-
-A script to focus a program's window.  If it fails, it will then launch the program.
-
-### i3pklaunch
-
-A script with nearly the same behaviour of `i3focuslaunch`.
-It uses `pkill` to attempt to find the given program; otherwise it will launch it.
-Lastly, it will attempt to focus using both class and title.
-
-This is reimplemented for the sake of Swaywm, where swaymsg doesn't givce feedback on whether the window was successfully focused.
-
 ### i3hint
 
 A script to provide context information to the user:  Most usefully, the current layout (splitv/splith/tabbed/stacked) and workspace.
 
 Also has an option which I use to provide help for `$gaps_mode` in my i3 config.
-
-### i3slopsize
-
-Shamelessly stolen from Airblader, allows resizing a window via drawing a rectangle with slop.
-
-
-### i3switchlaunch
-
-This script is only used for the terminal workspace.  The approximate form is as follows:
-
-```
-if $workspace is focused:
-    launch $program
-else:
-    focus workspace
-    if $program is not focused:
-        launch $program
-```
 
 ### i3volumectl
 
