@@ -6,7 +6,6 @@ IFS="
 # class in $2, else try program name ($1)
 class="${2:-$1}"
 # root.workspace.container.(nodes+floating_nodes)
-set -x
 con_id=$( i3-msg -t get_tree | jq -f /dev/fd/3 3<<- EOF |
 .nodes[].nodes[].nodes[] | (.nodes + .floating_nodes)[] | recurse(.nodes[]) |
 select(.window_properties | type=="object") | select(
@@ -15,7 +14,6 @@ select(.window_properties | type=="object") | select(
 ).id
 EOF
 head -n1 )
-set +x
 if [ -n "${con_id:-}" ]; then
 	i3-msg "[con_id=${con_id%% }]" focus
 else i3-msg exec exec "$1"; fi
