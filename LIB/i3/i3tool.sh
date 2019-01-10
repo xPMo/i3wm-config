@@ -226,12 +226,12 @@ EOF
 	eval set -- "$(getopt -o hs:c: -l help,session:,class: -- "$@")"
 	while
 		case "$1" in
-			-h|--help) help; exit 0 ;;
+			-h|--help) help_; exit 0 ;;
 			-c|--class) class="$2"; shift ;;
 			-s|--session) session="$2"; shift ;;
 			-v|--verbose) verbosity="$((verbosity + 1))" ;;
 			--) shift; break ;;
-			*) help; exit 1
+			*) help_; exit 1
 		esac
 		shift
 	do :; done
