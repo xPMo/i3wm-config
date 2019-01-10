@@ -249,8 +249,7 @@ for a in "$@" ,; do
 		do :; done
 		session="${session:-"$(get_session_)"}" || return 1
 		action="$1"
-		shift
-		if _is_fn_ "${action}_"; then
+		if shift 2>/dev/null && _is_fn_ "${action}_"; then
 			"${action}_" "$@"
 		else
 			help_
