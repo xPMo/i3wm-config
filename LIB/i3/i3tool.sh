@@ -2,7 +2,6 @@
 
 i3tool()(
 	# {{{ Hidden functions
-	# if $SHELL supports it, unset all functions
 	if [ -n "${BASH_VERSION:-}" ]; then
 		_is_fn_() {
 			# shellcheck disable=2039
