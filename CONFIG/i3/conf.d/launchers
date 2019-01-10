@@ -34,7 +34,7 @@ bindsym XF86Tools $fexec clementine
 bindsym XF86HomePage $fexec firefox Firefox
 # Terminal is the exception, I want more complex behavior
 # (launch another if currently focused, and allow launching anywhere if necessary)
-bindsym $mod+Return $exec --no-startup-id exec i3tool slaunch $terminal $termClass "11:~$"
+bindsym $mod+Return $exec --no-startup-id exec i3tool slaunch "11:~$" $terminal -c $termClass
 
 bindsym $mod+slash $exec "exec rofi -show"
 # }}}
