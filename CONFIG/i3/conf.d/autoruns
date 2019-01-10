@@ -4,44 +4,44 @@
 # ====================================================
 
 # urxvtd
-exec --no-startup-id urxvtd --quiet --opendisplay --fork
+$exec --no-startup-id urxvtd --quiet --opendisplay --fork
 
 # Inhibit sleep and power buttons
-exec systemd-inhibit --what=handle-power-key:handle-suspend-key \
+$exec systemd-inhibit --what=handle-power-key:handle-suspend-key \
 	--who=i3wm --why="Handle power control in i3" sleep infinity
 
 # gnome-authentication-agent
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+$exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # set background, color
-exec_always --no-startup-id exec sh $HOME/.fehbg
-exec --no-startup-id exec redshift
+exec_always --no-startup-id $exec sh $HOME/.fehbg
+$exec --no-startup-id exec redshift
 
 # kb/mouse
-exec --no-startup-id exec unclutter
+$exec --no-startup-id unclutter
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id setxkbmap -symbols 'pc+us+inet(evdev)+custom'
-exec --no-startup-id xset -r 23
+$exec --no-startup-id xset -r 23
 
 # clipboard manager
-exec --no-startup-id clipit
+$exec --no-startup-id clipit
 
 # KDE Connect
-exec --no-startup-id kdeconnect-indicator
+$exec --no-startup-id kdeconnect-indicator
 
 # launch popup terminal
-exec --no-startup-id $HOME/.local/bin/popup-term
+$exec --no-startup-id $HOME/.local/bin/popup-term
 
 # Notification daemon
-exec --no-startup-id exec dunst
+$exec --no-startup-id dunst
 
 # conky
-exec --no-startup-id conky
+$exec --no-startup-id conky
 
 # -- tray --
 # pulseaudio
-exec --no-startup-id pulseaudio -D
-exec --no-startup-id pa-applet
+$exec --no-startup-id pulseaudio -D
+$exec --no-startup-id pa-applet
 
 # begin on workspace 1
-exec --no-startup-id exec i3-msg workspace 1:1
+$exec --no-startup-id i3-msg workspace 1:1

@@ -3,6 +3,10 @@
 # 2-set: set variables
 # =========================================================
 
+# launch wrapped
+#set $exec exec $HOME/.local/lib/i3/exec_wrapper.sh
+set $exec exec
+
 # Font
 set_from_resource $wmfont i3wm.font pango:Noto Sans 9
 

@@ -16,23 +16,24 @@ for line in $(pacmd dump); do
 	case ${line%% *} in
 		set-default-sink)
 			# get sink name
-			default_sink=${line#* } 
+			default_sink="${line#* }"
 			;;
 		set-sink-volume)
 			# get each sink's volume
 			# name is 2/3, volume is 3/3
-			sink_names+=($(echo -n $line | cut -d ' ' -f 2) )
+			temp="${line#* }"
+			sink_names+=("${temp% *}")
 			# volume is in hex (0x10000 is 100%), I could convert it, but this looks cool
-			sink_volumes+=(${line##* }) ;;
+			sink_volumes+=("${line##* }") ;;
 		set-sink-mute)
 			# mute is immediately after volume, so sink_names line up
 			# sink-mute is yes/no
-			sink_mutes+=(${line##* })
+			sink_mutes+=("${line##* }")
 			;;
 		suspend-sink)
 			# get whether sink is muted
 			# sink-suspend is yes/no
-			sink_suspends+=(${line##* })
+			sink_suspends+=("${line##* }")
 	esac
 done
 
@@ -43,24 +44,24 @@ STEP="${1:-0x1000}"
 for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
 	[[ $i -ne 0 ]] && echo -n " "
 
-	if [[ ${sink_names[$i]} = $default_sink ]]; then
+	if [[ ${sink_names[$i]} = "$default_sink" ]]; then
 		def=$i
 		echo -n '✓'
 
 		case $BLOCK_BUTTON in
 		3) # right click, mute/unmute
-			pactl set-sink-mute ${sink_names[$i]} toggle
+			pactl set-sink-mute "${sink_names[$i]}" toggle
 			[[ ${sink_mutes[$i]} = "yes" ]] && sink_mutes[$i]="no" || sink_mutes[$i]="yes"
 			;;
 		4) # scroll up, increase volume
-			sink_volumes[$i]=$(printf '0x%x\n' $((sink_volumes[$i] + STEP)))
+			sink_volumes[$i]="$(printf '0x%x\n' $((sink_volumes[i] + STEP)))"
 			(( sink_volumes[i] > 0x10000)) && sink_volumes[$i]="0x10000"
-			pacmd set-sink-volume ${sink_names[$i]} $((sink_volumes[$i]))
+			pacmd set-sink-volume "${sink_names[$i]}" "$((sink_volumes[i]))"
 			;;
 		5) # scroll up, increase
-			sink_volumes[$i]=$(printf '0x%x\n' $((sink_volumes[$i] - STEP)))
-			((sink_volumes[$i] < 0)) && sink_volumes[$i]="0x000"
-			pacmd set-sink-volume ${sink_names[$i]} $((sink_volumes[$i]))
+			sink_volumes[$i]="$(printf '0x%x\n' $((sink_volumes[i] - STEP)))"
+			((sink_volumes[i] < 0)) && sink_volumes[$i]="0x000"
+			pacmd set-sink-volume "${sink_names[$i]}" "$((sink_volumes[i]))"
 			;;
 		esac
 

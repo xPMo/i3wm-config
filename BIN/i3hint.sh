@@ -12,7 +12,8 @@ notif(){
 while [ $# -ne 0 ]; do
 	case "$1" in
 	help|h )
-		id=${id:--4}
+		id="${id:--4}"
+		# shellcheck disable=SC2016
 		notif "i3hint arguments:" \
 		'h|help: display this help' \
 		'l|layout: display split direction' \
@@ -23,47 +24,49 @@ while [ $# -ne 0 ]; do
 		exit 0
 		;;
 	layout|l )
-		id=${id:--5}
-		layout=$(
+		id="${id:--5}"
+		layout="$(
 			i3-msg -t get_tree | jq --raw-output \
 			'recurse(.nodes[]) | select(.nodes[].focused==true).layout'
-		)
-		case $layout in
+		)"
+		case "$layout" in
 		splith ) layout="split horizontal" ;;
 		splitv ) layout="split vertical" ;;
 		#stacked|tabbed) layout=$layout ;;
 		esac
-		notification=$(printf '%s\n' $notification "Layout: $layout")
+		notification="$(printf '%s\n' "$notification" "Layout: $layout")"
 		;;
 	workspace|w )
-		id=${id:--6}
-		workspace=$(
+		id="${id:--6}"
+		workspace="$(
 			i3-msg -t get_workspaces | jq --raw-output \
 			'.[] | select(.focused==true).name'
-		)
-		notification=$(printf '%s\n' $notification "Workspace: $workspace")
+		)"
+		notification=$(printf '%s\n' "$notification" "Workspace: $workspace")
 		;;
 	version|V )
-		id=${id:--7}
-		version=$(
+		id="${id:--7}"
+		version="$(
 			i3-msg -t get_version | jq --raw-output \
 			'(.human_readable)'
-		)
-		notification=$(printf '%s\n' $notification "i3 Version: $version" )
+		)"
+		notification="$(printf '%s\n' "$notification" "i3 Version: $version" )"
 		;;
 	gaps|g )
-		id=${id:--8}
-		notification=$(printf '%s\n' $notification "Change gaps:" \
+		id="${id:--8}"
+		notification="$(printf '%s\n' "$notification" "Change gaps:" \
 		"  [ <b>+</b> | <b>-</b> ]: Increase/decrease gaps for all workspaces" \
 		"  [ <b>0</b> | <b>5</b> ]: Set gaps for all workspaces to 0 or 5" \
 		"  Shift+[ <b>+</b> | <b>-</b> | <b>0</b> | <b>5</b> ] change gaps for just this workspace"
-		)
+		)"
 		;;
 	* ) # use the raw argument as notification
-		id=${id:--9}
-		notification=$(printf '%s\n' $notification "$@" )
+		id="${id:--9}"
+		notification=$(printf '%s\n' "$notification" "$@" )
 		;;
 	esac
 	shift
 done
+# call notif() with splitting
+# shellcheck disable=SC2086
 notif $notification

@@ -5,9 +5,9 @@ set -e
 case ${1,,} in
 player|media)
 	{
-		read status
-		read icon
-		read summary
+		read -r status
+		read -r icon
+		read -r summary
 		body=$(cat)
 	} < <( playerctl metadata --format '{{status}}
 {{mpris:artUrl}}
@@ -31,9 +31,9 @@ sensors)
 disk)
 	summary='Disk Usage:'
 	body="$(grc --colour=on df -h -T -x tmpfs -x overlay -x devtmpfs |
-		ansifilter -M -f --map $HOME/.local/lib/ansifilter/solarized)"
+		ansifilter -M -f --map "$HOME/.local/lib/ansifilter/solarized")"
 	icon=harddrive
-	app=df
+	app="df"
 	hint=int:0:0
 	id=-202
 	;;
@@ -48,23 +48,31 @@ cpu)
 ip)
 	summary="IP Address"
 	body="$(grc --colour=on ip route | sed 's/^\(.*\)dev \([^ ]*\)/\2: \1/g' |
-		ansifilter -M -f --map $HOME/.local/lib/ansifilter/solarized)"
+		ansifilter -M -f --map "$HOME/.local/lib/ansifilter/solarized")"
 	icon=network-transmit-receive
 	app=Address
 	hint=int:0:0
 	id=-204
+	;;
+internet|iusage)
+	summary="Internet Usage"
+	body="$(vnstat | sed '/^$/d; s: / :|:g')"
+	icon=network-transmit-receive
+	app=vnStat
+	hint=int:0:0
+	id=-205
 	;;
 time|date)
 	summary="<big>$(date +%T)</big>"
 	body=$(date "+%A %Y-%m-%d%n(%Z | %z)" )
 	icon=clock
 	hint=int:0:0
-	id=-204
-	app=date
+	id=-206
+	app="date"
 	;;
 * )
 	cat >&2 <<- EOF
-	Usage: $(basename $0) [ action ]
+	Usage: $(basename "$0") [ action ]
 
 	Actions:
 

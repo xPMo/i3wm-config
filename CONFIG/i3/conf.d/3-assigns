@@ -48,7 +48,7 @@ for_window [title="^File Operation Progress$"] floating enable
 
 # Steam on-screen keyboard
 for_window [title="^Steam Keyboard"] floating enable border none; \
-	exec sleep 0.1 && i3-msg focus tiling
+	$exec sleep 0.1 && i3-msg focus tiling
 no_focus [title="^Steam Keyboard"]
 
 for_window [title="alsamixer"] floating enable
@@ -75,5 +75,5 @@ for_window [class="Xfburn"] floating enable
 # }}}
 # Popup windows
 for_window [title="^popup_"] floating enable, border none,  move scratchpad, sticky enable
-for_window [title="^popup_term$"] resize set $dispwidth 208, move position 0 0
+for_window [title="^popup_term$"] mark popup_term, resize set $dispwidth 208, move position 0 0
 # vim: set foldmethod=marker:

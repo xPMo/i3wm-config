@@ -23,20 +23,20 @@ DIR="${BLOCK_INSTANCE:-$HOME}"
 ALERT_LOW="${1:-10}" # color will turn red under this value (default: 10%)
 
 
-case $BLOCK_BUTTON in
+case "$BLOCK_BUTTON" in
 #click, open file-manager on root
-1) i3-msg exec ${XFILEMAN:-xdg-open} "$DIR" > /dev/null ;;
+1) i3-msg exec "${XFILEMAN:-xdg-open}" "$DIR" > /dev/null ;;
 3) #  dunst uses positive ids by default, use negative id here
 	dunstify --replace=-312 \
 	"Disk Usage: $DIR" "$(
-		command -v ansifilter > /dev/null \
-			&& grc --colour=on df -h $DIR |
-			ansifilter -M -f --map $HOME/.local/lib/ansifilter/solarized \
-			|| df -h $DIR
+		command -v ansifilter > /dev/null &&
+			grc --colour=on df -h "$DIR" |
+			ansifilter -M -f --map "$HOME/.local/lib/ansifilter/solarized" \
+			|| df -h "$DIR"
 	)" --icon harddrive --appname df & ;;
 esac
 
-exec df -h -P -l "$DIR" | awk -v alert_low=$ALERT_LOW '
+exec df -h -P -l "$DIR" | awk -v alert_low="$ALERT_LOW" '
 /\// {
 	# full text (FS Size Used Avail Use% Mount
 	print $3 "/" $2

@@ -5,8 +5,8 @@
 
 # {{{ Scratchpad workspace
 bindsym $mod+Shift+c move scratchpad
-bindsym $mod+c [title="^(?!(popup_term))"] scratchpad show
-bindsym $mod+v [title="^popup_term$"] scratchpad show
+bindsym $mod+c scratchpad show
+bindsym $mod+v [con_mark="^popup_term$"] scratchpad show
 # }}}
 # {{{ Output
 workspace 1:1 output $disp0
@@ -28,7 +28,7 @@ workspace $ws_doc output $disp1
 # {{{ switch to workspace
 # workspace_auto_back_and_forth yes
 # back-and-forth on $mod+Tab
-exec xset -r 23 # disable auto-repeat
+$exec xset -r 23 # disable auto-repeat
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Tab --release workspace back_and_forth
 bindsym $mod+Shift+Tab move container to workspace back_and_forth

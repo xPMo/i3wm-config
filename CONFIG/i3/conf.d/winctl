@@ -40,7 +40,7 @@ bindsym $mod+Shift+Right move right
 # }}}
 # {{{ Layout
 # prepare a new split
-bindsym $mod+n split toggle; exec --no-startup-id i3hint layout
+bindsym $mod+n split toggle; $exec --no-startup-id i3hint layout
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -48,7 +48,7 @@ bindsym $mod+f fullscreen
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split; exec --no-startup-id i3hint layout
+bindsym $mod+e layout toggle split; $exec --no-startup-id i3hint layout
 
 # toggle tiling / floating / sticky
 bindsym $mod+Shift+space floating toggle
@@ -72,7 +72,7 @@ bindsym $mod+Shift+a [tiling workspace="__focused__"] move workspace "reorder"; 
 bindsym $mod+z focus child
 # }}}
 # {{{ Resize
-set $resize_mode "Resize | Edit borders (u|p|n)"
+set $resize_mode "Resize | Slop (s) | Borders (u|p|n)"
 # resize window (you can also use the mouse for that)
 mode $resize_mode {
 	# These bindings trigger as soon as you enter the resize mode
@@ -100,7 +100,7 @@ mode $resize_mode {
 	bindsym Shift+$vright resize grow width 1 px or 1 ppt
 
 	# use slop to resize
-	bindsym Shift+r exec --no-startup-id i3slopsize
+	bindsym s $exec --no-startup-id $HOME/.local/lib/i3/slop_size.sh
 
 	# change borders
 	bindsym u border none

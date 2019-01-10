@@ -4,91 +4,91 @@
 # =======================================================
 
 # {{{ Skip Forward/backwards
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
-bindsym $mod+Prior exec --no-startup-id playerctl previous
-bindsym $mod+KP_Prior exec --no-startup-id playerctl previous
-bindsym $mod+button8 --whole-window exec --no-startup-id playerctl previous
+bindsym XF86AudioPrev $exec --no-startup-id playerctl previous
+bindsym $mod+Prior $exec --no-startup-id playerctl previous
+bindsym $mod+KP_Prior $exec --no-startup-id playerctl previous
+bindsym $mod+button8 --whole-window $exec --no-startup-id playerctl previous
 
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym $mod+Next exec --no-startup-id playerctl next
-bindsym $mod+KP_Next exec --no-startup-id playerctl next
-bindsym $mod+button9 --whole-window exec --no-startup-id playerctl next
+bindsym XF86AudioNext $exec --no-startup-id playerctl next
+bindsym $mod+Next $exec --no-startup-id playerctl next
+bindsym $mod+KP_Next $exec --no-startup-id playerctl next
+bindsym $mod+button9 --whole-window $exec --no-startup-id playerctl next
 # }}}
 # {{{ Play/Pause
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym $mod+End exec --no-startup-id playerctl play-pause
-bindsym $mod+KP_End exec --no-startup-id playerctl play-pause
-bindsym $mod+button2 --whole-window exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPlay $exec --no-startup-id playerctl play-pause
+bindsym $mod+End $exec --no-startup-id playerctl play-pause
+bindsym $mod+KP_End $exec --no-startup-id playerctl play-pause
+bindsym $mod+button2 --whole-window $exec --no-startup-id playerctl play-pause
 # }}}
 # {{{ Seek using $mod+Shift+mousewheel 2 seconds at a time
-bindsym $mod+Shift+button5 --whole-window exec --no-startup-id playerctl position 2-
-bindsym $mod+Shift+button4 --whole-window exec --no-startup-id playerctl position 2+
+bindsym $mod+Shift+button5 --whole-window $exec --no-startup-id playerctl position 2-
+bindsym $mod+Shift+button4 --whole-window $exec --no-startup-id playerctl position 2+
 
-bindsym $mod+Shift+XF86AudioLowerVolume --whole-window exec --no-startup-id playerctl position 5-
-bindsym $mod+Shift+XF86AudioRaiseVolume --whole-window exec --no-startup-id playerctl position 5+
+bindsym $mod+Shift+XF86AudioLowerVolume --whole-window $exec --no-startup-id playerctl position 5-
+bindsym $mod+Shift+XF86AudioRaiseVolume --whole-window $exec --no-startup-id playerctl position 5+
 
-bindsym Shift+XF86AudioPrev --whole-window exec --no-startup-id playerctl position 5-
-bindsym Shift+XF86AudioNext --whole-window exec --no-startup-id playerctl position 5+
+bindsym Shift+XF86AudioPrev --whole-window $exec --no-startup-id playerctl position 5-
+bindsym Shift+XF86AudioNext --whole-window $exec --no-startup-id playerctl position 5+
 # }}}
 # {{{ Small volume changes
 # Volume changes also force an i3status refresh
-bindsym XF86AudioLowerVolume exec --no-startup-id \
+bindsym XF86AudioLowerVolume $exec --no-startup-id \
 	i3volumectl "-2048"
-bindsym $mod+KP_Subtract exec --no-startup-id \
+bindsym $mod+KP_Subtract $exec --no-startup-id \
 	i3volumectl "-2048"
-bindsym $mod+minus exec --no-startup-id \
+bindsym $mod+minus $exec --no-startup-id \
 	i3volumectl "-2048"
-bindsym $mod+button5 --whole-window exec --no-startup-id \
+bindsym $mod+button5 --whole-window $exec --no-startup-id \
 	i3volumectl "-512"
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id \
+bindsym XF86AudioRaiseVolume $exec --no-startup-id \
 	i3volumectl "+2048"
-bindsym $mod+KP_Add exec --no-startup-id \
+bindsym $mod+KP_Add $exec --no-startup-id \
 	i3volumectl "+2048"
-bindsym $mod+plus exec --no-startup-id \
+bindsym $mod+plus $exec --no-startup-id \
 	i3volumectl "+2048"
-bindsym $mod+button4 --whole-window exec --no-startup-id \
+bindsym $mod+button4 --whole-window $exec --no-startup-id \
 	i3volumectl "+512"
 # }}}
 # {{{ Large volume chages
-bindsym Shift+XF86AudioLowerVolume exec --no-startup-id \
+bindsym Shift+XF86AudioLowerVolume $exec --no-startup-id \
 	i3volumectl "-16384"
-bindsym $mod+Shift+KP_Subtract exec --no-startup-id \
+bindsym $mod+Shift+KP_Subtract $exec --no-startup-id \
 	i3volumectl "-16384"
-bindsym $mod+Shift+minus exec --no-startup-id \
+bindsym $mod+Shift+minus $exec --no-startup-id \
 	i3volumectl "-16384"
 
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id \
+bindsym Shift+XF86AudioRaiseVolume $exec --no-startup-id \
 	i3volumectl "+16384"
-bindsym $mod+Shift+KP_Add exec --no-startup-id \
+bindsym $mod+Shift+KP_Add $exec --no-startup-id \
 	i3volumectl "+16384"
-bindsym $mod+Shift+plus exec --no-startup-id \
+bindsym $mod+Shift+plus $exec --no-startup-id \
 	i3volumectl "+16384"
 # }}}
 # {{{ Set volume to 100%/0%
-bindsym Control+Shift+XF86AudioLowerVolume exec --no-startup-id \
+bindsym Control+Shift+XF86AudioLowerVolume $exec --no-startup-id \
 	i3volumectl "0%"
-bindsym $mod+Control+Shift+KP_Subtract exec --no-startup-id \
+bindsym $mod+Control+Shift+KP_Subtract $exec --no-startup-id \
 	i3volumectl "0%"
-bindsym $mod+Control+Shift+minus exec --no-startup-id \
+bindsym $mod+Control+Shift+minus $exec --no-startup-id \
 	i3volumectl "0%"
 
-bindsym Control+Shift+XF86AudioRaiseVolume exec --no-startup-id \
+bindsym Control+Shift+XF86AudioRaiseVolume $exec --no-startup-id \
 	i3volumectl "100%"
-bindsym $mod+Control+Shift+KP_Add exec --no-startup-id \
+bindsym $mod+Control+Shift+KP_Add $exec --no-startup-id \
 	i3volumectl "100%"
-bindsym $mod+Control+Shift+plus exec --no-startup-id \
+bindsym $mod+Control+Shift+plus $exec --no-startup-id \
 	i3volumectl "100%"
 # }}}
 # {{{ Mute toggle
-bindsym $mod+KP_Decimal exec --no-startup-id \
+bindsym $mod+KP_Decimal $exec --no-startup-id \
 	i3volumectl
-bindsym $mod+KP_Delete exec --no-startup-id \
+bindsym $mod+KP_Delete $exec --no-startup-id \
 	i3volumectl 
-bindsym XF86AudioMute exec --no-startup-id \
+bindsym XF86AudioMute $exec --no-startup-id \
 	i3volumectl 
 # }}}
 # i3-input to set volume to any%
-bindsym Shift+XF86AudioMute exec --no-startup-id i3-input \
-	-F 'exec --no-startup-id i3volumectl %s' -P 'Set volume:'
+bindsym Shift+XF86AudioMute $exec --no-startup-id i3-input \
+	-F '$exec --no-startup-id i3volumectl %s' -P 'Set volume:'
 # vim: set foldmethod=marker:
