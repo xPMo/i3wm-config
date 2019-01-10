@@ -100,7 +100,7 @@ mode $resize_mode {
 	bindsym Shift+$vright resize grow width 1 px or 1 ppt
 
 	# use slop to resize
-	bindsym s $exec --no-startup-id $HOME/.local/lib/i3/slop_size.sh
+	bindsym s $exec --no-startup-id i3tool sresize
 
 	# change borders
 	bindsym u border none
