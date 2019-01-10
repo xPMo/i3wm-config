@@ -18,7 +18,7 @@ exec_always --no-startup-id $exec sh $HOME/.fehbg
 $exec --no-startup-id exec redshift
 
 # kb/mouse
-$exec --no-startup-id exec unclutter
+$exec --no-startup-id unclutter
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id setxkbmap -symbols 'pc+us+inet(evdev)+custom'
 $exec --no-startup-id xset -r 23
@@ -33,7 +33,7 @@ $exec --no-startup-id kdeconnect-indicator
 $exec --no-startup-id $HOME/.local/bin/popup-term
 
 # Notification daemon
-$exec --no-startup-id exec dunst
+$exec --no-startup-id dunst
 
 # conky
 $exec --no-startup-id conky
@@ -44,4 +44,4 @@ $exec --no-startup-id pulseaudio -D
 $exec --no-startup-id pa-applet
 
 # begin on workspace 1
-$exec --no-startup-id exec i3-msg workspace 1:1
+workspace 1:1
