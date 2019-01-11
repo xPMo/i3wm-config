@@ -174,7 +174,6 @@ flaunch_(){
 	).id
 	EOF
 	head -n1)"
-	set +x
 	if [ -n "${con_id:-}" ]; then
 		msg_ "[con_id=${con_id%% }]" focus
 	else msg_ -- exec "$@"; fi
