@@ -44,7 +44,7 @@ Options:
 
 Subcommands:
 	help                            print this help
-	get_logind                      simply runs \`cat /proc/1/comm\`
+	get_loginctl                    runs \`cat /proc/1/comm\` to get whether systemctl or (?)
 	get_session                     echos back i3 or sway, depending on which is detected
 	get_scrot [SESSION]             prints an installed screenshotting  for SESSION
 	get_lock [SESSION]              prints an installed locking program for SESSION
@@ -55,8 +55,8 @@ Subcommands:
 	exec [prog [args ...]]          alias to 'msg -- exec'
 	sresize                         resize with mouse selection
 	lock                            lock screen with a desaturated, pixelized screenshot
-	poweroff|reboot                 do the associated logind action
-	suspend|hibernate|hybridsleep   lock (as above) and do the logind action
+	poweroff|reboot                 do the associated loginctl action
+	suspend|hibernate|hybridsleep   lock (as above) and do the loginctl action
 	_*                              (utility functions, can be called if desired)
 EOF
 }
@@ -70,8 +70,11 @@ msg_(){
 }
 # }}}
 # {{{ System info functions
-get_logind_(){
-	cat /proc/1/comm
+get_loginctl_(){
+	case "$(cat /proc/1/comm)" in
+		systemd) echo systemctl ;;
+		*) _test_cmd_ zzz ;;
+	esac
 }
 
 get_session_() {
@@ -122,26 +125,26 @@ exit_(){
 }
 
 reboot_(){
-	"${logind:-$(get_logind_)}" reboot
+	"${loginctl:-$(get_loginctl_)}" reboot
 }
 
 poweroff_(){
-	"${logind:-$(get_logind_)}" poweroff
+	"${loginctl:-$(get_loginctl_)}" poweroff
 }
 
 suspend_(){
 	lock_
-	"${logind:-$(get_logind_)}" suspend
+	"${loginctl:-$(get_loginctl_)}" suspend
 }
 
 hybridsleep_(){
 	lock_
-	"${logind:-$(get_logind_)}" hybrid-sleep
+	"${loginctl:-$(get_loginctl_)}" hybrid-sleep
 }
 
 hibernate_(){
 	lock_
-	"${logind:-$(get_logind_)}" hibernate
+	"${loginctl:-$(get_loginctl_)}" hibernate
 }
 # }}}
 # {{{ $session info functions
