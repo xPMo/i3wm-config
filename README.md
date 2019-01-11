@@ -22,7 +22,7 @@ Split horizontal/vertical | `$mod+h` `$mod+v` | *unset*
 Split toggle | *unset* | `$mod+n`
 Exit i3 with `i3-nagbar` | `$mod+Shift+e` | `$mod+Shift+F3`
 
-i3wm features:
+**i3wm features:**
 * No titlebars
 * `$mod+x` for a focus/launch mode. (Press `<key>` to attempt to focus the associated program.  It will launch if it fails. Press `Shift+<key>` to launch a new instance, without regard to running instances.)
 * Locking script which pixelizes and 50% desaturates
@@ -45,6 +45,24 @@ i3wm features:
 * Volume: scroll to change volume, right click to toggle mute
 
 **Associated scripts:** *(See ./BIN/README.md)*
+
+**i3tool library function**
+
+This function is the work of many hours over many years scripting and merging functionality.
+The intension is to create a single function which could be sourced into a sh/bash/zsh \[non\]interactive shell
+which could be used to wrap nicely some commonly used tasks when controlling i3 or sway.
+
+* It can automatically detect which session is being used by looking at running processes
+(or you can provide it with `--session|-s i3`).
+* It encapsulates jq filters to get the current workspace, layout, or i3 version.
+* It provides functions to easily focus-or-launch programs
+(choose class to focus through `--class`).
+* It allows multiple operations to be done at once, seperated by a lone comma (,).
+* It can choose screenshotting, selection, and locking utilities that can be used with the given session
+(hard-coded fallback lists, tested with `command -v`)
+* It provides a simple pixelating lock function
+* It will find and use the correct login daemon's commands to suspend/hibernate/power off/reboot
+(`systemctl` vs `zzz`/runit scripts). **TODO:** (I don't have a runit system.)
 
 **TODO:**
 * Set `S_COLORS` for mpstat colou?ri\[zs\]ation
