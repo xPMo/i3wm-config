@@ -3,24 +3,24 @@
 i3tool()(
 # {{{ Hidden functions
 if [ -n "${BASH_VERSION:-}" ]; then
-	_is_fn_() {
+	is_fn() {
 		# shellcheck disable=2039
 		[[ "$(type -t "$1")" = function ]]
 	}
 elif [ -n "${ZSH_VERSION:-}" ]; then
-	_is_fn_() {
+	is_fn() {
 		# shellcheck disable=2039
 		typeset -f "$1" >/dev/null
 	}
 else
-	_is_fn_() {
+	is_fn() {
 		type "$1" | grep -Fq ' function'
 	}
 fi
 _prog="i3tool"
 unset session class
 
-_test_cmd_() {
+test_cmd() {
 	for c in "$@"; do
 		if command -v "${c%% *}" >/dev/null 2>&1; then
 			echo "$c"
@@ -28,6 +28,14 @@ _test_cmd_() {
 		fi
 	done
 	return 1
+}
+
+with_flag() {
+	flag="$1"
+	help="$2"
+	shift 2
+	printf %s "$*"
+	"$1" "$help" 2>&1 | grep -Fq -- "$flag" && printf ' %s\n' "$flag"
 }
 # }}}
 # {{{ Utility functions
@@ -57,7 +65,6 @@ Subcommands:
 	lock                            lock screen with a desaturated, pixelized screenshot
 	poweroff|reboot                 do the associated loginctl action
 	suspend|hibernate|hybridsleep   lock (as above) and do the loginctl action
-	_*                              (utility functions, can be called if desired)
 EOF
 }
 
@@ -73,7 +80,7 @@ msg_(){
 get_loginctl_(){
 	case "$(cat /proc/1/comm)" in
 		systemd) echo systemctl ;;
-		*) _test_cmd_ zzz ;;
+		*) test_cmd zzz ;;
 	esac
 }
 
@@ -94,8 +101,8 @@ get_session_() {
 
 get_scrot_() {
 	case "$session" in
-		i3)   _test_cmd_ maim scrot xfce4-screenshooter "import -window root" && return 0 ;;
-		sway) _test_cmd_ grim && return 0 ;;
+		i3)   test_cmd maim scrot xfce4-screenshooter "import -window root" && return 0 ;;
+		sway) test_cmd grim && return 0 ;;
 		*)    echo >&2 "Invalid session: $session"; return 1 ;;
 	esac
 	echo >&2 "No screenshot program could be found."
@@ -109,9 +116,13 @@ get_config_path_(){
 get_lock_() {
 	case "$session" in
 	sway)
-		_test_cmd_ swaylock && return 0 ;;
+		l="$(test_cmd swaylock)"
+		with_flag -m -h "$l"
+		return 0 ;;
 	i3)
-		_test_cmd_ i3lock && return 0 ;;
+		l="$(test_cmd i3lock)"
+		with_flag -m -h "$l"
+		return 0 ;;
 	*) echo >&2 "Invalid argument: $session"; return 1 ;;
 	esac
 	echo >&2 "No locking program could be found."
@@ -125,11 +136,11 @@ exit_(){
 }
 
 reboot_(){
-	"${loginctl:-$(get_loginctl_)}" reboot
+	reboot
 }
 
 poweroff_(){
-	"${loginctl:-$(get_loginctl_)}" poweroff
+	poweroff
 }
 
 suspend_(){
@@ -251,7 +262,7 @@ for a in "$@" ,; do
 		do :; done
 		session="${session:-"$(get_session_)"}" || return 1
 		action="$1"
-		if shift 2>/dev/null && _is_fn_ "${action}_"; then
+		if shift 2>/dev/null && is_fn "${action}_"; then
 			"${action}_" "$@"
 		else
 			help_
