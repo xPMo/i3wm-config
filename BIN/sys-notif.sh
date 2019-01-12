@@ -2,6 +2,8 @@
 IFS=$'\n\t'
 set -e
 
+# default placeholder hint
+hint=int:0:0
 case ${1,,} in
 player|media)
 	{
@@ -25,7 +27,6 @@ sensors)
 	body="$(sensors | grep '(')"
 	icon=psensor
 	id=-201
-	hint=int:0:0
 	app=sensors
 	;;
 disk)
@@ -42,7 +43,6 @@ cpu)
 	body="$(mpstat -P ALL | tail -n +3 | cut -c 14-48 )"
 	icon=indicator-cpufreq
 	app=mpstat
-	hint=int:0:0
 	id=-203
 	;;
 ip)
@@ -51,7 +51,6 @@ ip)
 		ansifilter -M -f --map "$HOME/.local/lib/ansifilter/solarized")"
 	icon=network-transmit-receive
 	app=Address
-	hint=int:0:0
 	id=-204
 	;;
 internet|iusage)
@@ -59,14 +58,12 @@ internet|iusage)
 	body="$(vnstat | sed '/^$/d; s: / :|:g')"
 	icon=network-transmit-receive
 	app=vnStat
-	hint=int:0:0
 	id=-205
 	;;
 time|date)
 	summary="<big>$(date +%T)</big>"
 	body=$(date "+%A %Y-%m-%d%n(%Z | %z)" )
 	icon=clock
-	hint=int:0:0
 	id=-206
 	app="date"
 	;;
