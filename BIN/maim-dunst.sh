@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 IFS=$'\n'
-set -e
 
 usage() {
 	cat >&2 << EOF
@@ -77,14 +76,16 @@ action=$(
 	--action="view,6 View image with $viewer"
 )
 do
-	case $action in
-	clip ) xclip -selection clipboard -t "$(file -b --mime-type "$img")" < "$img" ;;
-	del  ) rm "$img"; break ;;
-	view ) "$viewer" "$img" ;;
-	edit ) gimp "$img" ;;
-	save ) mkdir -p "$ssdir"; cp "$img" "$ssdir" ;;
-	imgur) imgur -d "$img" ;;
-	# notification closed without selection
-	*) break ;;
+	case "$action" in
+		clip )
+			# shellcheck disable=2094
+			xclip -selection clipboard -t "$(file -b --mime-type "$img")" < "$img" ;;
+		del  ) rm "$img"; break ;;
+		view ) "$viewer" "$img" ;;
+		edit ) gimp "$img" ;;
+		save ) mkdir -p "$ssdir"; cp "$img" "$ssdir" ;;
+		imgur) imgur -d "$img" ;;
+		# notification closed without selection
+		*) break ;;
 	esac
 done
