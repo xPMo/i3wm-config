@@ -49,6 +49,7 @@ Options:
 	-h|--help               print this help
 	-s|--session [i3|sway]  use this session
 	-c|--class [CLASS]      use this WM_CLASS for (focus|switch)launch
+	-d|--debug              \`set -x\` for debugging
 
 Subcommands:
 	help                            print this help
@@ -70,7 +71,7 @@ EOF
 
 msg_(){
 	case "$session" in
-		i3) i3-msg "$@";;
+		i3) DISPLAY="${DISPLAY:-:0}" XAUTHORITY="${XAUTHORITY:-$HOME/.Xauthority}" i3-msg "$@";;
 		sway) swaymsg "$@" ;;
 		*) return 1 ;;
 	esac
@@ -248,21 +249,21 @@ for a in "$@" ,; do
 	case "$a" in
 	,)
 		# execute built action
-		eval set -- "$(getopt -o hs:c: -l help,session:,class: -- "$@")"
+		eval set -- "$(getopt -o hds:c: -l help,debug,session:,class: -- "$@")"
 		while
 			case "$1" in
 				-h|--help) help_; return ;;
 				-c|--class) class="$2"; shift ;;
 				-s|--session) session="$2"; shift ;;
-				-v|--verbose) verbosity="$((verbosity + 1))" ;;
+				-d|--debug) set -x ;;
 				--) shift; break ;;
 				*) help_; return 1
 			esac
 			shift
 		do :; done
-		session="${session:-"$(get_session_)"}" || return 1
 		action="$1"
 		if shift 2>/dev/null && is_fn "${action}_"; then
+			session="${session:-"$(get_session_)"}" || return 1
 			"${action}_" "$@"
 		else
 			help_
