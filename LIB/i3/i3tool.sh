@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-
 i3tool()(
 # {{{ Hidden functions
 if [ -n "${BASH_VERSION:-}" ]; then
@@ -49,7 +48,7 @@ Options:
 	-h|--help               print this help
 	-s|--session [i3|sway]  use this session
 	-c|--class [CLASS]      use this WM_CLASS for (focus|switch)launch
-	-d|--debug              \`set -x\` for debugging
+	-d|-x|--debug           \`set -x\` for debugging
 
 Subcommands:
 	help                            print this help
@@ -249,20 +248,21 @@ for a in "$@" ,; do
 	case "$a" in
 	,)
 		# execute built action
-		eval set -- "$(getopt -o hds:c: -l help,debug,session:,class: -- "$@")"
+		eval set -- "$(getopt -o hdxs:c: -l help,debug,session:,class: -- "$@")"
 		while
 			case "$1" in
 				-h|--help) help_; return ;;
 				-c|--class) class="$2"; shift ;;
 				-s|--session) session="$2"; shift ;;
-				-d|--debug) set -x ;;
+				-d|-x|--debug) set -x ;;
 				--) shift; break ;;
 				*) help_; return 1
 			esac
 			shift
 		do :; done
 		action="$1"
-		if shift 2>/dev/null && is_fn "${action}_"; then
+		if [ "$#" -ne 0 ] && is_fn "${action}_"; then
+			shift
 			session="${session:-"$(get_session_)"}" || return 1
 			"${action}_" "$@"
 		else
