@@ -25,9 +25,10 @@ done &
 
 # requires i3blocks@6e8b51d or later
 while read -r button; do
+	# shellcheck disable=1091
 	case "$button" in
 		1) playerctl play-pause ;;
-		3) sys-notif media ;;
+		3) . sys-notif media ;;
 		4) playerctl position "$seek+" ;;
 		5) playerctl position "$seek-" ;;
 	esac

@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-IFS=$'\n\t'
-set -e
 
 # default placeholder hint
 hint=int:0:0
-case ${1,,} in
+case "${1,,}" in
 player|media)
 	{
 		read -r status
