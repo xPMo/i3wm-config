@@ -42,11 +42,11 @@ STEP="${1:-0x1000}"
 
 # Printing
 for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
-	[[ $i -ne 0 ]] && echo -n " "
+	[[ $i -ne 0 ]] && printf " "
 
 	if [[ ${sink_names[$i]} = "$default_sink" ]]; then
 		def=$i
-		echo -n '✓'
+		printf '✓'
 
 		case $BLOCK_BUTTON in
 		3) # right click, mute/unmute
@@ -67,7 +67,7 @@ for i in $(seq 0 $(( ${#sink_volumes[@]} - 1)) ); do
 
 	fi
 
-	[[ ${sink_mutes[$i]} = "yes" ]] && printf %s 'MUTE' || echo -n "${sink_volumes[$i]%??}"
+	[[ ${sink_mutes[$i]} = "yes" ]] && printf %s 'MUTE' || printf '%s'  "${sink_volumes[$i]%??}"
 done
 
 # Short_text and color if mute or suspended
